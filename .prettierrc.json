@@ -1,11 +1,19 @@
 {
-  "tabWidth": 2,
-  "useTabs": false,
-  "singleQuote": true,
-  "semi": true,
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
   "trailingComma": "es5",
-  "bracketSameLine": true,
-  "printWidth": 120
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "bracketSameLine": false,
+  "arrowParens": "avoid",
+  "printWidth": 90,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "tabWidth": 4,
+        "bracketSameLine": true,
+        "printWidth": 80
+      }
+    }
+  ]
 }

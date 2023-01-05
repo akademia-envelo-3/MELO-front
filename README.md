@@ -10,3 +10,10 @@ Sample `.env` file
 API_URL=http://rickandmortyapi.com/api
 PRODUCTION=false
 ```
+
+###Konwencja commitów
+
+1. angielski
+2. czas przeszły
+3. zgodnie ze specyfikacją commitów na Conventional Commits
+4. znaczniki + kod tasku + treść
