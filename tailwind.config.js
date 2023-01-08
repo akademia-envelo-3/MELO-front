@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // important: true,
   content: ["./src/**/*.{html,ts}"],
   theme: {
     screens: {
       sm: "320",
       md: "560px",
       lg: "1024px",
+      max: { max: "1900px" },
     },
     colors: {
       transparent: "transparent",
@@ -36,7 +38,17 @@ module.exports = {
     fontFamily: {
       eczar: ["Eczar", "sans-serif"],
     },
-    fontSize: {},
+    fontSize: {
+      h1: "clamp(36px, 10vw, 72px)",
+      h2: "clamp(24px, 7.5vw, 48px)",
+      h3: "clamp(18px, 5vw, 32px)",
+      h4: "clamp(16px, 4vw, 24px)",
+      h5: "clamp(16px, 3vw, 20px)",
+      h6: "clamp(16px, 2vw, 18px)",
+      body: "16px",
+      "body-big": "18px",
+      "body-small": "14px",
+    },
   },
   plugins: [],
 };

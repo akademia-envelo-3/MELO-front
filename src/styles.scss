@@ -1,9 +1,12 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+@use "@angular/material" as mat;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use "@angular/material" as mat;
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -36,11 +39,7 @@ $app-name-theme: mat.define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($app-name-theme);
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
+
 /* You can add global styles to this file, and also import other style files */
 :root {
   font-family: "Mukta Vaani", "sans-serif";
@@ -60,6 +59,21 @@ $app-name-theme: mat.define-light-theme(
 html,
 body {
   height: 100%;
+}
+@layer base {
+  .text-h1,
+  .text-h2,
+  .text-h3,
+  .text-h4,
+  .text-h5,
+  .text-h6 {
+    @apply font-bold;
+  }
+  .text-body,
+  .text-body-big,
+  .text-body-small {
+    @apply font-normal leading-6;
+  }
 }
 
 @layer utilities {
@@ -88,5 +102,19 @@ body {
       #eeeeee 86.46%,
       #c0c0c0 97.83%
     );
+  }
+  .bg-gradient-gold-1 {
+    background: linear-gradient(
+      283.96deg,
+      #a86c2d 3.84%,
+      rgba(254, 235, 87, 0.88) 49.33%,
+      #bf7b30 96.92%
+    );
+  }
+  .bg-gradient-green-1 {
+    background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
+  }
+  .bg-gradient-green-2 {
+    background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
   }
 }
