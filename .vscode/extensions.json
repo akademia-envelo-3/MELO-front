@@ -6,6 +6,7 @@
     "esbenp.prettier-vscode",
     "mattpocock.ts-error-translator",
     "formulahendry.auto-rename-tag",
-    "rangav.vscode-thunder-client"
+    "rangav.vscode-thunder-client",
+    "bradlc.vscode-tailwindcss"
   ]
 }
