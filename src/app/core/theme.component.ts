@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import UiModule from "../features/ui/ui.module";
 
 @Component({
-  selector: 'app-theme',
+  selector: "app-theme",
+  imports: [UiModule],
   standalone: true,
-  template: ` <h1>Storybook-like route</h1> `,
+  template: `
+    <h1>Storybook-like route</h1>
+    <app-searchbar></app-searchbar>
+  `,
 })
 export default class ThemeComponent {}
