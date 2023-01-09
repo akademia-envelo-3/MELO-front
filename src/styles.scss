@@ -59,29 +59,6 @@ body {
 body {
   background-color: #000;
 }
-app-root {
-  display: block;
-  background-image: url("assets/main-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  width: min(100vw, 1920px);
-  margin-inline: auto;
-}
-
-//typography
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button {
-  font-family: "Eczar";
-}
-body {
-  font-family: "Muukta Vanni";
-}
 
 .bg-white-90 {
   background-color: #ffffff90;

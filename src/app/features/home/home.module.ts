@@ -11,10 +11,6 @@ import { HomeComponent } from "./home.component";
         component: HomeComponent,
         children: [],
       },
-      {
-        path: "**",
-        component: PageNotFoundComponent,
-      },
     ]),
   ],
 })
