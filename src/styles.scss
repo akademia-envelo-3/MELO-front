@@ -56,27 +56,12 @@ body {
   height: 100%;
 }
 
-body {
-  background-color: #000;
-}
-
-.bg-white-90 {
-  background-color: #ffffff90;
-}
-
-//TEMPORARY CLASSES FROM TAILWIND
-
-.d-flex {
-  display: flex;
-}
-.justify-center {
-  justify-content: center;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.flex-col {
-  flex-direction: column;
+app-root {
+  display: block;
+  background-image: url("assets/bg-images/main-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: min(100vw, 1920px);
+  margin-inline: auto;
 }
