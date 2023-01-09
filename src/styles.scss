@@ -1,30 +1,40 @@
 @use "@angular/material" as mat;
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$app-name-primary: mat.define-palette(mat.$indigo-palette);
-$app-name-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$gold-palette: (
+  100: #eddebf,
+  200: #eddebf,
+  300: #efd6b3,
+  500: #e9ce7f,
+  600: #d69840,
+  700: #d69840,
+  800: #c17605,
+  900: #c17605,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+  ),
+);
 
-// The warn palette is optional (defaults to red).
+$my-typography: mat.define-typography-config(
+  $font-family: "Mukta Vaani",
+);
+
+$app-name-primary: mat.define-palette($gold-palette, 600, 300, 800, 600);
+$app-name-accent: mat.define-palette(mat.$green-palette);
 $app-name-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $app-name-theme: mat.define-light-theme(
   (
     color: (
@@ -32,18 +42,36 @@ $app-name-theme: mat.define-light-theme(
       accent: $app-name-accent,
       warn: $app-name-warn,
     ),
+    typography: $my-typography,
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($app-name-theme);
+@include mat.input-color($app-name-theme);
+@include mat.form-field-color($app-name-theme);
+@include mat.select-color($app-name-theme);
+@include mat.chips-color($app-name-theme);
 
-/* You can add global styles to this file, and also import other style files */
+$primary-800: "#2C2120";
+$primary-400: "#4D4442";
+
+$neutral-100: "#FFFFFF";
+$neutral-300: "#F7F3F2";
+$neutral-500: "#ADADAD";
+$neutral-800: "#323232";
+$neutral-900: "#000000";
+
+$accent-gold-200: "#EDDEBF";
+$accent-gold-300: "#EFD6B3";
+$accent-gold-500: "#E9CE7F";
+$accent-gold-700: "#D69840";
+$accent-gold-800: "#C17605";
+
+$accent-error: "#FF4040";
+$accent-success: "#88B42D";
+
 :root {
   font-family: "Mukta Vaani", "sans-serif";
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -55,66 +83,132 @@ $app-name-theme: mat.define-light-theme(
   padding: 0;
   font-family: inherit;
 }
-
+// this is fix to tailwind adding border styles to all elements, which breakes material components.
+*,
+::before,
+::after {
+  border-style: initial;
+}
 html,
 body {
   height: 100%;
 }
-@layer base {
-  .text-h1,
-  .text-h2,
-  .text-h3,
-  .text-h4,
-  .text-h5,
-  .text-h6 {
-    @apply font-bold;
-  }
-  .text-body,
-  .text-body-big,
-  .text-body-small {
-    @apply font-normal leading-6;
+
+.text-h1 {
+  font-size: clamp(36px, 10vw, 72px);
+}
+.text-h2 {
+  font-size: clamp(24px, 7.5vw, 48px);
+}
+.text-h3 {
+  font-size: clamp(18px, 5vw, 32px);
+}
+.text-h4 {
+  font-size: clamp(16px, 4vw, 24px);
+}
+.text-h5 {
+  font-size: clamp(16px, 3vw, 20px);
+}
+.text-h6 {
+  font-size: clamp(16px, 2vw, 18px);
+}
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6 {
+  font-weight: 700;
+  font-style: "Eczar", "sans-serif";
+}
+.text-body {
+  font-size: 1rem;
+}
+.body-big {
+  font-size: 1.14rem;
+}
+.body-small {
+  font-size: 0.88rem;
+}
+.text-body-big,
+.text-body-small .text-body,
+.text-body-big,
+.text-body-small {
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin media-sm {
+  @media screen and (min-width: 320px) {
+    @content;
   }
 }
 
-@layer utilities {
-  .bg-gradient-primary-1 {
-    background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
+@mixin media-md {
+  @media screen and (min-width: 560px) {
+    @content;
   }
+}
 
-  .bg-gradient-primary-2 {
-    background: linear-gradient(
-      180deg,
-      rgba(62, 44, 43, 0.92) 0%,
-      rgba(81, 55, 53, 0.92) 57.29%,
-      rgba(53, 39, 38, 0.92) 99.48%
-    );
+@mixin media-lg {
+  @media screen and (min-width: 1024px) {
+    @content;
   }
+}
 
-  .bg-gradient-neutral-1 {
-    background: linear-gradient(90deg, #ffffff 20.82%, #e4e4e4 78.72%);
+@mixin media-max {
+  @media screen and (max-width: 1920px) {
+    @content;
   }
-  .bg-gradient-neutral-2 {
-    background: linear-gradient(
-      102.22deg,
-      #c0c0c0 2.92%,
-      #eeeeee 17.75%,
-      #ffffff 53.84%,
-      #eeeeee 86.46%,
-      #c0c0c0 97.83%
-    );
-  }
-  .bg-gradient-gold-1 {
-    background: linear-gradient(
-      283.96deg,
-      #a86c2d 3.84%,
-      rgba(254, 235, 87, 0.88) 49.33%,
-      #bf7b30 96.92%
-    );
-  }
-  .bg-gradient-green-1 {
-    background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
-  }
-  .bg-gradient-green-2 {
-    background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
-  }
+}
+
+.bg-gradient-primary-1 {
+  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
+}
+
+.bg-gradient-primary-2 {
+  background: linear-gradient(
+    180deg,
+    rgba(62, 44, 43, 0.92) 0%,
+    rgba(81, 55, 53, 0.92) 57.29%,
+    rgba(53, 39, 38, 0.92) 99.48%
+  );
+}
+
+.bg-gradient-neutral-1 {
+  background: linear-gradient(90deg, #ffffff 20.82%, #e4e4e4 78.72%);
+}
+.bg-gradient-neutral-2 {
+  background: linear-gradient(
+    102.22deg,
+    #c0c0c0 2.92%,
+    #eeeeee 17.75%,
+    #ffffff 53.84%,
+    #eeeeee 86.46%,
+    #c0c0c0 97.83%
+  );
+}
+.bg-gradient-gold-1 {
+  background: linear-gradient(
+    283.96deg,
+    #a86c2d 3.84%,
+    rgba(254, 235, 87, 0.88) 49.33%,
+    #bf7b30 96.92%
+  );
+}
+
+.bg-gradient-green-1 {
+  background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
+}
+.bg-gradient-green-2 {
+  background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  color: $accent-gold-300 !important;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__text-label {
+  color: $accent-gold-800 !important;
 }
