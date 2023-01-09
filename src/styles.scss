@@ -56,13 +56,9 @@ body {
   height: 100%;
 }
 
-body {
-  background-color: #000;
-}
-
 app-root {
   display: block;
-  background-image: url("assets/main-background.png");
+  background-image: url("assets/bg-images/main-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
