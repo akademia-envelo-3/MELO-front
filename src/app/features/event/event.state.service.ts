@@ -2,21 +2,19 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ENDPOINTS } from "@shared/contants";
 
-import { Maybe } from "@shared/utility-types";
 import { BehaviorSubject } from "rxjs";
+import { Maybe } from "@shared/utility-types";
 import { EventModule } from "./event.module";
-import { EventCardDTO, EventDetailsDTO } from "./event.types";
+import { EventCardDTO, EventDetailsDTO } from ".";
 
 export type EventState = {
   eventDetails: Maybe<EventDetailsDTO>;
   eventsList: EventCardDTO[];
-  isLoading: boolean;
 };
 
 const eventStateDefault = {
   eventDetails: null,
   eventsList: [],
-  isLoading: false,
 };
 
 @Injectable({
@@ -39,7 +37,7 @@ export class EventStateService {
 
   getEventDetails(id: number) {
     this.http
-      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}/${id}`)
+      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}?id=${id}`)
       .subscribe(eventDetails => {
         this.pathState({ eventDetails: eventDetails });
       });

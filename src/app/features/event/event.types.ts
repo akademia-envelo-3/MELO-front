@@ -1,4 +1,5 @@
 import { Maybe } from "@shared/utility-types";
+
 export type EventDetailsDTO = {
   name: string;
   description: string;
