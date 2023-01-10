@@ -1,66 +1,53 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ENDPOINTS } from "@shared/contants";
+
+import { Maybe } from "@shared/utility-types";
 import { BehaviorSubject } from "rxjs";
+import { EventModule } from "./event.module";
+import { EventCardDTO, EventDetailsDTO } from "./event.types";
 
-type Maybe<T> = T | undefined | null;
-
-type EventDetailsDTO = {
-  name: string;
-  description: string;
-  startTime: Date;
-  endTime: Date;
-  organizer: EmployeeName;
-  location: Location;
-  periodicType: Maybe<PeriodicType>;
-  pollQUestions: Maybe<PollQuestion>;
-  hashtags: Maybe<string[]>;
-  memberLimit: Maybe<number>;
-  invitedMembers: Maybe<EmployeeName[]>;
-  attachments: Maybe<Attachment[]>;
-  mainPhoto: Maybe<string>;
-  category: string;
-  theme: Theme;
-};
-type EmployeeName = {
-  firstName: string;
-  lastName: string;
-};
-
-type Location = {
-  streetName: string;
-  streetNumber: number;
-  aparmentNumber?: number;
-  postalCode: number;
-  city: string;
-};
-type PeriodicType = "ONE_WEEK" | "TWO_WEEKS" | "ONE_MONTH";
-
-type PollQuestion = {
-  question: string;
-  pollId: number;
-};
-
-type Attachment = {
-  name: string;
-  attachmentURL: string;
-  attachmentType: undefined;
-};
-
-type Theme = "CARD_BROWN" | "CARD_BLUE" | "CARD_WHITE" | "CARD_PURPLE" | "CARD_GREEN";
-
-type EventState = {
+export type EventState = {
   eventDetails: Maybe<EventDetailsDTO>;
+  eventsList: EventCardDTO[];
+  isLoading: boolean;
+};
+
+const eventStateDefault = {
+  eventDetails: null,
+  eventsList: [],
+  isLoading: false,
 };
 
 @Injectable({
-  providedIn: "root",
+  providedIn: EventModule,
 })
 export class EventStateService {
-  $$eventState = new BehaviorSubject<EventState>({ eventDetails: null });
+  private $$eventState = new BehaviorSubject<EventState>(eventStateDefault);
   constructor(private http: HttpClient) {}
 
-  getEventDetails() {
-    this.http.get(ENDPOINTS.eventDetails);
+  get $eventState() {
+    return this.$$eventState.asObservable();
+  }
+
+  private pathState(stateSlice: Partial<EventState>) {
+    this.$$eventState.next({
+      ...this.$$eventState.value,
+      ...stateSlice,
+    });
+  }
+
+  getEventDetails(id: number) {
+    this.http
+      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}/${id}`)
+      .subscribe(eventDetails => {
+        this.pathState({ eventDetails: eventDetails });
+      });
+  }
+
+  fetchEventList() {
+    this.http.get<EventCardDTO[]>(ENDPOINTS.event).subscribe(eventsList => {
+      this.pathState({ eventsList: eventsList });
+    });
   }
 }
