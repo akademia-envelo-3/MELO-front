@@ -51,6 +51,28 @@ $app-name-theme: mat.define-light-theme(
 @include mat.select-color($app-name-theme);
 @include mat.chips-color($app-name-theme);
 
+:root {
+  font-family: "Mukta Vaani", "sans-serif";
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+//////////////// COLORS ////////////////
+
 $primary-800: "#2C2120";
 $primary-400: "#4D4442";
 
@@ -69,30 +91,49 @@ $accent-gold-800: "#C17605";
 $accent-error: "#FF4040";
 $accent-success: "#88B42D";
 
-:root {
-  font-family: "Mukta Vaani", "sans-serif";
-  font-size: 16px;
-  color: #333;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.bg-gradient-primary-1 {
+  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
+.bg-gradient-primary-2 {
+  background: linear-gradient(
+    180deg,
+    rgba(62, 44, 43, 0.92) 0%,
+    rgba(81, 55, 53, 0.92) 57.29%,
+    rgba(53, 39, 38, 0.92) 99.48%
+  );
 }
-// this is fix to tailwind adding border styles to all elements, which breakes material components.
-*,
-::before,
-::after {
-  border-style: initial;
+
+.bg-gradient-neutral-1 {
+  background: linear-gradient(90deg, #ffffff 20.82%, #e4e4e4 78.72%);
 }
-html,
-body {
-  height: 100%;
+.bg-gradient-neutral-2 {
+  background: linear-gradient(
+    102.22deg,
+    #c0c0c0 2.92%,
+    #eeeeee 17.75%,
+    #ffffff 53.84%,
+    #eeeeee 86.46%,
+    #c0c0c0 97.83%
+  );
 }
+.bg-gradient-gold-1 {
+  background: linear-gradient(
+    283.96deg,
+    #a86c2d 3.84%,
+    rgba(254, 235, 87, 0.88) 49.33%,
+    #bf7b30 96.92%
+  );
+}
+
+.bg-gradient-green-1 {
+  background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
+}
+.bg-gradient-green-2 {
+  background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
+}
+
+//////////////// TYPOGRAPHY ///////////////////
 
 .text-h1 {
   font-size: clamp(36px, 10vw, 72px);
@@ -137,6 +178,7 @@ body {
   font-weight: 400;
   line-height: 24px;
 }
+//////////////// BREAK POINTS ////////////////
 
 @mixin media-sm {
   @media screen and (min-width: 320px) {
@@ -162,47 +204,7 @@ body {
   }
 }
 
-.bg-gradient-primary-1 {
-  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
-}
-
-.bg-gradient-primary-2 {
-  background: linear-gradient(
-    180deg,
-    rgba(62, 44, 43, 0.92) 0%,
-    rgba(81, 55, 53, 0.92) 57.29%,
-    rgba(53, 39, 38, 0.92) 99.48%
-  );
-}
-
-.bg-gradient-neutral-1 {
-  background: linear-gradient(90deg, #ffffff 20.82%, #e4e4e4 78.72%);
-}
-.bg-gradient-neutral-2 {
-  background: linear-gradient(
-    102.22deg,
-    #c0c0c0 2.92%,
-    #eeeeee 17.75%,
-    #ffffff 53.84%,
-    #eeeeee 86.46%,
-    #c0c0c0 97.83%
-  );
-}
-.bg-gradient-gold-1 {
-  background: linear-gradient(
-    283.96deg,
-    #a86c2d 3.84%,
-    rgba(254, 235, 87, 0.88) 49.33%,
-    #bf7b30 96.92%
-  );
-}
-
-.bg-gradient-green-1 {
-  background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
-}
-.bg-gradient-green-2 {
-  background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
-}
+//////////////// MATERIAL  ////////////////
 
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
   color: $accent-gold-300 !important;
