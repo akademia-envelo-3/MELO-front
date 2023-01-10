@@ -65,3 +65,26 @@ app-root {
   width: min(100vw, 1920px);
   margin-inline: auto;
 }
+
+.bg-white-90 {
+  background-color: #ffffff90;
+}
+
+.d-flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
