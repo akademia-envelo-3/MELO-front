@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   standalone: true,
@@ -13,11 +14,17 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       </div>
       <div>
         <p class="text-body-big">Wróć do strony głównej</p>
-        <button><-</button>
+        <button (click)="navigateToHomepage()"><-</button>
       </div>
     </div>
   `,
   styleUrls: ["./page-not-found.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageNotFoundComponent {}
+export class PageNotFoundComponent {
+  router = inject(Router);
+
+  navigateToHomepage() {
+    this.router.navigate([""]);
+  }
+}
