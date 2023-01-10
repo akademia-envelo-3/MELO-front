@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import UiModule from "../features/ui/ui.module";
+import { UiModule } from "../features/ui";
 
 @Component({
   selector: "app-theme",

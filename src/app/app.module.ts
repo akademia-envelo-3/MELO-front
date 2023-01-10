@@ -11,7 +11,7 @@ import { API_URL, IS_PRODUCTION } from "@core/env.token";
 import { environment } from "src/environment";
 import { RouterModule } from "@angular/router";
 import { noProductionGuard } from "@shared/no-production.guard";
-import UiModule from "./features/ui/ui.module";
+import { UiModule } from "./features/ui";
 
 @NgModule({
   declarations: [AppComponent],

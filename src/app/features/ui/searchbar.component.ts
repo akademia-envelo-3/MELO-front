@@ -21,7 +21,36 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       >
     </div>
 
-    <div class="searchbarDropdown"></div>
+    <div class="searchbarDropdown">
+      <ul class="searchbarDropdown__filterMenu">
+        <li class="searchbarDropdown__filterMenuItem">
+          <mat-icon>person_search</mat-icon>
+          <p>Tekst</p>
+        </li>
+        <li class="searchbarDropdown__filterMenuItem">
+          <mat-icon>person_search</mat-icon>
+          <p>Organizator</p>
+        </li>
+        <li class="searchbarDropdown__filterMenuItem">
+          <mat-icon>tag</mat-icon>
+          <p>Hashtag</p>
+        </li>
+
+        <li class="searchbarDropdown__filterMenuItem">
+          <mat-icon>category</mat-icon>
+          <p>Kategoria</p>
+        </li>
+      </ul>
+
+      <div class="searchbarDropdown__results">
+        <p>Results</p>
+        <ul class="searchbarDropdown__resultsList">
+          <li class="searchbarDropdown__resultsListItem">
+            <img src="" alt="" />
+          </li>
+        </ul>
+      </div>
+    </div>
   `,
   styles: [
     `
@@ -29,13 +58,17 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 46px;
+
         padding-left: 10px;
         padding-right: 10px;
         border: 1.15px solid #5e4139;
         border-radius: 25px;
         background-color: #211e1d;
+        margin-bottom: 5px;
       }
       .searchbar__input {
+        font-size: 1.125rem;
         color: white;
         flex-grow: 1;
         outline: none;
@@ -50,7 +83,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
         cursor: pointer;
         display: none;
       }
-      mat-icon {
+      .searchbar > mat-icon {
         color: #ead63d;
       }
       .searchbar:focus-within {
@@ -58,6 +91,42 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       }
       .visible {
         display: initial;
+      }
+
+      /* searchbar dropdown */
+      .searchbarDropdown {
+        height: 200px;
+        background-color: #211e1d;
+        color: #a7a4a5;
+        border: 1.15px solid #5e4139;
+        border-radius: 15px;
+        padding: 12px;
+      }
+      .searchbarDropdown__filterMenu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .searchbarDropdown__filterMenuItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1.15px solid #5e4139;
+        border-radius: 25px;
+        font-weight: semi-bold;
+        font-size: 12px;
+        padding-left: 6px;
+        padding-right: 12px;
+      }
+      .searchbarDropdown__filterMenuItem > mat-icon {
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .searchbarDropdown__results {
+        padding-top: 20px;
       }
     `,
   ],
