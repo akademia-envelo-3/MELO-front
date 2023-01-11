@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { UiModule } from "../features/ui";
+import { SearchbarComponent } from "../features/ui";
 
 @Component({
   selector: "app-theme",
-  imports: [UiModule],
   standalone: true,
+  imports: [SearchbarComponent],
   template: `
     <h1>Storybook-like route</h1>
     <app-searchbar></app-searchbar>

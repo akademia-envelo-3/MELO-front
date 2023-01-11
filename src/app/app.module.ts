@@ -5,13 +5,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { MatIconModule } from "@angular/material/icon";
-
 import { AppComponent } from "./app.component";
 import { API_URL, IS_PRODUCTION } from "@core/env.token";
 import { environment } from "src/environment";
 import { RouterModule } from "@angular/router";
 import { noProductionGuard } from "@shared/no-production.guard";
-import { UiModule } from "./features/ui";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +20,6 @@ import { UiModule } from "./features/ui";
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     MatIconModule,
-    UiModule,
     RouterModule.forRoot([
       {
         path: "",
