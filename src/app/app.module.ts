@@ -10,7 +10,6 @@ import { API_URL, IS_PRODUCTION } from "@core/env.token";
 import { environment } from "src/environment";
 import { RouterModule } from "@angular/router";
 import { noProductionGuard } from "@shared/no-production.guard";
-import { PageNotFoundComponent } from "./shared/page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +19,6 @@ import { PageNotFoundComponent } from "./shared/page-not-found/page-not-found.co
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
-    PageNotFoundComponent,
     RouterModule.forRoot([
       {
         path: "",
@@ -40,8 +38,8 @@ import { PageNotFoundComponent } from "./shared/page-not-found/page-not-found.co
           },
           {
             path: "**",
-            // redirectTo: "",
-            component: PageNotFoundComponent,
+            loadComponent: () =>
+              import("./shared/page-not-found/page-not-found.component"),
           },
         ],
       },

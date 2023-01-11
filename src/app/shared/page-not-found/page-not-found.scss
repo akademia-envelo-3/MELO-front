@@ -1,82 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
-
-app-page-not-found {
-  padding-top: clamp(14px, 4.3vw, 64px);
-}
-
 .pnf-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.8);
   padding: clamp(10px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
-  max-width: 50vw;
+  max-width: min(88vw, 1130px);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-inline: auto;
 
-  h1 {
+  &__header {
     margin-bottom: 2rem;
-    text-align: center;
   }
 
-  p {
+  &__text {
     margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   &__img-container {
     width: clamp(160px, 30vw, 380px);
-  }
-  img {
-    max-width: 100%;
-  }
-}
 
-///////
-.text-h2 {
-  font-size: clamp(1.5rem, 3.4vw + 0.81rem, 3rem);
-  font-weight: 700;
-}
-//////////////// TYPOGRAPHY ///////////////////
-
-.text-h1 {
-  font-size: clamp(2.25rem, 5.1vw + 1.25rem, 4.5rem);
-}
-.text-h2 {
-  font-size: clamp(1.5rem, 3.4vw + 0.81rem, 3rem);
-}
-.text-h3 {
-  font-size: clamp(1.125rem, 2vw + 0.75rem, 2rem);
-}
-.text-h4 {
-  font-size: clamp(1rem, 1.13vw + 0.75rem, 1.5rem);
-}
-.text-h5 {
-  font-size: clamp(1rem, 0.56vw + 0.87rem, 1.25rem);
-}
-.text-h6 {
-  font-size: clamp(1rem, 0.25vw + 0.94rem, 1.125rem);
-}
-.text-h1,
-.text-h2,
-.text-h3,
-.text-h4,
-.text-h5,
-.text-h6 {
-  font-weight: 700;
-  font-family: "Eczar", "sans-serif";
-}
-.text-body {
-  font-size: 1rem;
-}
-.text-body-big {
-  font-size: 1.14rem;
-}
-.text-body-small {
-  font-size: 0.88rem;
-}
-.text-body-big,
-.text-body-small .text-body,
-.text-body-big,
-.text-body-small {
-  font-weight: 400;
-  line-height: 1.5;
+    img {
+      max-width: 100%;
+      border-radius: 25px;
+    }
+  }
 }
