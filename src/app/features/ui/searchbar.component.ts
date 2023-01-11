@@ -24,7 +24,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
     <div class="searchbarDropdown">
       <ul class="searchbarDropdown__filterMenu">
         <li class="searchbarDropdown__filterMenuItem">
-          <mat-icon>person_search</mat-icon>
+          <mat-icon>rtt</mat-icon>
           <p>Tekst</p>
         </li>
         <li class="searchbarDropdown__filterMenuItem">
