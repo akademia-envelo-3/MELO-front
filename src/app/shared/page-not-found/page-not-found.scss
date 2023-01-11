@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  padding-top: clamp(22px, 4.3vw, 64px);
+}
+
 .pnf-container {
   display: flex;
   flex-direction: column;
