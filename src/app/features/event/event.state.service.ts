@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ENDPOINTS } from "@shared/contants";
+import { ENDPOINTS } from "@shared/constants";
 
 import { BehaviorSubject } from "rxjs";
 import { Maybe } from "@shared/utility-types";
@@ -37,7 +37,7 @@ export class EventStateService {
 
   getEventDetails(id: number) {
     this.http
-      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}?id=${id}`)
+      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}/${id}`)
       .subscribe(eventDetails => {
         this.pathState({ eventDetails: eventDetails });
       });
