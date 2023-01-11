@@ -5,10 +5,7 @@ import { RouterOutlet } from "@angular/router";
   selector: "app-home",
   standalone: true,
   imports: [RouterOutlet],
-  template: `
-    application shell
-    <router-outlet></router-outlet>
-  `,
+  template: ` <router-outlet></router-outlet> `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
