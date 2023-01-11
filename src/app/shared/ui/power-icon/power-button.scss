@@ -1,0 +1,331 @@
+// .power-icon-wrapper{
+//   --circleSize: 200px;
+//   width: var(--circleSize);;
+//   height: var(--circleSize);;
+//   // background-color: royalblue;;
+//   border: 1px solid white;
+//   position: relative;
+// }
+
+span{
+    --size: 100%;
+    --ringThickness: 2px;
+    --color11: #8E5F31;
+    --color12: #957B59;
+    --color13: #BEA990;
+    --color14: #D2C1A9;
+    --color15: #A79B8F;
+    --color16: #98928E;
+    --color17: #845D5D;
+    --color18: #FF736A;
+    --color21: #2C4645;
+    --color22: #656161;
+    --color23: #98928E;
+    --color24: #A79B8F;
+    --color25: #D2C1A9;
+    --color26: #BEA990;
+    --color27: #957B59;
+    --color28: #8E5F31;
+    --color31: #1A5E6C;
+    --color32: #144555;
+    --color33: #154A59;
+    --color34: #1E6B79;
+    --color35: #32B5BB;
+    --color36: #195967;
+    --color37: #227A87;
+    --color38: #54B9B2;
+ 
+
+    border-radius: 50%;
+    width: calc(100% - var(--ringThickness));
+    height: calc(100% - var(--ringThickness));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // overflow: hidden;
+}
+
+// .ring1 {
+//    width: var(--size);
+//    height: var(--size);
+//    background-color: var(--color1);
+//  }
+
+// .ring2 {
+//     background-color: var(--color2);
+//   }
+// .ring3 {
+//     background-color: var(--color3);
+//   }
+// .ring4 {
+//     background-color: var(--color4);
+//   }
+// .ring5 {
+//     background-color: var(--color5);
+//   }
+// .ring6 {
+//     background-color: var(--color6);
+//   }
+// .ring7 {
+//     background-color: var(--color7);
+//   }
+// .ring8 {
+//     background-color: var(--color8);
+//   }  
+// .insideCircle{
+//     display: flex;
+//     border-radius: 50%;
+//     width: calc(100% - var(--ringThickness));
+//     height: calc(100% - var(--ringThickness));
+//     background: linear-gradient(127.13deg, #E8DBC9 14.82%, #F8F0E9 64.64%, #B08095 85.63%);
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+// }
+
+#power-icon-info{
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: relative;
+}
+
+.amountOfPeople{
+  grid-area: 1 / 1 / 2 / 2;
+  position: relative;
+}
+
+.limitOfPeople{
+  grid-area: 1 / 3 / 2 / 4;
+  position: relative;
+}
+
+.separetor{
+  grid-area: 1 / 2 / 2 / 3;
+  margin: 0 5px;
+}
+
+.icon{
+  grid-area: 2 / 1 / 3 / 4;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 
+.insideButton{
+    position: absolute;
+    background: linear-gradient(127.13deg, #E8DBC9 14.82%, #F8F0E9 64.64%, #B08095 85.63%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}  */
+
+  /* .circle{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background: linear-gradient(to right, #f12711, #f5af19);
+    position:relative;
+    animation: rotate 0.8s linear infinite;
+    display:grid;
+    place-items:center;
+  } */
+  /* h2{
+    z-index:2;
+    font-size:18px;
+    color:white;
+  } */
+  /* .circle:before{
+    content:"";
+    height:180px;
+    width:180px;
+    border-radius:50%;
+    background: linear-gradient(127.13deg, #E8DBC9 14.82%, #F8F0E9 64.64%, #B08095 85.63%);
+    position:absolute;
+    top:calc(0% + 10px);
+    left:calc(0% + 10px);
+  } */
+  /* @keyframes rotate {
+    0%{
+      transform:rotate(0deg);
+    }
+    50%{
+      trasnform:rotate(180deg);
+    }
+    100%{
+      transform:rotate(360deg);
+    }
+  } */
+
+  // .parent{
+  //   width: 300px;
+  //   height: 300px;
+  //   background-color: violet;
+  //   .child1{
+  //     width: 200px;
+  //     height: 200px;
+  //     background-color: red;
+  //     .child2{
+  //       width: 100px;
+  //       height: 100px;
+  //       background-color: blue;
+  //       .child3{
+  //         width: 50px;
+  //         height: 50px;
+  //         background-color: green;
+  //       }
+  //     }
+  //   }
+
+
+  // }
+
+  // .parent{
+  //   div:nth-child(1){      width: 100px;
+  //     height: 100px;
+  //     background-color: red;}
+  //     div:nth-child(2){      width: 100px;
+  //       height: 100px;
+  //       background-color: blue;}
+  //       div:nth-child(3){      width: 100px;
+  //         height: 100px;
+  //         background-color: green;}
+  // }
+
+  :host-context(.theme-primary) div{
+    --circleSize: 200px;
+      width: var(--circleSize);
+      height: var(--circleSize);
+      position: relative;
+      .ring1{
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--color11);
+        .ring2{
+          background-color: var(--color12);
+          .ring3{
+            background-color: var(--color13);
+            .ring4{
+              background-color: var(--color14);
+              .ring5{
+                background-color: var(--color15);
+                .ring6{
+                  background-color: var(--color16);
+                  .ring7{
+                    background-color: var(--color17);
+                    .ring8{
+                      background-color: var(--color18);
+                      .insideCircle{
+                        display: flex;
+                        border-radius: 50%;
+                        width: calc(100% - var(--ringThickness));
+                        height: calc(100% - var(--ringThickness));
+                        background: linear-gradient(127.13deg, #E8DBC9 14.82%, #F8F0E9 64.64%, #B08095 85.63%);
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  } 
+  
+  :host-context(.theme-secondary) div{
+    --circleSize: 200px;
+      width: var(--circleSize);;
+      height: var(--circleSize);;
+      position: relative;
+      .ring1{
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--color21);
+        .ring2{
+          background-color: var(--color22);
+          .ring3{
+            background-color: var(--color23);
+            .ring4{
+              background-color: var(--color24);
+              .ring5{
+                background-color: var(--color25);
+                .ring6{
+                  background-color: var(--color26);
+                  .ring7{
+                    background-color: var(--color27);
+                    .ring8{
+                      background-color: var(--color28);
+                      .insideCircle{
+                        display: flex;
+                        border-radius: 50%;
+                        width: calc(100% - var(--ringThickness));
+                        height: calc(100% - var(--ringThickness));
+                        background: linear-gradient(127.13deg, #E8DBC9 14.82%, #F8F0E9 64.64%, #3D6D6C 85.63%);
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    :host-context(.theme-teriarty) div{
+      --circleSize: 200px;
+        width: var(--circleSize);
+        height: var(--circleSize);
+        border: 1px solid white;
+        position: relative;
+        .ring1{
+          width: var(--size);
+          height: var(--size);
+          background-color: var(--color31);
+          .ring2{
+            background-color: var(--color32);
+            .ring3{
+              background-color: var(--color33);
+              .ring4{
+                background-color: var(--color34);
+                .ring5{
+                  background-color: var(--color35);
+                  .ring6{
+                    background-color: var(--color36);
+                    .ring7{
+                      background-color: var(--color37);
+                      .ring8{
+                        background-color: var(--color38);
+                        .insideCircle{
+                          display: flex;
+                          border-radius: 50%;
+                          width: calc(100% - var(--ringThickness));
+                          height: calc(100% - var(--ringThickness));
+                          background: linear-gradient(140.91deg, #092133 13.74%, #239195 50.82%, #091F31 87.13%);
+                          justify-content: center;
+                          align-items: center;
+                          position: relative;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
