@@ -200,7 +200,7 @@ $accent-success: "#88B42D";
 }
 
 @mixin media-max {
-  @media screen and (max-width: 1920px) {
+  @media screen and (min-width: 1920px) {
     @content;
   }
 }
