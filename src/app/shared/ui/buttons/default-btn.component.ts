@@ -17,11 +17,35 @@ export interface DefaultBtnConfig {
 @Component({
   standalone: true,
   selector: "app-default-btn[config]",
-  template: ` <ng-container *ngIf="config.routerLink"></ng-container
-    ><button [disabled]="config.disabled" [type]="config.type" (click)="onClick()">
-      {{ config.text }}
-    </button>`,
-  styles: [],
+  template: `
+    <button
+      class="btn-default btn-rect bg-gradient-gold-1"
+      [disabled]="config.disabled"
+      [type]="config.type"
+      (click)="onClick()"
+    >
+      <span class="border-1 btn-border">
+        <span class="border-2 btn-border"
+          ><span class="border-3 btn-border"
+            ><span class="border-4 btn-border">
+              <span class="border-5 btn-border"
+                ><span class="border-6 btn-border"
+                  ><span class="border-7 btn-border"
+                    ><span class="border-8 btn-border"
+                      ><span class="border-9 btn-border">
+                        {{ config.text }}
+                      </span></span
+                    ></span
+                  ></span
+                ></span
+              ></span
+            ></span
+          ></span
+        >
+      </span>
+    </button>
+  `,
+  styleUrls: ["buttons.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DefaultBtnComponent {

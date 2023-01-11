@@ -1,0 +1,16 @@
+.rect-btns-container {
+  display: flex;
+  margin: 4rem;
+  flex-direction: column;
+  background-color: #fff8;
+  border-radius: 25px;
+  padding: 1rem;
+
+  &__btns {
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(minmax);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
