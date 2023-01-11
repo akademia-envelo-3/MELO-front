@@ -6,7 +6,6 @@ import { MatInputModule } from "@angular/material/input";
   selector: "app-home",
   standalone: true,
   imports: [RouterOutlet, MatInputModule],
-
   template: ` <router-outlet></router-outlet> `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
