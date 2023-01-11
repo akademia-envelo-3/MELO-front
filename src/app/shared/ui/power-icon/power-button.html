@@ -1,4 +1,8 @@
-<div class="power-icon-wrapper">
+<div
+    [style.width]="width"
+    [style.height]="height"
+    [style.font-size]="fontSize"
+    class="power-icon-wrapper">
     <span class="ring1">
         <span class="ring2">
             <span class="ring3">
@@ -13,17 +17,21 @@
                                                 {{amountOfPeople}}
                                             </p>
                                             <p class="separetor">/</p>
-                                            <p class="limitOfPeople">
-                                                {{limitOfPeople}}
-                                            </p>
-                                            <!-- <p
+                                            <p
+                                                class="limitOfPeople"
                                                 *ngIf="limitOfPeople; else elseBlock">
                                                 {{limitOfPeople}}
                                             </p>
                                             <ng-template #elseBlock
-                                                >∞</ng-template
-                                            > -->
-                                            <p class="icon">🐱‍👤🐱‍🚀</p>
+                                                ><mat-icon class="infinityIcon"
+                                                    >all_inclusive</mat-icon
+                                                ></ng-template
+                                            >
+                                            <mat-icon
+                                                class="icon"
+                                                [style.font-size]="iconFontSize"
+                                                >group</mat-icon
+                                            >
                                         </div>
                                     </div>
                                 </span>
@@ -35,11 +43,3 @@
         </span>
     </span>
 </div>
-
-<!-- <div class="parent">
-    <div class="child1">
-        <div class="child2">
-            <div class="child3"></div>
-        </div>
-    </div>
-</div> -->

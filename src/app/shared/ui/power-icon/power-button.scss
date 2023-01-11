@@ -84,10 +84,11 @@ span{
 // }
 
 #power-icon-info{
-  width: 120px;
-  height: 120px;
-  border: 1px solid black;
-  font-size: 1rem;
+
+  font-family: "Eczar", "sans-serif";
+  font-weight: 700;
+  width: 65%;
+  height: 65%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -99,23 +100,37 @@ span{
 .amountOfPeople{
   grid-area: 1 / 1 / 2 / 2;
   position: relative;
+  top: -40%;
+  width: fit-content;
 }
 
 .limitOfPeople{
   grid-area: 1 / 3 / 2 / 4;
   position: relative;
+  width: fit-content;
 }
 
 .separetor{
   grid-area: 1 / 2 / 2 / 3;
-  margin: 0 5px;
+  position: relative;
+  top: -25%;
+  width: fit-content;
 }
 
 .icon{
   grid-area: 2 / 1 / 3 / 4;
   display:flex;
   justify-content: center;
-  align-items: center;
+  align-self: start;
+  width: 100%;
+  position: relative;
+  top: -20%;
+  left: -10%;
+  overflow: visible;
+}
+
+.infinityIcon{
+  font-size: 20px;
 }
 
 
@@ -201,9 +216,10 @@ span{
   // }
 
   :host-context(.theme-primary) div{
-    --circleSize: 200px;
-      width: var(--circleSize);
-      height: var(--circleSize);
+    --circleSize: 70px;
+      // width: var(--circleSize);
+      // height: var(--circleSize);
+      
       position: relative;
       .ring1{
         width: var(--size);
@@ -232,6 +248,9 @@ span{
                         justify-content: center;
                         align-items: center;
                         position: relative;
+                        #power-icon-info{
+                          color: #262626;
+                        }
                       }
                     }
                   }
@@ -244,7 +263,7 @@ span{
   } 
   
   :host-context(.theme-secondary) div{
-    --circleSize: 200px;
+    --circleSize: 70px;
       width: var(--circleSize);;
       height: var(--circleSize);;
       position: relative;
@@ -275,6 +294,9 @@ span{
                         justify-content: center;
                         align-items: center;
                         position: relative;
+                        #power-icon-info{
+                          color: #262626;
+                        }
                       }
                     }
                   }
@@ -287,10 +309,9 @@ span{
     }
   
     :host-context(.theme-teriarty) div{
-      --circleSize: 200px;
+      --circleSize: 70px;
         width: var(--circleSize);
         height: var(--circleSize);
-        border: 1px solid white;
         position: relative;
         .ring1{
           width: var(--size);
@@ -319,6 +340,9 @@ span{
                           justify-content: center;
                           align-items: center;
                           position: relative;
+                          #power-icon-info{
+                            color: #FEFFFF;
+                          }
                         }
                       }
                     }
@@ -329,3 +353,5 @@ span{
           }
         }
     }
+
+
