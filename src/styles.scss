@@ -2,7 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
-@use "@angular/material" as mat;
 
 @include mat.core();
 
@@ -44,9 +43,8 @@ $app-name-theme: mat.define-light-theme(
       accent: $app-name-accent,
       warn: $app-name-warn,
     ),
-    
-    typography: $my-typography,
 
+    typography: $my-typography,
   )
 );
 
@@ -74,7 +72,6 @@ html,
 body {
   height: 100%;
 }
-
 
 //////////////// COLORS ////////////////
 
@@ -219,6 +216,7 @@ $accent-success: "#88B42D";
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
   .mdc-evolution-chip__text-label {
   color: $accent-gold-800 !important;
+}
 
 app-root {
   display: block;
