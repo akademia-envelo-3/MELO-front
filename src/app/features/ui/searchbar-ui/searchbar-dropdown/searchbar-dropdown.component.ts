@@ -1,5 +1,5 @@
 import { SearchbarComponent } from "./../searchbar/searchbar.component";
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, OnInit } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { CommonModule } from "@angular/common";
 import { SearchType } from "../search.types";
@@ -13,9 +13,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./searchbar-dropdown.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchbarDropdownComponent {
+export class SearchbarDropdownComponent implements OnInit {
   private router = inject(Router);
   searchbar = inject(SearchbarComponent);
+
+  ngOnInit() {
+    this.searchbar.newSearchTypeEvent.emit(this.searchbar.defaultSearchType);
+  }
 
   searchTypes: SearchType[] = [
     {
@@ -47,7 +51,7 @@ export class SearchbarDropdownComponent {
         st.isActive = false;
       }
     });
-    this.searchbar.selectedSearchType = searchType.searchTypeName.toLowerCase();
+    this.searchbar.newSearchTypeEvent.emit(searchType.searchTypeName.toLowerCase());
   }
 
   navigate() {
