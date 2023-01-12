@@ -1,9 +1,6 @@
-@import './src/styles';
-
 .spinner {
   margin: 0 0.3rem;
   border-radius: 50%;
-  // background-color: white;
   display: inline-block;
   animation: bounce 1.3s infinite ease-in-out both;
   position: relative;
