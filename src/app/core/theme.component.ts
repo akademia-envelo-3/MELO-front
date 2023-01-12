@@ -8,6 +8,7 @@ import { SearchbarComponent } from "../features/ui";
   template: `
     <h1>Storybook-like route</h1>
     <app-searchbar></app-searchbar>
+    <app-searchbar [typeOfEvent]="false"></app-searchbar>
   `,
 })
 export default class ThemeComponent {}

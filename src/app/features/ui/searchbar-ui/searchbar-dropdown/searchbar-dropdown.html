@@ -1,0 +1,36 @@
+<div class="searchbarDropdown">
+    <!-- Search type menu -->
+    <ul class="searchbarDropdown__filterMenu" *ngIf="searchbar.typeOfEvent">
+        <li
+            *ngFor="let searchType of searchTypes"
+            class="searchbarDropdown__filterMenuItem"
+            [ngClass]="{ active: searchType.isActive }"
+            (click)="clickFilterEvent(searchType)">
+            <mat-icon>{{ searchType.searchTypeIcon }}</mat-icon>
+            <p>{{ searchType.searchTypeName }}</p>
+        </li>
+    </ul>
+
+    <!-- Results -->
+    <div class="searchbarDropdown__results">
+        <p>Wynik wyszukiwania</p>
+        <ul class="searchbarDropdown__resultsList">
+            <li
+                class="searchbarDropdown__resultsListItem"
+                *ngFor="let searchResult of searchbar.searchResults.slice(0,searchbar.maxNumberOfResultsToDisplay)">
+                <div class="resultPicture">
+                    <img
+                        *ngIf="searchResult.searchResultImg"
+                        src="{{ searchResult.searchResultImg }}"
+                        alt="" />
+                </div>
+                <div class="resultTitle" (click)="navigate()">
+                    <p>{{ searchResult.searchResultTitle }}</p>
+                    <p class="foundPhrase">
+                        {{ searchResult.searchResultPhrase }}
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
