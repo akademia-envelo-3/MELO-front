@@ -1,8 +1,7 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&displayswap');
 @include mat.core();
 
 $gold-palette: (
@@ -29,7 +28,7 @@ $gold-palette: (
 );
 
 $my-typography: mat.define-typography-config(
-  $font-family: "Mukta Vaani",
+  $font-family: 'Mukta Vaani',
 );
 
 $app-name-primary: mat.define-palette($gold-palette, 600, 300, 800, 600);
@@ -43,7 +42,6 @@ $app-name-theme: mat.define-light-theme(
       accent: $app-name-accent,
       warn: $app-name-warn,
     ),
-
     typography: $my-typography,
   )
 );
@@ -54,7 +52,7 @@ $app-name-theme: mat.define-light-theme(
 @include mat.chips-color($app-name-theme);
 
 :root {
-  font-family: "Mukta Vaani", "sans-serif";
+  font-family: 'Mukta Vaani', 'sans-serif';
   font-size: 16px;
   color: #333;
   box-sizing: border-box;
@@ -79,20 +77,20 @@ $primary-400: #4d4442;
 $primary-800: #2c2120;
 $primary-900: #211918;
 
-$neutral-100: "#FFFFFF";
-$neutral-300: "#F7F3F2";
-$neutral-500: "#ADADAD";
-$neutral-800: "#323232";
-$neutral-900: "#000000";
+$neutral-100: #ffffff;
+$neutral-300: #f7f3f2;
+$neutral-500: #adadad;
+$neutral-800: #323232;
+$neutral-900: #000000;
 
-$accent-gold-200: "#EDDEBF";
-$accent-gold-300: "#EFD6B3";
-$accent-gold-500: "#E9CE7F";
-$accent-gold-700: "#D69840";
-$accent-gold-800: "#C17605";
+$accent-gold-200: #eddebf;
+$accent-gold-300: #efd6b3;
+$accent-gold-500: #e9ce7f;
+$accent-gold-700: #d69840;
+$accent-gold-800: #c17605;
 
-$accent-error: "#FF4040";
-$accent-success: "#88B42D";
+$accent-error: #ff4040;
+$accent-success: #88b42d;
 
 .bg-gradient-primary-1 {
   background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
@@ -163,7 +161,7 @@ $accent-success: "#88B42D";
 .text-h5,
 .text-h6 {
   font-weight: 700;
-  font-family: "Eczar", "sans-serif";
+  font-family: 'Eczar', 'sans-serif';
 }
 .text-body {
   font-size: 1rem;
@@ -220,7 +218,7 @@ $accent-success: "#88B42D";
 
 app-root {
   display: block;
-  background-image: url("assets/bg-images/main-background.png");
+  background-image: url('assets/bg-images/main-background.png');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
