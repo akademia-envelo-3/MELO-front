@@ -1,0 +1,29 @@
+.card--lg {
+  height: 1100px;
+  width: 700px;
+}
+
+.card--sm {
+  height: 370px;
+  width: 215px;
+}
+
+.card--md {
+  height: 475px;
+  width: 255px;
+}
+
+.card {
+  // background-image: url('../../../../assets/cards/card-white.png');
+  // height: 475px;
+  // width: 255px;
+  // background-size: contain;
+
+  // background-repeat: no-repeat;
+}
+
+.card__theme {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
