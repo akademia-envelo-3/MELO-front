@@ -6,22 +6,15 @@ import {
   Output,
 } from "@angular/core";
 
-export interface DefaultBtnConfig {
-  text: string;
-  type?: "button" | "submit" | "reset";
-  disabled?: boolean;
-  routerLink?: string;
-  emittedData?: any;
-}
-
 @Component({
   standalone: true,
-  selector: "app-default-btn[config]",
+  selector: "app-default-btn",
   template: `
     <button
-      class="btn-default btn-rect bg-gradient-gold-1"
-      [disabled]="config.disabled"
-      [type]="config.type"
+      class="btn-rect"
+      [class]="class"
+      [disabled]="disabled"
+      [type]="type"
       (click)="onClick()"
     >
       <span class="border-1 btn-border">
@@ -33,7 +26,7 @@ export interface DefaultBtnConfig {
                   ><span class="border-7 btn-border"
                     ><span class="border-8 btn-border"
                       ><span class="border-9 btn-border">
-                        {{ config.text }}
+                        {{ text }}
                       </span></span
                     ></span
                   ></span
@@ -48,11 +41,13 @@ export interface DefaultBtnConfig {
   styleUrls: ["buttons.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DefaultBtnComponent {
-  @Input() config: DefaultBtnConfig = {
-    text: "",
-    disabled: false,
-  };
+export class RectangularBtnComponent {
+  @Input() text = "";
+  @Input() class?: string;
+  @Input() type?: "button" | "submit" | "reset";
+  @Input() routerLink?: string;
+  @Input() disabled = false;
+
   @Output() newItemEvent = new EventEmitter();
 
   onClick() {

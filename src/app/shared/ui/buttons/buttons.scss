@@ -2,6 +2,28 @@
 button {
 }
 
+:host button {
+  background: linear-gradient(
+    283.96deg,
+    #a86c2d 3.84%,
+    rgba(254, 235, 87, 0.88) 49.33%,
+    #bf7b30 96.92%
+  );
+}
+
+:host(.btn-black) button {
+  background: linear-gradient(
+    180deg,
+    rgba(62, 44, 43, 0.92) 0%,
+    rgba(81, 55, 53, 0.92) 57.29%,
+    rgba(53, 39, 38, 0.92) 99.48%
+  );
+}
+
+:host(.btn-green) button {
+  background: linear-gradient(283.96deg, #37514b 3.84%, #40a37e 49.33%, #338666 96.92%);
+}
+
 .btn-rect {
   min-width: 150px;
   border: none;
@@ -13,12 +35,33 @@ button {
   color: $neutral-900;
 }
 
-.btn-default {
+.btn-default:not([disabled]) {
   //   padding: 1.25rem 2rem;
   transition: 0.3s;
   &:hover {
     transform: scale(1.1);
   }
+}
+.btn-default {
+  background: linear-gradient(
+    283.96deg,
+    #a86c2d 3.84%,
+    rgba(254, 235, 87, 0.88) 49.33%,
+    #bf7b30 96.92%
+  );
+}
+
+.btn-black {
+  background: linear-gradient(
+    180deg,
+    rgba(62, 44, 43, 0.92) 0%,
+    rgba(81, 55, 53, 0.92) 57.29%,
+    rgba(53, 39, 38, 0.92) 99.48%
+  );
+}
+
+.btn-rect:disabled {
+  opacity: 0.6;
 }
 
 .btn-border {
