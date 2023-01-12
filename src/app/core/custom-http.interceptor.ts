@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-} from "@angular/common/http";
-import { catchError, EMPTY, Observable } from "rxjs";
+} from '@angular/common/http';
+import { catchError, EMPTY, Observable } from 'rxjs';
+import { API_URL } from './env.token';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
-  readonly baseUrl = "http://localhost:3000";
-
+  private baseUrl = inject(API_URL);
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
