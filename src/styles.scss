@@ -1,7 +1,7 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap');
 
 @include mat.core();
 
@@ -29,7 +29,7 @@ $gold-palette: (
 );
 
 $my-typography: mat.define-typography-config(
-  $font-family: "Mukta Vaani",
+  $font-family: 'Mukta Vaani',
 );
 
 $app-name-primary: mat.define-palette($gold-palette, 600, 300, 800, 600);
@@ -53,7 +53,7 @@ $app-name-theme: mat.define-light-theme(
 @include mat.chips-color($app-name-theme);
 
 :root {
-  font-family: "Mukta Vaani", "sans-serif";
+  font-family: 'Mukta Vaani', 'sans-serif';
   font-size: 16px;
   color: #333;
   box-sizing: border-box;
@@ -162,7 +162,7 @@ $accent-success: #88b42d;
 .text-h5,
 .text-h6 {
   font-weight: 700;
-  font-family: "Eczar", "sans-serif";
+  font-family: 'Eczar', 'sans-serif';
 }
 .text-body {
   font-size: 1rem;
@@ -219,10 +219,63 @@ $accent-success: #88b42d;
 
 app-root {
   display: block;
-  background-image: url("assets/bg-images/main-background.png");
+  background-image: url('assets/bg-images/main-background.png');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
   width: min(100vw, 1920px);
   margin-inline: auto;
+}
+
+//////////////// BUTTONS  ////////////////
+
+////////////// Rectangle buttons ///////
+
+.btn-rect {
+  min-width: 150px;
+  border: none;
+  border-radius: 13px;
+  font-family: 'Eczar', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: $neutral-900;
+  padding: 1.25rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-default {
+  @extend .bg-gradient-gold-1;
+  @extend .btn-shadow-default;
+}
+
+.btn-black {
+  @extend .bg-gradient-primary-1;
+  @extend .btn-shadow-light;
+}
+
+.btn-green {
+  @extend .bg-gradient-green-1;
+  @extend .btn-shadow-default;
+}
+
+.btn-shadow-default {
+  box-shadow: 0 0 0 1px #d6b84a, 0 0 0 2px #c39c3c, 0 0 0 3px #d1ac4c, 0 0 0 4px #b99b53,
+    0 0 0 5px #36260b, 0 0 0 6px #311c10, 0 0 0 7px #82573a, 0 0 0 8px #ca9d7c,
+    0 0 0 9px #644b3a;
+}
+.btn-shadow-light {
+  box-shadow: 0 0 0 1px #aaa096, 0 0 0 2px #f1e3e3, 0 0 0 3px #d9d6d3, 0 0 0 4px #bfbcba,
+    0 0 0 5px #afafaf, 0 0 0 6px #9e9e9e;
+}
+
+.btn-rect:disabled {
+  opacity: 0.6;
+}
+
+.btn-rect:not([disabled]) {
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

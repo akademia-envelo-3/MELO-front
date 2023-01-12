@@ -1,10 +1,9 @@
-import { Component } from "@angular/core";
-import { RectangularBtnComponent } from "@shared/ui/buttons/";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-theme",
+  selector: 'app-theme',
   standalone: true,
-  imports: [RectangularBtnComponent],
+  imports: [],
   template: `
     <h1>Storybook-like route</h1>
     <div class="rect-btns-container">
@@ -12,39 +11,33 @@ import { RectangularBtnComponent } from "@shared/ui/buttons/";
       <div class="rect-btns-container__btns">
         <div>
           <p>Default</p>
-          <app-default-btn text="Default"></app-default-btn>
+
+          <button class="btn-rect btn-default">Default</button>
         </div>
         <div>
           <p>Disabled</p>
-          <app-default-btn text="Disabled" [disabled]="true"></app-default-btn>
+
+          <button class="btn-rect btn-default" disabled>Default</button>
         </div>
         <div>
           <p>Black</p>
-          <app-default-btn text="Black" class="btn-black"></app-default-btn>
+          <button class="btn-rect btn-black">Black</button>
         </div>
         <div>
           <p>Black disabled</p>
-          <app-default-btn
-            text="Black"
-            class="btn-black"
-            [disabled]="true"
-          ></app-default-btn>
+          <button class="btn-rect btn-black" disabled>Black</button>
         </div>
         <div>
           <p>Green</p>
-          <app-default-btn text="Default" class="btn-green"></app-default-btn>
+          <button class="btn-rect btn-green">Green</button>
         </div>
         <div>
           <p>Green disabled</p>
-          <app-default-btn
-            text="Default"
-            class="btn-green"
-            [disabled]="true"
-          ></app-default-btn>
+          <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
     </div>
   `,
-  styleUrls: ["theme.component.scss"],
+  styleUrls: ['theme.component.scss'],
 })
 export default class ThemeComponent {}
