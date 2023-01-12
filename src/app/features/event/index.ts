@@ -1,3 +1,3 @@
-export * from "./event.types";
-export * from "./event.state.service";
-export * from "./event.module";
+export * from './event.interface';
+export * from './event.state.service';
+export * from './event.module';

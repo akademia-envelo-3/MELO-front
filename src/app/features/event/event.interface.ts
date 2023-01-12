@@ -1,9 +1,17 @@
-import { Maybe } from "@shared/utility-types";
+import { Maybe } from '@shared/utility-types';
 
-export type EventDetailsDTO = {
+export interface EventCardDTO {
+  eventId: number;
   name: string;
   description: string;
   startTime: Date;
+  invitedMembersNumber: number;
+  mainPhoto: string;
+  theme: Theme;
+  memberLimit: number;
+}
+
+export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eventId'> {
   endTime: Date;
   organizer: EmployeeName;
   location: Location;
@@ -13,10 +21,8 @@ export type EventDetailsDTO = {
   memberLimit: Maybe<number>;
   invitedMembers: Maybe<EmployeeName[]>;
   attachments: Maybe<Attachment[]>;
-  mainPhoto: Maybe<string>;
-  category: string;
-  theme: Theme;
-};
+  category: Maybe<string>;
+}
 type EmployeeName = {
   firstName: string;
   lastName: string;
@@ -29,7 +35,7 @@ type Location = {
   postalCode: number;
   city: string;
 };
-type PeriodicType = "ONE_WEEK" | "TWO_WEEKS" | "ONE_MONTH";
+type PeriodicType = 'ONE_WEEK' | 'TWO_WEEKS' | 'ONE_MONTH';
 
 type PollQuestion = {
   question: string;
@@ -42,15 +48,4 @@ type Attachment = {
   attachmentType: undefined;
 };
 
-type Theme = "CARD_BROWN" | "CARD_BLUE" | "CARD_WHITE" | "CARD_PURPLE" | "CARD_GREEN";
-
-export type EventCardDTO = {
-  eventId: number;
-  name: string;
-  description: string;
-  startTime: Date;
-  invitedMembersNumber: number;
-  mainPhoto: string;
-  theme: Theme;
-  memberLimit: number;
-};
+type Theme = 'CARD_BROWN' | 'CARD_BLUE' | 'CARD_WHITE' | 'CARD_PURPLE' | 'CARD_GREEN';

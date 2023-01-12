@@ -36,11 +36,9 @@ export class EventStateService {
   }
 
   getEventDetails(id: number) {
-    this.http
-      .get<EventDetailsDTO>(`${ENDPOINTS.eventDetails}/${id}`)
-      .subscribe(eventDetails => {
-        this.patchState({ eventDetails: eventDetails });
-      });
+    this.http.get<EventDetailsDTO>(`${ENDPOINTS.event}/${id}`).subscribe(eventDetails => {
+      this.patchState({ eventDetails: eventDetails });
+    });
   }
 
   fetchEventList() {
