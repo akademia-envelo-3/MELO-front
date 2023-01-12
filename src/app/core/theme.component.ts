@@ -11,12 +11,10 @@ import { Component } from '@angular/core';
       <div class="rect-btns-container__btns">
         <div>
           <p>Default</p>
-
           <button class="btn-rect btn-default">Default</button>
         </div>
         <div>
           <p>Disabled</p>
-
           <button class="btn-rect btn-default" disabled>Default</button>
         </div>
         <div>
