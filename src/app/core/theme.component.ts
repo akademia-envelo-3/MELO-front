@@ -7,7 +7,7 @@ import { SpinnerDotsComponent } from '@shared/ui/spinner-dots.component';
   imports: [SpinnerDotsComponent],
   template: `
     <h1>Storybook-like route</h1>
-    <app-spinner-dots></app-spinner-dots>
+    <app-spinner-dots size="md"></app-spinner-dots>
   `,
 })
 export default class ThemeComponent {}
