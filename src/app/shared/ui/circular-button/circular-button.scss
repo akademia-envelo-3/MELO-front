@@ -1,0 +1,84 @@
+// :host button{
+//     --base-size: 30px;
+// }
+
+:host button{
+    --base-size: 40px;
+    --color1: #211918;
+    --color2: #231D18;
+    --color3: #AAA096;
+    --color4: #F1E3E3;
+    --color5: #D9D6D3;
+    --color6: #CAC7C5;
+    --color7: #B9B9B9;
+    --color8: #A4A4A4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--color1), 0 0 0 2px var(--color2), 0 0 0 3px var(--color3), 0 0 0 4px var(--color4), 0 0 0 5px var(--color5), 0 0 0 6px var(--color6), 0 0 0 7px var(--color7), 0 0 0 8px var(--color8);
+    background: linear-gradient(304.91deg, #323232 14.59%, #2C2120 82.16%);
+    transition: all .3s;
+
+    
+    
+    .icon{
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 75%;
+        height: 75%;
+        font-weight: 700;
+    }
+
+    span{
+        font-family: "Eczar", "sans-serif";
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+}
+
+:host button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    
+}
+
+.size-sm{
+    width: calc(var(--base-size) * 0.75);
+    height: calc(var(--base-size) * 0.75);
+    font-size: 7px;
+    .icon{
+        font-size: 20px;
+    }
+}
+
+.size-md{
+    width: calc(var(--base-size) * 1.25);
+    height: calc(var(--base-size) * 1.25);
+    font-size: 13px;
+    .icon{
+        font-size: 32px;
+    }
+}
+
+.size-lg{
+    width: calc(var(--base-size) * 1.5);
+    height: calc(var(--base-size) * 1.5);
+    font-size: 16px;
+    .icon{
+        font-size: 48px;
+    }
+}
+
+.size-xl{
+    width: calc(var(--base-size) * 2);
+    height: calc(var(--base-size) * 2);
+    font-size: 22px;
+    .icon{
+        font-size: 64px;
+    }
+}

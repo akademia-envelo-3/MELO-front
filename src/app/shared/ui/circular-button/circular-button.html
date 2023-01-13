@@ -1,0 +1,6 @@
+<button [ngClass]="sizeClass" (click)="clickButton.emit()">
+    <span *ngIf="!icon else elseBlock">Dołącz</span>
+    <ng-template #elseBlock
+        ><mat-icon class="icon"> {{icon}} </mat-icon></ng-template
+    >
+</button>
