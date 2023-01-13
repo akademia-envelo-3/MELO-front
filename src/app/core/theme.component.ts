@@ -1,6 +1,5 @@
-import { FormResultInfo } from './../shared/ui';
 import { Component } from '@angular/core';
-import { FormResultViewComponent } from '@shared/ui';
+import { FormResultViewComponent, FormResultInfo } from '@shared/ui';
 
 @Component({
   selector: 'app-theme',
