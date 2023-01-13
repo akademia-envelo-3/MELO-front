@@ -1,7 +1,7 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap');
 
 @include mat.core();
 
@@ -29,7 +29,7 @@ $gold-palette: (
 );
 
 $my-typography: mat.define-typography-config(
-  $font-family: "Mukta Vaani",
+  $font-family: 'Mukta Vaani',
 );
 
 $app-name-primary: mat.define-palette($gold-palette, 600, 300, 800, 600);
@@ -53,7 +53,7 @@ $app-name-theme: mat.define-light-theme(
 @include mat.chips-color($app-name-theme);
 
 :root {
-  font-family: "Mukta Vaani", "sans-serif";
+  font-family: 'Mukta Vaani', 'sans-serif';
   font-size: 16px;
   color: #333;
   box-sizing: border-box;
@@ -74,24 +74,24 @@ body {
 
 //////////////// COLORS ////////////////
 
-$primary-400: "#4D4442";
-$primary-800: "#2C2120";
-$primary-900: "#211918";
+$primary-400: '#4D4442';
+$primary-800: '#2C2120';
+$primary-900: '#211918';
 
-$neutral-100: "#FFFFFF";
-$neutral-300: "#F7F3F2";
-$neutral-500: "#ADADAD";
-$neutral-800: "#323232";
-$neutral-900: "#000000";
+$neutral-100: '#FFFFFF';
+$neutral-300: '#F7F3F2';
+$neutral-500: '#ADADAD';
+$neutral-800: '#323232';
+$neutral-900: '#000000';
 
-$accent-gold-200: "#EDDEBF";
-$accent-gold-300: "#EFD6B3";
-$accent-gold-500: "#E9CE7F";
-$accent-gold-700: "#D69840";
-$accent-gold-800: "#C17605";
+$accent-gold-200: '#EDDEBF';
+$accent-gold-300: '#EFD6B3';
+$accent-gold-500: '#E9CE7F';
+$accent-gold-700: '#D69840';
+$accent-gold-800: '#C17605';
 
-$accent-error: "#FF4040";
-$accent-success: "#88B42D";
+$accent-error: '#FF4040';
+$accent-success: '#88B42D';
 
 .bg-gradient-primary-1 {
   background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
@@ -117,6 +117,14 @@ $accent-success: "#88B42D";
     #ffffff 53.84%,
     #eeeeee 86.46%,
     #c0c0c0 97.83%
+  );
+}
+.bg-gradient-neutral-3 {
+  background: linear-gradient(
+    125.67deg,
+    rgba(234, 235, 241, 0.8) 0.31%,
+    rgba(249, 251, 251, 0.8) 48.39%,
+    rgba(249, 251, 251, 0.8) 98.02%
   );
 }
 .bg-gradient-gold-1 {
@@ -162,7 +170,7 @@ $accent-success: "#88B42D";
 .text-h5,
 .text-h6 {
   font-weight: 700;
-  font-family: "Eczar", "sans-serif";
+  font-family: 'Eczar', 'sans-serif';
 }
 .text-body {
   font-size: 1rem;
@@ -219,7 +227,7 @@ $accent-success: "#88B42D";
 
 app-root {
   display: block;
-  background-image: url("assets/bg-images/main-background.png");
+  background-image: url('assets/bg-images/main-background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

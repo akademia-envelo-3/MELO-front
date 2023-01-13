@@ -15,7 +15,7 @@ const formResultInfoDefault: FormResultInfo = {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="frv-container">
+    <div class="frv-container bg-gradient-neutral-3">
       <p class="text-body-big">
         {{ formResultInfo.messageHeader }}
       </p>
