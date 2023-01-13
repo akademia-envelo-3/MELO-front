@@ -4,18 +4,20 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
-
 import { AppComponent } from "./app.component";
 import { API_URL, IS_PRODUCTION } from "@core/env.token";
 import { environment } from "src/environment";
 import { RouterModule } from "@angular/router";
 import { noProductionGuard } from "@shared/no-production.guard";
+import { UnitFormComponent } from "./features/unit/unit-form/unit-form.component";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UnitFormComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatFormFieldModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -35,6 +37,11 @@ import { noProductionGuard } from "@shared/no-production.guard";
             path: "theme",
             canMatch: [noProductionGuard],
             loadComponent: () => import("./core/theme.component"),
+          },
+          {
+            //ścieżka tymczasowa, na razie jest sam fomularz
+            path: "utworz-kolo",
+            component: UnitFormComponent,
           },
           {
             path: "**",

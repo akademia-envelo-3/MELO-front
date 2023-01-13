@@ -43,7 +43,6 @@ $app-name-theme: mat.define-light-theme(
       accent: $app-name-accent,
       warn: $app-name-warn,
     ),
-
     typography: $my-typography,
   )
 );
