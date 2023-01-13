@@ -241,7 +241,6 @@ app-root {
   color: $neutral-900;
   padding: 0.5rem 2rem;
   border-radius: 5px;
-  cursor: pointer;
 }
 .btn-default {
   @extend .bg-gradient-gold-1;
@@ -268,6 +267,7 @@ app-root {
 }
 
 .btn-rect:not([disabled]) {
+  cursor: pointer;
   transition: 0.3s;
   &:hover {
     transform: scale(1.1);

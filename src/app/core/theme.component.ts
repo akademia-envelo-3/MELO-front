@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <h1>Storybook-like route</h1>
-    <div class="rect-btns-container">
-      <p class="text-body-big">Rectangle Buttons</p>
-      <div class="rect-btns-container__btns">
+    <div class="rectangular-buttons-container">
+      <p class="text-body-big">Rectangular Buttons</p>
+      <div class="rectangular-buttons-container__btns">
         <div>
           <p>Default</p>
           <button class="btn-rect btn-default">Default</button>
