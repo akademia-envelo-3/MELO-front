@@ -1,5 +1,7 @@
-<div class="card card--lg">
-    <img class="card__main-photo" src="assets/mock/beers.png" alt="beer" />
+<div [style.background-image]="'url(' + theme + ')'" class="card card--lg">
+    <div class="card__main-photo">
+        <img src="assets/mock/beers.png" alt="beer" />
+    </div>
     <div class="card__info">
         <div class="card__info__title text-h6">EVENT TITLE</div>
         <div class="card__info__description text-body-small">
@@ -7,4 +9,8 @@
         </div>
         <div class="card__info__start-time text-h6">12.01.2022 14:30</div>
     </div>
+    <div class="card__line"></div>
+    <button class="btn-rect btn-default btn-rect--sm card__button">
+        Więcej
+    </button>
 </div>

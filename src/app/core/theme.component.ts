@@ -7,7 +7,7 @@ import { EventModule } from '../features/event/event.module';
   imports: [EventModule],
   template: `
     <h1>Storybook-like route</h1>
-    <div class="rectangular-buttons-container">
+    <!-- <div class="rectangular-buttons-container">
       <p class="text-body-big">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
@@ -35,8 +35,17 @@ import { EventModule } from '../features/event/event.module';
           <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
+    </div> -->
+    <div class="temp">
+      <app-event-card [theme]="'../../../../assets/cards/card-purple.png'">
+      </app-event-card>
+      <app-event-card [theme]="'../../../../assets/cards/card-white.png'">
+      </app-event-card>
+      <app-event-card [theme]="'../../../../assets/cards/card-brown.png'">
+      </app-event-card>
+      <app-event-card [theme]="'../../../../assets/cards/card-blue.png'">
+      </app-event-card>
     </div>
-    <app-event-card> </app-event-card>
   `,
   styleUrls: ['theme.component.scss'],
 })

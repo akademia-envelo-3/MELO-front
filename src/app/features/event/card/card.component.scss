@@ -1,4 +1,10 @@
 @use './src/styles' as st;
+
+.temp {
+  display: flex;
+  gap: 20px;
+}
+
 .card--md {
   height: 370px;
   width: 215px;
@@ -11,7 +17,7 @@
 
 .card {
   $content-width: 65%;
-  background-image: url('../../../../assets/cards/card-purple.png');
+  // background-image: url('../../../../assets/cards/card-purple.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -22,27 +28,31 @@
   margin: 20px;
 
   &__main-photo {
-    transform: translate(-13px, 60px);
-    // padding: 60px 15px 0 0px;
-    width: $content-width;
-    border-radius: 5px;
+    // transform: translate(-13px, 55px);
+    width: 100%;
+    padding: 45px 14px 0 0px;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
-
+  &__main-photo > img {
+    display: block;
+    margin: 0 auto;
+    width: $content-width;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+  }
   &__info {
     z-index: 3;
     text-align: center;
     width: $content-width;
-    // padding: 10px 15px 0 0px;
-    transform: translate(-13px, 70px);
-    border-radius: 5px;
+    padding: 10px 14px 0 0px;
+    // transform: translate(-13px, 65px);
 
     &__title,
     &__start-time,
     &__description {
       background-color: st.$primary-400;
       border: 1px solid st.$accent-gold-600;
+      border-radius: 5px;
     }
     &__title,
     &__start-time {
@@ -53,11 +63,27 @@
     }
     &__description {
       line-height: 1.3 !important;
-      margin: 10px 0;
+      // margin: 10px 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
       color: st.$neutral-300;
       padding: 0.2rem 1rem;
     }
     &__start-time {
     }
+  }
+  &__line {
+    // @extend st, .bg-gradient-gold-1 !optional;
+    height: 1px;
+    width: $content-width;
+    background-color: st.$accent-gold-600;
+    z-index: 10;
+    margin: 10px 14px 0 0px;
+  }
+
+  &__button {
+    margin: 15px 14px 0 0px;
+    // transform: translate(-13px, 70px);
+    // padding: 0px 1rem !important;
   }
 }
