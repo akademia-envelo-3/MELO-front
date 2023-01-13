@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <h1>Storybook-like route</h1>
-    <div class="rectangular-buttons-container">
+    <div class="rectangular-buttons-container bg-gradient-neutral-3">
       <p class="text-body-big">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
@@ -16,6 +16,10 @@ import { Component } from '@angular/core';
         <div>
           <p>Disabled</p>
           <button class="btn-rect btn-default" disabled>Default</button>
+        </div>
+        <div>
+          <p>Default small</p>
+          <button class="btn-rect btn-rect--sm btn-default">Small</button>
         </div>
         <div>
           <p>Black</p>

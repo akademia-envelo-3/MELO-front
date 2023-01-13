@@ -119,6 +119,14 @@ $accent-success: #88b42d;
     #c0c0c0 97.83%
   );
 }
+.bg-gradient-neutral-3 {
+  background: linear-gradient(
+    125.67deg,
+    rgba(234, 235, 241, 0.8) 0.31%,
+    rgba(249, 251, 251, 0.8) 48.39%,
+    rgba(249, 251, 251, 0.8) 98.02%
+  );
+}
 .bg-gradient-gold-1 {
   background: linear-gradient(
     283.96deg,
@@ -242,6 +250,13 @@ app-root {
   padding: 0.5rem 2rem;
   border-radius: 5px;
 }
+
+.btn-rect--sm {
+  min-width: 80px;
+  font-size: 0.95rem;
+  padding: 0.1rem 1.2rem;
+}
+
 .btn-default {
   @extend .bg-gradient-gold-1;
   box-shadow: 0 0 0 1px #d6b84a, 0 0 0 2px #c39c3c, 0 0 0 3px #d1ac4c, 0 0 0 4px #b99b53,
