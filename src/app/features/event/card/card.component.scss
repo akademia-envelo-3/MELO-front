@@ -1,29 +1,63 @@
-.card--lg {
-  height: 1100px;
-  width: 700px;
-}
-
-.card--sm {
+@use './src/styles' as st;
+.card--md {
   height: 370px;
   width: 215px;
 }
 
-.card--md {
-  height: 475px;
-  width: 255px;
+.card--lg {
+  height: 445px;
+  width: 260px;
 }
 
 .card {
-  // background-image: url('../../../../assets/cards/card-white.png');
-  // height: 475px;
-  // width: 255px;
-  // background-size: contain;
+  $content-width: 65%;
+  background-image: url('../../../../assets/cards/card-purple.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  margin: 20px;
 
-  // background-repeat: no-repeat;
-}
+  &__main-photo {
+    transform: translate(-13px, 60px);
+    // padding: 60px 15px 0 0px;
+    width: $content-width;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 
-.card__theme {
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  &__info {
+    z-index: 3;
+    text-align: center;
+    width: $content-width;
+    // padding: 10px 15px 0 0px;
+    transform: translate(-13px, 70px);
+    border-radius: 5px;
+
+    &__title,
+    &__start-time,
+    &__description {
+      background-color: st.$primary-400;
+      border: 1px solid st.$accent-gold-600;
+    }
+    &__title,
+    &__start-time {
+      color: st.$accent-gold-200;
+    }
+    &__title {
+      text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
+    }
+    &__description {
+      line-height: 1.3 !important;
+      margin: 10px 0;
+      color: st.$neutral-300;
+      padding: 0.2rem 1rem;
+    }
+    &__start-time {
+    }
+  }
 }
