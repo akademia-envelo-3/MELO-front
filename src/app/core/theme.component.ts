@@ -8,7 +8,7 @@ import { PowerIconComponent } from "../shared/ui/power-icon/power-icon.component
   template: `
     <h1>Storybook-like route</h1>
     <div
-      style="display: flex; align-items: center; justify-content: space-around; border: 1px solid white; padding: 50px;"
+      style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; border: 1px solid white; padding: 50px"
     >
       <p>power-icon</p>
 
