@@ -11,7 +11,7 @@ const formResultInfoDefault: FormResultInfo = {
 };
 
 @Component({
-  selector: 'app-form-result-view',
+  selector: 'app-form-result-view[formResultInfo]',
   standalone: true,
   imports: [CommonModule],
   template: `
