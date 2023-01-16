@@ -230,6 +230,7 @@ app-root {
   background-image: url('assets/bg-images/main-background.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   min-height: 100vh;
   width: min(100vw, 1920px);
   margin-inline: auto;
