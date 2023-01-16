@@ -4,8 +4,8 @@ import { ENDPOINTS } from '@shared/constants';
 
 import { BehaviorSubject } from 'rxjs';
 import { Maybe } from '@shared/utility-types';
-import { EventModule } from './event.module';
 import { EventCardDTO, EventDetailsDTO } from '.';
+import EventModule from './event.module';
 
 export type EventState = {
   eventDetails: Maybe<EventDetailsDTO>;

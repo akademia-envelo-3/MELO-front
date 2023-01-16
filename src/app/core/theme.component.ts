@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventModule } from '../features/event/event.module';
+import EventModule from '@features/event/event.module';
 
 @Component({
   selector: 'app-theme',
