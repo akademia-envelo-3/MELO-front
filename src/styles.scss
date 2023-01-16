@@ -119,6 +119,16 @@ $accent-success: "#88B42D";
     #c0c0c0 97.83%
   );
 }
+
+.bg-gradient-neutral-3 {
+  background: linear-gradient(
+    125.67deg,
+    rgba(234, 235, 241, 0.8) 0.31%,
+    rgba(249, 251, 251, 0.8) 48.39%,
+    rgba(249, 251, 251, 0.8) 98.02%
+  );
+}
+
 .bg-gradient-gold-1 {
   background: linear-gradient(
     283.96deg,
