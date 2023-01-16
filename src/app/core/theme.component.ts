@@ -7,6 +7,7 @@ import { FormResultViewComponent, FormResultInfo } from '@shared/ui';
   standalone: true,
   template: `
     <h1>Storybook-like route</h1>
+    <h2>Widok komunikatu po wysłaniu formularza</h2>
     <app-form-result-view [formResultInfo]="formResultInfo">
       <img src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
       <button>-></button>

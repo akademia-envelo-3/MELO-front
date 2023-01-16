@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 export type FormResultInfo = {
   messageHeader: string;
@@ -13,9 +13,9 @@ const formResultInfoDefault: FormResultInfo = {
 @Component({
   selector: 'app-form-result-view[formResultInfo]',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgIf],
   template: `
-    <div class="frv-container bg-gradient-neutral-3">
+    <div class="form-result-view-container bg-gradient-neutral-3">
       <p class="text-body-big">
         {{ formResultInfo.messageHeader }}
       </p>
