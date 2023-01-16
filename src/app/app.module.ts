@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
+
 
 @NgModule({
   declarations: [AppComponent],
