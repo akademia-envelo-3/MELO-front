@@ -5,7 +5,6 @@ import { ENDPOINTS } from '@shared/constants';
 import { BehaviorSubject } from 'rxjs';
 import { Maybe } from '@shared/utility-types';
 import { EventCardDTO, EventDetailsDTO } from '.';
-import EventModule from './event.module';
 
 export type EventState = {
   eventDetails: Maybe<EventDetailsDTO>;
@@ -18,7 +17,7 @@ const eventStateDefault = {
 };
 
 @Injectable({
-  providedIn: EventModule,
+  providedIn: 'root',
 })
 export class EventStateService {
   private eventState$$ = new BehaviorSubject<EventState>(eventStateDefault);

@@ -10,7 +10,7 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-import EventModule from '@features/event/event.module';
+
 import { CustomHttpInterceptor } from './core';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { CustomHttpInterceptor } from './core';
   imports: [
     BrowserModule,
     HttpClientModule,
-    EventModule,
+
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
