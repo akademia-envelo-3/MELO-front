@@ -8,7 +8,7 @@
 
 .card {
   @include card-size();
-  $content-width: 55%;
+  $content-width: 52%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -16,7 +16,6 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &__main-photo {
     width: 100%;
@@ -114,19 +113,19 @@
 
 .card.card--blue {
   .card__main-photo {
-    margin: 38px 4px 0 0 !important;
+    margin: 38px 5px 0 0 !important;
   }
   .card__main-photo > img {
     height: 95%;
   }
   .card__info {
-    margin: 1px 4px 0 0 !important;
+    margin: 1px 5px 0 0 !important;
   }
   .card__line {
     margin: 0;
     opacity: 0;
   }
   .card__button {
-    margin: 20px 4px 0 0 !important;
+    margin: 20px 5px 0 0 !important;
   }
 }

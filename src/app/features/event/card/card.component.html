@@ -1,18 +1,21 @@
 <div
-    [style.background-image]="'url(' + theme + ')'"
-    [ngClass]="'card--' + color"
+    *ngIf="card"
+    [style.background-image]="'url(' + theme.url + ')'"
+    [ngClass]="'card--' + theme.color"
     class="card card--lg">
     <div class="card__main-photo">
-        <img src="assets/mock/beers.png" alt="beer" />
+        <img src="{{ card.mainPhoto }}" alt="beer" />
     </div>
     <div class="card__info">
-        <div class="card__info__title text-h6">EVENT TITLE</div>
-        <div class="card__info__description text-body">
-            <span
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            </span>
+        <div class="card__info__title text-h6">
+            {{ card.name | uppercase }}
         </div>
-        <div class="card__info__start-time text-h6">12.01.2022 14:30</div>
+        <div class="card__info__description text-body">
+            <span>{{ card.description }} </span>
+        </div>
+        <div class="card__info__start-time text-h6">
+            {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
+        </div>
     </div>
     <div class="card__line"></div>
     <button class="btn-rect btn-default btn-rect--sm card__button">

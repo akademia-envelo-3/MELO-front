@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgClass, NgIf } from '@angular/common';
+import { DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/common';
 import { CardComponent } from '.';
 
 @NgModule({
   declarations: [CardComponent],
-  imports: [NgIf, NgClass],
+  imports: [NgIf, NgClass, DatePipe, UpperCasePipe],
   exports: [CardComponent],
 })
 export default class EventModule {}

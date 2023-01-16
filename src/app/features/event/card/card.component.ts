@@ -1,16 +1,20 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { EventCardDTO, Theme } from '..';
 
+type ThemeSource = {
+  url: string;
+  color: Theme;
+};
 @Component({
-  selector: 'app-event-card',
+  selector: 'app-event-card[card]',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
-  @Input() theme = '../../../../assets/cards/card-purple.png';
-  @Input() color = 'purple';
-
-  // ngOnInit() {
-  //   console.log(this.color);
-  // }
+  @Input() theme: ThemeSource = {
+    url: '../../../../assets/cards/card-purple.png',
+    color: 'purple',
+  };
+  @Input() card: EventCardDTO | undefined;
 }
