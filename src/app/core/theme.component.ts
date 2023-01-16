@@ -7,7 +7,9 @@ import { SearchbarComponent, SearchResult } from '../features/ui';
   imports: [SearchbarComponent],
   template: `
     <h1>Storybook-like route</h1>
+    <h2>Widok komponentu wyszukiwania dla wydarzeń</h2>
     <app-searchbar [searchResults]="searchResults"></app-searchbar>
+    <h2>Widok komponentu wyszukiwania dla kół</h2>
     <app-searchbar [searchResults]="searchResults" [typeOfEvent]="false"></app-searchbar>
   `,
 })

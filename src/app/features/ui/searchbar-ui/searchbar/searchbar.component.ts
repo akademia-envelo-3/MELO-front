@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +8,7 @@ import { SearchbarDropdownComponent } from '../searchbar-dropdown/searchbar-drop
 @Component({
   selector: 'app-searchbar',
   standalone: true,
-  imports: [SearchbarDropdownComponent, MatIconModule, CommonModule],
+  imports: [SearchbarDropdownComponent, MatIconModule, NgClass],
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

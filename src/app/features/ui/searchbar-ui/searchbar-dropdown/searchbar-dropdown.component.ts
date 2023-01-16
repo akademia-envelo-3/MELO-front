@@ -1,16 +1,16 @@
-import { SearchbarComponent } from "./../searchbar/searchbar.component";
-import { ChangeDetectionStrategy, Component, inject, OnInit } from "@angular/core";
-import { MatIconModule } from "@angular/material/icon";
-import { CommonModule } from "@angular/common";
-import { SearchType } from "../search.types";
-import { Router } from "@angular/router";
+import { SearchbarComponent } from './../searchbar/searchbar.component';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { SearchType } from '../search.types';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-searchbar-dropdown",
+  selector: 'app-searchbar-dropdown',
   standalone: true,
-  imports: [MatIconModule, CommonModule],
-  templateUrl: "./searchbar-dropdown.html",
-  styleUrls: ["./searchbar-dropdown.component.scss"],
+  imports: [MatIconModule, NgClass, NgFor, NgIf],
+  templateUrl: './searchbar-dropdown.html',
+  styleUrls: ['./searchbar-dropdown.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchbarDropdownComponent implements OnInit {
@@ -23,23 +23,23 @@ export class SearchbarDropdownComponent implements OnInit {
 
   searchTypes: SearchType[] = [
     {
-      searchTypeName: "Tekst",
-      searchTypeIcon: "rtt",
+      searchTypeName: 'Tekst',
+      searchTypeIcon: 'rtt',
       isActive: true,
     },
     {
-      searchTypeName: "Organizator",
-      searchTypeIcon: "person_search",
+      searchTypeName: 'Organizator',
+      searchTypeIcon: 'person_search',
       isActive: false,
     },
     {
-      searchTypeName: "Hashtag",
-      searchTypeIcon: "tag",
+      searchTypeName: 'Hashtag',
+      searchTypeIcon: 'tag',
       isActive: false,
     },
     {
-      searchTypeName: "Kategoria",
-      searchTypeIcon: "category",
+      searchTypeName: 'Kategoria',
+      searchTypeIcon: 'category',
       isActive: false,
     },
   ];
@@ -55,6 +55,6 @@ export class SearchbarDropdownComponent implements OnInit {
   }
 
   navigate() {
-    this.router.navigate([""]);
+    this.router.navigate(['']);
   }
 }
