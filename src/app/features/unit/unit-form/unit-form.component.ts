@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { NonNullableFormBuilder, Validators } from "@angular/forms";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-unit-form",
-  template: `<mat-form-field appearance="outline">
+  selector: 'app-unit-form',
+  template: `<mat-form-field>
       <mat-label>Nazwa koła</mat-label>
-      <input matInput type="text" />
+      <input type="text" />
     </mat-form-field>
 
     <form [formGroup]="unitForm" (ngSubmit)="onSubmit()">
@@ -49,16 +49,16 @@ export class UnitFormComponent {
   private builder = inject(NonNullableFormBuilder);
 
   unitForm = this.builder.group({
-    unitName: this.builder.control("", {
+    unitName: this.builder.control('', {
       validators: [Validators.required, Validators.maxLength(255)],
     }),
-    unitDescription: this.builder.control("", {
+    unitDescription: this.builder.control('', {
       validators: [Validators.required, Validators.maxLength(4000)],
     }),
   });
 
   onSubmit(): void {
     this.unitForm.markAllAsTouched();
-    alert("Thanks!");
+    alert('Thanks!');
   }
 }
