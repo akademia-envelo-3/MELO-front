@@ -2,24 +2,27 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { CommonModule } from "@angular/common";
 
+type SizeOptions = "sm" | "md" | "lg" | "xl";
+type ThemeOptions = "primary" | "secondary" | "teriarty";
 @Component({
   selector: "app-power-icon",
   standalone: true,
   imports: [MatIconModule, CommonModule],
-  templateUrl: "power-button.html",
-  styleUrls: ["./power-button.scss"],
+  templateUrl: "power-icon.html",
+  styleUrls: ["./power-icon.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PowerIconComponent {
   @Input() amountOfPeople = 0;
-  @Input() limitOfPeople: number | undefined;
-  @Input() width = "70px";
-  @Input() height = "70px";
-  @Input() fontSize = "12px";
-  @Input() iconFontSize = "24px";
-}
+  @Input() limitOfPeople?: number;
+  @Input() size: SizeOptions = "md";
+  @Input() theme: ThemeOptions = "primary";
 
-// Do użycia 3 róznie wyglądające power-icons za pomoca class:
-// -- class="theme-primary"
-// -- class="theme-secondary
-// -- class="theme-teriarty
+  get sizeClass() {
+    return "size-" + this.size;
+  }
+
+  get themeClass() {
+    return "theme-" + this.theme;
+  }
+}
