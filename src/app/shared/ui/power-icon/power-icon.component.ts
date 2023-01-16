@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
-import { CommonModule } from "@angular/common";
+import { NgIf, NgClass } from "@angular/common";
 
 type SizeOptions = "sm" | "md" | "lg" | "xl";
 type ThemeOptions = "primary" | "secondary" | "teriarty";
 @Component({
   selector: "app-power-icon",
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, NgIf, NgClass],
   templateUrl: "power-icon.html",
   styleUrls: ["./power-icon.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,

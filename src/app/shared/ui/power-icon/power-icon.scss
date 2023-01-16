@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
   .power-icon-info{
     width: 90%;
     height: 90%;
@@ -71,19 +72,19 @@
       font-size:2.4rem;
     }
     .iconInfinity{
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 
   .size-md{
     width: calc(var(--base-size) * 1.05);
     height: calc(var(--base-size) * 1.05);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     .icon{
       font-size: 3rem;
     }
     .iconInfinity{
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -92,10 +93,10 @@
     height: calc(var(--base-size) * 1.25);
     font-size: 1.8rem;
     .icon{
-      font-size: 4rem;
+      font-size: 3.6rem;
     }
     .iconInfinity{
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
   }
 
@@ -104,7 +105,7 @@
     height: calc(var(--base-size) * 1.5);
     font-size: 2.2rem;
     .icon{
-      font-size: 4.2rem;
+      font-size: 4rem;
     }
     .iconInfinity{
       font-size: 3rem;
