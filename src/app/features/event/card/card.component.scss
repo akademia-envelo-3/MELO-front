@@ -1,23 +1,14 @@
 @use './src/styles' as st;
 
-.temp {
-  display: flex;
-  gap: 20px;
-}
-
-.card--md {
-  height: 370px;
-  width: 215px;
-}
-
-.card--lg {
-  height: 445px;
-  width: 260px;
+@mixin card-size {
+  // 9:7 ratio
+  height: 465px;
+  width: 363px;
 }
 
 .card {
-  $content-width: 65%;
-  // background-image: url('../../../../assets/cards/card-purple.png');
+  @include card-size();
+  $content-width: 55%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,16 +16,16 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &__main-photo {
-    // transform: translate(-13px, 55px);
     width: 100%;
-    padding: 45px 14px 0 0px;
+    margin: 35px 22px 0 0px;
     border: none;
   }
   &__main-photo > img {
     display: block;
+    background-position: center;
     margin: 0 auto;
     width: $content-width;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -44,8 +35,7 @@
     z-index: 3;
     text-align: center;
     width: $content-width;
-    padding: 10px 14px 0 0px;
-    // transform: translate(-13px, 65px);
+    margin: 10px 22px 0 0px;
 
     &__title,
     &__start-time,
@@ -62,28 +52,81 @@
       text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
     }
     &__description {
-      line-height: 1.3 !important;
-      // margin: 10px 0;
       margin-top: 8px;
       margin-bottom: 8px;
       color: st.$neutral-300;
-      padding: 0.2rem 1rem;
+      height: 45%;
+      max-height: 45%;
+      overflow: hidden;
+      padding: 0.2rem 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    &__start-time {
+    &__description > span {
+      text-align: center;
+      display: inline-block;
+      line-height: 1.3 !important;
     }
   }
   &__line {
-    // @extend st, .bg-gradient-gold-1 !optional;
     height: 1px;
     width: $content-width;
     background-color: st.$accent-gold-600;
-    z-index: 10;
-    margin: 10px 14px 0 0px;
+    margin: 15px 22px 0 0px;
   }
 
   &__button {
-    margin: 15px 14px 0 0px;
-    // transform: translate(-13px, 70px);
-    // padding: 0px 1rem !important;
+    margin: 15px 28px 0 0px;
+  }
+}
+.card.card--white {
+  $padding-right: 12px;
+  .card__main-photo {
+    margin: 25px 6px 0 0 !important;
+  }
+
+  .card__info {
+    margin: 10px 6px 0 0 !important;
+  }
+  .card__line {
+    margin: 16px 6px 0 0 !important;
+  }
+  .card__button {
+    margin: 18px 6px 0 0 !important;
+  }
+}
+
+.card.card--brown {
+  .card__main-photo {
+    margin: 30px 0 0 2px !important;
+  }
+  .card__info {
+    margin: 10px 0 0 2px !important;
+  }
+  .card__line {
+    margin: 17px 0 0 2px !important;
+  }
+  .card__button {
+    margin: 20px 0 0 2px !important;
+  }
+}
+
+.card.card--blue {
+  .card__main-photo {
+    margin: 38px 4px 0 0 !important;
+  }
+  .card__main-photo > img {
+    height: 95%;
+  }
+  .card__info {
+    margin: 1px 4px 0 0 !important;
+  }
+  .card__line {
+    margin: 0;
+    opacity: 0;
+  }
+  .card__button {
+    margin: 20px 4px 0 0 !important;
   }
 }

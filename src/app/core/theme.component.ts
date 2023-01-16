@@ -37,13 +37,22 @@ import { EventModule } from '../features/event/event.module';
       </div>
     </div> -->
     <div class="temp">
-      <app-event-card [theme]="'../../../../assets/cards/card-purple.png'">
+      <app-event-card
+        [color]="'purple'"
+        [theme]="'../../../../assets/cards/card-purple.png'"
+      >
       </app-event-card>
-      <app-event-card [theme]="'../../../../assets/cards/card-white.png'">
+      <app-event-card [color]="'blue'" [theme]="'../../../../assets/cards/card-blue.png'">
       </app-event-card>
-      <app-event-card [theme]="'../../../../assets/cards/card-brown.png'">
+      <app-event-card
+        [color]="'white'"
+        [theme]="'../../../../assets/cards/card-white.png'"
+      >
       </app-event-card>
-      <app-event-card [theme]="'../../../../assets/cards/card-blue.png'">
+      <app-event-card
+        [color]="'brown'"
+        [theme]="'../../../../assets/cards/card-brown.png'"
+      >
       </app-event-card>
     </div>
   `,

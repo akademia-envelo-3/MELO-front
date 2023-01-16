@@ -8,4 +8,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() theme = '../../../../assets/cards/card-purple.png';
+  @Input() color = 'purple';
+
+  ngOnInit() {
+    console.log(this.color);
+  }
 }
