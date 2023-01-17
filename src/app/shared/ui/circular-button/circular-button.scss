@@ -1,5 +1,6 @@
 :host button{
     --base-size: 40px;
+    --base-text-size: 10px;
     --color1: #211918;
     --color2: #231D18;
     --color3: #AAA096;
@@ -8,7 +9,6 @@
     --color6: #CAC7C5;
     --color7: #B9B9B9;
     --color8: #A4A4A4;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,8 +18,6 @@
     background: linear-gradient(304.91deg, #323232 14.59%, #2C2120 82.16%);
     transition: all .3s;
 
-    
-    
     .icon{
         color: #FFFFFF;
         display: flex;
@@ -40,13 +38,11 @@
 :host button:hover{
     cursor: pointer;
     transform: scale(1.1);
-    
 }
 
 .size-sm{
     width: calc(var(--base-size) * 0.75);
     height: calc(var(--base-size) * 0.75);
-    font-size: 7px;
     .icon{
         font-size: 20px;
     }
@@ -55,7 +51,6 @@
 .size-md{
     width: calc(var(--base-size) * 1.25);
     height: calc(var(--base-size) * 1.25);
-    font-size: 13px;
     .icon{
         font-size: 32px;
     }
@@ -64,7 +59,6 @@
 .size-lg{
     width: calc(var(--base-size) * 1.5);
     height: calc(var(--base-size) * 1.5);
-    font-size: 16px;
     .icon{
         font-size: 48px;
     }
@@ -73,8 +67,27 @@
 .size-xl{
     width: calc(var(--base-size) * 2);
     height: calc(var(--base-size) * 2);
-    font-size: 22px;
     .icon{
-        font-size: 64px;
+        font-size: 60px;
     }
+}
+
+.textSize-sm{
+    font-size: calc(var(--base-text-size)* .8);
+}
+
+.textSize-md{
+    font-size: calc(var(--base-text-size) * 1.2);
+}
+
+.textSize-lg{
+    font-size: calc(var(--base-text-size)* 1.6);
+}
+
+.textSize-xl{
+    font-size: calc(var(--base-text-size)* 2);
+}
+
+.textSize-xxl{
+    font-size: calc(var(--base-text-size)* 2.4);
 }
