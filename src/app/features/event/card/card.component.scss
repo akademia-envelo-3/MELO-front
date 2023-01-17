@@ -1,14 +1,22 @@
 @use './src/styles' as st;
 
-@mixin card-size {
+@mixin margin-purple($height) {
+  margin: $height 22px 0 0;
+}
+@mixin margin-blue($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-white($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-brown($height) {
+  margin: $height 0 0 2px;
+}
+.card {
+  $content-width: 52%;
   // 9:7 ratio
   height: 465px;
-  width: 363px;
-}
-
-.card {
-  @include card-size();
-  $content-width: 52%;
+  width: 375px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -19,7 +27,7 @@
 
   &__main-photo {
     width: 100%;
-    margin: 35px 22px 0 0px;
+    @include margin-purple(35px);
     border: none;
   }
   &__main-photo > img {
@@ -34,8 +42,7 @@
     z-index: 3;
     text-align: center;
     width: $content-width;
-    margin: 10px 22px 0 0px;
-
+    @include margin-purple(10px);
     &__title,
     &__start-time,
     &__description {
@@ -45,12 +52,14 @@
     }
     &__title,
     &__start-time {
+      @extend st, .text-h6 !optional;
       color: st.$accent-gold-200;
     }
     &__title {
       text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
     }
     &__description {
+      @extend st, .text-body !optional;
       margin-top: 8px;
       margin-bottom: 8px;
       color: st.$neutral-300;
@@ -72,60 +81,104 @@
     height: 1px;
     width: $content-width;
     background-color: st.$accent-gold-600;
-    margin: 15px 22px 0 0px;
+    @include margin-purple(15px);
   }
-
   &__button {
-    margin: 15px 28px 0 0px;
-  }
-}
-.card.card--white {
-  $padding-right: 12px;
-  .card__main-photo {
-    margin: 25px 6px 0 0 !important;
-  }
-
-  .card__info {
-    margin: 10px 6px 0 0 !important;
-  }
-  .card__line {
-    margin: 16px 6px 0 0 !important;
-  }
-  .card__button {
-    margin: 18px 6px 0 0 !important;
+    @include margin-purple(15px);
   }
 }
 
-.card.card--brown {
+.card--white {
   .card__main-photo {
-    margin: 30px 0 0 2px !important;
+    @include margin-white(25px);
   }
   .card__info {
-    margin: 10px 0 0 2px !important;
+    @include margin-white(10px);
   }
   .card__line {
-    margin: 17px 0 0 2px !important;
+    @include margin-white(16px);
   }
   .card__button {
-    margin: 20px 0 0 2px !important;
+    @include margin-white(18px);
   }
 }
-
-.card.card--blue {
+.card--brown {
   .card__main-photo {
-    margin: 38px 5px 0 0 !important;
+    @include margin-brown(30px);
+  }
+  .card__info {
+    @include margin-brown(10px);
+  }
+  .card__line {
+    @include margin-brown(17px);
+  }
+  .card__button {
+    @include margin-brown(20px);
+  }
+}
+.card--blue {
+  .card__main-photo {
+    @include margin-blue(38px);
   }
   .card__main-photo > img {
     height: 95%;
   }
   .card__info {
-    margin: 1px 5px 0 0 !important;
+    @include margin-blue(1px);
   }
   .card__line {
     margin: 0;
     opacity: 0;
   }
   .card__button {
-    margin: 20px 5px 0 0 !important;
+    @include margin-blue(20px);
+  }
+}
+
+.card.card--sm {
+  height: 389px;
+  width: 310px;
+
+  .card__main-photo {
+    @include margin-purple(22px);
+  }
+  .card__info__title,
+  .card__info__start-time {
+    @extend st, .text-h7 !optional;
+  }
+  .card__info__description {
+    @extend st, .text-body-small !optional;
+  }
+  .card__main-photo > img {
+    height: 95%;
+  }
+  .btn-rect--sm {
+    font-size: 0.87rem;
+  }
+}
+.card.card--brown.card--sm {
+  .card__info {
+    @include margin-brown(5px);
+  }
+  .card__main-photo {
+    @include margin-brown(20px);
+  }
+}
+
+.card.card--white.card--sm {
+  .card__info {
+    @include margin-white(5px);
+  }
+  .card__main-photo {
+    @include margin-white(15px);
+  }
+}
+
+.card.card--blue.card--sm {
+  .card__main-photo {
+    @include margin-blue(25px);
+  }
+  .card__info {
+    @include margin-blue(2px);
   }
 }
