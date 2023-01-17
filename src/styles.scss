@@ -269,6 +269,7 @@ app-root {
   @extend .bg-gradient-primary-1;
   box-shadow: 0 0 0 1px #aaa096, 0 0 0 2px #f1e3e3, 0 0 0 3px #d9d6d3, 0 0 0 4px #bfbcba,
     0 0 0 5px #afafaf, 0 0 0 6px #9e9e9e;
+  color: $neutral-100;
 }
 
 .btn-green {
@@ -291,10 +292,22 @@ app-root {
 }
 
 ///// INPUTS /////
+
+//bg-color for inputs
 .mdc-notched-outline {
   background-color: $neutral-300;
   border-radius: 5px;
 }
+
+//fix outlined appearance for labels
 .mat-mdc-text-field-wrapper.mdc-text-field--outlined {
   height: 56px;
+}
+label.mdc-floating-label.mat-mdc-floating-label {
+  top: 1.5rem;
+}
+
+.mat-mdc-form-field {
+  min-width: 200px;
+  width: 100%;
 }

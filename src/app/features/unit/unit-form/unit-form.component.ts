@@ -3,12 +3,8 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-unit-form',
-  template: `<mat-form-field>
-      <mat-label>Nazwa koła</mat-label>
-      <input type="text" />
-    </mat-form-field>
-
-    <form [formGroup]="unitForm" (ngSubmit)="onSubmit()">
+  template: `
+    <form [formGroup]="unitForm" (ngSubmit)="onSubmit()" class="bg-gradient-neutral-3">
       <mat-form-field appearance="outline">
         <mat-label>Nazwa koła</mat-label>
         <input matInput type="text" formControlName="unitName" />
@@ -18,17 +14,24 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
           Maksymalna dopuszczalna ilość znaków to 255
         </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Opis</mat-label>
-        <textarea matInput formControlName="unitDescription"></textarea>
+      <mat-form-field appearance="outline" class="textarea-form-field">
+        <mat-label class="indLabel">Opis</mat-label>
+        <textarea
+          matInput
+          formControlName="unitDescription"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="5"
+        ></textarea>
         <mat-error *ngIf="unitForm.controls['unitDescription'].hasError('required')">
           Pole opis koła jest wymagane </mat-error
         ><mat-error *ngIf="unitForm.controls['unitDescription'].hasError('maxlength')">
           Maksymalna dopuszczalna ilość znaków to 4000
         </mat-error>
       </mat-form-field>
-      <mat-form-field><button type="submit">Submit</button></mat-form-field>
-    </form> `,
+
+      <button class="btn-rect btn-black" type="submit">Utwórz</button>
+    </form>
+  `,
   styles: [
     `
       form {
@@ -36,10 +39,20 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
         color: black;
         display: flex;
         flex-direction: column;
+        max-width: 500px;
+        border-radius: 25px;
+        padding: 2rem;
+        align-items: center;
       }
       :host {
         display: block;
         padding-top: 4rem;
+      }
+      .mat-mdc-form-field {
+        margin-bottom: 2rem;
+      }
+      .textarea-form-field {
+        height: 400px;
       }
     `,
   ],
@@ -59,6 +72,6 @@ export class UnitFormComponent {
 
   onSubmit(): void {
     this.unitForm.markAllAsTouched();
-    alert('Thanks!');
+    console.log('submitted!');
   }
 }
