@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -21,8 +22,8 @@ const memberNumberFontSizes = {
   lg: '1.8rem',
   xl: '3rem',
 };
-type SizeOptions = 'sm' | 'md' | 'lg' | 'xl';
-const sizes = ['sm', 'md', 'lg', 'xl'];
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
+type SizeOptions = typeof sizes[number];
 type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
 
 @Component({
@@ -33,15 +34,15 @@ type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
   styleUrls: ['./power-icon.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PowerIconComponent {
+export class PowerIconComponent implements AfterContentInit {
   @ViewChild('members', { static: true })
   membersElement!: ElementRef<HTMLParagraphElement>;
   @ViewChild('limit', { static: true })
   limitElement!: ElementRef<HTMLParagraphElement>;
-  @ViewChild('infinityIcon', { static: true })
+  @ViewChild('iconInfinity', { static: true })
   iconElement!: ElementRef<HTMLDivElement>;
-  @Input() amountOfPeople = 0;
-  @Input() limitOfPeople?: number = undefined;
+  @Input() memberNumber = 0;
+  @Input() memberLimit?: number;
   @Input() size: SizeOptions = 'md';
   @Input() theme: ThemeOptions = 'primary';
 
@@ -61,26 +62,24 @@ export class PowerIconComponent {
     return 'theme-' + this.theme;
   }
   private calcFontSize(size: SizeOptions) {
-    if (this.amountOfPeople > 99) {
+    if (this.memberNumber > 99) {
       return sizes.find((size, index, array) => {
         if (size === this.size) {
           array[index - 1];
         }
       }) as SizeOptions;
     }
-
     return size;
   }
   private setMemberViewFontSize(fontSize: SizeOptions) {
     this.membersElement.nativeElement.style.fontSize = memberNumberFontSizes[fontSize];
-    if (this.limitOfPeople) {
-      console.log('hit');
+    if (this.memberNumber) {
       this.limitElement.nativeElement.style.fontSize = memberNumberFontSizes[fontSize];
     }
   }
 
   private setInifnityIconSize(fontSize: SizeOptions) {
-    if (!this.limitOfPeople) return;
-    this.limitElement.nativeElement.style.fontSize = iconFontSizes[fontSize];
+    if (!this.memberNumber) return;
+    this.iconElement.nativeElement.style.fontSize = iconFontSizes[fontSize];
   }
 }

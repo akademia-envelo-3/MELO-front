@@ -28,49 +28,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-mat-icon {
-  overflow: visible;
-}
+  mat-icon {
+    overflow: visible;
+  }
 
-.power-icon {
-  width: 90%;
-  height: 90%;
-  font-family: 'Eczar', 'sans-serif';
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
+  .power-icon {
+    width: 90%;
+    height: 90%;
+    font-family: 'Eczar', 'sans-serif';
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
 
-  &__info {
     &__amountOfPeople {
       position: relative;
       top: -15%;
     }
+
+    &__separetor {
+      position: relative;
+    }
+
     &__limitOfPeople {
       position: relative;
       top: 15%;
     }
-    &__separator {
-      position: relative;
-    }
   }
-  &__icon {
+
+  .icon {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: visible;
   }
+  // .iconInfinity {
+  //   overflow: visible;
+  // }
 }
 
 .size-sm {
   width: calc(var(--base-size) * 0.75);
   height: calc(var(--base-size) * 0.75);
   font-size: 1rem;
-  .power-icon__icon {
+  .icon {
     font-size: 2.4rem;
   }
-  .power-icon__info__infinityIcon {
+  .iconInfinity {
     font-size: 1.2rem;
   }
 }
@@ -79,10 +83,10 @@ mat-icon {
   width: calc(var(--base-size) * 1.05);
   height: calc(var(--base-size) * 1.05);
   font-size: 1.4rem;
-  .power-icon__icon {
+  .icon {
     font-size: 3rem;
   }
-  .power-icon__info__infinityIcon {
+  .iconInfinity {
     font-size: 1.8rem;
   }
 }
@@ -91,10 +95,10 @@ mat-icon {
   width: calc(var(--base-size) * 1.25);
   height: calc(var(--base-size) * 1.25);
   font-size: 1.8rem;
-  .power-icon__icon {
+  .icon {
     font-size: 3.6rem;
   }
-  .power-icon__info__infinityIcon {
+  .iconInfinity {
     font-size: 2.4rem;
   }
 }
@@ -103,10 +107,10 @@ mat-icon {
   width: calc(var(--base-size) * 1.5);
   height: calc(var(--base-size) * 1.5);
   font-size: 2.2rem;
-  .power-icon__icon {
+  .icon {
     font-size: 4rem;
   }
-  .power-icon__info__infinityIcon {
+  .iconInfinity {
     font-size: 3rem;
   }
 }

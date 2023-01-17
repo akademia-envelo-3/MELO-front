@@ -42,7 +42,14 @@ import { PowerIconComponent } from '@shared/ui';
     </div> -->
 
     <p>power-icon</p>
-    <app-power-icon [limitOfPeople]="30" size="xl" theme="teriarty"></app-power-icon>
+    <!-- <app-power-icon [limitOfPeople]="30" size="xl" theme="teriarty"></app-power-icon> -->
+    <p>power-icon</p>
+    <!-- <app-power-icon [limitOfPeople]="30" size="xl" theme="secondary"></app-power-icon> -->
+    <p>power-icon</p>
+    <app-power-icon size="xl" theme="primary"></app-power-icon>
+
+    <!-- <app-power-icon [limitOfPeople]="30" size="md" theme="secondary"></app-power-icon>
+    <app-power-icon [limitOfPeople]="30" size="xl" theme="primary"></app-power-icon> -->
     <!-- <app-power-icon size="md" theme="secondary" [amountOfPeople]="21"></app-power-icon> -->
     <!-- <app-power-icon size="lg" theme="teriarty" [amountOfPeople]="21"></app-power-icon>
       <app-power-icon size="xl" theme="primary"></app-power-icon> -->
