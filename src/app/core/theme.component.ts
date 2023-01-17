@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PowerIconComponent } from '../shared/ui/power-icon/power-icon.component';
+import { PowerIconComponent } from '@shared/ui';
 
 @Component({
   selector: 'app-theme',
@@ -7,7 +7,7 @@ import { PowerIconComponent } from '../shared/ui/power-icon/power-icon.component
   imports: [PowerIconComponent],
   template: `
     <h1>Storybook-like route</h1>
-    <div class="rectangular-buttons-container bg-gradient-neutral-3">
+    <!-- <div class="rectangular-buttons-container bg-gradient-neutral-3">
       <p class="text-body-big">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
@@ -39,17 +39,14 @@ import { PowerIconComponent } from '../shared/ui/power-icon/power-icon.component
           <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
-    </div>
-    <div
-      style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; border: 1px solid white; padding: 50px"
-    >
-      <p>power-icon</p>
+    </div> -->
 
-      <app-power-icon size="sm" theme="primary" [amountOfPeople]="21"></app-power-icon>
-      <app-power-icon size="md" theme="secondary" [amountOfPeople]="21"></app-power-icon>
-      <app-power-icon size="lg" theme="teriarty" [amountOfPeople]="21"></app-power-icon>
-      <app-power-icon size="xl" theme="primary"></app-power-icon>
-      <app-power-icon
+    <p>power-icon</p>
+    <app-power-icon [limitOfPeople]="30" size="xl" theme="teriarty"></app-power-icon>
+    <!-- <app-power-icon size="md" theme="secondary" [amountOfPeople]="21"></app-power-icon> -->
+    <!-- <app-power-icon size="lg" theme="teriarty" [amountOfPeople]="21"></app-power-icon>
+      <app-power-icon size="xl" theme="primary"></app-power-icon> -->
+    <!-- <app-power-icon
         size="sm"
         theme="primary"
         [amountOfPeople]="21"
@@ -97,7 +94,7 @@ import { PowerIconComponent } from '../shared/ui/power-icon/power-icon.component
         [amountOfPeople]="999"
         [limitOfPeople]="999"
       ></app-power-icon>
-    </div>
+    </div> -->
   `,
   styleUrls: ['theme.component.scss'],
 })

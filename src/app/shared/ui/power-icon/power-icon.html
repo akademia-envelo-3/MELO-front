@@ -1,19 +1,17 @@
 <div [ngClass]="[themeClass, sizeClass]">
-    <div class="power-icon">
-        <div class="power-icon__info">
-            <p class="power-icon__info__amountOfPeople">{{amountOfPeople}}</p>
-            <p class="power-icon__info__separetor">/</p>
-            <p
-                class="power-icon__info__limitOfPeople"
-                *ngIf="limitOfPeople; else infinityIconBlock">
+    <div class="power-icon-info">
+        <div>
+            <p #members class="amountOfPeople">{{amountOfPeople}}</p>
+            <p class="separetor">/</p>
+            <p #limit class="limitOfPeople" *ngIf="limitOfPeople">
                 {{limitOfPeople}}
             </p>
-            <ng-template #infinityIconBlock
-                ><mat-icon class="power-icon__info__infinityIcon"
-                    >all_inclusive</mat-icon
-                ></ng-template
-            >
+            <ng-template #icon>
+                <mat-icon #infinityIcon class="iconInfinity">
+                    all_inclusive
+                </mat-icon>
+            </ng-template>
         </div>
-        <mat-icon class="power-icon__icon">group</mat-icon>
+        <mat-icon class="icon">group</mat-icon>
     </div>
 </div>
