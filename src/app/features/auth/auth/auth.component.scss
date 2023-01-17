@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(21px, 3.5vw, 80px) clamp(23px, 3.5vw, 160px);
+  min-width: clamp(350px, 40vw, 500px);
+  margin-inline: auto;
+
+  &__logo {
+    margin: clamp(-60px, -4.5vw, -20px);
+    width: clamp(200px, 30vw, 380px);
+  }
+
+  input {
+    height: 3rem;
+  }
+  mat-icon {
+    color: #b99b53;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  &__rememberMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    gap: 10px;
+
+    input[type='checkbox'] {
+      width: 20px;
+    }
+  }
+  button {
+    align-self: center;
+  }
+}

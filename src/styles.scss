@@ -48,6 +48,7 @@ $app-name-theme: mat.define-light-theme(
 );
 
 @include mat.input-color($app-name-theme);
+@include mat.checkbox-color($app-name-theme);
 @include mat.form-field-color($app-name-theme);
 @include mat.select-color($app-name-theme);
 @include mat.chips-color($app-name-theme);
@@ -223,6 +224,11 @@ $accent-success: #88b42d;
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
   .mdc-evolution-chip__text-label {
   color: $accent-gold-800 !important;
+}
+
+.mat-mdc-form-field-error {
+  font-size: 14px;
+  line-height: 1.3;
 }
 
 app-root {
