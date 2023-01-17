@@ -65,6 +65,7 @@ $app-name-theme: mat.define-light-theme(
   margin: 0;
   padding: 0;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 html,
@@ -294,9 +295,8 @@ app-root {
 ///// INPUTS /////
 
 //bg-color for inputs
-.mdc-notched-outline {
+.mat-mdc-text-field-wrapper.mdc-text-field {
   background-color: $neutral-300;
-  border-radius: 5px;
 }
 
 //fix outlined appearance for labels
@@ -310,4 +310,15 @@ label.mdc-floating-label.mat-mdc-floating-label {
 .mat-mdc-form-field {
   min-width: 200px;
   width: 100%;
+}
+
+//style errors
+.mat-mdc-form-field-error {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.mat-mdc-form-field input,
+.mat-mdc-form-field textarea {
+  padding-top: 1rem;
 }
