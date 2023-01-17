@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SpinnerDotsComponent } from '@shared/ui/spinner-dots.component';
+import { SpinnerDotsComponent } from '@shared/index';
 
 @Component({
   selector: 'app-theme',
@@ -7,7 +7,10 @@ import { SpinnerDotsComponent } from '@shared/ui/spinner-dots.component';
   imports: [SpinnerDotsComponent],
   template: `
     <h1>Storybook-like route</h1>
-    <app-spinner-dots size="md"></app-spinner-dots>
+    <div>
+      <p class="text-h4">Spinner Dots</p>
+      <app-spinner-dots size="md"></app-spinner-dots>
+    </div>
   `,
 })
 export default class ThemeComponent {}

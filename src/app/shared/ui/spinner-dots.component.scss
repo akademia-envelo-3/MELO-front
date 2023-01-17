@@ -2,8 +2,9 @@
   margin: 0 0.3rem;
   border-radius: 50%;
   display: inline-block;
-  animation: bounce 1.3s infinite ease-in-out both;
   position: relative;
+  min-width: max-content;
+  animation: bounce 1.3s infinite ease-in-out both;
 
   &::before,
   &::after {
@@ -13,17 +14,17 @@
     border-radius: 50%;
     background-color: inherit;
     display: inline-block;
-    animation: bounce 1.3s infinite ease-in-out both;
     position: absolute;
+    animation: bounce 1.3s infinite ease-in-out both;
   }
 
   &::after {
-    left: 56px;
+    transform: translateX(56px);
     animation-delay: 0.35s;
   }
 
   &::before {
-    left: 28px;
+    transform: translateX(28px);
     animation-delay: 0.19s;
   }
 }
