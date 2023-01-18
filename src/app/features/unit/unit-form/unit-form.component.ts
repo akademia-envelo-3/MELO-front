@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { NonNullableFormBuilder, Validators } from '@angular/forms';
-
+import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
+// [ngStyle]="unitForm.controls.unitName.valid ? color : 'accent'"
 @Component({
   selector: 'app-unit-form',
   template: `
@@ -84,6 +85,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 })
 export class UnitFormComponent implements OnInit {
   private builder = inject(NonNullableFormBuilder);
+  // colorControl = new FormControl('accent' as ThemePalette);
 
   ngOnInit() {
     this.getFormValuesFromSessionStorage();
