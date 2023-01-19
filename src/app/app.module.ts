@@ -1,45 +1,48 @@
-import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from "@ngrx/effects";
-import { MatIconModule } from "@angular/material/icon";
-import { AppComponent } from "./app.component";
-import { API_URL, IS_PRODUCTION } from "@core/env.token";
-import { environment } from "src/environment";
-import { RouterModule } from "@angular/router";
-import { noProductionGuard } from "@shared/no-production.guard";
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AppComponent } from './app.component';
+import { API_URL, IS_PRODUCTION } from '@core/env.token';
+import { environment } from 'src/environment';
+import { RouterModule } from '@angular/router';
+import { noProductionGuard } from '@shared/no-production.guard';
+import { EventModule } from './features/event';
+import { CustomHttpInterceptor } from './core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    EventModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     MatIconModule,
     RouterModule.forRoot([
       {
-        path: "",
+        path: '',
         children: [
           {
-            path: "",
-            loadChildren: () => import("./features/home/home.module"),
+            path: '',
+            loadChildren: () => import('./features/home/home.module'),
           },
           {
-            path: "auth",
-            loadChildren: () => import("./features/auth/auth.module"),
+            path: 'auth',
+            loadChildren: () => import('./features/auth/auth.module'),
           },
           {
-            path: "theme",
+            path: 'theme',
             canMatch: [noProductionGuard],
-            loadComponent: () => import("./core/theme.component"),
+            loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: "**",
-            redirectTo: "",
+            path: '**',
+            redirectTo: '',
           },
         ],
       },
@@ -53,6 +56,11 @@ import { noProductionGuard } from "@shared/no-production.guard";
     {
       provide: IS_PRODUCTION,
       useValue: environment.production,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],
