@@ -2,28 +2,14 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   Input,
-  ViewChild,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgClass } from '@angular/common';
 
-const iconFontSizes = {
-  sm: '2.4rem',
-  md: '3rem',
-  lg: '3.6rem',
-  xl: '4rem',
-};
-
-const memberNumberFontSizes = {
-  sm: '1rem',
-  md: '1.4rem',
-  lg: '1.8rem',
-  xl: '3rem',
-};
-const sizes = ['sm', 'md', 'lg', 'xl'] as const;
-type SizeOptions = typeof sizes[number];
+const iconSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+type IconSizes = 'sm' | 'md' | 'lg' | 'xl';
+type SizeOptions = typeof iconSizes[number];
 type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
 
 @Component({
@@ -35,51 +21,39 @@ type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PowerIconComponent implements AfterContentInit {
-  @ViewChild('members', { static: true })
-  membersElement!: ElementRef<HTMLParagraphElement>;
-  @ViewChild('limit', { static: true })
-  limitElement!: ElementRef<HTMLParagraphElement>;
-  @ViewChild('iconInfinity', { static: true })
-  iconElement!: ElementRef<HTMLDivElement>;
+  fontSize: SizeOptions = 'md';
   @Input() memberNumber = 0;
   @Input() memberLimit?: number;
-  @Input() size: SizeOptions = 'md';
+  @Input() size: IconSizes = 'md';
   @Input() theme: ThemeOptions = 'primary';
 
   ngAfterContentInit() {
-    const fontSize = this.calcFontSize(this.size);
-
-    this.setMemberViewFontSize(fontSize);
-
-    this.setInifnityIconSize(fontSize);
+    this.fontSize = this.calcFontSize();
   }
 
   get sizeClass() {
-    return 'size-' + this.size;
+    return 'size--' + this.size;
   }
 
   get themeClass() {
-    return 'theme-' + this.theme;
-  }
-  private calcFontSize(size: SizeOptions) {
-    if (this.memberNumber > 99) {
-      return sizes.find((size, index, array) => {
-        if (size === this.size) {
-          array[index - 1];
-        }
-      }) as SizeOptions;
-    }
-    return size;
-  }
-  private setMemberViewFontSize(fontSize: SizeOptions) {
-    this.membersElement.nativeElement.style.fontSize = memberNumberFontSizes[fontSize];
-    if (this.memberNumber) {
-      this.limitElement.nativeElement.style.fontSize = memberNumberFontSizes[fontSize];
-    }
+    return 'theme--' + this.theme;
   }
 
-  private setInifnityIconSize(fontSize: SizeOptions) {
-    if (!this.memberNumber) return;
-    this.iconElement.nativeElement.style.fontSize = iconFontSizes[fontSize];
+  get textSizeClass() {
+    return 'font-text--' + this.fontSize;
+  }
+
+  get iconInfinityClass() {
+    return 'icon-infinity--' + this.fontSize;
+  }
+  private calcFontSize() {
+    if (this.memberNumber > 99) {
+      for (let i = 0; i < iconSizes.length; i++) {
+        if (iconSizes[i] === this.size) {
+          return iconSizes[i - 1];
+        }
+      }
+    }
+    return this.size;
   }
 }

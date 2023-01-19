@@ -41,16 +41,18 @@
     display: flex;
     flex-direction: column;
 
-    &__amountOfPeople {
+    &__member-number {
       position: relative;
       top: -15%;
+      left: 2%;
     }
 
     &__separetor {
       position: relative;
+      left: -2%;
     }
 
-    &__limitOfPeople {
+    &__member-limit {
       position: relative;
       top: 15%;
     }
@@ -62,74 +64,102 @@
     align-items: center;
     overflow: visible;
   }
-  // .iconInfinity {
-  //   overflow: visible;
-  // }
+  .iconInfinity {
+    overflow: visible;
+  }
+}
+.font-text--xs {
+  font-size: 1rem;
+}
+.font-text--sm {
+  font-size: 1.4rem;
+}
+.font-text--md {
+  font-size: 2rem;
+}
+.font-text--lg {
+  font-size: 2.4rem;
+}
+.font-text--xl {
+  font-size: 3rem;
 }
 
-.size-sm {
+.icon-infinity--xs {
+  font-size: 1.8rem;
+  position: relative;
+}
+
+.icon-infinity--sm {
+  font-size: 2rem;
+  position: relative;
+  left: -2%;
+}
+.icon-infinity--md {
+  font-size: 2.6rem;
+  position: relative;
+  left: -5%;
+}
+.icon-infinity--lg {
+  font-size: 3rem;
+  position: relative;
+  left: -6%;
+}
+.icon-infinity--xl {
+  position: relative;
+  font-size: 3.5rem;
+  left: -9%;
+}
+.size--sm {
   width: calc(var(--base-size) * 0.75);
   height: calc(var(--base-size) * 0.75);
-  font-size: 1rem;
+
   .icon {
-    font-size: 2.4rem;
-  }
-  .iconInfinity {
-    font-size: 1.2rem;
+    font-size: 2.4rem !important;
   }
 }
 
-.size-md {
+.size--md {
   width: calc(var(--base-size) * 1.05);
   height: calc(var(--base-size) * 1.05);
-  font-size: 1.4rem;
+
   .icon {
-    font-size: 3rem;
-  }
-  .iconInfinity {
-    font-size: 1.8rem;
+    font-size: 3rem !important;
   }
 }
 
-.size-lg {
+.size--lg {
   width: calc(var(--base-size) * 1.25);
   height: calc(var(--base-size) * 1.25);
-  font-size: 1.8rem;
+
   .icon {
-    font-size: 3.6rem;
-  }
-  .iconInfinity {
-    font-size: 2.4rem;
+    font-size: 3.6rem !important;
   }
 }
 
-.size-xl {
+.size--xl {
   width: calc(var(--base-size) * 1.5);
   height: calc(var(--base-size) * 1.5);
-  font-size: 2.2rem;
+
   .icon {
-    font-size: 4rem;
-  }
-  .iconInfinity {
-    font-size: 3rem;
+    font-size: 4rem !important;
   }
 }
 
-.theme-primary {
+.theme--primary {
   box-shadow: 0 0 0 1px var(--color11), 0 0 0 2px var(--color12), 0 0 0 3px var(--color13),
     0 0 0 4px var(--color14), 0 0 0 5px var(--color15), 0 0 0 6px var(--color16),
     0 0 0 7px var(--color17), 0 0 0 8px var(--color18);
   background: linear-gradient(127.13deg, #e8dbc9 14.82%, #f8f0e9 64.64%, #b08095 85.63%);
 }
 
-.theme-secondary {
+.theme--secondary {
   box-shadow: 0 0 0 1px var(--color21), 0 0 0 2px var(--color22), 0 0 0 3px var(--color23),
     0 0 0 4px var(--color24), 0 0 0 5px var(--color25), 0 0 0 6px var(--color26),
     0 0 0 7px var(--color27), 0 0 0 8px var(--color28);
   background: linear-gradient(127.13deg, #e8dbc9 14.82%, #f8f0e9 64.64%, #3d6d6c 85.63%);
 }
 
-.theme-teriarty {
+.theme--teriarty {
   box-shadow: 0 0 0 1px var(--color31), 0 0 0 2px var(--color32), 0 0 0 3px var(--color33),
     0 0 0 4px var(--color34), 0 0 0 5px var(--color35), 0 0 0 6px var(--color36),
     0 0 0 7px var(--color37), 0 0 0 8px var(--color38);
