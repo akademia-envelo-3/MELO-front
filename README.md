@@ -19,4 +19,9 @@ PRODUCTION=false
 4. znaczniki + kod tasku + treść
 
 feat: in progress of creating icon
+
 <!-- Cos mi tu nie gra, konsultacja z grupa wymagana  -->
+
+### Struktura plików w komponencie
+
+1. Jeżeli część HTML lub SCSS mają ponad 20 linijek, tworzymy dla nich osobny plik

@@ -1,11 +1,10 @@
-@use './src/styles' as styles;
+@use './src/styles' as st;
 
-:host {
+app-circular-button {
+  padding: 1rem;
   display: block;
-
-  app-circular-button {
-    padding: 1rem;
-    display: block;
+  @include st.media-md {
+    display: none;
   }
 }
 
@@ -17,34 +16,35 @@
   padding: clamp(21px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
   width: clamp(280px, 80vw, 1130px);
   margin-inline: auto;
+
   &_header {
-    color: styles.$neutral-100;
+    color: st.$neutral-100;
     text-align: center;
     padding-bottom: 1rem;
-    border-bottom: 2px solid styles.$neutral-100;
+    border-bottom: 2px solid st.$neutral-100;
   }
-}
 
-form {
-  margin-top: 1.5rem;
-  color: styles.$neutral-900;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: clamp(12px, 3.5vw, 36px) clamp(21px, 6.5vw, 42px);
-  align-items: center;
-  width: clamp(280px, 85vw, 670px);
-}
+  &_form {
+    display: flex;
+    flex-direction: column;
+    color: st.$neutral-900;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    padding: clamp(21px, 6.5vw, 36px) clamp(12px, 3.5vw, 42px);
+    align-items: center;
+    width: clamp(280px, 85vw, 670px);
 
-.mat-mdc-text-field-wrapper {
-  margin-bottom: 1.75rem;
-}
-.textarea-form-field {
-  min-height: clamp(260px, 80vw, 480px);
-}
-textarea {
-  min-height: clamp(220px, 80vw - 20px, 460px);
-}
-button {
-  margin-top: 1rem;
+    .mat-mdc-text-field-wrapper {
+      margin-bottom: 1.75rem;
+    }
+    .textarea-form-field {
+      min-height: clamp(140px, 40vw, 260px);
+    }
+    textarea {
+      min-height: clamp(120px, 40vw - 30px, 230px);
+    }
+    .btn-rect {
+      margin-top: 1rem;
+    }
+  }
 }

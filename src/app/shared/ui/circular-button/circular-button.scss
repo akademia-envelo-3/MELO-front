@@ -1,3 +1,5 @@
+@use './src/styles' as styles;
+
 :host button {
   --base-size: 40px;
   --base-text-size: 10px;
@@ -21,13 +23,17 @@
   transition: all 0.3s;
 
   .icon {
-    color: #ffffff;
+    color: styles.$neutral-100;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 75%;
     height: 75%;
     font-weight: 700;
+    a {
+      color: styles.$neutral-100;
+      text-decoration: none;
+    }
   }
 
   span {
