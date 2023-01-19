@@ -34,7 +34,16 @@
             <mat-checkbox color="primary" class="form__rememberMe text-body-big"
                 >Zapamiętaj mnie</mat-checkbox
             >
-            <button class="btn-rect btn-default" disabled>Zaloguj</button>
+            <button class="btn-rect btn-default" [disabled]="isFormValid">
+                Zaloguj
+            </button>
+            <!-- <button
+                class="btn-rect btn-default"
+                *ngIf="form.controls['email'].valid &&
+                form.controls['email']?.touched && form.controls['password'].valid &&
+                form.controls['password']?.touched">
+                Zaloguj
+            </button> -->
         </form>
     </div>
 </div>
