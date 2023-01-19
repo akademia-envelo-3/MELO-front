@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
-// [ngStyle]="unitForm.controls.unitName.valid ? color : 'accent'"
+
 @Component({
   selector: 'app-unit-form',
   template: `
     <form [formGroup]="unitForm" (ngSubmit)="onSubmit()" class="bg-gradient-neutral-3">
-      <mat-form-field appearance="outline">
+      <mat-form-field
+        appearance="outline"
+        [ngStyle]="{ color: unitForm.controls.unitName.valid ? 'accent' : 'primary' }"
+      >
         <mat-label>Nazwa koła</mat-label>
         <input
           matInput
@@ -46,6 +49,8 @@ import { ThemePalette } from '@angular/material/core';
   `,
   styles: [
     `
+      @use './src/styles' as st;
+
       form {
         margin-top: 4rem;
         color: black;
@@ -78,6 +83,10 @@ import { ThemePalette } from '@angular/material/core';
 
       .successStyle {
         caret-color: green;
+      }
+
+      .mat-mdc-form-field.ngvlid {
+        color: green;
       }
     `,
   ],
