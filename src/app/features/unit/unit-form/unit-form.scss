@@ -2,6 +2,14 @@
 
 :host {
   display: block;
+
+  app-circular-button {
+    padding: 1rem;
+    display: block;
+  }
+}
+
+.unit-form-container {
   padding-top: 4rem;
   display: flex;
   align-items: center;
@@ -9,12 +17,12 @@
   padding: clamp(21px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
   width: clamp(280px, 80vw, 1130px);
   margin-inline: auto;
-}
-h1 {
-  color: styles.$neutral-100;
-  text-align: center;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid styles.$neutral-100;
+  &_header {
+    color: styles.$neutral-100;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid styles.$neutral-100;
+  }
 }
 
 form {

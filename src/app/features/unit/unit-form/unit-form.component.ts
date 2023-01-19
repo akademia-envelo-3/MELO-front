@@ -7,51 +7,66 @@ import {
 } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-unit-form',
   template: `
-    <h1 class="text-h1">Utwórz koło zainteresowań</h1>
-    <form [formGroup]="unitForm" (ngSubmit)="onSubmit()" class="bg-gradient-neutral-3">
-      <mat-form-field appearance="outline" #inputForminputMatField>
-        <mat-label>Nazwa koła</mat-label>
-        <input
-          matInput
-          type="text"
-          formControlName="unitName"
-          (blur)="setToSessionStrage('unitName', unitForm.controls.unitName.value)"
-          (ngClass)="(unitForm.controls.unitName.valid ? 'successStyle' : '')"
-        />
-        <mat-error *ngIf="unitForm.controls.unitName.hasError('required')"
-          ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
-        ><mat-error *ngIf="unitForm.controls.unitName.hasError('maxlength')"
-          ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków to 255 </mat-error
-        ><mat-hint class="accent-color" *ngIf="unitForm.controls.unitName.valid"
-          ><mat-icon fontIcon="done_outline"></mat-icon>
-        </mat-hint>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="textarea-form-field" #textareaMatField>
-        <mat-label>Opis</mat-label>
-        <textarea
-          matInput
-          formControlName="unitDescription"
-          (blur)="
-            setToSessionStrage('uniDescription', unitForm.controls.unitDescription.value)
-          "
-        ></textarea>
-        <mat-error *ngIf="unitForm.controls.unitDescription.hasError('required')">
-          Pole opis koła jest wymagane </mat-error
-        ><mat-error *ngIf="unitForm.controls.unitDescription.hasError('maxlength')">
-          Maksymalna dopuszczalna ilość znaków to 4000 </mat-error
-        ><mat-hint class="accent-color" *ngIf="unitForm.controls.unitDescription.valid">
-          <mat-icon fontIcon="done_outline"></mat-icon>
-        </mat-hint>
-      </mat-form-field>
-      <button class="btn-rect btn-black" type="submit" [disabled]="unitForm.invalid">
-        Utwórz
-      </button>
-    </form>
+    <app-circular-button
+      icon="arrow_back"
+      size="md"
+      routerLink="/units"
+    ></app-circular-button>
+    <div class="unit-form-container">
+      <h1 class="text-h1 unit-form-container_header">Utwórz koło zainteresowań</h1>
+      <form [formGroup]="unitForm" (ngSubmit)="onSubmit()" class="bg-gradient-neutral-3">
+        <mat-form-field appearance="outline" #inputForminputMatField>
+          <mat-label>Nazwa koła</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="unitName"
+            (blur)="setToSessionStrage('unitName', unitForm.controls.unitName.value)"
+            (ngClass)="(unitForm.controls.unitName.valid ? 'successStyle' : '')"
+          />
+          <mat-error *ngIf="unitForm.controls.unitName.hasError('required')"
+            ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
+          ><mat-error *ngIf="unitForm.controls.unitName.hasError('maxlength')"
+            ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków to 255 </mat-error
+          ><mat-hint class="accent-color" *ngIf="unitForm.controls.unitName.valid"
+            ><mat-icon fontIcon="done_outline"></mat-icon>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          class="textarea-form-field"
+          #textareaMatField
+        >
+          <mat-label>Opis</mat-label>
+          <textarea
+            matInput
+            formControlName="unitDescription"
+            (blur)="
+              setToSessionStrage(
+                'uniDescription',
+                unitForm.controls.unitDescription.value
+              )
+            "
+          ></textarea>
+          <mat-error *ngIf="unitForm.controls.unitDescription.hasError('required')">
+            Pole opis koła jest wymagane </mat-error
+          ><mat-error *ngIf="unitForm.controls.unitDescription.hasError('maxlength')">
+            Maksymalna dopuszczalna ilość znaków to 4000 </mat-error
+          ><mat-hint class="accent-color" *ngIf="unitForm.controls.unitDescription.valid">
+            <mat-icon fontIcon="done_outline"></mat-icon>
+          </mat-hint>
+        </mat-form-field>
+        <button class="btn-rect btn-black" type="submit" [disabled]="unitForm.invalid">
+          Utwórz
+        </button>
+      </form>
+    </div>
   `,
   styleUrls: ['unit-form.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -62,6 +77,7 @@ export class UnitFormComponent implements OnInit {
   @ViewChild('textareaMatField', { static: true }) textareaMatField!: MatFormField;
   private builder = inject(NonNullableFormBuilder);
   private subscriptions = new Subscription();
+  private router = inject(Router);
 
   ngOnInit() {
     this.getFormValuesFromSessionStorage();
@@ -81,6 +97,10 @@ export class UnitFormComponent implements OnInit {
     this.unitForm.markAllAsTouched();
     ///todo in next task: validate if unitName exist, send form and userId to backend, navigate to confirmation page
     sessionStorage.clear();
+  }
+
+  navigateToUnits() {
+    this.router.navigate(['units']);
   }
 
   setToSessionStrage(name: string, value: string) {
