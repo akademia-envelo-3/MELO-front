@@ -26,6 +26,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   emailNotFocused = false;
   passwordNotFocused = false;
   isFormValid = true;
+  isPasswordVisible = false;
   sub = new Subscription();
 
   private createForm() {
@@ -58,6 +59,10 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   getPasswordErrorMessage() {
     return 'To pole jest obowiązkowe';
+  }
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   ngOnInit(): void {

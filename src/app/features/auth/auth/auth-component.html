@@ -5,7 +5,7 @@
             alt="app-logo"
             class="login-view-container__logo" />
         <h1 class="text-h2">Witaj</h1>
-        <h2 class="text-body-big">Zaloguj się na swoje konto</h2>
+        <p class="text-body-big">Zaloguj się na swoje konto</p>
         <form [formGroup]="form" class="form">
             <mat-form-field appearance="outline">
                 <mat-icon matSuffix>mail</mat-icon>
@@ -20,10 +20,21 @@
                 >
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-icon matSuffix>lock</mat-icon>
+                <mat-icon
+                    matSuffix
+                    *ngIf="!isPasswordVisible"
+                    (click)="togglePasswordVisibility()"
+                    >lock</mat-icon
+                >
+                <mat-icon
+                    matSuffix
+                    *ngIf="isPasswordVisible"
+                    (click)="togglePasswordVisibility()"
+                    >visibility</mat-icon
+                >
                 <mat-label>Password</mat-label>
                 <input
-                    type="password"
+                    [type]="!isPasswordVisible ? 'password' : 'text'"
                     matInput
                     placeholder="Password"
                     formControlName="password" />
@@ -34,16 +45,11 @@
             <mat-checkbox color="primary" class="form__rememberMe text-body-big"
                 >Zapamiętaj mnie</mat-checkbox
             >
-            <button class="btn-rect btn-default" [disabled]="isFormValid">
+            <button
+                class="btn-rect btn-rect--responsive btn-default"
+                [disabled]="isFormValid">
                 Zaloguj
             </button>
-            <!-- <button
-                class="btn-rect btn-default"
-                *ngIf="form.controls['email'].valid &&
-                form.controls['email']?.touched && form.controls['password'].valid &&
-                form.controls['password']?.touched">
-                Zaloguj
-            </button> -->
         </form>
     </div>
 </div>

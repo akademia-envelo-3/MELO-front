@@ -203,6 +203,12 @@ $accent-success: #88b42d;
   }
 }
 
+@mixin media-md-up {
+  @media screen and (max-width: 560px) {
+    @content;
+  }
+}
+
 @mixin media-lg {
   @media screen and (min-width: 1024px) {
     @content;
@@ -258,10 +264,20 @@ app-root {
   border-radius: 5px;
 }
 
-.btn-rect--sm {
+@mixin btn-rect--sm {
   min-width: 80px;
   font-size: 0.95rem;
   padding: 0.1rem 1.2rem;
+}
+
+.btn-rect--sm {
+  @include btn-rect--sm;
+}
+
+.btn-rect--responsive {
+  @include media-md-up {
+    @include btn-rect--sm;
+  }
 }
 
 .btn-default {

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: max(600px, 100vh);
 }
 
 .login-view-container {
@@ -23,6 +23,15 @@
   input {
     height: 3rem;
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+  input[data-autocompleted] {
+    background-color: transparent !important;
+  }
+
   mat-icon {
     color: #b99b53;
   }
