@@ -74,11 +74,15 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
         </div>
       </div>
     </div>
-
-    <h2>Widok komponentu wyszukiwania dla wydarzeń</h2>
-    <app-searchbar [searchResults]="searchResults"></app-searchbar>
-    <h2>Widok komponentu wyszukiwania dla kół</h2>
-    <app-searchbar [searchResults]="searchResults" [typeOfEvent]="false"></app-searchbar>
+    <div class="rectangular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komponentu wyszukiwania dla wydarzeń</h2>
+      <app-searchbar [searchResults]="searchResults"></app-searchbar>
+      <h2>Widok komponentu wyszukiwania dla kół</h2>
+      <app-searchbar
+        [searchResults]="searchResults"
+        [typeOfEvent]="false"
+      ></app-searchbar>
+    </div>
   `,
   styleUrls: ['theme.component.scss'],
 })
