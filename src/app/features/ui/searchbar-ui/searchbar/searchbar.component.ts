@@ -25,7 +25,7 @@ export class SearchbarComponent {
 
   isEmpty = true;
   isDropdownNotVisible = true;
-  minNumberOfLettersToShowDropdown = 2;
+  minNumberOfLettersToShowDropdown = 1;
   maxNumberOfResultsToDisplay = 6;
 
   getSearchValue(event: KeyboardEvent) {
