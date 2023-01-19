@@ -172,6 +172,7 @@ $accent-success: #88b42d;
 .text-h6 {
   font-weight: 700;
   font-family: 'Eczar', 'sans-serif';
+  line-height: 1.3;
 }
 .text-body {
   font-size: 1rem;
@@ -313,12 +314,24 @@ label.mdc-floating-label.mat-mdc-floating-label {
 }
 
 //style errors
-.mat-mdc-form-field-error {
+.mat-mdc-form-field-error,
+.mat-mdc-form-field-hint {
+  display: inline-flex;
+  align-items: center;
   font-size: 14px;
   line-height: 1.3;
+}
+
+.mat-mdc-form-field-error > .mat-icon,
+.mat-mdc-form-field-hint > .mat-icon {
+  margin-right: 0.25rem;
 }
 
 .mat-mdc-form-field input,
 .mat-mdc-form-field textarea {
   padding-top: 1rem;
+}
+
+.accent-color {
+  color: $accent-success;
 }

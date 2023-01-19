@@ -15,6 +15,7 @@ import { UnitFormComponent } from './features/unit/unit-form/unit-form.component
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EventModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -46,9 +48,13 @@ import { ReactiveFormsModule } from '@angular/forms';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            //ścieżka tymczasowa, na razie jest sam fomularz
-            path: 'utworz-kolo',
-            component: UnitFormComponent,
+            path: 'units',
+            children: [
+              {
+                path: 'unit-form',
+                component: UnitFormComponent,
+              },
+            ],
           },
           {
             path: '**',
