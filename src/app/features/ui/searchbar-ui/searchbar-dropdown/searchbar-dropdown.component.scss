@@ -4,8 +4,7 @@ $icon: #ead63d;
 $text: #a7a4a5;
 $result-hover: #473636;
 
-/* searchbar dropdown */
-.searchbarDropdown {
+.searchbar-dropdown {
   min-height: 200px;
   background-color: $background;
   color: $text;
@@ -13,12 +12,14 @@ $result-hover: #473636;
   border-radius: 15px;
   padding: 12px;
 }
-.searchbarDropdown__filterMenu {
+
+.searchbar-dropdown__filterMenu {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.searchbarDropdown__filterMenuItem {
+
+.searchbar-dropdown__filterMenuItem {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,14 +31,15 @@ $result-hover: #473636;
   padding-right: 12px;
   cursor: pointer;
 }
-.searchbarDropdown__filterMenuItem > mat-icon {
+
+.searchbar-dropdown__filterMenuItem > mat-icon {
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.searchbarDropdown__results {
+.searchbar-dropdown__results {
   padding-top: 5px;
 }
 
@@ -46,7 +48,7 @@ $result-hover: #473636;
   color: $icon;
 }
 
-.searchbarDropdown__resultsListItem {
+.searchbar-dropdown__resultsListItem {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
@@ -54,7 +56,7 @@ $result-hover: #473636;
   padding-bottom: 10px;
   cursor: pointer;
 
-  .resultPicture {
+  .result-picture {
     width: 30px;
     height: 30px;
     background-color: lavender;
@@ -62,19 +64,23 @@ $result-hover: #473636;
     margin-right: 0.8rem;
     margin-left: 0.4rem;
   }
+
   img {
     width: 30px;
     height: 30px;
     border-radius: 25px;
   }
+
   p {
     padding: 0;
     margin: 0;
   }
-  .resultTitle {
+
+  .result-title {
     position: relative;
   }
-  .foundPhrase {
+
+  .found-phrase {
     position: absolute;
     top: 18px;
     left: 0;
@@ -83,6 +89,6 @@ $result-hover: #473636;
   }
 }
 
-.searchbarDropdown__resultsListItem:hover {
+.searchbar-dropdown__resultsListItem:hover {
   background-color: $result-hover;
 }

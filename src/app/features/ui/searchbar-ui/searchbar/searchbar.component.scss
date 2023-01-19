@@ -16,6 +16,7 @@ $focus: #fff8ba;
   background-color: $background;
   margin-bottom: 5px;
 }
+
 .searchbar__input {
   font-size: 1.125rem;
   color: white;
@@ -27,19 +28,24 @@ $focus: #fff8ba;
   padding-left: 5px;
   flex-basis: 25px;
 }
+
 .searchbar__input::placeholder {
   color: $placeholder;
 }
+
 .searchbar__close {
   cursor: pointer;
   display: none;
 }
+
 .searchbar > mat-icon {
   color: $icon;
 }
+
 .searchbar:focus-within {
   border: 1.15px solid $focus;
 }
+
 .visible {
   display: initial;
 }
