@@ -14,7 +14,7 @@
                 matInput
                 type="text"
                 formControlName="unitName"
-                (blur)="setToSessionStrage('unitName', unitForm.controls.unitName.value)" />
+                (blur)="onSetToStorage('unitName', unitForm.controls.unitName.value)" />
             <mat-error *ngIf="unitForm.controls.unitName.hasError('required')"
                 ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
             ><mat-error *ngIf="unitForm.controls.unitName.hasError('maxlength')"
@@ -35,8 +35,8 @@
                 matInput
                 formControlName="unitDescription"
                 (blur)="
-              setToSessionStrage(
-                'uniDescription',
+              onSetToStorage(
+                'unitDescription',
                 unitForm.controls.unitDescription.value
               )
             "></textarea>
