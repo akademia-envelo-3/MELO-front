@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
+import { NavbarComponent } from '../features/ui/navbar/navbar.component';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
 
-  imports: [CircularButtonComponent],
+  imports: [CircularButtonComponent, NavbarComponent],
   template: `
     <h1>Storybook-like route</h1>
-
+    <div class="displayNavbar">
+      <app-navbar [notifications]="58"></app-navbar>
+    </div>
     <div
       style="border: 1px solid white; padding: 20px; display: flex; justify-content: space-around"
     >

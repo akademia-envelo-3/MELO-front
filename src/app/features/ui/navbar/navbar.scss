@@ -1,0 +1,50 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 89px;
+  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logoImg {
+    height: 100%;
+  }
+  .bell {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 89px;
+    background-image: url('../../../../assets/bell.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &__notification {
+      display: block;
+      position: absolute;
+      bottom: 10%;
+      right: 10%;
+      width: min-content;
+      height: min-content;
+    }
+  }
+  .menuMobileIcon {
+    display: none;
+  }
+  @media (max-width: 560px) {
+    .bell {
+      right: 89px;
+    }
+    .menuMobileIcon {
+      display: block;
+      height: 100%;
+      width: 89px;
+      background-image: url('../../../../assets/hamburger.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transform: scale(50%);
+    }
+  }
+}
