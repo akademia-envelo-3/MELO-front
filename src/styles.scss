@@ -237,6 +237,10 @@ $accent-success: #88b42d;
   line-height: 1.3;
 }
 
+.mat-mdc-text-field-wrapper.mdc-text-field {
+  background-color: $neutral-100;
+}
+
 app-root {
   display: block;
   background-image: url('assets/bg-images/main-background.png');
