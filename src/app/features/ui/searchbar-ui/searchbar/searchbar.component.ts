@@ -25,8 +25,8 @@ export class SearchbarComponent {
 
   isEmpty = true;
   isDropdownNotVisible = true;
-  minNumberOfLettersToShowDropdown = 1;
-  maxNumberOfResultsToDisplay = 6;
+  readonly MIN_NUMBER_0F_LETTERS_TO_SHOW_DROPDOWN = 1;
+  readonly MAX_NUMBER_OF_RESULTS_TO_DISPLAY = 6;
 
   getSearchValue(event: KeyboardEvent) {
     this.searchPhrase = (event.target as HTMLInputElement).value;
@@ -47,10 +47,7 @@ export class SearchbarComponent {
     }
   }
   private checkToShowSearchbarDropdown() {
-    if (this.searchPhrase.length >= this.minNumberOfLettersToShowDropdown) {
-      this.isDropdownNotVisible = false;
-    } else {
-      this.isDropdownNotVisible = true;
-    }
+    return (this.isDropdownNotVisible =
+      this.searchPhrase.length < this.MIN_NUMBER_0F_LETTERS_TO_SHOW_DROPDOWN);
   }
 }

@@ -17,7 +17,7 @@
         <ul class="searchbar-dropdown__resultsList">
             <li
                 class="searchbar-dropdown__resultsListItem"
-                *ngFor="let searchResult of searchbar.searchResults.slice(0,searchbar.maxNumberOfResultsToDisplay)">
+                *ngFor="let searchResult of searchbar.searchResults.slice(0,searchbar.MAX_NUMBER_OF_RESULTS_TO_DISPLAY)">
                 <div class="result-picture">
                     <img
                         *ngIf="searchResult.searchResultImg"
