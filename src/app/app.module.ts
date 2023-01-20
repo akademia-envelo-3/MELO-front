@@ -40,7 +40,8 @@ import { CustomHttpInterceptor } from './core';
           },
           {
             path: '**',
-            redirectTo: '',
+            loadComponent: () =>
+              import('./shared/page-not-found/page-not-found.component'),
           },
         ],
       },
