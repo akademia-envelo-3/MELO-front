@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
+import { FilterSearchButtonComponent } from '../features/ui/filter-search-button/filter-search-button.component';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
 
-  imports: [CircularButtonComponent],
+  imports: [CircularButtonComponent, FilterSearchButtonComponent],
   template: `
     <h1>Storybook-like route</h1>
 
@@ -74,6 +75,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
         </div>
       </div>
     </div>
+    <app-filter-search-button></app-filter-search-button>
   `,
   styleUrls: ['theme.component.scss'],
 })
