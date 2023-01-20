@@ -59,7 +59,8 @@ import { UnitModule } from './features/unit/unit.module';
           },
           {
             path: '**',
-            redirectTo: '',
+            loadComponent: () =>
+              import('./shared/page-not-found/page-not-found.component'),
           },
         ],
       },
