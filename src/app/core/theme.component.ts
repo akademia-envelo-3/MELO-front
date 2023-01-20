@@ -9,36 +9,110 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
   template: `
     <h1>Storybook-like route</h1>
 
-    <div
-      style="border: 1px solid white; padding: 20px; display: flex; justify-content: space-around"
-    >
-      <p style="text-align; color: white">Circular Buttons</p>
-      <hr />
-      <app-circular-button size="sm" textSize="sm"></app-circular-button>
-      <app-circular-button size="md"></app-circular-button>
-      <app-circular-button size="lg"></app-circular-button>
-      <app-circular-button size="xl"></app-circular-button>
-      <app-circular-button icon="done" size="sm"></app-circular-button>
-      <app-circular-button icon="done" size="md"></app-circular-button>
-      <app-circular-button icon="done" size="lg"></app-circular-button>
-      <app-circular-button icon="done" size="xl"></app-circular-button>
-      <app-circular-button icon="close" size="sm"></app-circular-button>
-      <app-circular-button icon="close" size="md"></app-circular-button>
-      <app-circular-button icon="close" size="lg"></app-circular-button>
-      <app-circular-button icon="close" size="xl"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="sm"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="md"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="lg"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="xl"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="sm"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="md"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="lg"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="xl"></app-circular-button>
-      <app-circular-button text="click" size="sm" textSize="sm"></app-circular-button>
-      <app-circular-button text="click" size="md" textSize="md"></app-circular-button>
-      <app-circular-button text="click" size="lg" textSize="lg"></app-circular-button>
-      <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
-      <app-circular-button text="click" size="xl" textSize="xxl"></app-circular-button>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <p class="text-body-big">Circular Buttons</p>
+      <div class="circular-buttons-container__btns">
+        <div class="circular-buttons-container__btn">
+          <p>Small size</p>
+          <app-circular-button size="sm" textSize="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium size</p>
+          <app-circular-button size="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large size</p>
+          <app-circular-button size="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large</p>
+          <app-circular-button size="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Small done</p>
+          <app-circular-button icon="done" size="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium done</p>
+          <app-circular-button icon="done" size="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large done</p>
+          <app-circular-button icon="done" size="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large done</p>
+          <app-circular-button icon="done" size="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Small close</p>
+          <app-circular-button icon="close" size="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium close</p>
+          <app-circular-button icon="close" size="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large close</p>
+          <app-circular-button icon="close" size="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large close</p>
+          <app-circular-button icon="close" size="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Small back</p>
+          <app-circular-button icon="arrow_back" size="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium back</p>
+          <app-circular-button icon="arrow_back" size="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large close</p>
+          <app-circular-button icon="arrow_back" size="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large close</p>
+          <app-circular-button icon="arrow_back" size="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Small forward</p>
+          <app-circular-button icon="arrow_forward" size="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium forward</p>
+          <app-circular-button icon="arrow_forward" size="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large forward</p>
+          <app-circular-button icon="arrow_forward" size="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large</p>
+          <app-circular-button icon="arrow_forward" size="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Small text</p>
+          <app-circular-button text="click" size="sm" textSize="sm"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Medium text</p>
+          <app-circular-button text="click" size="md" textSize="md"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Large text</p>
+          <app-circular-button text="click" size="lg" textSize="lg"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra large text</p>
+          <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
+        </div>
+        <div class="circular-buttons-container__btn">
+          <p>Extra extra large text</p>
+          <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
+        </div>
+      </div>
     </div>
 
     <div class="rectangular-buttons-container bg-gradient-neutral-3">
