@@ -1,6 +1,38 @@
 @use './src/styles' as st;
 .filter-btn {
   margin: 40px;
+
+  &__dropdown {
+    background-color: st.$primary-900;
+    color: st.$neutral-600;
+    display: flex;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    width: 800px;
+
+    &__section {
+      width: 25%;
+      margin: 0 1rem;
+
+      p:first-child {
+        color: st.$neutral-100;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid st.$neutral-500;
+      }
+
+      & > p {
+        margin: 0.5rem 0;
+      }
+      &__filtr-option::after {
+        content: '\0078';
+        text-align: center;
+        padding-left: 0.4rem;
+      }
+
+      &__sort-option {
+      }
+    }
+  }
 }
 
 .icon {
