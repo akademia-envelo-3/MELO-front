@@ -189,25 +189,25 @@ export default class ThemeComponent {
       searchResultImg: '',
     },
     {
-      searchResultTitle: 'Znalezione wydarzenie',
-      searchResultPhrase: 'Znaleziona fraza',
+      searchResultTitle: 'Znalezione wydarzenie 5',
+      searchResultPhrase: 'Znaleziona fraza 5',
       searchResultImg:
         'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
     },
     {
-      searchResultTitle: 'Znalezione wydarzenie 2',
-      searchResultPhrase: 'Znaleziona fraza 2',
+      searchResultTitle: 'Znalezione wydarzenie 6',
+      searchResultPhrase: 'Znaleziona fraza 6',
       searchResultImg: '',
     },
     {
-      searchResultTitle: 'Znalezione wydarzenie 3',
-      searchResultPhrase: 'Znaleziona fraza 3',
+      searchResultTitle: 'Znalezione wydarzenie 7',
+      searchResultPhrase: 'Znaleziona fraza 7',
       searchResultImg:
         'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
     },
     {
-      searchResultTitle: 'Znalezione wydarzenie 4',
-      searchResultPhrase: 'Znaleziona fraza 4',
+      searchResultTitle: 'Znalezione wydarzenie 8',
+      searchResultPhrase: 'Znaleziona fraza 8',
       searchResultImg: '',
     },
   ];

@@ -1,8 +1,10 @@
-$background: #211e1d;
-$border: #5e4139;
-$placeholder: #ddd7d9;
-$icon: #ead63d;
-$focus: #fff8ba;
+@use './src/styles' as st;
+
+$background: st.$primary-900;
+$border: st.$primary-500;
+$placeholder: st.$neutral-300;
+$icon: st.$accent-gold-600;
+$focus: st.$accent-gold-200;
 
 .searchbar {
   display: flex;
@@ -19,7 +21,7 @@ $focus: #fff8ba;
 
 .searchbar__input {
   font-size: 1.125rem;
-  color: white;
+  color: st.$neutral-100;
   min-width: 80px;
   flex-grow: 1;
   outline: none;

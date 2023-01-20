@@ -1,8 +1,9 @@
-$background: #211e1d;
-$border: #5e4139;
-$icon: #ead63d;
-$text: #a7a4a5;
-$result-hover: #473636;
+@use './src/styles' as st;
+
+$background: st.$primary-900;
+$border: st.$primary-500;
+$icon: st.$accent-gold-600;
+$text: st.$neutral-500;
 
 .searchbar-dropdown {
   min-height: 200px;
@@ -59,7 +60,7 @@ $result-hover: #473636;
   .result-picture {
     width: 30px;
     height: 30px;
-    background-color: lavender;
+    background-color: st.$neutral-300;
     border-radius: 25px;
     margin-right: 0.8rem;
     margin-left: 0.4rem;
@@ -90,5 +91,6 @@ $result-hover: #473636;
 }
 
 .searchbar-dropdown__resultsListItem:hover {
-  background-color: $result-hover;
+  background-color: $background;
+  filter: brightness(150%);
 }
