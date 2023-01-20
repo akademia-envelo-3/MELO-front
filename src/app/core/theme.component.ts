@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { SearchbarComponent, SearchResult } from '../features/ui';
+import { SpinnerDotsComponent } from '@shared/index';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
-  imports: [CircularButtonComponent, SearchbarComponent],
+  imports: [SpinnerDotsComponent, CircularButtonComponent, SearchbarComponent],
   template: `
     <h1>Storybook-like route</h1>
-
+    <div>
+      <p class="text-h4">Spinner Dots</p>
+      <app-spinner-dots size="md"></app-spinner-dots>
+    </div>
     <div class="circular-buttons-container bg-gradient-neutral-3">
       <p class="text-body-big">Circular Buttons</p>
       <div class="circular-buttons-container__btns">
