@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
+import { PowerIconComponent } from '@shared/ui';
 import { SpinnerDotsComponent } from '@shared/index';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
-  imports: [SpinnerDotsComponent, CircularButtonComponent],
+
+  imports: [CircularButtonComponent, PowerIconComponent, SpinnerDotsComponent],
+
   template: `
     <h1>Storybook-like route</h1>
-    <div>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
       <p class="text-h4">Spinner Dots</p>
       <app-spinner-dots size="md"></app-spinner-dots>
     </div>
     <div class="circular-buttons-container bg-gradient-neutral-3">
-      <p class="text-body-big">Circular Buttons</p>
+      <p class="text-h4">Circular Buttons</p>
       <div class="circular-buttons-container__btns">
         <div class="circular-buttons-container__btn">
           <p>Small size</p>
@@ -119,7 +122,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
     </div>
 
     <div class="rectangular-buttons-container bg-gradient-neutral-3">
-      <p class="text-body-big">Rectangular Buttons</p>
+      <p class="text-h4">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
           <p>Default</p>
@@ -149,6 +152,74 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
           <p>Green disabled</p>
           <button class="btn-rect btn-green" disabled>Green</button>
         </div>
+      </div>
+    </div>
+
+    <div class="power-icon__wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Power Icons</p>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="primary"
+        ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="teriarty"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="teriarty"
+        ></app-power-icon>
       </div>
     </div>
   `,
