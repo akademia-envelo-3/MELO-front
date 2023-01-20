@@ -43,7 +43,6 @@ import { PowerIconComponent } from '@shared/ui';
 
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p>Power Icons</p>
-
       <div class="power-icon__wrapper__inner">
         <app-power-icon
           [memberNumber]="40"
