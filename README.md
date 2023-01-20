@@ -17,3 +17,6 @@ PRODUCTION=false
 2. czas przeszły
 3. zgodnie ze specyfikacją commitów na Conventional Commits
 4. znaczniki + kod tasku + treść
+
+feat: in progress of creating icon
+<!-- Cos mi tu nie gra, konsultacja z grupa wymagana  -->
