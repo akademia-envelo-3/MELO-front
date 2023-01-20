@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { SearchbarComponent, SearchResult } from '../features/ui';
-import { PowerIconComponent } from '@shared/ui';
-import { SpinnerDotsComponent } from '@shared/index';
-import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
+import {
+  PowerIconComponent,
+  SpinnerDotsComponent,
+  CircularButtonComponent,
+} from '@shared/ui';
 
 @Component({
   selector: 'app-theme',
