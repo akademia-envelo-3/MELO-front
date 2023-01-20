@@ -1,0 +1,41 @@
+.spinner {
+  margin: 0 0.3rem;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  min-width: max-content;
+  animation: bounce 1.3s infinite ease-in-out both;
+
+  &::before,
+  &::after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: inherit;
+    display: inline-block;
+    position: absolute;
+    animation: bounce 1.3s infinite ease-in-out both;
+  }
+
+  &::after {
+    transform: translateX(56px);
+    animation-delay: 0.35s;
+  }
+
+  &::before {
+    transform: translateX(28px);
+    animation-delay: 0.19s;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 1;
+  }
+}

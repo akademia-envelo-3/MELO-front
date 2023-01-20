@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 import { PowerIconComponent } from '@shared/ui';
+import { SpinnerDotsComponent } from '@shared/index';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
 
-  imports: [CircularButtonComponent, PowerIconComponent],
+  imports: [CircularButtonComponent, PowerIconComponent, SpinnerDotsComponent],
+
   template: `
     <h1>Storybook-like route</h1>
-
     <div class="circular-buttons-container bg-gradient-neutral-3">
-      <p class="text-body-big">Circular Buttons</p>
+      <p class="text-h4">Spinner Dots</p>
+      <app-spinner-dots size="md"></app-spinner-dots>
+    </div>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <p class="text-h4">Circular Buttons</p>
       <div class="circular-buttons-container__btns">
         <div class="circular-buttons-container__btn">
           <p>Small size</p>
@@ -117,7 +122,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
     </div>
 
     <div class="rectangular-buttons-container bg-gradient-neutral-3">
-      <p class="text-body-big">Rectangular Buttons</p>
+      <p class="text-h4">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
           <p>Default</p>
@@ -151,7 +156,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
     </div>
 
     <div class="power-icon__wrapper bg-gradient-neutral-3">
-      <p>Power Icons</p>
+      <p class="text-h4">Power Icons</p>
       <div class="power-icon__wrapper__inner">
         <app-power-icon
           [memberNumber]="40"
