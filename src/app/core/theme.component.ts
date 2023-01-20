@@ -45,7 +45,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
           <app-circular-button icon="done" size="xl"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
-          <p>small close</p>
+          <p>Small close</p>
           <app-circular-button icon="close" size="sm"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
@@ -77,7 +77,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
           <app-circular-button icon="arrow_back" size="xl"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
-          <p>small forward</p>
+          <p>Small forward</p>
           <app-circular-button icon="arrow_forward" size="sm"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
@@ -93,7 +93,7 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
           <app-circular-button icon="arrow_forward" size="xl"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
-          <p>small text</p>
+          <p>Small text</p>
           <app-circular-button text="click" size="sm" textSize="sm"></app-circular-button>
         </div>
         <div class="circular-buttons-container__btn">
