@@ -8,48 +8,16 @@ import { NavbarComponent } from '../features/ui/navbar/navbar.component';
   selector: 'app-theme',
   standalone: true,
 
-<<<<<<< HEAD
-  imports: [CircularButtonComponent, NavbarComponent],
-  template: `
-    <h1>Storybook-like route</h1>
-    <div class="displayNavbar">
-      <app-navbar [notifications]="58"></app-navbar>
-    </div>
-    <div
-      style="border: 1px solid white; padding: 20px; display: flex; justify-content: space-around"
-    >
-      <p style="text-align; color: white">Circular Buttons</p>
-      <hr />
-      <app-circular-button size="sm" textSize="sm"></app-circular-button>
-      <app-circular-button size="md"></app-circular-button>
-      <app-circular-button size="lg"></app-circular-button>
-      <app-circular-button size="xl"></app-circular-button>
-      <app-circular-button icon="done" size="sm"></app-circular-button>
-      <app-circular-button icon="done" size="md"></app-circular-button>
-      <app-circular-button icon="done" size="lg"></app-circular-button>
-      <app-circular-button icon="done" size="xl"></app-circular-button>
-      <app-circular-button icon="close" size="sm"></app-circular-button>
-      <app-circular-button icon="close" size="md"></app-circular-button>
-      <app-circular-button icon="close" size="lg"></app-circular-button>
-      <app-circular-button icon="close" size="xl"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="sm"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="md"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="lg"></app-circular-button>
-      <app-circular-button icon="arrow_back" size="xl"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="sm"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="md"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="lg"></app-circular-button>
-      <app-circular-button icon="arrow_forward" size="xl"></app-circular-button>
-      <app-circular-button text="click" size="sm" textSize="sm"></app-circular-button>
-      <app-circular-button text="click" size="md" textSize="md"></app-circular-button>
-      <app-circular-button text="click" size="lg" textSize="lg"></app-circular-button>
-      <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
-      <app-circular-button text="click" size="xl" textSize="xxl"></app-circular-button>
-=======
-  imports: [CircularButtonComponent, PowerIconComponent, SpinnerDotsComponent],
+  imports: [
+    CircularButtonComponent,
+    PowerIconComponent,
+    SpinnerDotsComponent,
+    NavbarComponent,
+  ],
 
   template: `
     <h1>Storybook-like route</h1>
+    <app-navbar></app-navbar>
     <div class="circular-buttons-container bg-gradient-neutral-3">
       <p class="text-h4">Spinner Dots</p>
       <app-spinner-dots size="md"></app-spinner-dots>
@@ -158,7 +126,6 @@ import { NavbarComponent } from '../features/ui/navbar/navbar.component';
           <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
         </div>
       </div>
->>>>>>> d764e60b5ff5b6547ae159df9e7512fe7da43bb6
     </div>
 
     <div class="rectangular-buttons-container bg-gradient-neutral-3">
