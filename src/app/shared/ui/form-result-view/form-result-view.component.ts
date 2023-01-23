@@ -19,11 +19,11 @@ const formResultInfoDefault: FormResultInfo = {
       <p class="text-body-big">
         {{ formResultInfo.messageHeader }}
       </p>
-      <ng-content select="img"></ng-content>
+      <ng-content select="[image]"></ng-content>
       <p class="text-body-big" *ngIf="formResultInfo.messageCallToAction">
         {{ formResultInfo.messageCallToAction }}
       </p>
-      <ng-content select="button"></ng-content>
+      <ng-content select="[button]"></ng-content>
     </div>
   `,
   styleUrls: ['./form-result-view-component.scss'],

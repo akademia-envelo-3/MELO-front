@@ -162,11 +162,13 @@ import {
       </div>
     </div>
 
-    <h2>Widok komunikatu po wysłaniu formularza</h2>
-    <app-form-result-view [formResultInfo]="formResultInfo">
-      <img src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
-      <button>-></button>
-    </app-form-result-view>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komunikatu po wysłaniu formularza</h2>
+      <app-form-result-view [formResultInfo]="formResultInfo">
+        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+      </app-form-result-view>
+    </div>
 
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Power Icons</p>
