@@ -57,7 +57,6 @@ $app-name-theme: mat.define-light-theme(
   font-family: 'Mukta Vaani', 'sans-serif';
   font-size: 16px;
   color: #333;
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -66,6 +65,7 @@ $app-name-theme: mat.define-light-theme(
   margin: 0;
   padding: 0;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 html,

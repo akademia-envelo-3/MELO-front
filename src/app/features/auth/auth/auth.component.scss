@@ -1,3 +1,5 @@
+$icon: #b99b53;
+
 .container {
   display: flex;
   justify-content: center;
@@ -36,7 +38,7 @@
   }
 
   mat-icon {
-    color: #b99b53;
+    color: $icon;
   }
 }
 
