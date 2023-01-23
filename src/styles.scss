@@ -150,6 +150,52 @@ $accent-success: #88b42d;
   background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
 }
 
+//////////////// TYPOGRAPHY ///////////////////
+
+.text-h1 {
+  font-size: clamp(2.25rem, 5.1vw + 1.25rem, 4.5rem);
+}
+.text-h2 {
+  font-size: clamp(1.5rem, 3.4vw + 0.81rem, 3rem);
+}
+.text-h3 {
+  font-size: clamp(1.125rem, 2vw + 0.75rem, 2rem);
+}
+.text-h4 {
+  font-size: clamp(1rem, 1.13vw + 0.75rem, 1.5rem);
+}
+.text-h5 {
+  font-size: clamp(1rem, 0.56vw + 0.87rem, 1.25rem);
+}
+.text-h6 {
+  font-size: clamp(1rem, 0.25vw + 0.94rem, 1.125rem);
+}
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6 {
+  font-weight: 700;
+  font-family: 'Eczar', 'sans-serif';
+}
+.text-body {
+  font-size: 1rem;
+}
+.text-body-big {
+  font-size: 1.14rem;
+}
+.text-body-small {
+  font-size: 0.88rem;
+}
+.text-body-big,
+.text-body-small .text-body,
+.text-body-big,
+.text-body-small {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 //////////////// BREAK POINTS ////////////////
 
 @mixin media-sm {
