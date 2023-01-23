@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
-import { PowerIconComponent } from '@shared/ui';
-import { SpinnerDotsComponent } from '@shared/index';
-import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
-import EventModule from '@features/event/event.module';
 import { EventCardDTO } from '@features/event';
+import EventModule from '@features/event/event.module';
+import {
+  PowerIconComponent,
+  SpinnerDotsComponent,
+  CircularButtonComponent,
+  FormResultViewComponent,
+  FormResultInfo,
+} from '@shared/ui';
 
 @Component({
   selector: 'app-theme',
-  standalone: true,
-
   imports: [
     CircularButtonComponent,
     PowerIconComponent,
     SpinnerDotsComponent,
+    FormResultViewComponent,
     EventModule,
   ],
-
+  standalone: true,
   template: `
     <h1>Storybook-like route</h1>
     <div class="circular-buttons-container bg-gradient-neutral-3">
@@ -158,36 +161,71 @@ import { EventCardDTO } from '@features/event';
       </div>
     </div>
 
-    <div class="cards-wrapper bg-gradient-neutral-3">
-      <p class="text-h4">Event Cards</p>
-      <div class="cards-wrapper--inner">
-        <app-event-card
-          [card]="this.cardExample"
-          [url]="'../../../../assets/cards/card-purple.png'"
-        >
-        </app-event-card>
-        <app-event-card
-          [card]="this.cardExample3"
-          [url]="'../../../assets/cards/card-blue.png'"
-        >
-        </app-event-card>
-        <app-event-card
-          [card]="this.cardExample2"
-          [url]="'../../../../assets/cards/card-white.png'"
-        >
-        </app-event-card>
-        <app-event-card
-          size="sm"
-          [card]="this.cardExample4"
-          [url]="'../../../../assets/cards/card-brown.png'"
-        >
-        </app-event-card>
-        <app-event-card
-          size="sm"
-          [card]="this.cardExample"
-          [url]="'../../../../assets/cards/card-purple.png'"
-        >
-        </app-event-card>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komunikatu po wysłaniu formularza</h2>
+      <app-form-result-view [formResultInfo]="formResultInfo">
+        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+      </app-form-result-view>
+    </div>
+
+    <div class="power-icon__wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Power Icons</p>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon [memberNumber]="40" [memberLimit]="50">
+          /<app-power-icon>
+            <div>
+              <div class="cards-wrapper bg-gradient-neutral-3">
+                <p class="text-h4">Event Cards</p>
+                <div class="cards-wrapper--inner">
+                  <app-event-card
+                    [card]="this.cardExample"
+                    [url]="'../../../../assets/cards/card-purple.png'"
+                  >
+                  </app-event-card>
+                  <app-event-card
+                    [card]="this.cardExample3"
+                    [url]="'../../../assets/cards/card-blue.png'"
+                  >
+                  </app-event-card>
+                  <app-event-card
+                    [card]="this.cardExample2"
+                    [url]="'../../../../assets/cards/card-white.png'"
+                  >
+                  </app-event-card>
+                  <app-event-card
+                    size="sm"
+                    [card]="this.cardExample4"
+                    [url]="'../../../../assets/cards/card-brown.png'"
+                  >
+                  </app-event-card>
+                  <app-event-card
+                    size="sm"
+                    [card]="this.cardExample"
+                    [url]="'../../../../assets/cards/card-purple.png'"
+                  >
+                  </app-event-card>
+                </div>
+              </div></div></app-power-icon
+        ></app-power-icon>
       </div>
     </div>
   `,
@@ -234,5 +272,9 @@ export default class ThemeComponent {
     mainPhoto: 'assets/mock/beers.png',
     theme: 'brown',
     memberLimit: undefined,
+  };
+  formResultInfo: FormResultInfo = {
+    messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
+    messageCallToAction: 'Przejdź do strony utworzonego koła',
   };
 }

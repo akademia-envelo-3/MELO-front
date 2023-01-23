@@ -1,0 +1,13 @@
+.form-result-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+  align-items: center;
+  border-radius: 10px;
+  padding: clamp(10px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
+  max-width: min(88vw, 1130px);
+  margin-inline: auto;
+  overflow: hidden;
+}
