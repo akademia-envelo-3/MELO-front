@@ -6,7 +6,7 @@
             class="login-view-container__logo" />
         <h1 class="text-h2">Witaj</h1>
         <p class="text-body-big">Zaloguj się na swoje konto</p>
-        <form [formGroup]="form" class="form">
+        <form [formGroup]="form" class="form" (ngSubmit)="login()">
             <mat-form-field appearance="outline">
                 <mat-icon matSuffix>mail</mat-icon>
                 <mat-label>Email</mat-label>
@@ -47,6 +47,7 @@
             >
             <button
                 class="btn-rect btn-rect--responsive btn-default"
+                type="submit"
                 [disabled]="isFormValid">
                 Zaloguj
             </button>

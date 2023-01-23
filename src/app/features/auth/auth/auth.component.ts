@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -21,7 +22,9 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  builder = inject(NonNullableFormBuilder);
+  private builder = inject(NonNullableFormBuilder);
+  private router = inject(Router);
+
   form = this.createForm();
   emailNotFocused = false;
   passwordNotFocused = false;
@@ -63,6 +66,13 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  login() {
+    this.form.markAllAsTouched();
+    if (this.form.valid) {
+      this.router.navigate(['']);
+    }
   }
 
   ngOnInit(): void {
