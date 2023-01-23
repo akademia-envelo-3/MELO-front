@@ -1,4 +1,6 @@
-$icon: #b99b53;
+@use './src/styles' as st;
+
+$icon: st.$accent-gold-500;
 
 .container {
   display: flex;
