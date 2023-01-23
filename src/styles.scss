@@ -65,6 +65,7 @@ $app-name-theme: mat.define-light-theme(
   margin: 0;
   padding: 0;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 html,
@@ -75,19 +76,23 @@ body {
 //////////////// COLORS ////////////////
 
 $primary-400: #4d4442;
-$primary-800: #2c2120;
-$primary-900: #211918;
+$primary-500: #5e4139;
+$primary-700: #2c2120;
+$primary-800: #211918;
+$primary-900: #211e1d;
 
 $neutral-100: #ffffff;
 $neutral-300: #f7f3f2;
 $neutral-500: #adadad;
+$neutral-600: #a7a4a5;
 $neutral-800: #323232;
 $neutral-900: #000000;
 
 $accent-gold-200: #eddebf;
 $accent-gold-300: #efd6b3;
+$accent-gold-400: #dfce98;
 $accent-gold-500: #e9ce7f;
-$accent-gold-600: #dfce98;
+$accent-gold-600: #ead63d;
 $accent-gold-700: #d69840;
 $accent-gold-800: #c17605;
 
@@ -120,6 +125,7 @@ $accent-success: #88b42d;
     #c0c0c0 97.83%
   );
 }
+
 .bg-gradient-neutral-3 {
   background: linear-gradient(
     125.67deg,
@@ -128,6 +134,7 @@ $accent-success: #88b42d;
     rgba(249, 251, 251, 0.8) 98.02%
   );
 }
+
 .bg-gradient-gold-1 {
   background: linear-gradient(
     283.96deg,
@@ -229,6 +236,23 @@ $accent-success: #88b42d;
   .mdc-evolution-chip__text-label {
   color: $accent-gold-800 !important;
 }
+
+//////////////// COMPONENTS ////////////////
+
+app-root {
+  display: block;
+  background-image: url('assets/bg-images/main-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: min(100vw, 1920px);
+  margin-inline: auto;
+}
+
+//////////////// BUTTONS  ////////////////
+
+////////////// Rectangle buttons ///////
 
 .btn-rect {
   min-width: 150px;

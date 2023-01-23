@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
 import { AppComponent } from './app.component';
 import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
@@ -41,7 +40,8 @@ import { CustomHttpInterceptor } from './core';
           },
           {
             path: '**',
-            redirectTo: '',
+            loadComponent: () =>
+              import('./shared/page-not-found/page-not-found.component'),
           },
         ],
       },
