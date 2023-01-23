@@ -11,7 +11,11 @@
   .logoImg {
     height: 100%;
   }
+  .logoImg:hover {
+    cursor: pointer;
+  }
   .bell {
+    margin-right: 1rem;
     position: absolute;
     right: 0;
     height: 100%;
@@ -24,7 +28,7 @@
       display: block;
       position: absolute;
       bottom: 10%;
-      right: 10%;
+      right: 15%;
       width: min-content;
       height: min-content;
     }
@@ -40,10 +44,20 @@
       display: block;
       height: 100%;
       width: 89px;
-      background-image: url('../../../../assets/hamburger.svg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      margin: 0 5%;
+    }
+    .menuMobileIcon:hover {
+      cursor: pointer;
+    }
+    .active {
+      background-image: url('../../../../assets/closeMenu.svg');
+      transform: scale(75%);
+    }
+    .disactive {
+      background-image: url('../../../../assets/hamburger.svg');
       transform: scale(50%);
     }
   }
