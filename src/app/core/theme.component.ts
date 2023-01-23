@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { PowerIconComponent } from '@shared/ui';
-import { SpinnerDotsComponent } from '@shared/index';
-import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
+import {
+  PowerIconComponent,
+  SpinnerDotsComponent,
+  CircularButtonComponent,
+  FormResultViewComponent,
+  FormResultInfo,
+} from '@shared/ui';
 
 @Component({
   selector: 'app-theme',
+  imports: [
+    CircularButtonComponent,
+    PowerIconComponent,
+    SpinnerDotsComponent,
+    FormResultViewComponent,
+  ],
   standalone: true,
-
-  imports: [CircularButtonComponent, PowerIconComponent, SpinnerDotsComponent],
-
   template: `
     <h1>Storybook-like route</h1>
     <div class="circular-buttons-container bg-gradient-neutral-3">
@@ -155,6 +162,14 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
       </div>
     </div>
 
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komunikatu po wysłaniu formularza</h2>
+      <app-form-result-view [formResultInfo]="formResultInfo">
+        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+      </app-form-result-view>
+    </div>
+
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Power Icons</p>
       <div class="power-icon__wrapper__inner">
@@ -225,4 +240,9 @@ import { CircularButtonComponent } from '@shared/ui/circular-button/circular-but
   `,
   styleUrls: ['theme.component.scss'],
 })
-export default class ThemeComponent {}
+export default class ThemeComponent {
+  formResultInfo: FormResultInfo = {
+    messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
+    messageCallToAction: 'Przejdź do strony utworzonego koła',
+  };
+}
