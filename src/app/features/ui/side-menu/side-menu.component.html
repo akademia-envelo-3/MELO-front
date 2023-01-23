@@ -1,0 +1,31 @@
+<div class="side-menu-container">
+    <div class="side-menu-container__left bg-gradient-primary-1">
+        <div class="side-menu-container__leftTop">
+            <img
+                class="icon"
+                src="../../../../assets/side-menu-icons/exit.svg"
+                alt="" />
+        </div>
+        <div class="side-menu-container__leftBottom">
+            <img
+                class="icon"
+                src="../../../../assets/side-menu-icons/events.svg"
+                alt="" />
+            <img
+                class="icon"
+                src="../../../../assets/side-menu-icons/units.svg"
+                alt="" />
+        </div>
+    </div>
+    <div class="side-menu-container__right bg-gradient-primary-2">
+        <mat-nav-list>
+            <a
+                mat-list-item
+                href="..."
+                *ngFor="let link of myLinks"
+                [activated]="link.isActive"
+                >{{ link.subCategoryName }}</a
+            >
+        </mat-nav-list>
+    </div>
+</div>

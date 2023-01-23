@@ -1,0 +1,30 @@
+.side-menu-container {
+  height: 100vh;
+  display: flex;
+}
+
+.side-menu-container__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 110px;
+  padding-top: 5em;
+  padding-bottom: 2em;
+  height: 100%;
+
+  &Bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon {
+    max-width: 90px;
+  }
+}
+
+.side-menu-container__right {
+  padding-top: 5em;
+  min-width: 220px;
+}
