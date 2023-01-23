@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+@use '/src/styles/colors.scss' as colors;
+
+@include mat.core();
+
+$my-typography: mat.define-typography-config(
+  $font-family: 'Mukta Vaani',
+);
+
+$app-name-primary: mat.define-palette(colors.$gold-palette, 600, 300, 800, 600);
+$app-name-accent: mat.define-palette(mat.$green-palette);
+$app-name-warn: mat.define-palette(mat.$red-palette);
+
+$app-name-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-name-primary,
+      accent: $app-name-accent,
+      warn: $app-name-warn,
+    ),
+    typography: $my-typography,
+  )
+);
+
+@include mat.input-color($app-name-theme);
+@include mat.form-field-color($app-name-theme);
+@include mat.select-color($app-name-theme);
+@include mat.chips-color($app-name-theme);
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  color: colors.$accent-gold-300 !important;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__text-label {
+  color: colors.$accent-gold-800 !important;
+}
