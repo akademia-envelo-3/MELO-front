@@ -190,42 +190,82 @@ import {
           size="md"
           theme="primary"
         ></app-power-icon>
-        <app-power-icon [memberNumber]="40" [memberLimit]="50">
-          /<app-power-icon>
-            <div>
-              <div class="cards-wrapper bg-gradient-neutral-3">
-                <p class="text-h4">Event Cards</p>
-                <div class="cards-wrapper--inner">
-                  <app-event-card
-                    [card]="this.cardExample"
-                    [url]="'../../../../assets/cards/card-purple.png'"
-                  >
-                  </app-event-card>
-                  <app-event-card
-                    [card]="this.cardExample3"
-                    [url]="'../../../assets/cards/card-blue.png'"
-                  >
-                  </app-event-card>
-                  <app-event-card
-                    [card]="this.cardExample2"
-                    [url]="'../../../../assets/cards/card-white.png'"
-                  >
-                  </app-event-card>
-                  <app-event-card
-                    size="sm"
-                    [card]="this.cardExample4"
-                    [url]="'../../../../assets/cards/card-brown.png'"
-                  >
-                  </app-event-card>
-                  <app-event-card
-                    size="sm"
-                    [card]="this.cardExample"
-                    [url]="'../../../../assets/cards/card-purple.png'"
-                  >
-                  </app-event-card>
-                </div>
-              </div></div></app-power-icon
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="primary"
         ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="tertiary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="tertiary"
+        ></app-power-icon>
+      </div>
+    </div>
+    <div class="cards-wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Event Cards</p>
+      <div class="cards-wrapper--inner">
+        <app-event-card
+          [card]="this.cardExample"
+          [url]="'../../../../assets/cards/card-purple.png'"
+        >
+        </app-event-card>
+        <app-event-card
+          [card]="this.cardExample3"
+          [url]="'../../../assets/cards/card-blue.png'"
+        >
+        </app-event-card>
+        <app-event-card
+          [card]="this.cardExample2"
+          [url]="'../../../../assets/cards/card-white.png'"
+        >
+        </app-event-card>
+        <app-event-card
+          size="sm"
+          [card]="this.cardExample4"
+          [url]="'../../../../assets/cards/card-brown.png'"
+        >
+        </app-event-card>
+        <app-event-card
+          size="sm"
+          [card]="this.cardExample"
+          [url]="'../../../../assets/cards/card-purple.png'"
+        >
+        </app-event-card>
       </div>
     </div>
   `,
