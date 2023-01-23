@@ -1,9 +1,9 @@
-<div class="filter-btn">
+<!-- <menu class="filter-btn">
     <img class="icon" src="assets/icons/filter-inactive.svg" />
     <form [formGroup]="filtrSortForm" class="filter-btn__dropdown">
-        <fieldset>
+        <fieldset class="filter-btn__dropdown__section">
             <legend class="text-body">DATA UTWORZENIA</legend>
-            <div class="filter-btn__dropdown__section">
+            <div class="filter-btwn__dropdown__section__holder">
                 <input
                     #creationDateRadio1
                     formControlName="creationDate"
@@ -11,14 +11,14 @@
                     type="radio"
                     value="Dzisiaj"
                     id="creation-date-today"
-                    class="filter-btn__dropdown__section__filtr-option" />
+                    class="filter-btn__dropdown__section__holder__filtr-option" />
                 <label
-                    (click)="toggle(creationDateRadio1)"
+                    (click)="toggleRadio(creationDateRadio1)"
                     for="creation-date-today"
                     >Dzisiaj</label
                 >
             </div>
-            <div class="filter-btn__dropdown__section">
+            <div>
                 <input
                     #creationDateRadio2
                     formControlName="creationDate"
@@ -29,12 +29,12 @@
                     class="filter-btn__dropdown__section__filtr-option" />
 
                 <label
-                    (click)="toggle(creationDateRadio2)"
+                    (click)="toggleRadio(creationDateRadio2)"
                     for="creation-date-week"
                     >Ten tydzień</label
                 >
             </div>
-            <div class="filter-btn__dropdown__section">
+            <div>
                 <input
                     #creationDateRadio3
                     formControlName="creationDate"
@@ -44,28 +44,28 @@
                     id="creation-date-month"
                     class="filter-btn__dropdown__section__filtr-option" />
                 <label
-                    (click)="toggle(creationDateRadio3)"
+                    (click)="toggleRadio(creationDateRadio3)"
                     for="creation-date-month"
                     >Ten miesiąc</label
                 >
             </div>
-            <div class="filter-btn__dropdown__section">
+            <div>
                 <input
                     #creationDateRadio4
                     formControlName="creationDate"
                     name="creationDate"
                     type="radio"
                     value="Ten rok"
-                    id="start-date-year"
+                    id="creation-date-year"
                     class="filter-btn__dropdown__section__filtr-option" />
                 <label
-                    (click)="toggle(creationDateRadio4)"
-                    for="start-date-year"
+                    (click)="toggleRadio(creationDateRadio4)"
+                    for="creation-date-year"
                     >Ten rok</label
                 >
             </div>
         </fieldset>
-        <fieldset class="filter-btn__dropdown__section">
+        <fieldset>
             <legend class="text-body">DATA ROZPOCZĘCIA</legend>
             <div class="filter-btn__dropdown__section">
                 <input
@@ -76,7 +76,7 @@
                     value="Dzisiaj"
                     id="start-date-today"
                     class="filter-btn__dropdown__section__filtr-option" />
-                <label (click)="toggle(startDateRadio1)" for="start-date-today"
+                <label (click)="toggleRadio(startDateRadio1)" for="start-date-today"
                     >Dzisiaj</label
                 >
             </div>
@@ -90,11 +90,13 @@
                     id="start-date-week"
                     class="filter-btn__dropdown__section__filtr-option" />
 
-                <label (click)="toggle(startDateRadio2)" for="start-date-week"
+                <label (click)="toggleRadio(startDateRadio2)" for="start-date-week"
                     >Ten tydzień</label
                 >
             </div>
-            <div class="filter-btn__dropdown__section">
+            <div
+                (click)="toggleRadio(startDateRadio3)"
+                class="filter-btn__dropdown__section">
                 <input
                     #startDateRadio3
                     formControlName="startDate"
@@ -103,9 +105,7 @@
                     value="Ten miesiac"
                     id="start-date-month"
                     class="filter-btn__dropdown__section__filtr-option" />
-                <label (click)="toggle(startDateRadio3)" for="start-date-month"
-                    >Ten miesiąc</label
-                >
+                <label for="start-date-month">Ten miesiąc</label>
             </div>
             <div class="filter-btn__dropdown__section">
                 <input
@@ -116,13 +116,13 @@
                     value="Ten rok"
                     id="start-date-year"
                     class="filter-btn__dropdown__section__filtr-option" />
-                <label (click)="toggle(startDateRadio4)" for="start-date-year"
+                <label (click)="toggleRadio(startDateRadio4)" for="start-date-year"
                     >Ten rok</label
                 >
             </div>
         </fieldset>
 
-        <fieldset class="filter-btn__dropdown__section">
+        <fieldset>
             <legend class="text-body">CZAS DO ROZPOCZĘCIA</legend>
             <div class="filter-btn__dropdown__section">
                 <input
@@ -134,7 +134,7 @@
                     id="time-to-start-sort-up"
                     class="filter-btn__dropdown__section__filtr-option" />
                 <label
-                    (click)="toggle(timeToStartSortRadio1)"
+                    (click)="toggleRadio(timeToStartSortRadio1)"
                     for="time-to-start-sort-up"
                     >Rosnąco</label
                 >
@@ -150,13 +150,13 @@
                     class="filter-btn__dropdown__section__filtr-option" />
 
                 <label
-                    (click)="toggle(timeToStartSortRadio2)"
+                    (click)="toggleRadio(timeToStartSortRadio2)"
                     for="time-to-start-sort-down"
                     >Malejąco</label
                 >
             </div>
         </fieldset>
-        <fieldset class="filter-btn__dropdown__section">
+        <fieldset>
             <legend class="text-body">DATA UTWORZENIA</legend>
             <div class="filter-btn__dropdown__section">
                 <input
@@ -168,7 +168,7 @@
                     id="cretion-date-sort-up"
                     class="filter-btn__dropdown__section__filtr-option" />
                 <label
-                    (click)="toggle(creationDateSort1)"
+                    (click)="toggleRadio(creationDateSort1)"
                     for="cretion-date-sort-up"
                     >Rosnąco</label
                 >
@@ -184,11 +184,338 @@
                     class="filter-btn__dropdown__section__filtr-option" />
 
                 <label
-                    (click)="toggle(creationDateSort2)"
+                    (click)="toggleRadio(creationDateSort2)"
                     for="cretion-date-sort-down"
                     >Malejąco</label
                 >
             </div>
         </fieldset>
     </form>
+</menu> -->
+
+<!-- <div class="filter-btn">
+    <img class="icon" src="assets/icons/filter-inactive.svg" />
+    <form [formGroup]="filtrSortForm" class="dropdown">
+        <fieldset class="dropdown__section">
+            <legend class="text-body">DATA UTWORZENIA</legend>
+            <div
+                (click)="toggleRadio(creationDateRadio1)"
+                class="dropdown__section__holder">
+                <input
+                    #creationDateRadio1
+                    formControlName="creationDate"
+                    name="creationDate"
+                    type="radio"
+                    value="Dzisiaj"
+                    id="creation-date-today"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-today">Dzisiaj</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio2)">
+                <input
+                    #creationDateRadio2
+                    formControlName="creationDate"
+                    name="creationDate"
+                    type="radio"
+                    value="Ten tydzien"
+                    id="creation-date-week"
+                    class="dropdown__section__holder__filtr-option" />
+
+                <label for="creation-date-week">Ten tydzień</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio3)">
+                <input
+                    #creationDateRadio3
+                    formControlName="creationDate"
+                    name="creationDate"
+                    type="radio"
+                    value="Ten miesiac"
+                    id="creation-date-month"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-month">Ten miesiąc</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio4)">
+                <input
+                    #creationDateRadio4
+                    formControlName="creationDate"
+                    name="creationDate"
+                    type="radio"
+                    value="Ten rok"
+                    id="creation-date-year"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-year">Ten rok</label>
+            </div>
+        </fieldset>
+        <fieldset class="dropdown__section">
+            <legend class="text-body">DATA ROZPOCZĘCIA</legend>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio1)">
+                <input
+                    #startDateRadio1
+                    formControlName="startDate"
+                    name="startDate"
+                    type="radio"
+                    value="Dzisiaj"
+                    id="start-date-today"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-today">Dzisiaj</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio2)">
+                <input
+                    #startDateRadio2
+                    formControlName="startDate"
+                    name="startDate"
+                    type="radio"
+                    value="Ten tydzien"
+                    id="start-date-week"
+                    class="dropdown__section__holder__filtr-option" />
+
+                <label for="start-date-week">Ten tydzień</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio3)">
+                <input
+                    #startDateRadio3
+                    formControlName="startDate"
+                    name="startDate"
+                    type="radio"
+                    value="Ten miesiac"
+                    id="start-date-month"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-month">Ten miesiąc</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio4)">
+                <input
+                    #startDateRadio4
+                    formControlName="startDate"
+                    name="startDate"
+                    type="radio"
+                    value="Ten rok"
+                    id="start-date-year"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-year">Ten rok</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="dropdown__section">
+            <legend class="text-body">CZAS DO ROZPOCZĘCIA</legend>
+            <div class="dropdown__section__holder">
+                <input
+                    formControlName="timeToStartSort"
+                    type="radio"
+                    value="Rosnaco"
+                    id="time-to-start-sort-up"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="time-to-start-sort-up">Rosnąco</label>
+            </div>
+            <div class="dropdown__section__holder">
+                <input
+                    formControlName="timeToStartSort"
+                    type="radio"
+                    value="Malejaco"
+                    id="time-to-start-sort-down"
+                    class="dropdown__section__holder__sort-option" />
+
+                <label for="time-to-start-sort-down">Malejąco</label>
+            </div>
+        </fieldset>
+        <fieldset class="dropdown__section">
+            <legend class="text-body">NAZWA</legend>
+            <div class="dropdown__section__holder">
+                <input
+                    formControlName="name"
+                    type="radio"
+                    value="Rosnaco"
+                    id="cretion-date-sort-up"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="cretion-date-sort-up">Rosnąco</label>
+            </div>
+            <div class="dropdown__section__holder">
+                <input
+                    formControlName="name"
+                    type="radio"
+                    value="Malejaco"
+                    id="cretion-date-sort-down"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="cretion-date-sort-down">Malejąco</label>
+            </div>
+        </fieldset>
+    </form>
+</div> -->
+
+<div class="filter-btn">
+    <img class="icon" src="assets/icons/filter-inactive.svg" />
+    <menu class="dropdown">
+        <fieldset class="dropdown__section">
+            <legend class="text-body">DATA UTWORZENIA</legend>
+            <div
+                *ngFor="let creationDate of creationDates"
+                (click)="toggleRadio(creationDateRadio1)"
+                class="dropdown__section__holder">
+                <input
+                    #{{creationDate.id}}
+                    class="dropdown__section__holder__filtr-option"
+                    name="{{ creationDate.name }}"
+                    type="radio"
+                    value="{{ creationDate.value }}"
+                    id="{{ creationDate.id }}" />
+                <label for="{{ creationDate.id }}">
+                    {{ creationDate.value }}
+                </label>
+            </div>
+            <div
+                (click)="toggleRadio(creationDateRadio1)"
+                class="dropdown__section__holder">
+                <input
+                    #creationDateRadio1
+                    name="creationDate"
+                    type="radio"
+                    value="'Dzisiaj"
+                    id="creation-date-today"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-today">Dzisiaj</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio2)">
+                <input
+                    #creationDateRadio2
+                    name="creationDate"
+                    type="radio"
+                    value="Ten tydzien"
+                    id="creation-date-week"
+                    class="dropdown__section__holder__filtr-option" />
+
+                <label for="creation-date-week">Ten tydzień</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio3)">
+                <input
+                    #creationDateRadio3
+                    name="creationDate"
+                    type="radio"
+                    value="Ten miesiac"
+                    id="creation-date-month"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-month">Ten miesiąc</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(creationDateRadio4)">
+                <input
+                    #creationDateRadio4
+                    name="creationDate"
+                    type="radio"
+                    value="Ten rok"
+                    id="creation-date-year"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="creation-date-year">Ten rok</label>
+            </div>
+        </fieldset>
+        <fieldset class="dropdown__section">
+            <legend class="text-body">DATA ROZPOCZĘCIA</legend>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio1)">
+                <input
+                    #startDateRadio1
+                    name="startDate"
+                    type="radio"
+                    value="Dzisiaj"
+                    id="start-date-today"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-today">Dzisiaj</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio2)">
+                <input
+                    #startDateRadio2
+                    name="startDate"
+                    type="radio"
+                    value="Ten tydzien"
+                    id="start-date-week"
+                    class="dropdown__section__holder__filtr-option" />
+
+                <label for="start-date-week">Ten tydzień</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio3)">
+                <input
+                    #startDateRadio3
+                    name="startDate"
+                    type="radio"
+                    value="Ten miesiac"
+                    id="start-date-month"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-month">Ten miesiąc</label>
+            </div>
+            <div
+                class="dropdown__section__holder"
+                (click)="toggleRadio(startDateRadio4)">
+                <input
+                    #startDateRadio4
+                    name="startDate"
+                    type="radio"
+                    value="Ten rok"
+                    id="start-date-year"
+                    class="dropdown__section__holder__filtr-option" />
+                <label for="start-date-year">Ten rok</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="dropdown__section">
+            <legend class="text-body">CZAS DO ROZPOCZĘCIA</legend>
+            <div class="dropdown__section__holder">
+                <input
+                    type="radio"
+                    value="Rosnaco"
+                    id="time-to-start-sort-up"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="time-to-start-sort-up">Rosnąco</label>
+            </div>
+            <div class="dropdown__section__holder">
+                <input
+                    type="radio"
+                    value="Malejaco"
+                    id="time-to-start-sort-down"
+                    class="dropdown__section__holder__sort-option" />
+
+                <label for="time-to-start-sort-down">Malejąco</label>
+            </div>
+        </fieldset>
+        <fieldset class="dropdown__section">
+            <legend class="text-body">NAZWA</legend>
+            <div class="dropdown__section__holder">
+                <input
+                    type="radio"
+                    value="Rosnaco"
+                    id="cretion-date-sort-up"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="cretion-date-sort-up">Rosnąco</label>
+            </div>
+            <div class="dropdown__section__holder">
+                <input
+                    type="radio"
+                    value="Malejaco"
+                    id="cretion-date-sort-down"
+                    class="dropdown__section__holder__sort-option" />
+                <label for="cretion-date-sort-down">Malejąco</label>
+            </div>
+        </fieldset>
+    </menu>
 </div>
