@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use '/src/styles/colors.scss' as colors;
+@use 'colors.scss' as colors;
 
 @include mat.core();
 
