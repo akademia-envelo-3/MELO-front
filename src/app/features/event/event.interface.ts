@@ -8,7 +8,7 @@ export interface EventCardDTO {
   invitedMembersNumber: number;
   mainPhoto: string;
   theme: Theme;
-  memberLimit: number;
+  memberLimit?: number;
 }
 
 export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eventId'> {

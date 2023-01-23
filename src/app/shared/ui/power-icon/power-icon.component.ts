@@ -10,7 +10,7 @@ import { NgIf, NgClass } from '@angular/common';
 const iconSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 type IconSizes = 'sm' | 'md' | 'lg' | 'xl';
 type SizeOptions = typeof iconSizes[number];
-type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
+export type ThemeOptions = 'primary' | 'secondary' | 'tertiary';
 
 @Component({
   selector: 'app-power-icon',

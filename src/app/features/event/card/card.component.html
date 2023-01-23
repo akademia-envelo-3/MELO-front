@@ -1,8 +1,14 @@
 <div
     *ngIf="card"
-    [style.background-image]="'url(' + theme.url + ')'"
-    [ngClass]="'card--' + theme.color"
-    class="card card--sm">
+    [style.background-image]="'url(' + this.url + ')'"
+    [ngClass]="[cardSize, themeColor]"
+    class="card">
+    <app-power-icon
+        class="card__power-icon"
+        [memberLimit]="card.memberLimit"
+        [memberNumber]="card.invitedMembersNumber"
+        [size]="'sm'"
+        [theme]="iconTheme"></app-power-icon>
     <div class="card__main-photo">
         <img src="{{ card.mainPhoto }}" alt="beer" />
     </div>

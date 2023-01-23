@@ -158,30 +158,34 @@ import { EventCardDTO } from '@features/event';
       </div>
     </div>
 
-    <div>
-      <p class="text-h3">Event Cards</p>
-      <div class="cards-wrapper">
+    <div class="cards-wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Event Cards</p>
+      <div class="cards-wrapper--inner">
         <app-event-card
           [card]="this.cardExample"
-          [theme]="{ url: '../../../../assets/cards/card-purple.png', color: 'purple' }"
+          [url]="'../../../../assets/cards/card-purple.png'"
         >
         </app-event-card>
         <app-event-card
-          [card]="this.cardExample"
-          [theme]="{ url: '../../../assets/cards/card-blue.png', color: 'blue' }"
+          [card]="this.cardExample3"
+          [url]="'../../../assets/cards/card-blue.png'"
         >
         </app-event-card>
         <app-event-card
-          [card]="this.cardExample"
-          [theme]="{ url: '../../../../assets/cards/card-white.png', color: 'white' }"
+          [card]="this.cardExample2"
+          [url]="'../../../../assets/cards/card-white.png'"
         >
         </app-event-card>
         <app-event-card
+          size="sm"
+          [card]="this.cardExample4"
+          [url]="'../../../../assets/cards/card-brown.png'"
+        >
+        </app-event-card>
+        <app-event-card
+          size="sm"
           [card]="this.cardExample"
-          [theme]="{
-            url: '../../../../assets/cards/card-brown.png',
-            color: 'brown'
-          }"
+          [url]="'../../../../assets/cards/card-purple.png'"
         >
         </app-event-card>
       </div>
@@ -199,5 +203,36 @@ export default class ThemeComponent {
     mainPhoto: 'assets/mock/beers.png',
     theme: 'purple',
     memberLimit: 50,
+  };
+  cardExample2: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 0,
+    mainPhoto: 'assets/mock/beers.png',
+    theme: 'white',
+    memberLimit: undefined,
+  };
+  cardExample3: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 10,
+    mainPhoto: 'assets/mock/beers.png',
+
+    theme: 'blue',
+    memberLimit: 99,
+  };
+  cardExample4: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 10,
+    mainPhoto: 'assets/mock/beers.png',
+    theme: 'brown',
+    memberLimit: undefined,
   };
 }

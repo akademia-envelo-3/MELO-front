@@ -13,7 +13,8 @@
   margin: $height 0 0 2px;
 }
 .card {
-  $content-width: 52%;
+  $content-width: 53%;
+
   // 9:7 ratio
   height: 465px;
   width: 375px;
@@ -25,6 +26,10 @@
   position: relative;
   flex-direction: column;
 
+  &__power-icon {
+    transform: translate(-110px, 5px);
+    position: absolute;
+  }
   &__main-photo {
     width: 100%;
     @include margin-purple(35px);
@@ -47,7 +52,7 @@
     &__start-time,
     &__description {
       background-color: st.$primary-400;
-      border: 1px solid st.$accent-gold-600;
+      border: 1px solid st.$accent-gold-400;
       border-radius: 5px;
     }
     &__title,
@@ -80,8 +85,8 @@
   &__line {
     height: 1px;
     width: $content-width;
-    background-color: st.$accent-gold-600;
-    @include margin-purple(15px);
+    background-color: st.$accent-gold-400;
+    @include margin-purple(8px);
   }
   &__button {
     @include margin-purple(15px);
@@ -117,8 +122,12 @@
   }
 }
 .card--blue {
+  .card__power-icon {
+    transform: translate(-120px, 0px);
+    // position: absolute;
+  }
   .card__main-photo {
-    @include margin-blue(38px);
+    @include margin-blue(40px);
   }
   .card__main-photo > img {
     height: 95%;
@@ -139,6 +148,10 @@
   height: 389px;
   width: 310px;
 
+  .card__power-icon {
+    transform: translate(-90px, 0px);
+  }
+
   .card__main-photo {
     @include margin-purple(22px);
   }
@@ -157,6 +170,9 @@
   }
 }
 .card.card--brown.card--sm {
+  .card__power-icon {
+    transform: translate(-90px, 0px);
+  }
   .card__info {
     @include margin-brown(5px);
   }
@@ -166,6 +182,9 @@
 }
 
 .card.card--white.card--sm {
+  .card__power-icon {
+    transform: translate(-90px, 0px);
+  }
   .card__info {
     @include margin-white(5px);
   }
@@ -175,6 +194,9 @@
 }
 
 .card.card--blue.card--sm {
+  .card__power-icon {
+    transform: translate(-100px, 0px);
+  }
   .card__main-photo {
     @include margin-blue(25px);
   }
