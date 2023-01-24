@@ -29,9 +29,7 @@ import { CustomHttpInterceptor } from './core';
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          {
-            loadChildren: () => import('./features/auth/auth.module'),
-          },
+          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
