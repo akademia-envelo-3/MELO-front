@@ -1,6 +1,10 @@
-<div class="filter-btn">
+<button class="filter-btn" [cdkMenuTriggerFor]="menu">
+    <!-- <div class="filter-btn" (appClickOutside)="test()" (click)="toggleDropdown()"> -->
     <img class="icon" src="assets/icons/filter-inactive.svg" />
-    <menu class="dropdown">
+</button>
+
+<ng-template #menu orientation="horizontal">
+    <menu class="dropdown" cdkMenu>
         <div class="dropdown__section">
             <p class="text-body">DATA UTWORZENIA</p>
             <div
@@ -161,4 +165,144 @@
             </div>
         </div>
     </menu>
-</div>
+</ng-template>
+
+<!-- <ng-template #menu>
+    <menu class="dropdown" cdkMenu>
+        <div cdkMenuGroup class="dropdown__section">
+            <p class="text-body">DATA UTWORZENIA</p>
+
+            <button
+                (click)="toggleFiltrRadio(creationDate1)"
+                cdkMenuItemRadio
+                #creationDate1
+                name="creationDate"
+                value="'Dzisiaj"
+                id="creation-date-today"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="creation-date-today">Dzisiaj</label>
+
+            <button
+                (click)="toggleFiltrRadio(creationDate2)"
+                cdkMenuItemRadio
+                #creationDate2
+                name="creationDate"
+                value="Ten tydzien"
+                id="creation-date-week"
+                class="dropdown__section__holder__filtr-option"></button>
+
+            <label for="creation-date-week">Ten tydzień</label>
+
+            <button
+                (click)="toggleFiltrRadio(creationDate3)"
+                cdkMenuItemRadio
+                #creationDate3
+                name="creationDate"
+                value="Ten miesiac"
+                id="creation-date-month"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="creation-date-month">Ten miesiąc</label>
+
+            <button
+                (click)="toggleFiltrRadio(creationDate4)"
+                cdkMenuItemRadio
+                #creationDate4
+                name="creationDate"
+                value="Ten rok"
+                id="creation-date-year"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="creation-date-year">Ten rok</label>
+        </div>
+        <div cdkMenuGroup class="dropdown__section">
+            <p class="text-body">DATA ROZPOCZĘCIA</p>
+
+            <button
+                (click)="toggleFiltrRadio(startDate1)"
+                cdkMenuItemRadio
+                #startDate1
+                name="startDate"
+                value="Dzisiaj"
+                id="start-date-today"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="start-date-today">Dzisiaj</label>
+
+            <button
+                (click)="toggleFiltrRadio(startDate2)"
+                cdkMenuItemRadio
+                #startDate2
+                name="startDate"
+                value="Ten tydzien"
+                id="start-date-week"
+                class="dropdown__section__holder__filtr-option"></button>
+
+            <label for="start-date-week">Ten tydzień</label>
+
+            <button
+                (click)="toggleFiltrRadio(startDate3)"
+                cdkMenuItemRadio
+                #startDate3
+                name="startDate"
+                value="Ten miesiac"
+                id="start-date-month"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="start-date-month">Ten miesiąc</label>
+
+            <button
+                (click)="toggleFiltrRadio(startDate4)"
+                cdkMenuItemRadio
+                #startDate4
+                name="startDate"
+                value="Ten rok"
+                id="start-date-year"
+                class="dropdown__section__holder__filtr-option"></button>
+            <label for="start-date-year">Ten rok</label>
+        </div>
+
+        <div cdkMenuGroup class="dropdown__section">
+            <p class="text-body">CZAS DO ROZPOCZĘCIA</p>
+
+            <button
+                (click)="toggleSortRadio(sortRadio1)"
+                cdkMenuItemRadio
+                #sortRadio1
+                name="sortRadio"
+                value="Rosnaco"
+                id="date-ascending"
+                class="dropdown__section__holder__sort-option"></button>
+            <label for="date-ascending">Rosnąco</label>
+
+            <button
+                (click)="toggleSortRadio(sortRadio2)"
+                cdkMenuItemRadio
+                #sortRadio2
+                name="sortRadio"
+                value="Malejaco"
+                id="date-deccending"
+                class="dropdown__section__holder__sort-option"></button>
+            <label for="date-deccending">Malejąco</label>
+        </div>
+        <div cdkMenuGroup class="dropdown__section">
+            <p class="text-body">NAZWA</p>
+
+            <button
+                (click)="toggleSortRadio(sortRadio3)"
+                cdkMenuItemRadio
+                #sortRadio3
+                name="sortRadio"
+                value="Rosnaco"
+                id="name-ascending"
+                class="dropdown__section__holder__sort-option"></button>
+            <label for="name-ascending">Rosnąco</label>
+
+            <button
+                (click)="toggleSortRadio(sortRadio4)"
+                cdkMenuItemRadio
+                #sortRadio4
+                name="sortRadio"
+                value="Malejaco"
+                id="name-deccending"
+                class="dropdown__section__holder__sort-option"></button>
+            <label for="name-deccending">Malejąco</label>
+        </div>
+    </menu>
+</ng-template> -->

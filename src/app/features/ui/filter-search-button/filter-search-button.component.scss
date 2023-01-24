@@ -1,64 +1,70 @@
 @use './src/styles' as st;
 .filter-btn {
-  margin: 40px;
-
-  .dropdown {
-    background-color: st.$primary-900;
-    color: st.$neutral-600;
+  // margin: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.dropdown {
+  background-color: st.$primary-900;
+  color: st.$neutral-600;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  width: 900px;
+  &__section {
+    border: none;
     display: flex;
-    justify-content: space-evenly;
-    padding: 1rem 2rem;
-    border-radius: 15px;
-    width: 900px;
-    &__section {
-      border: none;
-      display: flex;
-      flex-direction: column;
-      width: max-content;
-      width: 20%;
-      border: none;
+    flex-direction: column;
+    width: max-content;
+    width: 20%;
+    border: none;
 
-      p {
-        color: st.$neutral-100;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid st.$neutral-500;
-        width: 100%;
+    p {
+      color: st.$neutral-100;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid st.$neutral-500;
+      width: 100%;
+    }
+    &__holder {
+      position: relative;
+      label {
+        width: 80%;
+        display: inline-block;
+        cursor: pointer;
       }
-      &__holder {
-        position: relative;
-        label {
-          width: 80%;
-          display: inline-block;
-          cursor: pointer;
-        }
 
-        &__filtr-option {
-          border: none;
-          display: none;
-        }
-        &__filtr-option:checked {
-          border: none;
-        }
+      &__filtr-option {
+        border: none;
+        display: none;
+      }
+      &__filtr-option:checked {
+        border: none;
+      }
 
-        &:has(.dropdown__section__holder__filtr-option:checked) {
-          color: st.$neutral-100;
-          display: inline-block;
-        }
-        &:has(.dropdown__section__holder__filtr-option:checked)::after {
-          content: '\0078';
-          color: st.$neutral-100;
-          cursor: pointer;
-        }
-        &__sort-option {
-          border: none;
+      &:has(.dropdown__section__holder__filtr-option:checked) {
+        color: st.$neutral-100;
+        display: inline-block;
+      }
+      &:has(.dropdown__section__holder__filtr-option:checked)::after {
+        content: '\0078';
+        color: st.$neutral-100;
+        cursor: pointer;
+      }
+      &__sort-option {
+        border: none;
 
-          display: none;
-        }
-        &:has(.dropdown__section__holder__sort-option:checked) {
-          color: st.$neutral-100;
-          display: inline-block;
-        }
+        display: none;
+      }
+      &:has(.dropdown__section__holder__sort-option:checked) {
+        color: st.$neutral-100;
+        display: inline-block;
       }
     }
   }
 }
+
+// .hidden {
+//   display: none !important;
+// }

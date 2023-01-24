@@ -75,7 +75,7 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
         </div>
       </div>
     </div>
-    <app-filter-search-button></app-filter-search-button>
+    <div class="test"><app-filter-search-button></app-filter-search-button></div>
   `,
   styleUrls: ['theme.component.scss'],
 })
