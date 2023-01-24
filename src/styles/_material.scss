@@ -1,0 +1,60 @@
+@use '@angular/material' as mat;
+@use 'colors' as colors;
+
+@include mat.core();
+
+$my-typography: mat.define-typography-config(
+  $font-family: 'Mukta Vaani',
+);
+
+$gold-palette: (
+  100: #eddebf,
+  200: #eddebf,
+  300: #efd6b3,
+  500: #e9ce7f,
+  600: #d69840,
+  700: #d69840,
+  800: #c17605,
+  900: #c17605,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+  ),
+);
+
+$app-name-primary: mat.define-palette($gold-palette, 600, 300, 800, 600);
+$app-name-accent: mat.define-palette(mat.$green-palette);
+$app-name-warn: mat.define-palette(mat.$red-palette);
+
+$app-name-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-name-primary,
+      accent: $app-name-accent,
+      warn: $app-name-warn,
+    ),
+    typography: $my-typography,
+  )
+);
+
+@include mat.input-color($app-name-theme);
+@include mat.form-field-color($app-name-theme);
+@include mat.select-color($app-name-theme);
+@include mat.chips-color($app-name-theme);
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  color: colors.$accent-gold-300 !important;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__text-label {
+  color: colors.$accent-gold-800 !important;
+}
