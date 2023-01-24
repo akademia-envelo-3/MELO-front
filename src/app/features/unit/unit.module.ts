@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgIf, JsonPipe } from '@angular/common';
 import { UnitFormComponent } from './unit-form/unit-form.component';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CircularButtonComponent,
     NgIf,
+    JsonPipe,
     MatInputModule,
     MatButtonModule,
     MatIconModule,

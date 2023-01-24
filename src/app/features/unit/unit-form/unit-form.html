@@ -15,11 +15,15 @@
                 type="text"
                 formControlName="unitName"
                 (blur)="onSetToStorage('unitName', unitForm.controls.unitName.value)" />
-            <mat-error *ngIf="unitForm.controls.unitName.hasError('required')"
-                ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
-            ><mat-error *ngIf="unitForm.controls.unitName.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków
-                to 255 </mat-error
+            <ng-container
+                *ngIf="unitForm.controls.unitName.errors as unitNameErrors">
+                <mat-error *ngIf="unitNameErrors['required']"
+                    ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
+                ><mat-error *ngIf="unitNameErrors['maxlength']"
+                    ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość
+                    znaków to {{ unitNameErrors['maxlength']['requiredLength']
+                    }}
+                </mat-error></ng-container
             ><mat-hint
                 class="accent-color"
                 *ngIf="unitForm.controls.unitName.valid"
@@ -40,14 +44,20 @@
                 unitForm.controls.unitDescription.value
               )
             "></textarea>
-            <mat-error
-                *ngIf="unitForm.controls.unitDescription.hasError('required')"
-                ><mat-icon>info</mat-icon> Pole opis koła jest wymagane </mat-error
-            ><mat-error
-                *ngIf="unitForm.controls.unitDescription.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków
-                to 4000 </mat-error
-            ><mat-hint
+            <div
+                class="mat-errors-container"
+                *ngIf="unitForm.controls.unitDescription.errors as unitDescriptionErrors">
+                <mat-error
+                    *ngIf="unitForm.controls.unitDescription.errors['required']"
+                    ><mat-icon>info</mat-icon> Pole opis koła jest wymagane </mat-error
+                ><mat-error
+                    *ngIf="unitForm.controls.unitDescription.errors['maxlength']"
+                    ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość
+                    znaków to {{
+                    unitDescriptionErrors['maxlength']['requiredLength'] }}
+                </mat-error>
+            </div>
+            <mat-hint
                 class="accent-color"
                 *ngIf="unitForm.controls.unitDescription.valid">
                 <mat-icon fontIcon="done_outline"></mat-icon>

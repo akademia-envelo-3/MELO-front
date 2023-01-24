@@ -23,15 +23,20 @@ export class UnitFormComponent implements OnInit, OnDestroy {
   @ViewChild('textMatFormField', { static: true }) textMatFormField!: MatFormField;
 
   private builder = inject(NonNullableFormBuilder);
-  private subscriptions = new Subscription();
   private storageService = inject(StorageService);
+  private subscriptions = new Subscription();
   unitForm = this.createUnitForm();
-  private unitNameCtrl = this.unitForm.controls.unitName;
-  private unitDescriptionCtrl = this.unitForm.controls.unitDescription;
 
   ngOnInit() {
     this.applyAccentColorOnValid();
     this.setFormValuesFromStorage();
+  }
+
+  get unitNameCtrl() {
+    return this.unitForm.controls.unitName;
+  }
+  get unitDescriptionCtrl() {
+    return this.unitForm.controls.unitDescription;
   }
 
   onSetToStorage(itemKey: string, itemValue: string) {
@@ -41,6 +46,7 @@ export class UnitFormComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.unitForm.markAllAsTouched();
     ///todo in next task: validate if unitName exist, send form and userId to backend, navigate to confirmation page
+    /// link to next task https://github.com/akademia-envelo-3/MELO-front/issues/51
     sessionStorage.clear();
   }
 
