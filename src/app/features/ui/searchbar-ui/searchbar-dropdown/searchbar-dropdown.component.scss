@@ -27,14 +27,12 @@ $text: colors.$neutral-500;
   border: 1.15px solid $border;
   border-radius: 25px;
   font-weight: semi-bold;
-  font-size: 12px;
   padding-left: 6px;
   padding-right: 12px;
   cursor: pointer;
 }
 
 .searchbar-dropdown__filterMenuItem > mat-icon {
-  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;

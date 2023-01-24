@@ -3,10 +3,12 @@
     <ul class="searchbar-dropdown__filterMenu" *ngIf="searchbar.typeOfEvent">
         <li
             *ngFor="let searchType of searchTypes"
-            class="searchbar-dropdown__filterMenuItem"
+            class="searchbar-dropdown__filterMenuItem text-body-small"
             [ngClass]="{ active: searchType.isActive }"
             (click)="clickFilterEvent(searchType)">
-            <mat-icon>{{ searchType.searchTypeIcon }}</mat-icon>
+            <mat-icon class="text-body-small"
+                >{{ searchType.searchTypeIcon }}</mat-icon
+            >
             <p>{{ searchType.searchTypeName }}</p>
         </li>
     </ul>
