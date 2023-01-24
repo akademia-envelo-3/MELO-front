@@ -1,0 +1,51 @@
+@use 'colors' as colors;
+
+.btn-rect {
+  min-width: 150px;
+  border: none;
+  font-family: 'Eczar', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: colors.$neutral-900;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+}
+
+.btn-rect--sm {
+  min-width: 80px;
+  font-size: 0.95rem;
+  padding: 0.1rem 1.2rem;
+}
+
+.btn-default {
+  @extend .bg-gradient-gold-1;
+  box-shadow: 0 0 0 1px #d6b84a, 0 0 0 2px #c39c3c, 0 0 0 3px #d1ac4c, 0 0 0 4px #b99b53,
+    0 0 0 5px #36260b, 0 0 0 6px #311c10, 0 0 0 7px #82573a, 0 0 0 8px #ca9d7c,
+    0 0 0 9px #644b3a;
+}
+
+.btn-black {
+  @extend .bg-gradient-primary-1;
+  box-shadow: 0 0 0 1px #aaa096, 0 0 0 2px #f1e3e3, 0 0 0 3px #d9d6d3, 0 0 0 4px #bfbcba,
+    0 0 0 5px #afafaf, 0 0 0 6px #9e9e9e;
+}
+
+.btn-green {
+  @extend .bg-gradient-green-1;
+  box-shadow: 0 0 0 1px #253b3a, 0 0 0 2px #d6b84a, 0 0 0 3px #c39c3c, 0 0 0 4px #d1ac4c,
+    0 0 0 5px #b99b53, 0 0 0 6px #36260b, 0 0 0 7px #311c10, 0 0 0 8px #82573a,
+    0 0 0 9px #ca9d7c, 0 0 0 10px #644b3a;
+}
+
+.btn-rect:disabled {
+  opacity: 0.6;
+}
+
+.btn-rect:not([disabled]) {
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}

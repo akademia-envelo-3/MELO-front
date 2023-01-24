@@ -1,4 +1,4 @@
-@use './src/colors' as st;
+@use '/src/styles/colors' as colors;
 
 :host button {
   --base-size: 40px;
@@ -23,7 +23,7 @@
   transition: all 0.3s;
 
   .icon {
-    color: st.$neutral-100;
+    color: colors.$neutral-100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
   span {
     font-family: 'Eczar', 'sans-serif';
     font-weight: 700;
-    color: #ffffff;
+    color: colors.$neutral-100;
   }
 }
 
