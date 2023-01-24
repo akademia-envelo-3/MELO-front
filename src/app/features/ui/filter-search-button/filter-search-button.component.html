@@ -4,11 +4,14 @@
         [ngClass]="{ 'filter-btn--active': isOpen }"
         (click)="toggleDropdown()"></button>
     <ng-container *ngIf="isOpen">
-        <app-event-dropdown-component *ngIf="menuType === 'events'">
+        <app-event-dropdown-component
+            (newMenuState)="getPickedOptions($event)"
+            *ngIf="menuType === 'events'">
         </app-event-dropdown-component>
     </ng-container>
     <ng-container *ngIf="isOpen">
         <app-unit-dropdown-component
+            (newMenuState)="getPickedOptions($event)"
             *ngIf="menuType === 'units'"></app-unit-dropdown-component>
     </ng-container>
 </div>

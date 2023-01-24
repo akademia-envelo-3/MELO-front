@@ -8,7 +8,7 @@
                 #creationDate1
                 name="creationDate"
                 type="radio"
-                value="'Dzisiaj"
+                value="{{ creationDate1.checked === true ? 'Dzisiaj' : '' }}"
                 id="creation-date-today"
                 class="dropdown__section__holder__filtr-option" />
             <label for="creation-date-today">Dzisiaj</label>
@@ -20,7 +20,9 @@
                 #creationDate2
                 name="creationDate"
                 type="radio"
-                value="Ten tydzien"
+                value="{{
+                    creationDate2.checked === true ? 'Ten tydzień' : ''
+                }}"
                 id="creation-date-week"
                 class="dropdown__section__holder__filtr-option" />
 
@@ -33,7 +35,9 @@
                 #creationDate3
                 name="creationDate"
                 type="radio"
-                value="Ten miesiac"
+                value="{{
+                    creationDate3.checked === true ? 'Ten miesiąc' : ''
+                }}"
                 id="creation-date-month"
                 class="dropdown__section__holder__filtr-option" />
             <label for="creation-date-month">Ten miesiąc</label>
@@ -45,7 +49,7 @@
                 #creationDate4
                 name="creationDate"
                 type="radio"
-                value="Ten rok"
+                value="{{ creationDate4.checked === true ? 'Ten rok' : '' }}"
                 id="creation-date-year"
                 class="dropdown__section__holder__filtr-option" />
             <label for="creation-date-year">Ten rok</label>
@@ -60,7 +64,7 @@
                 #startDate1
                 name="startDate"
                 type="radio"
-                value="Dzisiaj"
+                value="{{ startDate1.checked === true ? 'Dzisiaj' : '' }}"
                 id="start-date-today"
                 class="dropdown__section__holder__filtr-option" />
             <label for="start-date-today">Dzisiaj</label>
@@ -72,7 +76,7 @@
                 #startDate2
                 name="startDate"
                 type="radio"
-                value="Ten tydzien"
+                value="{{ startDate2.checked === true ? 'Ten tydzień' : '' }}"
                 id="start-date-week"
                 class="dropdown__section__holder__filtr-option" />
 
@@ -85,7 +89,7 @@
                 #startDate3
                 name="startDate"
                 type="radio"
-                value="Ten miesiac"
+                value="{{ startDate3.checked === true ? 'Ten miesiąc' : '' }}"
                 id="start-date-month"
                 class="dropdown__section__holder__filtr-option" />
             <label for="start-date-month">Ten miesiąc</label>
@@ -97,7 +101,7 @@
                 #startDate4
                 name="startDate"
                 type="radio"
-                value="Ten rok"
+                value="{{ startDate4.checked === true ? 'Ten rok' : '' }}"
                 id="start-date-year"
                 class="dropdown__section__holder__filtr-option" />
             <label for="start-date-year">Ten rok</label>

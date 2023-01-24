@@ -1,20 +1,29 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgClass, NgIf } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
-import { CdkMenuModule } from '@angular/cdk/menu';
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
 import { EventDropdownComponent } from './dropdown/event-dropdown.component';
 import { UnitDropdownComponent } from './dropdown/unit-dropdown.component';
 
+export type MenuState = {
+  creationDate: string;
+  startDate: string;
+  dateSort: string;
+  nameSort: string;
+};
 export type MenuType = 'events' | 'units';
 @Component({
   selector: 'app-filter-search-button[menuType]',
   standalone: true,
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    CdkMenuModule,
+    NgIf,
+    NgClass,
     ClickOutsideDirective,
     EventDropdownComponent,
     UnitDropdownComponent,
@@ -26,8 +35,12 @@ export type MenuType = 'events' | 'units';
 export class FilterSearchButtonComponent {
   isOpen = false;
   @Input() menuType!: MenuType;
-  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
+  @Output() emmitPickedOptions = new EventEmitter<MenuState>();
 
+  getPickedOptions(menuState: MenuState) {
+    console.log(menuState);
+    this.emmitPickedOptions.emit(menuState);
+  }
   hideDropdown() {
     this.isOpen = false;
   }
