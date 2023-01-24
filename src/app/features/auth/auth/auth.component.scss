@@ -1,0 +1,64 @@
+@use './src/styles/colors' as colors;
+
+$icon: colors.$accent-gold-500;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: clamp(21px, 3.5vw, 120px) clamp(25px, 10.5vw, 160px);
+  min-width: clamp(250px, 50vw, 600px);
+
+  &__logo {
+    margin: clamp(-60px, -4.5vw, -20px);
+    width: clamp(200px, 30vw, 450px);
+  }
+
+  input {
+    height: 3rem;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
+    -webkit-box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
+  }
+
+  input[data-autocompleted] {
+    background-color: transparent !important;
+  }
+
+  mat-icon {
+    color: $icon;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: clamp(248px, 30vw, 300px);
+  gap: clamp(0px, 30vw, 10px);
+
+  &__rememberMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15px;
+    margin-bottom: 20px;
+  }
+  button {
+    align-self: center;
+  }
+}
