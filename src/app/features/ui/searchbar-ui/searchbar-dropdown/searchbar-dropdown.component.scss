@@ -1,9 +1,9 @@
-@use './src/styles' as st;
+@use './src/styles/colors' as colors;
 
-$background: st.$primary-900;
-$border: st.$primary-500;
-$icon: st.$accent-gold-600;
-$text: st.$neutral-500;
+$background: colors.$primary-900;
+$border: colors.$primary-500;
+$icon: colors.$accent-gold-600;
+$text: colors.$neutral-500;
 
 .searchbar-dropdown {
   min-height: 200px;
@@ -60,7 +60,7 @@ $text: st.$neutral-500;
   .result-picture {
     width: 30px;
     height: 30px;
-    background-color: st.$neutral-300;
+    background-color: colors.$neutral-300;
     border-radius: 25px;
     margin-right: 0.8rem;
     margin-left: 0.4rem;

@@ -1,10 +1,10 @@
-@use './src/styles' as st;
+@use './src/styles/colors' as colors;
 
-$background: st.$primary-900;
-$border: st.$primary-500;
-$placeholder: st.$neutral-300;
-$icon: st.$accent-gold-600;
-$focus: st.$accent-gold-200;
+$background: colors.$primary-900;
+$border: colors.$primary-500;
+$placeholder: colors.$neutral-300;
+$icon: colors.$accent-gold-600;
+$focus: colors.$accent-gold-200;
 
 .searchbar {
   display: flex;
@@ -21,7 +21,7 @@ $focus: st.$accent-gold-200;
 
 .searchbar__input {
   font-size: 1.125rem;
-  color: st.$neutral-100;
+  color: colors.$neutral-100;
   min-width: 80px;
   flex-grow: 1;
   outline: none;
