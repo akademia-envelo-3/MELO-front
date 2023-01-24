@@ -23,8 +23,7 @@
             ><mat-error
                 class="text-body-small"
                 *ngIf="unitForm.controls.unitName.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków
-                to {{
+                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
                 unitForm.controls.unitName.errors!['maxlength']['requiredLength']
                 }}
             </mat-error>
@@ -56,8 +55,7 @@
             ><mat-error
                 class="text-body-small"
                 *ngIf="unitForm.controls.unitDescription.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna dopuszczalna ilość znaków
-                to {{
+                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
                 unitForm.controls.unitDescription.errors!['maxlength']['requiredLength']
                 }}
             </mat-error>
