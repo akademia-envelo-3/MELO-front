@@ -1,16 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-  OnDestroy,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgIf } from '@angular/common';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,16 +14,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthComponent implements OnInit, OnDestroy {
+export class AuthComponent {
   private builder = inject(NonNullableFormBuilder);
   private router = inject(Router);
 
   form = this.createForm();
   emailNotFocused = false;
   passwordNotFocused = false;
-  isFormValid = true;
   isPasswordVisible = false;
-  sub = new Subscription();
 
   private createForm() {
     return this.builder.group({
@@ -73,26 +64,5 @@ export class AuthComponent implements OnInit, OnDestroy {
     if (this.form.valid) {
       this.router.navigate(['']);
     }
-  }
-
-  ngOnInit(): void {
-    this.sub = this.form.statusChanges.subscribe((status: string) => {
-      if (status === 'INVALID') {
-        this.onFormInvalid();
-      } else if (status === 'VALID') {
-        this.onFormValid();
-      }
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  private onFormValid() {
-    this.isFormValid = false;
-  }
-  private onFormInvalid() {
-    this.isFormValid = true;
   }
 }
