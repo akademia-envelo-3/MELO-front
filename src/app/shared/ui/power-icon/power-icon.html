@@ -1,0 +1,17 @@
+<div [ngClass]="[themeClass, sizeClass, textSizeClass]">
+    <div class="power-icon">
+        <div>
+            <p class="power-icon__member-number">{{memberNumber}}</p>
+            <p class="power-icon__separetor">/</p>
+            <p class="power-icon__member-limit" *ngIf="memberLimit; else icon">
+                {{memberLimit}}
+            </p>
+            <ng-template #icon>
+                <mat-icon [ngClass]="iconInfinityClass">
+                    all_inclusive
+                </mat-icon>
+            </ng-template>
+        </div>
+        <mat-icon class="icon">group</mat-icon>
+    </div>
+</div>
