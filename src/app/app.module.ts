@@ -11,26 +11,10 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
-import { NavbarComponent } from './features/ui/navbar/navbar.component';
+import { NavbarComponent } from './features/ui';
 
 @NgModule({
   declarations: [AppComponent],
-  providers: [
-    {
-      provide: API_URL,
-      useValue: environment.API_URL,
-    },
-    {
-      provide: IS_PRODUCTION,
-      useValue: environment.production,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomHttpInterceptor,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -38,6 +22,7 @@ import { NavbarComponent } from './features/ui/navbar/navbar.component';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
+    NavbarComponent,
     RouterModule.forRoot([
       {
         path: '',
@@ -63,7 +48,22 @@ import { NavbarComponent } from './features/ui/navbar/navbar.component';
         ],
       },
     ]),
-    NavbarComponent,
   ],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: environment.API_URL,
+    },
+    {
+      provide: IS_PRODUCTION,
+      useValue: environment.production,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
