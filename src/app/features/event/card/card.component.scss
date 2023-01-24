@@ -1,4 +1,4 @@
-@use './src/styles' as st;
+@use './src/styles/colors' as st;
 
 @mixin margin-purple($height) {
   margin: $height 22px 0 0;
