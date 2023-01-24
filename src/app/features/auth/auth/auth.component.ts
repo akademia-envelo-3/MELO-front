@@ -51,10 +51,6 @@ export class AuthComponent {
     return this.emailCtrl.hasError('email') ? 'Nieprawidłowy adres email' : '';
   }
 
-  getPasswordErrorMessage() {
-    return 'To pole jest obowiązkowe';
-  }
-
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
