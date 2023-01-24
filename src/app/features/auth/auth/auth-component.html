@@ -1,7 +1,7 @@
 <div class="container">
     <div class="login-view-container bg-gradient-neutral-3">
         <img
-            src="../../../../assets/app-logo/app-logo.svg"
+            src="../../../../assets/app-logo/app-logo.png"
             alt="app-logo"
             class="login-view-container__logo" />
         <h1 class="text-h2">Witaj</h1>
@@ -15,7 +15,7 @@
                     matInput
                     placeholder="Email"
                     formControlName="email" />
-                <mat-error *ngIf="emailCtrl.invalid"
+                <mat-error class="text-body-small" *ngIf="emailCtrl.invalid"
                     >{{getEmailErrorMessage()}}</mat-error
                 >
             </mat-form-field>
@@ -38,7 +38,7 @@
                     matInput
                     placeholder="Password"
                     formControlName="password" />
-                <mat-error *ngIf="passwordCtrl.invalid"
+                <mat-error class="text-body-small" *ngIf="passwordCtrl.invalid"
                     >{{getPasswordErrorMessage()}}</mat-error
                 >
             </mat-form-field>
