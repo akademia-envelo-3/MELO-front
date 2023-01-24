@@ -4,6 +4,8 @@
 @use 'colors' as colors;
 @use 'breakpoints' as br;
 
+$max-app-width: 1920px;
+
 :root {
   font-family: 'Mukta Vaani', 'sans-serif';
   font-size: 1rem;
@@ -24,6 +26,7 @@ body {
 }
 
 app-root {
+  padding-top: 89px;
   display: block;
   background-image: url('../assets/bg-images/main-background.png');
   background-repeat: no-repeat;

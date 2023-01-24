@@ -1,0 +1,16 @@
+@use '/src/styles/colors' as colors;
+@use '/src/styles/typography' as typography;
+
+.circle {
+  @extend .text-h6;
+  @extend .text-body-small;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid colors.$primary-500;
+  background-color: colors.$primary-900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: colors.$accent-gold-600;
+}

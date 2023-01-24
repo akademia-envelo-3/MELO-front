@@ -11,9 +11,26 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
+import { NavbarComponent } from './features/ui/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: environment.API_URL,
+    },
+    {
+      provide: IS_PRODUCTION,
+      useValue: environment.production,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -46,22 +63,7 @@ import { CustomHttpInterceptor } from './core';
         ],
       },
     ]),
+    NavbarComponent,
   ],
-  providers: [
-    {
-      provide: API_URL,
-      useValue: environment.API_URL,
-    },
-    {
-      provide: IS_PRODUCTION,
-      useValue: environment.production,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomHttpInterceptor,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

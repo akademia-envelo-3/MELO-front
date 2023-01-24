@@ -1,23 +1,28 @@
+@use '/src/styles/breakpoints' as breakpoints;
+@use '/src/styles/colors' as colors;
+@use '/src/styles/styles.scss' as styles;
+
 .navbar {
+  @extend .bg-gradient-primary-1;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
+  max-width: styles.$max-app-width;
   height: 89px;
-  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .logoImg {
+  &__logoImg {
     height: 100%;
   }
-  .logoImg:hover {
+  &__logoImg:hover {
     cursor: pointer;
   }
-  .bell {
+  &__bell {
     margin-right: 1rem;
     position: absolute;
-    right: 0;
+    right: 89px;
     height: 100%;
     width: 89px;
     background-image: url('../../../../assets/bell.svg');
@@ -33,32 +38,35 @@
       height: min-content;
     }
   }
-  .menuMobileIcon {
-    display: none;
+  &__menu-mobile-icon {
+    display: block;
+    height: 100%;
+    width: 89px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 5%;
   }
-  @media (max-width: 560px) {
-    .bell {
-      right: 89px;
+  &__menu-mobile-icon:hover {
+    cursor: pointer;
+  }
+  .active {
+    background-image: url('../../../../assets/closeMenu.svg');
+    transform: scale(75%);
+  }
+  .inactive {
+    background-image: url('../../../../assets/hamburger.svg');
+    transform: scale(50%);
+  }
+}
+
+@include breakpoints.media-md {
+  .navbar {
+    &__bell {
+      right: 0;
     }
-    .menuMobileIcon {
-      display: block;
-      height: 100%;
-      width: 89px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      margin: 0 5%;
-    }
-    .menuMobileIcon:hover {
-      cursor: pointer;
-    }
-    .active {
-      background-image: url('../../../../assets/closeMenu.svg');
-      transform: scale(75%);
-    }
-    .disactive {
-      background-image: url('../../../../assets/hamburger.svg');
-      transform: scale(50%);
+    &__menu-mobile-icon {
+      display: none;
     }
   }
 }

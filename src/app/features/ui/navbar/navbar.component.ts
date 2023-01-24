@@ -1,36 +1,39 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { NotificationsQuantityComponent } from './notifications-quantity.component';
+
 import { Router } from '@angular/router';
 import { NgIf, NgClass } from '@angular/common';
+import { NotificationsQuantityComponent } from './notifications-quantity.component';
 
 @Component({
   standalone: true,
   imports: [NotificationsQuantityComponent, NgIf, NgClass],
   selector: 'app-navbar',
   template: `
-    <div class="navbar">
-      <img (click)="navToHome()" class="logoImg" src="../assets/logo-icon.svg" />
-      <div class="bell">
-        <app-notifications-quantity *ngIf="notifications" class="bell__notification">{{
-          notifications
-        }}</app-notifications-quantity>
+    <nav class="navbar">
+      <img (click)="navToHome()" class="navbar__logoImg" src="../assets/app-logo.png" />
+      <div class="navbar__bell">
+        <app-notifications-quantity
+          *ngIf="notifications"
+          class="navbar__bell__notification"
+          >{{ notifications }}</app-notifications-quantity
+        >
       </div>
       <div
-        (click)="handleMenuActive()"
-        class="menuMobileIcon"
-        [ngClass]="{ active: menuActive === true, disactive: menuActive === false }"
+        (click)="toggleMenu()"
+        class="navbar__menu-mobile-icon"
+        [ngClass]="{ active: menuActive, inactive: !menuActive }"
       ></div>
-    </div>
+    </nav>
   `,
   styleUrls: ['./navbar.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  router = inject(Router);
+  private router = inject(Router);
   @Input() notifications?: number;
   menuActive = false;
 
-  handleMenuActive() {
+  toggleMenu() {
     this.menuActive = !this.menuActive;
   }
 
