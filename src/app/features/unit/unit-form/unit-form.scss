@@ -1,9 +1,10 @@
-@use './src/styles' as st;
+@use './src/styles/colors' as colors;
+@use './src/styles/breakpoints' as br;
 
 app-circular-button {
   padding: 1rem;
   display: block;
-  @include st.media-md {
+  @include br.media-md {
     display: none;
   }
 }
@@ -18,10 +19,10 @@ app-circular-button {
   margin-inline: auto;
 
   &_header {
-    color: st.$neutral-100;
+    color: colors.$neutral-100;
     text-align: center;
     padding-bottom: 1rem;
-    border-bottom: 2px solid st.$neutral-100;
+    border-bottom: 2px solid colors.$neutral-100;
   }
 
   &_form {
@@ -45,6 +46,9 @@ app-circular-button {
     }
     .btn-rect {
       margin-top: 1rem;
+    }
+    #mat-mdc-error-0 {
+      margin-top: 10px;
     }
   }
 }

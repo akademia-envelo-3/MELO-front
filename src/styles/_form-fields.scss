@@ -1,0 +1,41 @@
+@use 'colors' as colors;
+
+//bg-color for inputs
+.mat-mdc-text-field-wrapper.mdc-text-field {
+  background-color: colors.$neutral-300;
+}
+
+//fix outlined appearance for labels
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined {
+  height: 56px;
+}
+label.mdc-floating-label.mat-mdc-floating-label {
+  top: 1.5rem;
+}
+
+.mat-mdc-form-field {
+  min-width: 200px;
+  width: 100%;
+}
+
+.mat-mdc-form-field-error {
+  margin-top: 14px;
+}
+
+.mat-mdc-form-field-error,
+.mat-mdc-form-field-hint {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.mat-mdc-form-field-error > .mat-icon,
+.mat-mdc-form-field-hint > .mat-icon {
+  margin-right: 0.25rem;
+}
+
+.mat-mdc-form-field input,
+.mat-mdc-form-field textarea {
+  padding-top: 1rem;
+}

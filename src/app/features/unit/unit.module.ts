@@ -20,5 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     ReactiveFormsModule,
   ],
+  exports: [UnitFormComponent],
 })
 export class UnitModule {}

@@ -16,7 +16,7 @@
                 formControlName="unitName"
                 (blur)="onSetToStorage('unitName', unitForm.controls.unitName.value)" />
             <ng-container
-                *ngIf="unitForm.controls.unitName.errors as unitNameErrors">
+                *ngIf=" unitForm.controls.unitName.touched && unitForm.controls.unitName.errors as unitNameErrors">
                 <mat-error *ngIf="unitNameErrors['required']"
                     ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
                 ><mat-error *ngIf="unitNameErrors['maxlength']"
@@ -45,8 +45,7 @@
               )
             "></textarea>
             <div
-                class="mat-errors-container"
-                *ngIf="unitForm.controls.unitDescription.errors as unitDescriptionErrors">
+                *ngIf="unitForm.controls.unitDescription.touched && unitForm.controls.unitDescription.errors as unitDescriptionErrors ">
                 <mat-error
                     *ngIf="unitForm.controls.unitDescription.errors['required']"
                     ><mat-icon>info</mat-icon> Pole opis koła jest wymagane </mat-error
