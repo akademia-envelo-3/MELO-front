@@ -239,31 +239,22 @@ import {
     <div class="cards-wrapper bg-gradient-neutral-3">
       <p class="text-h4">Event Cards</p>
       <div class="cards-wrapper--inner">
-        <app-event-card
-          [card]="this.cardExample"
-          [url]="'../../../../assets/cards/card-purple.webp'"
-        >
+        <app-event-card [card]="this.cardExample" [url]="'assets/cards/card-purple.webp'">
         </app-event-card>
-        <app-event-card
-          [card]="this.cardExample3"
-          [url]="'../../../assets/cards/card-blue.webp'"
-        >
+        <app-event-card [card]="this.cardExample3" [url]="'assets/cards/card-blue.webp'">
         </app-event-card>
-        <app-event-card
-          [card]="this.cardExample2"
-          [url]="'../../../../assets/cards/card-white.webp'"
-        >
+        <app-event-card [card]="this.cardExample2" [url]="'assets/cards/card-white.webp'">
         </app-event-card>
         <app-event-card
           size="sm"
           [card]="this.cardExample4"
-          [url]="'../../../../assets/cards/card-brown.webp'"
+          [url]="'assets/cards/card-brown.webp'"
         >
         </app-event-card>
         <app-event-card
           size="sm"
           [card]="this.cardExample"
-          [url]="'../../../../assets/cards/card-purple.webp'"
+          [url]="'assets/cards/card-purple.webp'"
         >
         </app-event-card>
       </div>
