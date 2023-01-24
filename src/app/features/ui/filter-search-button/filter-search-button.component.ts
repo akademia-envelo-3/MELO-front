@@ -38,7 +38,6 @@ export class FilterSearchButtonComponent {
   @Output() emmitPickedOptions = new EventEmitter<MenuState>();
 
   getPickedOptions(menuState: MenuState) {
-    console.log(menuState);
     this.emmitPickedOptions.emit(menuState);
   }
   hideDropdown() {
