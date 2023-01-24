@@ -1,6 +1,6 @@
-@use './src/styles' as st;
+@use './src/styles/colors' as colors;
 
-$icon: st.$accent-gold-500;
+$icon: colors.$accent-gold-500;
 
 .container {
   display: flex;
