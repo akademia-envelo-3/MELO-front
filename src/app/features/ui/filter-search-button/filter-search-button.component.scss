@@ -1,10 +1,26 @@
 @use './src/styles' as st;
-.filter-btn {
-  // margin: 40px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
+.filter-btn {
+  border: none;
+  padding: 2.2rem;
+  cursor: pointer;
+  border-radius: 100px;
+  background-image: url('../../../../assets/icons/filter-inactive.svg');
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0.5rem;
+}
+
+.filter-btn--active {
+  background-image: url('../../../../assets/icons/filter-active.svg');
+}
+
 .dropdown {
   background-color: st.$primary-900;
   color: st.$neutral-600;
@@ -64,7 +80,3 @@
     }
   }
 }
-
-// .hidden {
-//   display: none !important;
-// }
