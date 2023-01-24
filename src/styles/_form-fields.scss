@@ -1,0 +1,22 @@
+@use 'colors' as colors;
+
+//bg-color for inputs
+.mat-mdc-text-field-wrapper.mdc-text-field {
+  background-color: colors.$neutral-100;
+}
+
+.mat-mdc-form-field {
+  min-width: 200px;
+  width: 100%;
+}
+
+.mat-mdc-form-field-error,
+.mat-mdc-form-field-hint {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mat-mdc-form-field-error > .mat-icon,
+.mat-mdc-form-field-hint > .mat-icon {
+  margin-right: 0.25rem;
+}

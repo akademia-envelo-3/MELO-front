@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="login-view-container bg-gradient-neutral-3">
+        <img
+            src="../../../../assets/app-logo/app-logo.png"
+            alt="app-logo"
+            class="login-view-container__logo" />
+        <h1 class="text-h2">Witaj</h1>
+        <p class="text-body-big">Zaloguj się na swoje konto</p>
+        <form [formGroup]="form" class="form" (ngSubmit)="login()">
+            <mat-form-field appearance="outline">
+                <mat-icon matSuffix>mail</mat-icon>
+                <mat-label>Email</mat-label>
+                <input
+                    type="email"
+                    matInput
+                    placeholder="Email"
+                    formControlName="email" />
+                <mat-error class="text-body-small" *ngIf="emailCtrl.invalid"
+                    >{{getEmailErrorMessage()}}</mat-error
+                >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-icon
+                    matSuffix
+                    *ngIf="!isPasswordVisible"
+                    (click)="togglePasswordVisibility()"
+                    >lock</mat-icon
+                >
+                <mat-icon
+                    matSuffix
+                    *ngIf="isPasswordVisible"
+                    (click)="togglePasswordVisibility()"
+                    >visibility</mat-icon
+                >
+                <mat-label>Password</mat-label>
+                <input
+                    [type]="!isPasswordVisible ? 'password' : 'text'"
+                    matInput
+                    placeholder="Password"
+                    formControlName="password" />
+                <mat-error class="text-body-small" *ngIf="passwordCtrl.invalid"
+                    >To pole jest obowiązkowe</mat-error
+                >
+            </mat-form-field>
+            <mat-checkbox color="primary" class="form__rememberMe text-body-big"
+                >Zapamiętaj mnie</mat-checkbox
+            >
+            <button
+                class="btn-rect btn-rect--responsive btn-default"
+                type="submit"
+                [disabled]="!this.form.valid">
+                Zaloguj
+            </button>
+        </form>
+    </div>
+</div>
