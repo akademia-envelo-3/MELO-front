@@ -11,8 +11,6 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
-import { UnitModule } from './features/unit/unit.module';
-import { UnitFormComponent } from './features/unit';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,8 +39,8 @@ import { UnitFormComponent } from './features/unit';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: 'units/new-unit',
-            component: UnitFormComponent,
+            path: 'units',
+            loadChildren: () => import('./features/unit/unit.module'),
           },
           {
             path: '**',
@@ -52,7 +50,6 @@ import { UnitFormComponent } from './features/unit';
         ],
       },
     ]),
-    UnitModule,
   ],
   providers: [
     {
