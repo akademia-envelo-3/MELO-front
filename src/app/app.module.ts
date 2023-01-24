@@ -30,7 +30,6 @@ import { CustomHttpInterceptor } from './core';
             loadChildren: () => import('./features/home/home.module'),
           },
           {
-            path: 'auth',
             loadChildren: () => import('./features/auth/auth.module'),
           },
           {
