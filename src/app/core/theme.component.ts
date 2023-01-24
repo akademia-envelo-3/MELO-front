@@ -9,7 +9,7 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
   imports: [CircularButtonComponent, FilterSearchButtonComponent],
   template: `
     <h1>Storybook-like route</h1>
-
+    <!-- 
     <div
       style="border: 1px solid white; padding: 20px; display: flex; justify-content: space-around"
     >
@@ -74,8 +74,10 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
           <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
+    </div> -->
+    <div class="test">
+      <app-filter-search-button [menuType]="'events'"></app-filter-search-button>
     </div>
-    <div class="test"><app-filter-search-button></app-filter-search-button></div>
   `,
   styleUrls: ['theme.component.scss'],
 })
