@@ -18,11 +18,20 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
           >{{ notifications }}</app-notifications-quantity
         >
       </div>
-      <div
+      <!-- <div
         (click)="toggleMenu()"
         class="navbar__menu-mobile-icon"
         [ngClass]="{ active: menuActive, inactive: !menuActive }"
-      ></div>
+      ></div> -->
+      <div
+        class="hamburger navbar__menu-mobile-icon"
+        [ngClass]="{ change: this.menuActive }"
+        (click)="toggleMenu()"
+      >
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
     </nav>
   `,
   styleUrls: ['./navbar.scss'],
