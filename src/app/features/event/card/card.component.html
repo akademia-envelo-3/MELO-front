@@ -1,0 +1,30 @@
+<div
+    *ngIf="card"
+    [style.background-image]="'url(' + this.url + ')'"
+    [ngClass]="[cardSize, themeColor]"
+    class="card">
+    <app-power-icon
+        class="card__power-icon"
+        [memberLimit]="card.memberLimit"
+        [memberNumber]="card.invitedMembersNumber"
+        [size]="'sm'"
+        [theme]="iconTheme"></app-power-icon>
+    <div class="card__main-photo">
+        <img src="{{ card.mainPhoto }}" alt="" />
+    </div>
+    <div class="card__info">
+        <div class="card__info__title">
+            {{ card.name | uppercase }}
+        </div>
+        <div class="card__info__description">
+            <span>{{ card.description }} </span>
+        </div>
+        <div class="card__info__start-time">
+            {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
+        </div>
+    </div>
+    <div class="card__line"></div>
+    <button class="btn-rect btn-default btn-rect--sm card__button">
+        Więcej
+    </button>
+</div>

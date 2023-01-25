@@ -1,0 +1,69 @@
+.rectangular-buttons-container {
+  display: flex;
+  margin: 2rem;
+  flex-direction: column;
+  border-radius: 25px;
+  padding: 2rem;
+
+  &__btns {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.cards-wrapper {
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 2rem;
+  &--inner {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.power-icon__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 25px;
+
+  margin: 2rem;
+  padding: 2rem;
+  &__inner {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.circular-buttons-container {
+  display: flex;
+  margin: 2rem;
+  flex-direction: column;
+  border-radius: 25px;
+  padding: 2rem;
+
+  &__btns {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
