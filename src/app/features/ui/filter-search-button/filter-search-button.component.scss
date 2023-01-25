@@ -11,14 +11,14 @@
   padding: 2.2rem;
   cursor: pointer;
   border-radius: 100px;
-  background-image: url('../../../../assets/icons/filter-inactive.svg');
+  background-image: url('/assets/icons/filter-inactive.svg');
   background-position: center;
   background-size: cover;
   margin-bottom: 0.5rem;
 }
 
 .filter-btn--active {
-  background-image: url('../../../../assets/icons/filter-active.svg');
+  background-image: url('/assets/icons/filter-active.svg');
 }
 
 .dropdown {
@@ -26,7 +26,8 @@
   color: st.$neutral-600;
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem 2rem 3rem 2rem;
+  padding: 1rem clamp(0.5rem, 3vw + 0.4rem, 2.5rem) clamp(0.5rem, 4vw + 0.4rem, 4rem)
+    clamp(0.5rem, 3vh + 0.5rem, 2.5rem);
   border-radius: 15px;
   flex-wrap: wrap;
   width: max-content;
@@ -94,7 +95,8 @@
   justify-content: flex-start;
 
   padding: 1rem 15rem 5rem 2rem;
-
+  padding: 1rem clamp(5rem, 15vw + 2rem, 15rem) clamp(2rem, 5.1vw + 1.25rem, 6rem)
+    clamp(1rem, 1vh + 0.8rem, 2rem);
   .dropdown__section {
     min-width: max-content;
   }

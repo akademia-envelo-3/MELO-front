@@ -8,8 +8,7 @@ import {
 } from '@angular/core';
 
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
-import { EventDropdownComponent } from './dropdown/event-dropdown.component';
-import { UnitDropdownComponent } from './dropdown/unit-dropdown.component';
+import { EventDropdownComponent, UnitDropdownComponent } from '.';
 
 export type MenuState = {
   creationDate: string;

@@ -76,7 +76,7 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
       </div>
     </div> -->
     <div class="test">
-      <app-filter-search-button [menuType]="'events'"></app-filter-search-button>
+      <app-filter-search-button [menuType]="'units'"></app-filter-search-button>
     </div>
   `,
   styleUrls: ['theme.component.scss'],
