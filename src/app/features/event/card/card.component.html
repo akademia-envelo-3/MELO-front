@@ -14,17 +14,18 @@
     </div>
     <div class="card__info" [ngClass]="{ 'text-body-sm': size === 'sm' }">
         <div
-            class="card__info__title"
-            [ngClass]="{ 'text-body-big': size === 'md' }"
+            class="card__info__title text-body-big"
             [ngClass]="{ 'text-body': size === 'sm' }">
             {{ card.name | uppercase }}
         </div>
-        <div class="card__info__description">
+        <div
+            class="card__info__description"
+            [ngClass]="{ 'text-body-small': size === 'sm' }">
             <span>{{ card.description }} </span>
         </div>
         <div
-            class="card__info__start-time"
-            [ngClass]="{ 'text-body-big': size === 'md' }">
+            class="card__info__start-time text-body-big"
+            [ngClass]="{ 'text-body': size === 'sm' }">
             {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
         </div>
     </div>

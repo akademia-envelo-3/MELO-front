@@ -9,7 +9,7 @@ import { ThemeOptions } from '@shared/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit {
-  @Input() url = '../../../../assets/cards/card-purple.webp';
+  @Input() url = 'assets/cards/card-purple.webp';
   @Input() card: EventCardDTO | undefined;
   @Input() size: 'sm' | 'md' = 'md';
   iconTheme: ThemeOptions = 'primary';

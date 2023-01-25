@@ -58,7 +58,6 @@
     }
     &__title,
     &__start-time {
-      @extend st, .text-h6 !optional;
       color: st.$accent-gold-200;
       letter-spacing: 1px;
       display: flex;
@@ -69,7 +68,6 @@
       text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
     }
     &__description {
-      @extend st, .text-body !optional;
       margin-top: 8px;
       margin-bottom: 8px;
       color: st.$neutral-300;
@@ -91,7 +89,7 @@
     height: 1px;
     width: $content-width;
     background-color: st.$accent-gold-400;
-    @include margin-purple(5px);
+    @include margin-purple(0px);
   }
   &__button {
     @include margin-purple(18px);
@@ -126,7 +124,7 @@
     @include margin-brown(10px);
   }
   .card__line {
-    @include margin-brown(12px);
+    @include margin-brown(7px);
   }
   .card__button {
     @include margin-brown(20px);
@@ -181,7 +179,7 @@
   }
 
   .card__line {
-    @include margin-purple(-4px);
+    @include margin-purple(-2px);
   }
   .card__button {
     @include margin-purple(15px);
@@ -235,6 +233,6 @@
     @include margin-blue(2px);
   }
   .card__button {
-    @include margin-blue(2px);
+    @include margin-blue(6px);
   }
 }
