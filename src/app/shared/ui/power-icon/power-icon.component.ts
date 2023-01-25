@@ -7,8 +7,8 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf, NgClass } from '@angular/common';
 
-const iconSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-type IconSizes = 'sm' | 'md' | 'lg' | 'xl';
+const iconSizes = ['xs', 'sm', 'md', 'lg'];
+type IconSizes = 'sm' | 'md' | 'lg';
 type SizeOptions = typeof iconSizes[number];
 type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
 
@@ -24,7 +24,7 @@ export class PowerIconComponent implements AfterContentInit {
   fontSize: SizeOptions = 'md';
   @Input() memberNumber = 0;
   @Input() memberLimit?: number;
-  @Input() size: IconSizes = 'md';
+  @Input() size: IconSizes = 'sm';
   @Input() theme: ThemeOptions = 'primary';
 
   ngAfterContentInit() {

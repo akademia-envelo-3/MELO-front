@@ -173,48 +173,21 @@ import {
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Power Icons</p>
       <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="sm" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
         <app-power-icon
           [memberNumber]="40"
-          [memberLimit]="50"
-          size="xl"
-          theme="primary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="lg"
+          [memberLimit]="500"
+          size="sm"
           theme="primary"
         ></app-power-icon>
         <app-power-icon
           [memberNumber]="40"
           [memberLimit]="50"
           size="md"
-          theme="primary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="sm"
-          theme="primary"
-        ></app-power-icon>
-      </div>
-      <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
-      </div>
-      <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
-      </div>
-      <div class="power-icon__wrapper__inner">
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="xl"
           theme="secondary"
         ></app-power-icon>
         <app-power-icon
@@ -223,16 +196,34 @@ import {
           size="lg"
           theme="teriarty"
         ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="sm" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="4" size="sm" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="4" size="md" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="4" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
         <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="md"
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="sm"
           theme="secondary"
         ></app-power-icon>
         <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="sm"
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="lg"
           theme="teriarty"
         ></app-power-icon>
       </div>
