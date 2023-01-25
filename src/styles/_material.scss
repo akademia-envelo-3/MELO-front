@@ -58,3 +58,9 @@ $app-name-theme: mat.define-light-theme(
   .mdc-evolution-chip__text-label {
   color: colors.$accent-gold-800 !important;
 }
+.mat-menu-trigger {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
