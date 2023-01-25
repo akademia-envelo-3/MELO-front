@@ -12,14 +12,19 @@
     <div class="card__main-photo">
         <img src="{{ card.mainPhoto }}" alt="" />
     </div>
-    <div class="card__info">
-        <div class="card__info__title">
+    <div class="card__info" [ngClass]="{ 'text-body-sm': size === 'sm' }">
+        <div
+            class="card__info__title"
+            [ngClass]="{ 'text-body-big': size === 'md' }"
+            [ngClass]="{ 'text-body': size === 'sm' }">
             {{ card.name | uppercase }}
         </div>
         <div class="card__info__description">
             <span>{{ card.description }} </span>
         </div>
-        <div class="card__info__start-time">
+        <div
+            class="card__info__start-time"
+            [ngClass]="{ 'text-body-big': size === 'md' }">
             {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
         </div>
     </div>

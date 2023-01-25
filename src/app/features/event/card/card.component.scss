@@ -12,6 +12,7 @@
 @mixin margin-brown($height) {
   margin: $height 0 0 2px;
 }
+
 .card {
   $content-width: 53%;
 
@@ -59,6 +60,10 @@
     &__start-time {
       @extend st, .text-h6 !optional;
       color: st.$accent-gold-200;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     &__title {
       text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
@@ -71,7 +76,7 @@
       height: 45%;
       max-height: 45%;
       overflow: hidden;
-      padding: 0.2rem 0.5rem;
+      padding: 0.6rem 0.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -86,14 +91,17 @@
     height: 1px;
     width: $content-width;
     background-color: st.$accent-gold-400;
-    @include margin-purple(8px);
+    @include margin-purple(5px);
   }
   &__button {
-    @include margin-purple(15px);
+    @include margin-purple(18px);
   }
 }
 
 .card--white {
+  .card__power-icon {
+    transform: translate(-110px, -10px);
+  }
   .card__main-photo {
     @include margin-white(25px);
   }
@@ -101,13 +109,16 @@
     @include margin-white(10px);
   }
   .card__line {
-    @include margin-white(16px);
+    @include margin-white(10px);
   }
   .card__button {
-    @include margin-white(18px);
+    @include margin-white(20px);
   }
 }
 .card--brown {
+  .card__power-icon {
+    transform: translate(-110px, -10px);
+  }
   .card__main-photo {
     @include margin-brown(30px);
   }
@@ -115,7 +126,7 @@
     @include margin-brown(10px);
   }
   .card__line {
-    @include margin-brown(17px);
+    @include margin-brown(12px);
   }
   .card__button {
     @include margin-brown(20px);
@@ -124,7 +135,6 @@
 .card--blue {
   .card__power-icon {
     transform: translate(-120px, 0px);
-    // position: absolute;
   }
   .card__main-photo {
     @include margin-blue(40px);
@@ -140,7 +150,7 @@
     opacity: 0;
   }
   .card__button {
-    @include margin-blue(20px);
+    @include margin-blue(10px);
   }
 }
 
@@ -155,12 +165,13 @@
   .card__main-photo {
     @include margin-purple(22px);
   }
-  .card__info__title,
-  .card__info__start-time {
-    @extend st, .text-h7 !optional;
+  .card__info {
+    @include margin-purple(0px);
   }
+
   .card__info__description {
     @extend st, .text-body-small !optional;
+    margin: 7px 0;
   }
   .card__main-photo > img {
     height: 95%;
@@ -168,22 +179,36 @@
   .btn-rect--sm {
     font-size: 0.87rem;
   }
+
+  .card__line {
+    @include margin-purple(-4px);
+  }
+  .card__button {
+    @include margin-purple(15px);
+  }
 }
 .card.card--brown.card--sm {
   .card__power-icon {
-    transform: translate(-90px, 0px);
-  }
-  .card__info {
-    @include margin-brown(5px);
+    transform: translate(-90px, -10px);
   }
   .card__main-photo {
+    @include margin-brown(20px);
+  }
+  .card__info {
+    @include margin-brown(0px);
+  }
+
+  .card__line {
+    @include margin-brown(5px);
+  }
+  .card__button {
     @include margin-brown(20px);
   }
 }
 
 .card.card--white.card--sm {
   .card__power-icon {
-    transform: translate(-90px, 0px);
+    transform: translate(-95px, -10px);
   }
   .card__info {
     @include margin-white(5px);
@@ -191,16 +216,25 @@
   .card__main-photo {
     @include margin-white(15px);
   }
+  .card__line {
+    @include margin-white(0px);
+  }
+  .card__button {
+    @include margin-white(15px);
+  }
 }
 
 .card.card--blue.card--sm {
   .card__power-icon {
-    transform: translate(-100px, 0px);
+    transform: translate(-95px, -5px);
   }
   .card__main-photo {
     @include margin-blue(25px);
   }
   .card__info {
+    @include margin-blue(2px);
+  }
+  .card__button {
     @include margin-blue(2px);
   }
 }

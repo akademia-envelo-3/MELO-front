@@ -245,6 +245,21 @@ import {
         </app-event-card>
         <app-event-card [card]="this.cardExample2" [url]="'assets/cards/card-white.webp'">
         </app-event-card>
+        <app-event-card [card]="this.cardExample4" [url]="'assets/cards/card-brown.webp'">
+        </app-event-card>
+
+        <app-event-card
+          size="sm"
+          [card]="this.cardExample3"
+          [url]="'assets/cards/card-blue.webp'"
+        >
+        </app-event-card>
+        <app-event-card
+          size="sm"
+          [card]="this.cardExample2"
+          [url]="'assets/cards/card-white.webp'"
+        >
+        </app-event-card>
         <app-event-card
           size="sm"
           [card]="this.cardExample4"
