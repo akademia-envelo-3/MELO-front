@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
-import { NavbarComponent } from './features/ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +21,6 @@ import { NavbarComponent } from './features/ui';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
-    NavbarComponent,
     RouterModule.forRoot([
       {
         path: '',
