@@ -16,9 +16,8 @@
 .card {
   $content-width: 53%;
 
-  // 9:7 ratio
   height: 465px;
-  width: 375px;
+  aspect-ratio: 21 / 25;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -107,10 +106,10 @@
     @include margin-white(10px);
   }
   .card__line {
-    @include margin-white(10px);
+    @include margin-white(0);
   }
   .card__button {
-    @include margin-white(20px);
+    @include margin-white(15px);
   }
 }
 .card--brown {
@@ -168,7 +167,6 @@
   }
 
   .card__info__description {
-    @extend st, .text-body-small !optional;
     margin: 7px 0;
   }
   .card__main-photo > img {
@@ -227,10 +225,10 @@
     transform: translate(-95px, -5px);
   }
   .card__main-photo {
-    @include margin-blue(25px);
+    @include margin-blue(30px);
   }
   .card__info {
-    @include margin-blue(2px);
+    @include margin-blue(0px);
   }
   .card__button {
     @include margin-blue(6px);
