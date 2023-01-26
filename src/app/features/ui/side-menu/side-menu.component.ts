@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgFor, TitleCasePipe } from '@angular/common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { of } from 'rxjs';
 
 export type SubCategory = {
   subCategoryName: string;
   href: string;
-  isActive: boolean;
 };
 
 export type MenuCategory = {
@@ -28,39 +28,42 @@ export type MenuCategory = {
     MatTooltipModule,
     TitleCasePipe,
     NgFor,
+    RouterModule,
   ],
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideMenuComponent {
-  private router = inject(Router);
-  private ar = inject(ActivatedRoute);
+export class SideMenuComponent implements OnInit {
+  menuCategories: MenuCategory[] = [];
 
-  menuCategories: MenuCategory[] = [
-    {
-      categoryName: 'wydarzenia',
-      categoryIcon: '../../../../assets/side-menu-icons/events.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'wszystkie', isActive: true },
-        { subCategoryName: 'moje', href: 'moje', isActive: false },
-        { subCategoryName: 'nowy +', href: 'nowy', isActive: false },
-        { subCategoryName: 'kategoria +', href: 'kategoria', isActive: false },
-      ],
-    },
-    {
-      categoryName: 'koła zainteresowań',
-      categoryIcon: '../../../../assets/side-menu-icons/units.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'wszystkie', isActive: true },
-        { subCategoryName: 'moje', href: 'moje', isActive: false },
-        { subCategoryName: 'nowy +', href: 'nowy', isActive: false },
-      ],
-    },
-  ];
-
-  setActiveItem(activeItem: string) {
-    console.log(this.router.url);
-    console.log(activeItem);
+  ngOnInit() {
+    of([
+      {
+        categoryName: 'wydarzenia',
+        categoryIcon: '../../../../assets/side-menu-icons/events.svg',
+        subCategories: [
+          { subCategoryName: 'wszystkie', href: 'events' },
+          { subCategoryName: 'moje', href: 'events/my-events' },
+          { subCategoryName: 'nowy +', href: 'events/new-event' },
+          {
+            subCategoryName: 'kategoria +',
+            href: 'events/new-category',
+            isActive: false,
+          },
+        ],
+      },
+      {
+        categoryName: 'koła zainteresowań',
+        categoryIcon: '../../../../assets/side-menu-icons/units.svg',
+        subCategories: [
+          { subCategoryName: 'wszystkie', href: 'units' },
+          { subCategoryName: 'moje', href: 'units/my-units' },
+          { subCategoryName: 'nowy +', href: 'units/new-units' },
+        ],
+      },
+    ]).subscribe(menuCategories => {
+      this.menuCategories = menuCategories;
+    });
   }
 }

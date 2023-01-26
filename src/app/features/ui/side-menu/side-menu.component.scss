@@ -1,3 +1,6 @@
+@use './src/styles/colors' as colors;
+@use './src/styles/breakpoints' as breakpoints;
+
 .side-menu-container {
   height: 100vh;
   display: flex;
@@ -23,6 +26,10 @@
   .icon {
     max-width: 90px;
   }
+
+  @include breakpoints.media-md {
+    flex-direction: column-reverse;
+  }
 }
 
 .d-reverse {
@@ -45,5 +52,15 @@
   }
 }
 .category-item:hover {
-  background-color: #ffe2ba;
+  background-color: colors.$accent-gold-300;
+}
+
+.category-item.active {
+  background-color: colors.$accent-gold-700;
+}
+
+.display {
+  @include breakpoints.media-md {
+    display: none;
+  }
 }
