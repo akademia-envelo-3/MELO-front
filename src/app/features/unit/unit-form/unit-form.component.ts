@@ -95,7 +95,7 @@ export class UnitFormComponent implements OnInit, OnDestroy {
     controlName: FormControl<string>,
     matFieldName: MatFormField
   ) {
-    controlName.statusChanges.subscribe(() => {
+    return controlName.statusChanges.subscribe(() => {
       controlName.valid
         ? (matFieldName.color = 'accent')
         : (matFieldName.color = 'primary');
