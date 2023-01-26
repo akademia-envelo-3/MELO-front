@@ -44,6 +44,8 @@ export class SearchbarComponent {
   private checkToShowCloseButton() {
     if (this.searchPhrase.length > 0) {
       this.isEmpty = false;
+    } else {
+      this.isEmpty = true;
     }
   }
   private checkToShowSearchbarDropdown() {
