@@ -5,4 +5,4 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [CommonModule],
 })
-export class EventModule {}
+export default class EventModule {}

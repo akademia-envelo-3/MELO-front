@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
-import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
-import { FilterSearchButtonComponent } from '../features/ui/filter-search-button/filter-search-button.component';
-
+import {
+  PowerIconComponent,
+  SpinnerDotsComponent,
+  CircularButtonComponent,
+  FormResultViewComponent,
+  FormResultInfo,
+} from '@shared/ui';
+import { FilterSearchButtonComponent } from '@features/ui';
 @Component({
   selector: 'app-theme',
+  imports: [
+    CircularButtonComponent,
+    PowerIconComponent,
+    SpinnerDotsComponent,
+    FormResultViewComponent,
+    CircularButtonComponent,
+    FilterSearchButtonComponent,
+  ],
   standalone: true,
-
-  imports: [CircularButtonComponent, FilterSearchButtonComponent],
   template: `
     <h1>Storybook-like route</h1>
-    <!-- 
+
     <div
       style="border: 1px solid white; padding: 20px; display: flex; justify-content: space-around"
     >
@@ -43,7 +54,7 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
     </div>
 
     <div class="rectangular-buttons-container bg-gradient-neutral-3">
-      <p class="text-body-big">Rectangular Buttons</p>
+      <p class="text-h4">Rectangular Buttons</p>
       <div class="rectangular-buttons-container__btns">
         <div>
           <p>Default</p>
@@ -74,11 +85,170 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
           <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
-    </div> -->
-    <div class="test">
+    </div>
+
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komunikatu po wysłaniu formularza</h2>
+      <app-form-result-view [formResultInfo]="formResultInfo">
+        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+      </app-form-result-view>
+    </div>
+
+    <div class="power-icon__wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Power Icons</p>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="primary"
+        ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="teriarty"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="teriarty"
+        ></app-power-icon>
+      </div>
+    </div>
+
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komunikatu po wysłaniu formularza</h2>
+      <app-form-result-view [formResultInfo]="formResultInfo">
+        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+      </app-form-result-view>
+    </div>
+
+    <div class="power-icon__wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Power Icons</p>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="primary"
+        ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="xl"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="teriarty"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="sm"
+          theme="teriarty"
+        ></app-power-icon>
+      </div>
+    </div>
+
+    <div class="filtr-search-btn---wrapper bg-gradient-neutral-3">
       <app-filter-search-button [menuType]="'units'"></app-filter-search-button>
+      <app-filter-search-button [menuType]="'events'"></app-filter-search-button>
     </div>
   `,
   styleUrls: ['theme.component.scss'],
 })
-export default class ThemeComponent {}
+export default class ThemeComponent {
+  formResultInfo: FormResultInfo = {
+    messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
+    messageCallToAction: 'Przejdź do strony utworzonego koła',
+  };
+}
