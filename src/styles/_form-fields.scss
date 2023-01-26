@@ -6,8 +6,14 @@
 }
 
 //fix outlined appearance for labels
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined {
+.input-form-field .mat-mdc-text-field-wrapper.mdc-text-field {
   height: 56px;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 100vh;
+  min-height: 200px;
 }
 
 .mat-mdc-form-field {
@@ -15,8 +21,8 @@
   width: 100%;
 }
 
-.mat-mdc-form-field-error,
-.mat-mdc-form-field-hint {
+.mat-mdc-form-field-error.mat-mdc-form-field-error,
+.mat-mdc-form-field-hint.mat-mdc-form-field-hint {
   display: inline-flex;
   align-items: center;
 }
@@ -29,4 +35,16 @@
 //label for textarea in unit-form
 label#mat-mdc-form-field-label-2 {
   top: 1.5rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
+  -webkit-box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
 }

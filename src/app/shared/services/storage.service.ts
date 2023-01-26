@@ -9,8 +9,12 @@ export class StorageService {
     itemValue: string,
     storageType: Storage = sessionStorage
   ) {
-    if (storageType[itemKey] !== itemValue && itemValue.length > 0) {
-      storageType.setItem(itemKey, itemValue);
+    if (storageType[itemKey] !== itemValue) {
+      if (itemValue !== '') {
+        storageType.setItem(itemKey, itemValue);
+      } else {
+        storageType.removeItem(itemKey);
+      }
     }
   }
 

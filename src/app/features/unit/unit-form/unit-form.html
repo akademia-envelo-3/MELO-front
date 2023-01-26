@@ -8,7 +8,10 @@
         [formGroup]="unitForm"
         (ngSubmit)="onSubmit()"
         class="unit-form-container_form bg-gradient-neutral-3">
-        <mat-form-field appearance="outline" #inputMatFormField>
+        <mat-form-field
+            appearance="outline"
+            #inputMatFormField
+            class="input-form-field">
             <mat-label>Nazwa koła</mat-label>
             <input
                 matInput
@@ -46,7 +49,8 @@
                 'unitDescription',
                 unitForm.controls.unitDescription.value
               )
-            "></textarea>
+            "
+                rows="10"></textarea>
 
             <mat-error
                 class="text-body-small"
