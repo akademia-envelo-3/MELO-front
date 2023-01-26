@@ -38,14 +38,30 @@
       height: min-content;
     }
   }
-
-  .active {
-    background-image: url('../../../../assets/closeMenu.svg');
-    transform: scale(75%);
+  &__hamburger {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 50px;
+    &__bar1,
+    &__bar2,
+    &__bar3 {
+      width: 44.5px;
+      height: 5px;
+      background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
+      margin: 6px 0;
+      transition: 0.4s;
+    }
   }
-  .inactive {
-    background-image: url('../../../../assets/hamburger.svg');
-    transform: scale(50%);
+  .change .navbar__hamburger__bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .navbar__hamburger__bar2 {
+    opacity: 0;
+  }
+
+  .change .navbar__hamburger__bar3 {
+    transform: translate(0, -11px) rotate(45deg);
   }
 }
 
@@ -58,31 +74,4 @@
       display: none;
     }
   }
-}
-
-.hamburger {
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 50px;
-  .bar1,
-  .bar2,
-  .bar3 {
-    width: 44.5px;
-    height: 5px;
-    background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-}
-
-.change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
-}
-
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
 }
