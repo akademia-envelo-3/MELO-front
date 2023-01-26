@@ -1,6 +1,5 @@
 @use '/src/styles/breakpoints' as breakpoints;
 @use '/src/styles/colors' as colors;
-@use '/src/styles/styles.scss' as styles;
 
 .navbar {
   @extend .bg-gradient-primary-1;
@@ -8,7 +7,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  max-width: styles.$max-app-width;
+  max-width: breakpoints.$max-app-width;
   height: 89px;
   display: flex;
   align-items: center;

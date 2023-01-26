@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { NgIf, NgClass } from '@angular/common';
 import { NotificationsQuantityComponent } from './notifications-quantity.component';
