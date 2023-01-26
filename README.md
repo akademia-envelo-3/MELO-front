@@ -25,3 +25,93 @@ feat: in progress of creating icon
 ### Struktura plików w komponencie
 
 1. Jeżeli część HTML lub SCSS mają ponad 20 linijek, tworzymy dla nich osobny plik
+
+### Referencje routingu
+
+Szczegółowe ustalenia czy dana ścieżka będzie dzieckiem zależy od struktury komponentów. Strona główna powinna przekierowywać na 'events'.
+
+    { path: '',
+      children: [
+        {
+          path: '',
+          redirectTo: 'events',
+          pathMatch: 'full',
+        },
+        {
+          path: 'events',
+          //lista wydarzeń
+        },
+        {
+          path: 'events/:id',
+          //szczegóły wydarzenia
+        },
+        {
+          path: 'events/new-event',
+          //formularz nowego wydarzenia
+        },
+
+        {
+          path: 'units',
+          //lista kół
+        },
+        {
+          path: 'units/:id',
+          //szczegóły koła
+        },
+        {
+          path: 'units/new-unit',
+          //formularz nowego wydarzenia
+        },
+        {
+          path: 'admin',
+          children: [
+            {
+              path: events',
+              // lista wydarzeń
+            },
+            {
+              path: 'events/:id',
+              //szczegóły wydarzenia
+            },
+            {
+              path: 'units',
+              //lista koł
+            },
+            {
+              path: 'units/:id',
+              //szczegóły koła
+            },
+            {
+              path: 'hashtags',
+              //lista hashtagów
+            },
+            {
+              path: 'hashtags/:id',
+              //szczegóły hashtagów
+            },
+            {
+              path: 'hashtags/stats',
+              //statystyki hashtagów
+            },
+            {
+              path: 'categories',
+              //lista kategorii
+            },
+            {
+              path: 'categories/:id',
+              //szczegóły kategorii
+            },
+            {
+              path: 'inbox',
+              //inbox
+            },
+            {
+              path: 'inbox/archive',
+              //archiwum
+            },
+          ],
+        },
+      ],
+    },
+
+];
