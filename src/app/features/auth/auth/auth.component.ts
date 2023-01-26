@@ -1,22 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { AuthService, LoginCredentials } from '..';
 
 @Component({
   selector: 'app-auth',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatIconModule, MatCheckboxModule, NgIf],
   templateUrl: './auth-component.html',
   styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent {
   private builder = inject(NonNullableFormBuilder);
-  private router = inject(Router);
+  private authService = inject(AuthService);
 
   form = this.createForm();
   emailNotFocused = false;
@@ -58,7 +52,7 @@ export class AuthComponent {
   login() {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      this.router.navigate(['']);
+      this.authService.login(this.form.value as LoginCredentials);
     }
   }
 }
