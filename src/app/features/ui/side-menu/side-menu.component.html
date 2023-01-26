@@ -32,7 +32,8 @@
                         <button
                             class="category-item"
                             mat-menu-item
-                            *ngFor="let subCategory of subCategories">
+                            *ngFor="let subCategory of subCategories"
+                            (click)="setActiveItem(subCategory.href)">
                             {{ subCategory.subCategoryName }}
                         </button>
                     </ng-template>
