@@ -16,11 +16,9 @@
   background-size: cover;
   margin-bottom: 0.5rem;
 }
-
 .filter-btn--active {
   background-image: url('/assets/icons/filter-active.svg');
 }
-
 .dropdown {
   background-color: st.$primary-900;
   color: st.$neutral-600;
@@ -36,7 +34,6 @@
     border: none;
     display: flex;
     flex-direction: column;
-
     border: none;
     &:last-child {
       p {
@@ -80,7 +77,6 @@
       }
       &__sort-option {
         border: none;
-
         display: none;
       }
       &:has(.dropdown__section__holder__sort-option:checked) {
@@ -93,7 +89,6 @@
 
 .dropdown--unit {
   justify-content: flex-start;
-
   padding: 1rem 15rem 5rem 2rem;
   padding: 1rem clamp(5rem, 15vw + 2rem, 15rem) clamp(2rem, 5.1vw + 1.25rem, 6rem)
     clamp(1rem, 1vh + 0.8rem, 2rem);

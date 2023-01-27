@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
-import { MenuState } from '../filter-search-button.component';
+import { MenuState } from '..';
 
 @Component({
   selector: 'app-event-dropdown-component',
@@ -15,7 +15,7 @@ export class EventDropdownComponent {
   state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
   @Output() newMenuState = new EventEmitter<MenuState>();
 
-  protected toggleFiltrRadio(input: HTMLInputElement) {
+  protected toggleFilterRadio(input: HTMLInputElement) {
     this.state = { ...this.state, [input.name]: input.value };
     this.newMenuState.emit(this.state);
     return (input.checked = !input.checked);
