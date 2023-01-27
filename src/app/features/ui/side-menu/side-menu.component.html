@@ -25,23 +25,23 @@
                             subCategories: category.subCategories
                         }"></div>
                 </button>
-                <mat-menu #appMenu="matMenu">
-                    <ng-template
-                        matMenuContent
-                        let-subCategories="subCategories">
-                        <a
-                            class="category-item"
-                            mat-menu-item
-                            *ngFor="let subCategory of subCategories"
-                            [routerLink]="subCategory.href"
-                            routerLinkActive="active"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            {{ subCategory.subCategoryName }}
-                        </a>
-                    </ng-template>
-                </mat-menu>
             </div>
         </div>
     </div>
     <div class="side-menu-container__right"></div>
 </div>
+
+<!-- Mobile side menu -->
+<mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent let-subCategories="subCategories">
+        <a
+            class="category-item"
+            mat-menu-item
+            *ngFor="let subCategory of subCategories"
+            [routerLink]="subCategory.href"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            {{ subCategory.subCategoryName }}
+        </a>
+    </ng-template>
+</mat-menu>

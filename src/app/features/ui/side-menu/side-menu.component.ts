@@ -3,6 +3,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgFor, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { of } from 'rxjs';
@@ -26,6 +27,7 @@ export type MenuCategory = {
     MatMenuModule,
     MatButtonModule,
     MatTooltipModule,
+    MatSidenavModule,
     TitleCasePipe,
     NgFor,
     RouterModule,

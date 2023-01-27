@@ -21,9 +21,6 @@ import {
   template: `
     <h1>Storybook-like route</h1>
     <div class="circular-buttons-container bg-gradient-neutral-3">
-      <app-side-menu></app-side-menu>
-    </div>
-    <div class="circular-buttons-container bg-gradient-neutral-3">
       <p class="text-h4">Spinner Dots</p>
       <app-spinner-dots size="md"></app-spinner-dots>
     </div>

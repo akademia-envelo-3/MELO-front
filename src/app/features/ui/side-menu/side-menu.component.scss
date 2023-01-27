@@ -59,8 +59,16 @@
   background-color: colors.$accent-gold-700;
 }
 
-.display {
-  @include breakpoints.media-md {
-    display: none;
-  }
-}
+// .display {
+//   @include breakpoints.media-md {
+//     display: none;
+//   }
+// }
+// .example-sidenav-content {
+//   width: 200px;
+//   background-color: lavender;
+// }
+
+// .cdk-overlay-pane {
+//   display: none;
+// }
