@@ -29,6 +29,7 @@
   @extend .bg-gradient-primary-1;
   box-shadow: 0 0 0 1px #aaa096, 0 0 0 2px #f1e3e3, 0 0 0 3px #d9d6d3, 0 0 0 4px #bfbcba,
     0 0 0 5px #afafaf, 0 0 0 6px #9e9e9e;
+  color: colors.$neutral-100;
 }
 
 .btn-green {
