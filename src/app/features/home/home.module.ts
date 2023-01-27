@@ -13,29 +13,29 @@ import ThemeComponent from '../../core/theme.component';
         path: '',
         children: [
           {
-            path: '',
+            path: 'events',
             component: HomeComponent,
             children: [
               {
-                path: 'events/my-events',
+                path: 'my-events',
                 component: ThemeComponent,
               },
               {
-                path: 'events/new-event',
+                path: 'new-event',
                 component: ThemeComponent,
               },
               {
-                path: 'events/new-category',
+                path: 'new-category',
                 component: ThemeComponent,
-              },
-              {
-                path: '**',
-                loadComponent: () =>
-                  import('../../shared/page-not-found/page-not-found.component'),
               },
             ],
           },
         ],
+      },
+      {
+        path: '**',
+        loadComponent: () =>
+          import('../../shared/page-not-found/page-not-found.component'),
       },
     ]),
   ],

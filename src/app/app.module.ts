@@ -35,11 +35,6 @@ import { CustomHttpInterceptor } from './core';
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
           },
-          {
-            path: '**',
-            loadComponent: () =>
-              import('./shared/page-not-found/page-not-found.component'),
-          },
         ],
       },
     ]),

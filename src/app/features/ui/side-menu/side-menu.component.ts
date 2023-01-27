@@ -46,11 +46,11 @@ export class SideMenuComponent implements OnInit {
         categoryIcon: '../../../../assets/side-menu-icons/events.svg',
         subCategories: [
           { subCategoryName: 'wszystkie', href: 'events' },
-          { subCategoryName: 'moje', href: 'events/my-events' },
-          { subCategoryName: 'nowy +', href: 'events/new-event' },
+          { subCategoryName: 'moje', href: 'my-events' },
+          { subCategoryName: 'nowy +', href: 'new-event' },
           {
             subCategoryName: 'kategoria +',
-            href: 'events/new-category',
+            href: 'new-category',
             isActive: false,
           },
         ],

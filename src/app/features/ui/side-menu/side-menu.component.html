@@ -7,25 +7,24 @@
                 alt="" />
         </div>
         <div class="side-menu-container__leftBottom">
-            <div *ngFor="let category of menuCategories">
-                <button
-                    class="category"
-                    [matTooltip]="category.categoryName | titlecase"
-                    matTooltipPosition="after"
-                    mat-button
-                    (click)="menuTrigger.openMenu()">
-                    <img
-                        class="icon"
-                        [src]="category.categoryIcon"
-                        [alt]="category.categoryName" />
-                    <div
-                        #menuTrigger="matMenuTrigger"
-                        [matMenuTriggerFor]="appMenu"
-                        [matMenuTriggerData]="{
-                            subCategories: category.subCategories
-                        }"></div>
-                </button>
-            </div>
+            <button
+                *ngFor="let category of menuCategories"
+                class="category"
+                [matTooltip]="category.categoryName | titlecase"
+                matTooltipPosition="after"
+                mat-button
+                (click)="menuTrigger.openMenu()">
+                <img
+                    class="icon"
+                    [src]="category.categoryIcon"
+                    [alt]="category.categoryName" />
+                <div
+                    #menuTrigger="matMenuTrigger"
+                    [matMenuTriggerFor]="appMenu"
+                    [matMenuTriggerData]="{
+                        subCategories: category.subCategories
+                    }"></div>
+            </button>
         </div>
     </div>
     <div class="side-menu-container__right"></div>
