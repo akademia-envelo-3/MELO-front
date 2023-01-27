@@ -7,6 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 type IconOptions = 'done' | 'close' | 'arrow_back' | 'arrow_forward';
 type sizeOption = 'sm' | 'md' | 'lg' | 'xl';
@@ -15,7 +16,7 @@ type textSizeOption = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 @Component({
   selector: 'app-circular-button',
   standalone: true,
-  imports: [MatIconModule, NgClass, NgIf],
+  imports: [MatIconModule, NgClass, NgIf, RouterLink],
   templateUrl: 'circular-button.html',
   styleUrls: ['./circular-button.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,6 +26,7 @@ export class CircularButtonComponent {
   @Input() size: sizeOption = 'md';
   @Input() text?: string = 'Dołącz';
   @Input() textSize?: textSizeOption = 'md';
+  @Input() routerLink?: string;
 
   @Output() clickButton = new EventEmitter<void>();
 
