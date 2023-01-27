@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import {
-  PowerIconComponent,
   SpinnerDotsComponent,
   CircularButtonComponent,
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import { EventModule } from '../features/event';
 
 @Component({
   selector: 'app-theme',
   imports: [
     CircularButtonComponent,
-    PowerIconComponent,
+    EventModule,
     SpinnerDotsComponent,
     FormResultViewComponent,
   ],
@@ -173,7 +173,7 @@ import {
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Power Icons</p>
       <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="400" size="sm" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="sm" theme="tertiary"></app-power-icon>
         <app-power-icon [memberNumber]="400" size="md" theme="secondary"></app-power-icon>
         <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
       </div>
@@ -194,17 +194,17 @@ import {
           [memberNumber]="40"
           [memberLimit]="50"
           size="lg"
-          theme="teriarty"
+          theme="tertiary"
         ></app-power-icon>
       </div>
       <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="40" size="sm" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="sm" theme="tertiary"></app-power-icon>
         <app-power-icon [memberNumber]="40" size="md" theme="secondary"></app-power-icon>
         <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
       </div>
       <div class="power-icon__wrapper__inner">
         <app-power-icon [memberNumber]="4" size="sm" theme="secondary"></app-power-icon>
-        <app-power-icon [memberNumber]="4" size="md" theme="teriarty"></app-power-icon>
+        <app-power-icon [memberNumber]="4" size="md" theme="tertiary"></app-power-icon>
         <app-power-icon [memberNumber]="4" size="lg" theme="primary"></app-power-icon>
       </div>
       <div class="power-icon__wrapper__inner">
@@ -224,7 +224,7 @@ import {
           [memberNumber]="400"
           [memberLimit]="500"
           size="lg"
-          theme="teriarty"
+          theme="tertiary"
         ></app-power-icon>
       </div>
     </div>

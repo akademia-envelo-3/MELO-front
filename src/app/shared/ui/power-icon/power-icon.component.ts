@@ -4,18 +4,16 @@ import {
   Component,
   Input,
 } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { NgIf, NgClass } from '@angular/common';
+// import { MatIconModule } from '@angular/material/icon';
+// import { NgIf, NgClass } from '@angular/common';
 
 const iconSizes = ['xs', 'sm', 'md', 'lg'];
 type IconSizes = 'sm' | 'md' | 'lg';
 type SizeOptions = typeof iconSizes[number];
-type ThemeOptions = 'primary' | 'secondary' | 'teriarty';
+type ThemeOptions = 'primary' | 'secondary' | 'tertiary';
 
 @Component({
   selector: 'app-power-icon',
-  standalone: true,
-  imports: [MatIconModule, NgIf, NgClass],
   templateUrl: 'power-icon.html',
   styleUrls: ['./power-icon.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
