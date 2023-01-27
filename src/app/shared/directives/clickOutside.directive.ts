@@ -4,7 +4,7 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Inject,
+  inject,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -17,12 +17,9 @@ import { filter, fromEvent, Subscription } from 'rxjs';
 export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
   @Output() appClickOutside = new EventEmitter<void>();
 
-  documentClickSubscription: Subscription | undefined;
-
-  constructor(
-    private element: ElementRef,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
+  private documentClickSubscription?: Subscription;
+  private element = inject(ElementRef);
+  private document = inject(DOCUMENT);
 
   ngAfterViewInit(): void {
     this.documentClickSubscription = fromEvent(this.document, 'click')
