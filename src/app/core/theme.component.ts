@@ -26,9 +26,9 @@ import { NgIf, NgClass } from '@angular/common';
         [ngClass]="{ change: this.menuActive }"
         (click)="toggleMenuIcon()"
       >
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+        <div class="hamburger__bar1"></div>
+        <div class="hamburger__bar2"></div>
+        <div class="hamburger__bar3"></div>
       </div>
     </div>
     <div class="circular-buttons-container bg-gradient-neutral-3">
@@ -137,6 +137,40 @@ import { NgIf, NgClass } from '@angular/common';
         <div class="circular-buttons-container__btn">
           <p>Extra extra large text</p>
           <app-circular-button text="click" size="xl" textSize="xl"></app-circular-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rectangular-buttons-container bg-gradient-neutral-3">
+      <p class="text-h4">Rectangular Buttons</p>
+      <div class="rectangular-buttons-container__btns">
+        <div>
+          <p>Default</p>
+          <button class="btn-rect btn-default">Default</button>
+        </div>
+        <div>
+          <p>Disabled</p>
+          <button class="btn-rect btn-default" disabled>Default</button>
+        </div>
+        <div>
+          <p>Default small</p>
+          <button class="btn-rect btn-rect--sm btn-default">Small</button>
+        </div>
+        <div>
+          <p>Black</p>
+          <button class="btn-rect btn-black">Black</button>
+        </div>
+        <div>
+          <p>Black disabled</p>
+          <button class="btn-rect btn-black" disabled>Black</button>
+        </div>
+        <div>
+          <p>Green</p>
+          <button class="btn-rect btn-green">Green</button>
+        </div>
+        <div>
+          <p>Green disabled</p>
+          <button class="btn-rect btn-green" disabled>Green</button>
         </div>
       </div>
     </div>

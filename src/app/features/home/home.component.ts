@@ -6,9 +6,8 @@ import { NavbarComponent } from '../ui';
   selector: 'app-home',
   standalone: true,
   template: `
-    <router-outlet>
-      <app-navbar [notifications]="99"></app-navbar>
-    </router-outlet>
+    <app-navbar [notifications]="99"></app-navbar>
+    <router-outlet></router-outlet>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
