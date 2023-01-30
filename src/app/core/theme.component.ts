@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchbarComponent, SearchResult } from '../features/ui';
+
 import {
   PowerIconComponent,
   SpinnerDotsComponent,
@@ -7,7 +7,8 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
+import { SearchbarComponent, SearchResult } from '../features/ui';
 
 @Component({
   selector: 'app-theme',
