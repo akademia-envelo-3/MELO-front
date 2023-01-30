@@ -4,8 +4,6 @@ import {
   Component,
   Input,
 } from '@angular/core';
-// import { MatIconModule } from '@angular/material/icon';
-// import { NgIf, NgClass } from '@angular/common';
 
 const iconSizes = ['xs', 'sm', 'md', 'lg'];
 type IconSizes = 'sm' | 'md' | 'lg';
