@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: "app-home",
+  selector: 'app-home',
   standalone: true,
   imports: [RouterOutlet],
   template: ` <router-outlet></router-outlet> `,
