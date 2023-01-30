@@ -58,32 +58,32 @@
         cursor: pointer;
       }
 
-      &__filtr-option {
-        border: none;
-        display: none;
-      }
-      &__filtr-option:checked {
-        border: none;
-      }
-
-      &:has(.dropdown__section__holder__filtr-option:checked) {
+      &:has(.dropdown__filtr-option:checked) {
         color: st.$neutral-100;
         display: inline-block;
       }
-      &:has(.dropdown__section__holder__filtr-option:checked)::after {
+      &:has(.dropdown__filtr-option:checked)::after {
         content: '\0078';
         color: st.$neutral-100;
         cursor: pointer;
       }
-      &__sort-option {
-        border: none;
-        display: none;
-      }
-      &:has(.dropdown__section__holder__sort-option:checked) {
+
+      &:has(.dropdown__sort-option:checked) {
         color: st.$neutral-100;
         display: inline-block;
       }
     }
+  }
+  &__filtr-option {
+    border: none;
+    display: none;
+  }
+  &__sort-option {
+    border: none;
+    display: none;
+  }
+  &__filtr-option:checked {
+    border: none;
   }
 }
 
