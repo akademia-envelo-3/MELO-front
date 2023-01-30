@@ -22,6 +22,10 @@ feat: in progress of creating icon
 
 <!-- Cos mi tu nie gra, konsultacja z grupa wymagana  -->
 
+### Struktura plików w komponencie
+
+1. Jeżeli część HTML lub SCSS mają ponad 20 linijek, tworzymy dla nich osobny plik
+
 ### Referencje routingu
 
 Szczegółowe ustalenia czy dana ścieżka będzie dzieckiem zależy od struktury komponentów. Strona główna powinna przekierowywać na 'events'.
