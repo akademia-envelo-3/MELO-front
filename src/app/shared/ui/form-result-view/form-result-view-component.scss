@@ -7,21 +7,34 @@
   text-align: center;
   gap: 50px;
   align-items: center;
-  border-radius: 10px;
-  padding: clamp(10px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
+  padding: clamp(50px, 5vw, 80px) clamp(22px, 3.5vw, 160px);
   max-width: min(88vw, 1130px);
   margin-inline: auto;
   overflow: hidden;
+
+  &__close-btn {
+    padding: 0;
+  }
+
+  .mdc-dialog__actions {
+    padding: 0;
+  }
+  .mdc-button {
+    min-width: 40px;
+  }
 }
 
 //close button container
 .mat-mdc-dialog-actions.mdc-dialog__actions {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0;
+  right: 0;
   color: colors.$neutral-600;
 }
 
-.mat-mdc-dialog-content {
+#dialog-container {
   padding: 0;
+}
+.mat-mdc-dialog-container {
+  border-radius: 25px;
 }

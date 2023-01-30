@@ -8,6 +8,7 @@ import {
   FormResultInfo,
 } from '@shared/ui';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-theme',
@@ -25,6 +26,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 })
 export default class ThemeComponent {
   private dialog = inject(MatDialog);
+  private routerUrl = inject(Router).url;
+  private eventID = 1; // just to show redirect
   showAfterFormView(resultInfo: FormResultInfo) {
     const dialogRef = this.dialog.open(FormResultViewComponent);
     const instance = dialogRef.componentInstance;
@@ -80,10 +83,12 @@ export default class ThemeComponent {
     messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
     messageCallToAction: 'Przejdź do strony utworzonego koła',
     resultState: 'success',
+    routerLink: '/events/' + this.eventID,
   };
   formResultInfoError: FormResultInfo = {
     messageHeader: 'Wysłanie formularza nie powiodło się, spróbuj ponownie',
     messageCallToAction: 'Wróć do formularza',
     resultState: 'error',
+    routerLink: this.routerUrl,
   };
 }

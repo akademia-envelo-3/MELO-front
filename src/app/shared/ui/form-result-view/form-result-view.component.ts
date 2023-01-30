@@ -14,11 +14,13 @@ export type FormResultInfo = {
   messageHeader: string;
   messageCallToAction?: string;
   resultState: ResultState;
+  routerLink: string;
 };
 
 const formResultInfoDefault: FormResultInfo = {
   messageHeader: '',
   resultState: 'success',
+  routerLink: '',
 };
 
 @Component({
@@ -32,25 +34,30 @@ const formResultInfoDefault: FormResultInfo = {
     MatDialogModule,
   ],
   template: `
-    <div mat-dialog-content class="bg-gradient-neutral-3">
+    <div mat-dialog-content id="dialog-container">
       <div class="form-result-view-container">
         <div mat-dialog-actions>
           <button
             mat-button
             mat-dialog-close
-            class="form-result-view-container_close-btn"
+            class="form-result-view-container__close-btn"
           >
             <mat-icon fontIcon="close"></mat-icon>
           </button>
         </div>
-        <p class="text-body-big">
+        <p class="text-body">
           {{ formResultInfo.messageHeader }}
         </p>
         <img image [src]="src" alt="" />
-        <p class="text-body-big" *ngIf="formResultInfo.messageCallToAction">
+        <p class="text-body" *ngIf="formResultInfo.messageCallToAction">
           {{ formResultInfo.messageCallToAction }}
         </p>
-        <app-circular-button icon="arrow_back" size="sm"></app-circular-button>
+        <app-circular-button
+          mat-dialog-close
+          [icon]="iconRef"
+          size="sm"
+          [routerLink]="formResultInfo.routerLink"
+        ></app-circular-button>
       </div>
     </div>
   `,
@@ -59,6 +66,7 @@ const formResultInfoDefault: FormResultInfo = {
 })
 export class FormResultViewComponent {
   @Input() formResultInfo: FormResultInfo = formResultInfoDefault;
+  @Input() routerLink?: string;
   src = '';
   iconRef: IconOptionsRef = 'arrow_back';
 
