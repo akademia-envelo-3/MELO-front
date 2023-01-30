@@ -1,3 +1,5 @@
+@use '/src/styles/colors' as colors;
+
 .form-result-view-container {
   display: flex;
   flex-direction: column;
@@ -10,4 +12,16 @@
   max-width: min(88vw, 1130px);
   margin-inline: auto;
   overflow: hidden;
+}
+
+//close button container
+.mat-mdc-dialog-actions.mdc-dialog__actions {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: colors.$neutral-600;
+}
+
+.mat-mdc-dialog-content {
+  padding: 0;
 }

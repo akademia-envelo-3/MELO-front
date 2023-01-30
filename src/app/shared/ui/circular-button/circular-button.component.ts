@@ -9,7 +9,12 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
-type IconOptions = 'done' | 'close' | 'arrow_back' | 'arrow_forward';
+export type IconOptionsRef =
+  | 'done'
+  | 'close'
+  | 'arrow_back'
+  | 'arrow_forward'
+  | undefined;
 type sizeOption = 'sm' | 'md' | 'lg' | 'xl';
 type textSizeOption = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
@@ -22,7 +27,7 @@ type textSizeOption = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CircularButtonComponent {
-  @Input() icon?: IconOptions;
+  @Input() icon?: IconOptionsRef;
   @Input() size: sizeOption = 'md';
   @Input() text?: string = 'Dołącz';
   @Input() textSize?: textSizeOption = 'md';
