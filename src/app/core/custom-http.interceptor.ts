@@ -8,12 +8,12 @@ import {
 } from '@angular/common/http';
 import { map, Observable, tap } from 'rxjs';
 import { API_URL } from './env.token';
-import { CookieService } from 'ngx-cookie-service';
+import { StorageService } from '@shared/services';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
   private baseUrl = inject(API_URL);
-  private cookieService = inject(CookieService);
+  private storageService = inject(StorageService);
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
@@ -26,7 +26,11 @@ export class CustomHttpInterceptor implements HttpInterceptor {
       map(event => {
         if (event instanceof HttpResponse) {
           if (event.body.accessToken) {
-            this.cookieService.set('accessToken', event.body.accessToken);
+            this.storageService.setToStorage(
+              'accessToken',
+              event.body.accessToken,
+              localStorage
+            );
           }
           return new HttpResponse({
             body: event.body,
@@ -44,15 +48,15 @@ export class CustomHttpInterceptor implements HttpInterceptor {
   }
 
   private setAuthHeader(req: HttpRequest<unknown>, url: string) {
-    if (this.cookieService.check('accessToken')) {
+    const token = this.storageService.getValueFromStorage('accessToken', localStorage);
+    if (token) {
       return req.clone({
         url,
-        headers: req.headers.set(
-          'Authorization',
-          `Bearer ${this.cookieService.get('accessToken')}`
-        ),
+        headers: req.headers.set('Authorization', `Bearer ${token}`),
       });
     }
     return req.clone({ url });
   }
 }
+
+////

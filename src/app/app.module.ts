@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
-import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -63,7 +62,6 @@ import { CookieService } from 'ngx-cookie-service';
       useClass: CustomHttpInterceptor,
       multi: true,
     },
-    CookieService,
   ],
   bootstrap: [AppComponent],
 })
