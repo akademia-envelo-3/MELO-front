@@ -12,8 +12,8 @@ import { MenuState } from '../filter-search-button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnitDropdownComponent {
-  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
   @Output() newMenuState = new EventEmitter<MenuState>();
+  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
 
   protected toggleFiltrRadio(input: HTMLInputElement) {
     this.state = { ...this.state, [input.name]: input.value };

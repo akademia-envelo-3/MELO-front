@@ -32,9 +32,9 @@ export type MenuType = 'events' | 'units';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterSearchButtonComponent {
-  isOpen = false;
-  @Input() menuType!: MenuType;
   @Output() emmitPickedOptions = new EventEmitter<MenuState>();
+  @Input() menuType!: MenuType;
+  isOpen = false;
 
   getPickedOptions(menuState: MenuState) {
     this.emmitPickedOptions.emit(menuState);

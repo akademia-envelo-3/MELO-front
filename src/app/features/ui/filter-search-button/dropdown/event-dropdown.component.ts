@@ -12,8 +12,8 @@ import { MenuState } from '..';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventDropdownComponent {
-  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
   @Output() newMenuState = new EventEmitter<MenuState>();
+  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
 
   protected toggleFilterRadio(input: HTMLInputElement) {
     this.state = { ...this.state, [input.name]: input.value };
