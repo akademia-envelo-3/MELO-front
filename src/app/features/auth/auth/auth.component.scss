@@ -27,18 +27,6 @@ $icon: colors.$accent-gold-500;
     height: 3rem;
   }
 
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
-    -webkit-box-shadow: 0 0 0 30px colors.$neutral-100 inset !important;
-  }
-
-  input[data-autocompleted] {
-    background-color: transparent !important;
-  }
-
   mat-icon {
     color: $icon;
   }

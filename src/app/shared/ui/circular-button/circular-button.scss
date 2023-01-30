@@ -30,6 +30,10 @@
     width: 75%;
     height: 75%;
     font-weight: 700;
+    a {
+      color: colors.$neutral-100;
+      text-decoration: none;
+    }
   }
 
   span {

@@ -1,0 +1,80 @@
+<app-circular-button icon="arrow_back" size="sm" routerLink="/units">
+</app-circular-button>
+<div class="unit-form-container">
+    <h1 class="text-h1 unit-form-container_header">
+        Utwórz koło zainteresowań
+    </h1>
+    <form
+        [formGroup]="unitForm"
+        (ngSubmit)="onSubmit()"
+        class="unit-form-container_form bg-gradient-neutral-3">
+        <mat-form-field
+            appearance="outline"
+            #inputMatFormField
+            class="input-form-field">
+            <mat-label>Nazwa koła</mat-label>
+            <input
+                matInput
+                type="text"
+                formControlName="unitName"
+                (blur)="onSetToStorage('unitName', unitForm.controls.unitName.value)" />
+
+            <mat-error
+                class="text-body-small"
+                *ngIf="unitForm.controls.unitName.hasError('required')"
+                ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
+            ><mat-error
+                class="text-body-small"
+                *ngIf="unitForm.controls.unitName.hasError('maxlength')"
+                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
+                unitForm.controls.unitName.errors!['maxlength']['requiredLength']
+                }}
+            </mat-error>
+            <mat-hint
+                class="accent-color"
+                *ngIf="unitForm.controls.unitName.valid"
+                ><mat-icon fontIcon="done_outline"></mat-icon>
+            </mat-hint>
+        </mat-form-field>
+        <mat-form-field
+            appearance="outline"
+            class="textarea-form-field"
+            #textMatFormField>
+            <mat-label>Opis</mat-label>
+            <textarea
+                matInput
+                formControlName="unitDescription"
+                (blur)="
+              onSetToStorage(
+                'unitDescription',
+                unitForm.controls.unitDescription.value
+              )
+            "
+                rows="10"></textarea>
+
+            <mat-error
+                class="text-body-small"
+                *ngIf="unitForm.controls.unitDescription.hasError('required')"
+                ><mat-icon>info</mat-icon> Pole opis koła jest wymagane </mat-error
+            ><mat-error
+                class="text-body-small"
+                *ngIf="unitForm.controls.unitDescription.hasError('maxlength')"
+                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
+                unitForm.controls.unitDescription.errors!['maxlength']['requiredLength']
+                }}
+            </mat-error>
+
+            <mat-hint
+                class="accent-color"
+                *ngIf="unitForm.controls.unitDescription.valid">
+                <mat-icon fontIcon="done_outline"></mat-icon>
+            </mat-hint>
+        </mat-form-field>
+        <button
+            class="btn-rect btn-black"
+            type="submit"
+            [disabled]="unitForm.invalid">
+            Utwórz
+        </button>
+    </form>
+</div>
