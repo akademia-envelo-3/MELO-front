@@ -1,4 +1,4 @@
-<div class="side-menu-container">
+<mat-sidenav-container class="side-menu-container">
     <div class="side-menu-container__left bg-gradient-primary-1">
         <div class="side-menu-container__leftTop">
             <img
@@ -13,7 +13,8 @@
                 [matTooltip]="category.categoryName | titlecase"
                 matTooltipPosition="after"
                 mat-button
-                (click)="menuTrigger.openMenu()">
+                (click)="menuTrigger.openMenu()"
+                (click)="toggle(category.categoryName)">
                 <img
                     class="icon"
                     [src]="category.categoryIcon"
@@ -27,8 +28,18 @@
             </button>
         </div>
     </div>
-    <div class="side-menu-container__right"></div>
-</div>
+    <mat-sidenav-content>
+        <mat-sidenav
+            #rightSidenav
+            mode="side"
+            class="rightSidenav"
+            [fixedInViewport]="true">
+            <p *ngFor="let subcat of subcategories">
+                {{ subcat.subCategoryName }}
+            </p>
+        </mat-sidenav>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
 <!-- Mobile side menu -->
 <mat-menu #appMenu="matMenu">

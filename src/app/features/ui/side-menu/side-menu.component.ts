@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { NgFor, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { of } from 'rxjs';
@@ -38,6 +38,17 @@ export type MenuCategory = {
 })
 export class SideMenuComponent implements OnInit {
   menuCategories: MenuCategory[] = [];
+  @ViewChild('rightSidenav') public sidenav!: MatSidenav;
+  subcategories: SubCategory[] | undefined = [];
+
+  toggle(categoryName: string) {
+    if (!this.sidenav.opened) {
+      this.subcategories = this.menuCategories.find(
+        category => category.categoryName === categoryName
+      )?.subCategories;
+    }
+    this.sidenav.toggle();
+  }
 
   ngOnInit() {
     of([

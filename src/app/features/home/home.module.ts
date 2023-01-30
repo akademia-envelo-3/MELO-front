@@ -11,31 +11,8 @@ import ThemeComponent from '../../core/theme.component';
     RouterModule.forChild([
       {
         path: '',
-        children: [
-          {
-            path: 'events',
-            component: HomeComponent,
-            children: [
-              {
-                path: 'my-events',
-                component: ThemeComponent,
-              },
-              {
-                path: 'new-event',
-                component: ThemeComponent,
-              },
-              {
-                path: 'new-category',
-                component: ThemeComponent,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: '**',
-        loadComponent: () =>
-          import('../../shared/page-not-found/page-not-found.component'),
+        component: HomeComponent,
+        children: [],
       },
     ]),
   ],
