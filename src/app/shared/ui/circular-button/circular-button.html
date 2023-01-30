@@ -3,14 +3,8 @@
         >{{text}}</span
     >
     <ng-template #textButtonBlock>
-        <ng-template *ngIf="!routerLink else withRouterLink"
-            ><mat-icon class="icon"> {{icon}} </mat-icon></ng-template
-        >
-
-        <ng-template #withRouterLink
-            ><mat-icon class="icon">
-                <a [routerLink]="routerLink">{{icon}}</a>
-            </mat-icon></ng-template
-        >
-    </ng-template>
+        <mat-icon class="icon">
+            <a [routerLink]="routerLink">{{icon}}</a>
+        </mat-icon></ng-template
+    >
 </button>
