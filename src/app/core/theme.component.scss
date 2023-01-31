@@ -1,9 +1,13 @@
-.rectangular-buttons-container {
+.basic-container {
   display: flex;
   margin: 2rem;
   flex-direction: column;
   border-radius: 25px;
   padding: 2rem;
+
+  & > *:not(.basic-container__btns) {
+    max-width: max-content;
+  }
 
   &__btns {
     margin-top: 2rem;
