@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 import {
-  PowerIconComponent,
   SpinnerDotsComponent,
   CircularButtonComponent,
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import { EventModule } from '../features/event';
 import { NgClass } from '@angular/common';
 import { SearchbarComponent, SearchResult } from '../features/ui';
 import UnitModule from '../features/unit/unit.module';
@@ -15,7 +15,7 @@ import UnitModule from '../features/unit/unit.module';
   selector: 'app-theme',
   imports: [
     CircularButtonComponent,
-    PowerIconComponent,
+    EventModule,
     SpinnerDotsComponent,
     FormResultViewComponent,
     NgClass,
@@ -205,7 +205,6 @@ import UnitModule from '../features/unit/unit.module';
           <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
-            size="xl"
             theme="primary"
           ></app-power-icon>
           <app-power-icon
@@ -228,13 +227,11 @@ import UnitModule from '../features/unit/unit.module';
           ></app-power-icon>
         </div>
         <div class="power-icon__wrapper__inner">
-          <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
         </div>
         <div class="power-icon__wrapper__inner">
-          <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
           <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
@@ -243,14 +240,13 @@ import UnitModule from '../features/unit/unit.module';
           <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
-            size="xl"
             theme="secondary"
           ></app-power-icon>
           <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
             size="lg"
-            theme="teriarty"
+            theme="tertiary"
           ></app-power-icon>
           <app-power-icon
             [memberNumber]="40"
@@ -262,7 +258,7 @@ import UnitModule from '../features/unit/unit.module';
             [memberNumber]="40"
             [memberLimit]="50"
             size="sm"
-            theme="teriarty"
+            theme="tertiary"
           ></app-power-icon>
         </div>
       </div>
@@ -271,6 +267,59 @@ import UnitModule from '../features/unit/unit.module';
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Unit Power Icon</p>
       <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="400" size="sm" theme="tertiary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="md" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="500"
+          size="sm"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="md"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="40"
+          [memberLimit]="50"
+          size="lg"
+          theme="tertiary"
+        ></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="40" size="sm" theme="tertiary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="md" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon [memberNumber]="4" size="sm" theme="secondary"></app-power-icon>
+        <app-power-icon [memberNumber]="4" size="md" theme="tertiary"></app-power-icon>
+        <app-power-icon [memberNumber]="4" size="lg" theme="primary"></app-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-power-icon
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="sm"
+          theme="secondary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="md"
+          theme="primary"
+        ></app-power-icon>
+        <app-power-icon
+          [memberNumber]="400"
+          [memberLimit]="500"
+          size="lg"
+          theme="tertiary"
+        ></app-power-icon>
         <app-unit-power-icon [memberNumber]="40" [size]="'sm'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="40" [size]="'md'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="40" [size]="'lg'"></app-unit-power-icon>
