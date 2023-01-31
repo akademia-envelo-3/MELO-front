@@ -8,7 +8,6 @@ import {
   FormResultInfo,
 } from '@shared/ui';
 import { NgClass } from '@angular/common';
-import { SearchbarComponent, SearchResult } from '../features/ui';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
