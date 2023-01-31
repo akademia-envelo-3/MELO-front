@@ -2,13 +2,14 @@
     *ngIf="card"
     [style.background-image]="'url(' + this.url + ')'"
     [ngClass]="[cardSize, themeColor]"
-    class="card">
+    class="card image-layout--center">
     <app-power-icon
         class="card__power-icon"
         [memberLimit]="card.memberLimit"
         [memberNumber]="card.invitedMembersNumber"
         [size]="'sm'"
-        [theme]="iconTheme"></app-power-icon>
+        [theme]="iconTheme">
+    </app-power-icon>
     <div class="card__main-photo">
         <img src="{{ card.mainPhoto }}" alt="" />
     </div>
@@ -19,7 +20,7 @@
         <div
             class="card__info__description"
             [class.text-body-small]="size === 'sm'">
-            <span>{{ card.description }} </span>
+            <p>{{ card.description }}</p>
         </div>
         <div
             class="card__info__start-time"
