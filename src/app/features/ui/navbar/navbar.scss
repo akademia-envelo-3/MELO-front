@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   &__logoImg {
-    height: 52px;
+    height: calc(1.2 * 52px);
   }
   &__logoImg:hover {
     cursor: pointer;
@@ -69,6 +69,7 @@
     height: 89px;
     &__logoImg {
       height: 89px;
+      height: calc(1.2 * 89px);
     }
     &__bell {
       height: 89px;
