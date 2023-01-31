@@ -1,0 +1,40 @@
+<form>
+    <mat-form-field appearance="fill">
+        <mat-label>Hashtags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Hashtag selection">
+            <mat-chip-row
+                *ngFor="let hashtag of hashtags"
+                (removed)="remove(hashtag)">
+                {{ hashtag }}
+                <button matChipRemove [attr.aria-label]="'remove ' + hashtag">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-chip-row>
+        </mat-chip-grid>
+        <input
+            placeholder="Nowy hashtag"
+            #hashtagInput
+            [formControl]="hashtagCtrl"
+            [matChipInputFor]="chipGrid"
+            [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)" />
+        <mat-error *ngIf="hashtagCtrl.errors">
+            >Maksymalna ilość znaków to
+            {{ hashtagCtrl.errors!['maxLength']['requiredLength'] }}</mat-error
+        >
+        <mat-autocomplete
+            #auto="matAutocomplete"
+            (optionSelected)="selected($event)">
+            <ng-container *ngIf="hashtagCtrl.value">
+                <mat-option
+                    *ngFor="
+                        let hashtag of filteredHashtags$ | async | slice : 0 : 5
+                    "
+                    [value]="hashtag">
+                    {{ hashtag }}
+                </mat-option></ng-container
+            >
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

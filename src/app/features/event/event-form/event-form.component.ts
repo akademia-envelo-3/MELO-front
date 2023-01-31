@@ -3,14 +3,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-event-form',
   template: `
-    <p>
-      event-form works!
-    </p>
+    <p>event-form works!</p>
+    <app-hashtags></app-hashtags>
   `,
-  styles: [
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFormComponent {
-
-}
+export class EventFormComponent {}

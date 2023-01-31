@@ -8,7 +8,13 @@ import { HomeComponent } from './home.component';
       {
         path: '',
         component: HomeComponent,
-        children: [],
+        children: [
+          {
+            path: '',
+            redirectTo: 'events',
+            pathMatch: 'full',
+          },
+        ],
       },
     ]),
   ],

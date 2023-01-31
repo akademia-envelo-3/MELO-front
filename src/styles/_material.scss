@@ -70,3 +70,32 @@ $app-name-theme: mat.define-light-theme(
 .cdk-overlay-dark-backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
+/// CHIPS AND AUTOCOMPLETE ///
+.mdc-menu-surface.mat-mdc-autocomplete-panel.mdc-menu-surface--open {
+  display: flex;
+  gap: 16px;
+}
+
+.mat-mdc-option {
+  background-color: colors.$accent-gold-300;
+
+  .mdc-list-item__primary-text {
+    color: colors.$accent-gold-800;
+  }
+}
+
+.mat-mdc-standard-chip.mat-mdc-standard-chip {
+  border-radius: 5px;
+}
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).mat-mdc-standard-chip:not(
+    .mdc-evolution-chip--disabled
+  ) {
+  background-color: colors.$accent-gold-300;
+}
+
+//change color for chip label and icon
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label,
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__icon--trailing {
+  color: colors.$accent-gold-800 !important;
+}
