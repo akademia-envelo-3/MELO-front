@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchbarComponent, SearchResult } from '../features/ui';
+
 import {
   PowerIconComponent,
   SpinnerDotsComponent,
@@ -7,6 +7,8 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import { NgClass } from '@angular/common';
+import { SearchbarComponent, SearchResult } from '../features/ui';
 import UnitModule from '../features/unit/unit.module';
 
 @Component({
@@ -16,12 +18,24 @@ import UnitModule from '../features/unit/unit.module';
     PowerIconComponent,
     SpinnerDotsComponent,
     FormResultViewComponent,
+    NgClass,
     UnitModule,
     SearchbarComponent,
   ],
   standalone: true,
   template: `
     <h1>Storybook-like route</h1>
+    <div class="circular-buttons-container bg-gradient-neutral-3">
+      <div
+        class="hamburger"
+        [ngClass]="{ change: this.menuActive }"
+        (click)="toggleMenuIcon()"
+      >
+        <div class="hamburger__bar1"></div>
+        <div class="hamburger__bar2"></div>
+        <div class="hamburger__bar3"></div>
+      </div>
+    </div>
     <div class="circular-buttons-container bg-gradient-neutral-3">
       <p class="text-h4">Spinner Dots</p>
       <app-spinner-dots size="md"></app-spinner-dots>
@@ -321,4 +335,9 @@ export default class ThemeComponent {
     messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
     messageCallToAction: 'Przejdź do strony utworzonego koła',
   };
+
+  menuActive = false;
+  toggleMenuIcon() {
+    this.menuActive = !this.menuActive;
+  }
 }
