@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { NgFor, TitleCasePipe } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgFor, TitleCasePipe, NgClass } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { of } from 'rxjs';
 
@@ -16,20 +15,21 @@ export type SubCategory = {
 export type MenuCategory = {
   categoryName: string;
   categoryIcon: string;
-  subCategories: SubCategory[];
+  href?: string;
+  subCategories?: SubCategory[];
 };
 
 @Component({
   selector: 'app-side-menu',
   standalone: true,
   imports: [
-    MatListModule,
     MatMenuModule,
     MatButtonModule,
     MatTooltipModule,
     MatSidenavModule,
     TitleCasePipe,
     NgFor,
+    NgClass,
     RouterModule,
   ],
   templateUrl: './side-menu.component.html',
@@ -38,16 +38,37 @@ export type MenuCategory = {
 })
 export class SideMenuComponent implements OnInit {
   menuCategories: MenuCategory[] = [];
-  @ViewChild('rightSidenav') public sidenav!: MatSidenav;
-  subcategories: SubCategory[] | undefined = [];
+  subCategories: SubCategory[] | undefined = [];
+  isDesktopMenuVisible = false;
+  selectedCategory = '';
 
-  toggle(categoryName: string) {
-    if (!this.sidenav.opened) {
-      this.subcategories = this.menuCategories.find(
+  toggleDesktopMenu(categoryName: string) {
+    this.checkIfShouldToggleVisibility(categoryName);
+    this.updateCategoryData(categoryName);
+  }
+
+  private checkIfShouldToggleVisibility(categoryName: string) {
+    if (
+      (this.isDesktopMenuVisible === false && categoryName !== this.selectedCategory) ||
+      categoryName === this.selectedCategory ||
+      this.selectedCategory === ''
+    ) {
+      this.isDesktopMenuVisible = !this.isDesktopMenuVisible;
+    }
+  }
+
+  private updateCategoryData(categoryName: string) {
+    this.selectedCategory = categoryName;
+
+    if (this.isDesktopMenuVisible) {
+      this.subCategories = this.menuCategories.find(
         category => category.categoryName === categoryName
       )?.subCategories;
     }
-    this.sidenav.toggle();
+  }
+
+  logout() {
+    return 'Logged out';
   }
 
   ngOnInit() {
@@ -59,11 +80,7 @@ export class SideMenuComponent implements OnInit {
           { subCategoryName: 'wszystkie', href: 'events' },
           { subCategoryName: 'moje', href: 'my-events' },
           { subCategoryName: 'nowy +', href: 'new-event' },
-          {
-            subCategoryName: 'kategoria +',
-            href: 'new-category',
-            isActive: false,
-          },
+          { subCategoryName: 'kategoria +', href: 'new-category' },
         ],
       },
       {
@@ -72,8 +89,16 @@ export class SideMenuComponent implements OnInit {
         subCategories: [
           { subCategoryName: 'wszystkie', href: 'units' },
           { subCategoryName: 'moje', href: 'units/my-units' },
-          { subCategoryName: 'nowy +', href: 'units/new-units' },
+          { subCategoryName: 'nowe +', href: 'units/new-units' },
         ],
+      },
+      {
+        categoryName: 'hashtagi',
+        categoryIcon: '../../../../assets/side-menu-icons/hashtags.svg',
+      },
+      {
+        categoryName: 'kategorie',
+        categoryIcon: '../../../../assets/side-menu-icons/categories.svg',
       },
     ]).subscribe(menuCategories => {
       this.menuCategories = menuCategories;

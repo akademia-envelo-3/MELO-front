@@ -1,48 +1,81 @@
-<mat-sidenav-container class="side-menu-container">
-    <div class="side-menu-container__left bg-gradient-primary-1">
-        <div class="side-menu-container__leftTop">
-            <img
-                class="icon"
-                src="../../../../assets/side-menu-icons/exit.svg"
-                alt="" />
-        </div>
-        <div class="side-menu-container__leftBottom">
-            <button
-                *ngFor="let category of menuCategories"
-                class="category"
-                [matTooltip]="category.categoryName | titlecase"
-                matTooltipPosition="after"
-                mat-button
-                (click)="menuTrigger.openMenu()"
-                (click)="toggle(category.categoryName)">
-                <img
-                    class="icon"
-                    [src]="category.categoryIcon"
-                    [alt]="category.categoryName" />
+<div class="side-menu-container">
+    <mat-sidenav-container>
+        <div class="side-menu-container__left bg-gradient-primary-1">
+            <div class="side-menu-container__leftTop">
+                <button
+                    class="side-menu-category"
+                    [matTooltip]="'Wyloguj' | titlecase"
+                    matTooltipPosition="after"
+                    mat-button
+                    (click)="logout()">
+                    <img
+                        class="icon"
+                        src="../../../../assets/side-menu-icons/exit.svg"
+                        alt="" />
+                </button>
+            </div>
+            <div class="side-menu-container__leftBottom">
                 <div
-                    #menuTrigger="matMenuTrigger"
-                    [matMenuTriggerFor]="appMenu"
-                    [matMenuTriggerData]="{
-                        subCategories: category.subCategories
-                    }"></div>
-            </button>
+                    class="side-menu-category"
+                    *ngFor="let category of menuCategories">
+                    <!-- Main category buttons displayed on mobile -->
+                    <button
+                        class="side-menu-category display-mobile"
+                        [matTooltip]="category.categoryName | titlecase"
+                        matTooltipPosition="above"
+                        mat-button
+                        (click)="menuTrigger.openMenu()">
+                        <img
+                            class="icon"
+                            [src]="category.categoryIcon"
+                            [alt]="category.categoryName" />
+                        <div
+                            #menuTrigger="matMenuTrigger"
+                            [matMenuTriggerFor]="appMenu"
+                            [matMenuTriggerData]="{
+                                subCategories: category.subCategories
+                            }"></div>
+                    </button>
+                    <!-- Main category buttons displayed on desktop -->
+                    <button
+                        class="side-menu-category display-desktop"
+                        [ngClass]="{
+                            ' active ':
+                                selectedCategory === category.categoryName
+                        }"
+                        [matTooltip]="category.categoryName | titlecase"
+                        matTooltipPosition="above"
+                        mat-button
+                        (click)="toggleDesktopMenu(category.categoryName)">
+                        <img
+                            class="icon"
+                            [src]="category.categoryIcon"
+                            [alt]="category.categoryName" />
+                    </button>
+                </div>
+            </div>
         </div>
+    </mat-sidenav-container>
+
+    <!-- Desktop side menu -->
+    <div
+        class="side-menu-container__right display-desktop bg-gradient-primary-2 text-h4"
+        [ngClass]="{ ' menu-visible ': isDesktopMenuVisible }">
+        <ul>
+            <li *ngFor="let subCategory of subCategories">
+                <a
+                    [routerLink]="subCategory.href"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    {{ subCategory.subCategoryName | titlecase }}
+                </a>
+            </li>
+        </ul>
     </div>
-    <mat-sidenav-content>
-        <mat-sidenav
-            #rightSidenav
-            mode="side"
-            class="rightSidenav"
-            [fixedInViewport]="true">
-            <p *ngFor="let subcat of subcategories">
-                {{ subcat.subCategoryName }}
-            </p>
-        </mat-sidenav>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+</div>
 
 <!-- Mobile side menu -->
-<mat-menu #appMenu="matMenu">
+<mat-menu #appMenu="matMenu" class="mobile-side-menu">
     <ng-template matMenuContent let-subCategories="subCategories">
         <a
             class="category-item"
