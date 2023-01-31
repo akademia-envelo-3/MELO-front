@@ -7,6 +7,8 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import { NgClass } from '@angular/common';
+import { SearchbarComponent, SearchResult } from '../features/ui';
 import UnitModule from '../features/unit/unit.module';
 
 @Component({
@@ -16,6 +18,7 @@ import UnitModule from '../features/unit/unit.module';
     PowerIconComponent,
     SpinnerDotsComponent,
     FormResultViewComponent,
+    NgClass,
     UnitModule,
     SearchbarComponent,
   ],
