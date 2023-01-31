@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventCardDTO } from '@features/event';
 import EventModule from '@features/event/event.module';
+import { SearchbarComponent, SearchResult } from '../features/ui';
 import {
   PowerIconComponent,
   SpinnerDotsComponent,
@@ -8,6 +9,7 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import UnitModule from '../features/unit/unit.module';
 
 @Component({
   selector: 'app-theme',
@@ -17,6 +19,8 @@ import {
     SpinnerDotsComponent,
     FormResultViewComponent,
     EventModule,
+    UnitModule,
+    SearchbarComponent,
   ],
   standalone: true,
   template: `
@@ -161,79 +165,105 @@ import {
       </div>
     </div>
 
-    <div class="circular-buttons-container bg-gradient-neutral-3">
-      <h2>Widok komunikatu po wysłaniu formularza</h2>
-      <app-form-result-view [formResultInfo]="formResultInfo">
-        <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
-        <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
-      </app-form-result-view>
+    <div class="rectangular-buttons-container bg-gradient-neutral-3">
+      <h2>Widok komponentu wyszukiwania dla wydarzeń</h2>
+      <app-searchbar [searchResults]="searchResults"></app-searchbar>
+      <h2>Widok komponentu wyszukiwania dla kół</h2>
+      <app-searchbar
+        [searchResults]="searchResults"
+        [typeOfEvent]="false"
+      ></app-searchbar>
+    </div>
+
+    <div class="rectangular-buttons-container bg-gradient-neutral-3">
+      <div class="circular-buttons-container bg-gradient-neutral-3">
+        <h2>Widok komunikatu po wysłaniu formularza</h2>
+        <app-form-result-view [formResultInfo]="formResultInfo">
+          <img image src="../../../assets/form-result-icons/confirm-icon.svg" alt="" />
+          <app-circular-button button icon="arrow_back" size="sm"></app-circular-button>
+        </app-form-result-view>
+      </div>
+
+      <div class="power-icon__wrapper bg-gradient-neutral-3">
+        <p class="text-h4">Power Icons</p>
+        <div class="power-icon__wrapper__inner">
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="xl"
+            theme="primary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="lg"
+            theme="primary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="md"
+            theme="primary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="sm"
+            theme="primary"
+          ></app-power-icon>
+        </div>
+        <div class="power-icon__wrapper__inner">
+          <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
+        </div>
+        <div class="power-icon__wrapper__inner">
+          <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
+          <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
+        </div>
+        <div class="power-icon__wrapper__inner">
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="xl"
+            theme="secondary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="lg"
+            theme="tertiary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="md"
+            theme="secondary"
+          ></app-power-icon>
+          <app-power-icon
+            [memberNumber]="40"
+            [memberLimit]="50"
+            size="sm"
+            theme="tertiary"
+          ></app-power-icon>
+        </div>
+      </div>
     </div>
 
     <div class="power-icon__wrapper bg-gradient-neutral-3">
-      <p class="text-h4">Power Icons</p>
+      <p class="text-h4">Unit Power Icon</p>
       <div class="power-icon__wrapper__inner">
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="xl"
-          theme="primary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="lg"
-          theme="primary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="md"
-          theme="primary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="sm"
-          theme="primary"
-        ></app-power-icon>
+        <app-unit-power-icon [memberNumber]="40" [size]="'sm'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="40" [size]="'md'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="40" [size]="'lg'"></app-unit-power-icon>
       </div>
       <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="40" size="xl" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="lg" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="md" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="40" size="sm" theme="primary"></app-power-icon>
-      </div>
-      <div class="power-icon__wrapper__inner">
-        <app-power-icon [memberNumber]="400" size="xl" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="md" theme="primary"></app-power-icon>
-        <app-power-icon [memberNumber]="400" size="sm" theme="primary"></app-power-icon>
-      </div>
-      <div class="power-icon__wrapper__inner">
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="xl"
-          theme="secondary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="lg"
-          theme="tertiary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="md"
-          theme="secondary"
-        ></app-power-icon>
-        <app-power-icon
-          [memberNumber]="40"
-          [memberLimit]="50"
-          size="sm"
-          theme="tertiary"
-        ></app-power-icon>
+        <app-unit-power-icon [memberNumber]="999" [size]="'sm'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="999" [size]="'md'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="999" [size]="'lg'"></app-unit-power-icon>
       </div>
     </div>
     <div class="cards-wrapper bg-gradient-neutral-3">
@@ -319,6 +349,52 @@ export default class ThemeComponent {
     theme: 'brown',
     memberLimit: undefined,
   };
+  searchResults: SearchResult[] = [
+    {
+      searchResultTitle: 'Znalezione wydarzenie',
+      searchResultPhrase: 'Znaleziona fraza',
+      searchResultImg:
+        'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 2',
+      searchResultPhrase: 'Znaleziona fraza 2',
+      searchResultImg: '',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 3',
+      searchResultPhrase: 'Znaleziona fraza 3',
+      searchResultImg:
+        'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 4',
+      searchResultPhrase: 'Znaleziona fraza 4',
+      searchResultImg: '',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 5',
+      searchResultPhrase: 'Znaleziona fraza 5',
+      searchResultImg:
+        'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 6',
+      searchResultPhrase: 'Znaleziona fraza 6',
+      searchResultImg: '',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 7',
+      searchResultPhrase: 'Znaleziona fraza 7',
+      searchResultImg:
+        'https://cdn.pixabay.com/photo/2023/01/04/15/01/flower-7696955_1280.jpg',
+    },
+    {
+      searchResultTitle: 'Znalezione wydarzenie 8',
+      searchResultPhrase: 'Znaleziona fraza 8',
+      searchResultImg: '',
+    },
+  ];
   formResultInfo: FormResultInfo = {
     messageHeader: 'Pomyślnie utworzono koło zainteresowań “Nazwa koła”.',
     messageCallToAction: 'Przejdź do strony utworzonego koła',

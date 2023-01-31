@@ -29,14 +29,15 @@ import { CustomHttpInterceptor } from './core';
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          {
-            path: 'auth',
-            loadChildren: () => import('./features/auth/auth.module'),
-          },
+          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
+          },
+          {
+            path: 'units',
+            loadChildren: () => import('./features/unit/unit.module'),
           },
           {
             path: '**',
