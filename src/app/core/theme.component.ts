@@ -267,7 +267,6 @@ import UnitModule from '../features/unit/unit.module';
     <div class="power-icon__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Unit Power Icon</p>
       <div class="power-icon__wrapper__inner">
-        <<<<<<< HEAD
         <app-power-icon [memberNumber]="400" size="sm" theme="tertiary"></app-power-icon>
         <app-power-icon [memberNumber]="400" size="md" theme="secondary"></app-power-icon>
         <app-power-icon [memberNumber]="400" size="lg" theme="primary"></app-power-icon>
@@ -321,7 +320,6 @@ import UnitModule from '../features/unit/unit.module';
           size="lg"
           theme="tertiary"
         ></app-power-icon>
-        =======
         <app-unit-power-icon [memberNumber]="40" [size]="'sm'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="40" [size]="'md'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="40" [size]="'lg'"></app-unit-power-icon>
@@ -330,7 +328,6 @@ import UnitModule from '../features/unit/unit.module';
         <app-unit-power-icon [memberNumber]="999" [size]="'sm'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="999" [size]="'md'"></app-unit-power-icon>
         <app-unit-power-icon [memberNumber]="999" [size]="'lg'"></app-unit-power-icon>
-        >>>>>>> 3e46a4ebcba782a0e5b34a38eaa02a194aa8cb26
       </div>
     </div>
   `,
