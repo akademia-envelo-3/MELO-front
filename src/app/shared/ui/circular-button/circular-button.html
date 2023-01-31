@@ -2,7 +2,9 @@
     <span *ngIf="!icon else textButtonBlock" [ngClass]="textSizeClass"
         >{{text}}</span
     >
-    <ng-template #textButtonBlock
-        ><mat-icon class="icon"> {{icon}} </mat-icon></ng-template
+    <ng-template #textButtonBlock>
+        <mat-icon class="icon">
+            <a [routerLink]="routerLink">{{icon}}</a>
+        </mat-icon></ng-template
     >
 </button>

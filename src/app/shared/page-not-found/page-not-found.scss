@@ -31,4 +31,10 @@
       border-radius: 25px;
     }
   }
+
+  &__redirect {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
 }

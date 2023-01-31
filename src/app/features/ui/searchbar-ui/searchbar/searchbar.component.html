@@ -1,0 +1,19 @@
+<div class="searchbar">
+    <mat-icon>search</mat-icon>
+    <input
+        type="text"
+        class="searchbar__input text-body-big"
+        placeholder="Szukaj w Melo"
+        maxlength="80"
+        (keyup)="getSearchValue($event)"
+        [value]="searchPhrase" />
+    <mat-icon
+        class="searchbar__close"
+        [ngClass]="{ visible: !isEmpty }"
+        (click)="clearSearchValue()"
+        >close</mat-icon
+    >
+</div>
+
+<app-searchbar-dropdown
+    [ngClass]="{ hide: isDropdownNotVisible }"></app-searchbar-dropdown>

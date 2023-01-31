@@ -1,0 +1,56 @@
+@use './src/styles/colors' as colors;
+
+$background: colors.$primary-900;
+$border: colors.$primary-500;
+$placeholder: colors.$neutral-300;
+$icon: colors.$accent-gold-600;
+$focus: colors.$accent-gold-200;
+
+.searchbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1.15px solid $border;
+  border-radius: 25px;
+  background-color: $background;
+  margin-bottom: 5px;
+}
+
+.searchbar__input {
+  color: colors.$neutral-100;
+  min-width: 80px;
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  background: none;
+  padding-left: 5px;
+  flex-basis: 25px;
+}
+
+.searchbar__input::placeholder {
+  color: $placeholder;
+}
+
+.searchbar__close {
+  cursor: pointer;
+  display: none;
+}
+
+.searchbar > mat-icon {
+  color: $icon;
+}
+
+.searchbar:focus-within {
+  border: 1.15px solid $focus;
+}
+
+.visible {
+  display: initial;
+}
+
+.hide {
+  display: none;
+}
