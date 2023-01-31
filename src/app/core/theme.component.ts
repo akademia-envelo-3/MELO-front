@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { SearchbarComponent, SearchResult } from '../features/ui';
 import {
   SpinnerDotsComponent,
   CircularButtonComponent,
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
-import { EventModule } from '../features/event';
+import EventModule from '@features/event/event.module';
 import { NgClass } from '@angular/common';
+import { SearchbarComponent, SearchResult } from '@features/ui';
+import { EventCardDTO } from '@features/event';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -24,9 +25,9 @@ import { Router } from '@angular/router';
     SearchbarComponent,
     MatDialogModule,
   ],
-  standalone: true,
   templateUrl: 'theme.component.html',
   styleUrls: ['theme.component.scss'],
+  standalone: true,
 })
 export default class ThemeComponent {
   private dialog = inject(MatDialog);
@@ -100,4 +101,45 @@ export default class ThemeComponent {
   toggleMenuIcon() {
     this.menuActive = !this.menuActive;
   }
+  cardExample: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 10,
+    mainPhoto: 'assets/mock/beers.png',
+    theme: 'purple',
+    memberLimit: 50,
+  };
+  cardExample2: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 0,
+    mainPhoto: 'assets/mock/beers.png',
+    theme: 'white',
+    memberLimit: undefined,
+  };
+  cardExample3: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 10,
+    mainPhoto: 'assets/mock/beers.png',
+
+    theme: 'blue',
+    memberLimit: 99,
+  };
+  cardExample4: EventCardDTO = {
+    eventId: 1,
+    name: 'Event Title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    startTime: new Date(),
+    invitedMembersNumber: 10,
+    mainPhoto: 'assets/mock/beers.png',
+    theme: 'brown',
+    memberLimit: undefined,
+  };
 }

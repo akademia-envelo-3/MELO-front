@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+
+import { DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/common';
+
 import { PowerIconComponent } from '@shared/ui';
+import { MatIconModule } from '@angular/material/icon';
+import { CardComponent } from '.';
 
 @NgModule({
-  declarations: [PowerIconComponent],
-  imports: [CommonModule, MatIconModule],
-  exports: [PowerIconComponent],
+  declarations: [CardComponent, PowerIconComponent],
+  imports: [NgIf, NgClass, DatePipe, UpperCasePipe, MatIconModule],
+  exports: [CardComponent, PowerIconComponent],
 })
-export class EventModule {}
+export default class EventModule {}
