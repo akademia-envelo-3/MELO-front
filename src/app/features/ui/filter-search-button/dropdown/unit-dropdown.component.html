@@ -1,56 +1,56 @@
 <menu class="dropdown dropdown--unit">
     <div class="dropdown__section">
         <p class="text-body">CZAS DO ROZPOCZĘCIA</p>
-        <div
+        <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortRadio1)">
+            (click)="toggleSortRadio(sort_date_asc)">
             <input
-                #sortRadio1
+                #sort_date_asc
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
                 id="date-ascending"
                 class="dropdown__sort-option" />
             <label for="date-ascending">Rosnąco</label>
-        </div>
-        <div
+        </button>
+        <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortRadio2)">
+            (click)="toggleSortRadio(sort_date_desc)">
             <input
-                #sortRadio2
+                #sort_date_desc
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"
                 id="date-deccending"
                 class="dropdown__sort-option" />
-            <label for="date-deccending">Malejąco</label>
-        </div>
+            <label for="date-decsending">Malejąco</label>
+        </button>
     </div>
     <div class="dropdown__section">
         <p class="text-body">NAZWA</p>
-        <div
+        <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortRadio3)">
+            (click)="toggleSortRadio(sort_name_asc)">
             <input
-                #sortRadio3
+                #sort_name_asc
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
                 id="name-ascending"
                 class="dropdown__sort-option" />
             <label for="name-ascending">Rosnąco</label>
-        </div>
-        <div
+        </button>
+        <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortRadio4)">
+            (click)="toggleSortRadio(sort_name_desc)">
             <input
-                #sortRadio4
+                #sort_name_desc
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"
                 id="name-deccending"
                 class="dropdown__sort-option" />
-            <label for="name-deccending">Malejąco</label>
-        </div>
+            <label for="name-descending">Malejąco</label>
+        </button>
     </div>
 </menu>

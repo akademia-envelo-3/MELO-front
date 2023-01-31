@@ -8,14 +8,14 @@ import {
 } from '@angular/core';
 
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
-import { EventDropdownComponent, UnitDropdownComponent } from '.';
+import {
+  EventDropdownComponent,
+  UnitDropdownComponent,
+  EventMenuState,
+  FiltrSortButtonOutput,
+  UnitMenuState,
+} from '.';
 
-export type MenuState = {
-  creationDate: string;
-  startDate: string;
-  dateSort: string;
-  nameSort: string;
-};
 export type MenuType = 'events' | 'units';
 @Component({
   selector: 'app-filter-search-button[menuType]',
@@ -32,16 +32,18 @@ export type MenuType = 'events' | 'units';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterSearchButtonComponent {
-  @Output() emmitPickedOptions = new EventEmitter<MenuState>();
+  @Output() emmitPickedOptions = new EventEmitter<FiltrSortButtonOutput<MenuType>>();
   @Input() menuType!: MenuType;
   isOpen = false;
 
-  getPickedOptions(menuState: MenuState) {
+  updateMenuState(menuState: UnitMenuState | EventMenuState) {
     this.emmitPickedOptions.emit(menuState);
   }
+
   hideDropdown() {
     this.isOpen = false;
   }
+
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }

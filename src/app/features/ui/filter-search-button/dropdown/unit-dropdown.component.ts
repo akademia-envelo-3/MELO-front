@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
-import { MenuState } from '../filter-search-button.component';
+import { UnitMenuState } from '../filter-seatch-button.interface';
 
 @Component({
   selector: 'app-unit-dropdown-component',
@@ -12,15 +12,9 @@ import { MenuState } from '../filter-search-button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnitDropdownComponent {
-  @Output() newMenuState = new EventEmitter<MenuState>();
-  state = { creationDate: '', startDate: '', dateSort: '', nameSort: '' };
+  @Output() newMenuState = new EventEmitter<UnitMenuState>();
+  state = { dateSort: '', nameSort: '' };
 
-  protected toggleFiltrRadio(input: HTMLInputElement) {
-    this.state = { ...this.state, [input.name]: input.value };
-    this.newMenuState.emit(this.state);
-
-    return (input.checked = !input.checked);
-  }
   protected toggleSortRadio(input: HTMLInputElement) {
     const adjustedKey = `${input.id.split('-')[0]}Sort`;
 

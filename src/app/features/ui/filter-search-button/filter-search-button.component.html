@@ -1,17 +1,18 @@
 <div class="container" (appClickOutside)="hideDropdown()">
     <button
-        class="filter-btn"
         [ngClass]="{ 'filter-btn--active': isOpen }"
+        class="filter-btn"
         (click)="toggleDropdown()"></button>
     <ng-container *ngIf="isOpen">
         <app-event-dropdown-component
-            (newMenuState)="getPickedOptions($event)"
-            *ngIf="menuType === 'events'">
+            *ngIf="menuType === 'events'"
+            (newMenuState)="updateMenuState($event)">
         </app-event-dropdown-component>
     </ng-container>
     <ng-container *ngIf="isOpen">
         <app-unit-dropdown-component
-            (newMenuState)="getPickedOptions($event)"
-            *ngIf="menuType === 'units'"></app-unit-dropdown-component>
+            *ngIf="menuType === 'units'"
+            (newMenuState)="updateMenuState($event)">
+        </app-unit-dropdown-component>
     </ng-container>
 </div>

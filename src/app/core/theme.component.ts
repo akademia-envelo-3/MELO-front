@@ -8,6 +8,7 @@ import {
   FormResultInfo,
 } from '@shared/ui';
 import { FilterSearchButtonComponent } from '../features/ui/filter-search-button/filter-search-button.component';
+import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
 
 @Component({
   selector: 'app-theme',
@@ -244,8 +245,14 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
     <div class="filtr-search-btn---wrapper bg-gradient-neutral-3">
       <p class="text-h4">Filtr search buttons</p>
 
-      <app-filter-search-button [menuType]="'units'"></app-filter-search-button>
-      <app-filter-search-button [menuType]="'events'"></app-filter-search-button>
+      <app-filter-search-button
+        (emmitPickedOptions)="eventSortFiltr($event)"
+        [menuType]="'units'"
+      ></app-filter-search-button>
+      <app-filter-search-button
+        (emmitPickedOptions)="unitSortFiltr($event)"
+        [menuType]="'events'"
+      ></app-filter-search-button>
     </div>
   `,
   styleUrls: ['theme.component.scss'],
@@ -259,6 +266,16 @@ import { FilterSearchButtonComponent } from '../features/ui/filter-search-button
   ],
 })
 export default class ThemeComponent {
+  eventSortFiltr(arg: FiltrSortButtonOutput<'units'>) {
+    arg.nameSort;
+    arg.dateSort;
+  }
+
+  unitSortFiltr(arg: FiltrSortButtonOutput<'events'>) {
+    arg.nameSort;
+    arg.creationDate;
+    arg.startDate;
+  }
   searchResults: SearchResult[] = [
     {
       searchResultTitle: 'Znalezione wydarzenie',

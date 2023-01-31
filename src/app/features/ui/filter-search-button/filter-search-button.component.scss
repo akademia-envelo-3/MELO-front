@@ -21,7 +21,7 @@
 }
 .dropdown {
   background-color: st.$primary-900;
-  color: st.$neutral-600;
+
   display: flex;
   justify-content: space-evenly;
   padding: 1rem clamp(0.5rem, 3vw + 0.4rem, 2.5rem) clamp(0.5rem, 3vh + 0.4rem, 3rem)
@@ -46,12 +46,17 @@
       border-bottom: 1px solid st.$neutral-500;
       min-width: max-content;
     }
-    div:nth-child(2) {
+    button:nth-child(2) {
       margin-top: 0.5rem;
     }
     &__holder {
-      padding: 0.1rem 0;
+      padding: 0.2rem 0;
       position: relative;
+      border: none;
+      text-align: left;
+      background-color: transparent;
+      color: st.$neutral-600;
+
       label {
         width: 80%;
         display: inline-block;
