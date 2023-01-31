@@ -67,3 +67,33 @@
     margin-bottom: 1rem;
   }
 }
+
+.displayNavbar {
+  margin-bottom: 50px;
+}
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  &__bar1,
+  &__bar2,
+  &__bar3 {
+    width: 44.5px;
+    height: 5px;
+    background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+}
+
+.change .hamburger__bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .hamburger__bar2 {
+  opacity: 0;
+}
+
+.change .hamburger__bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
