@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { SearchbarComponent, SearchResult } from '../features/ui';
 import {
-  PowerIconComponent,
   SpinnerDotsComponent,
   CircularButtonComponent,
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
+import { EventModule } from '../features/event';
 import { NgClass } from '@angular/common';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   selector: 'app-theme',
   imports: [
     CircularButtonComponent,
-    PowerIconComponent,
+    EventModule,
     SpinnerDotsComponent,
     FormResultViewComponent,
     NgClass,
