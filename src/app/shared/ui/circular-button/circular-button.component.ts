@@ -9,12 +9,7 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
-export type IconOptionsRef =
-  | 'done'
-  | 'close'
-  | 'arrow_back'
-  | 'arrow_forward'
-  | undefined;
+export type IconOptionsRef = 'done' | 'close' | 'arrow_back' | 'arrow_forward';
 type sizeOption = 'sm' | 'md' | 'lg' | 'xl';
 type textSizeOption = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
