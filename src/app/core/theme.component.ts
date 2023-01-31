@@ -7,8 +7,7 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
-import { NgClass } from '@angular/common';
-import { SearchbarComponent, SearchResult } from '../features/ui';
+import UnitModule from '../features/unit/unit.module';
 
 @Component({
   selector: 'app-theme',
@@ -17,7 +16,7 @@ import { SearchbarComponent, SearchResult } from '../features/ui';
     PowerIconComponent,
     SpinnerDotsComponent,
     FormResultViewComponent,
-    NgClass,
+    UnitModule,
     SearchbarComponent,
   ],
   standalone: true,
@@ -263,6 +262,20 @@ import { SearchbarComponent, SearchResult } from '../features/ui';
             theme="teriarty"
           ></app-power-icon>
         </div>
+      </div>
+    </div>
+
+    <div class="power-icon__wrapper bg-gradient-neutral-3">
+      <p class="text-h4">Unit Power Icon</p>
+      <div class="power-icon__wrapper__inner">
+        <app-unit-power-icon [memberNumber]="40" [size]="'sm'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="40" [size]="'md'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="40" [size]="'lg'"></app-unit-power-icon>
+      </div>
+      <div class="power-icon__wrapper__inner">
+        <app-unit-power-icon [memberNumber]="999" [size]="'sm'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="999" [size]="'md'"></app-unit-power-icon>
+        <app-unit-power-icon [memberNumber]="999" [size]="'lg'"></app-unit-power-icon>
       </div>
     </div>
   `,
