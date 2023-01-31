@@ -9,8 +9,8 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { EventModule } from './features/event';
 import { CustomHttpInterceptor } from './core';
+import EventModule from './features/event/event.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +34,10 @@ import { CustomHttpInterceptor } from './core';
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
+          },
+          {
+            path: 'events',
+            loadChildren: () => import('./features/event/event.module'),
           },
           {
             path: 'units',
