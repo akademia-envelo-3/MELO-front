@@ -58,3 +58,15 @@ $app-name-theme: mat.define-light-theme(
   .mdc-evolution-chip__text-label {
   color: colors.$accent-gold-800 !important;
 }
+
+///// DIALOG /////
+
+.mat-mdc-dialog-container .mdc-dialog__surface.mdc-dialog__surface {
+  background-color: colors.$neutral-300;
+  border-radius: 10px;
+  border-collapse: separate;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
