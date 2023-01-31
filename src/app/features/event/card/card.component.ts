@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { EventCardDTO } from '..';
-import { ThemeOptions } from '@shared/ui';
+import { EventCardDTO, ThemeOptions } from '..';
 
 @Component({
   selector: 'app-event-card[card]',

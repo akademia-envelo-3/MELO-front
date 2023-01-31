@@ -5,10 +5,11 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
-import { EventModule } from '../features/event';
+import EventModule from '@features/event/event.module';
 import { NgClass } from '@angular/common';
-import { SearchbarComponent, SearchResult } from '../features/ui';
-import UnitModule from '../features/unit/unit.module';
+import { SearchbarComponent, SearchResult } from '@features/ui';
+import UnitModule from '@features/unit/unit.module';
+import { EventCardDTO } from '@features/event';
 
 @Component({
   selector: 'app-theme',
