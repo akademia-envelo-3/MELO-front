@@ -16,8 +16,9 @@ export class UnitDropdownComponent {
   state = { dateSort: '', nameSort: '' };
 
   protected toggleSortRadio(input: HTMLInputElement) {
+    console.log('input', input);
     const adjustedKey = `${input.id.split('-')[0]}Sort`;
-
+    console.log(this.state);
     this.state = { ...this.state, [adjustedKey]: input.value };
     this.newMenuState.emit(this.state);
   }

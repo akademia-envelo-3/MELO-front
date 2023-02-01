@@ -8,13 +8,13 @@
 }
 .filter-btn {
   border: none;
-  padding: 2.2rem;
+  padding: 35.2px;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   background-image: url('/assets/icons/filter-inactive.svg');
   background-position: center;
   background-size: cover;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 .filter-btn--active {
   background-image: url('/assets/icons/filter-active.svg');
@@ -24,12 +24,12 @@
 
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem clamp(0.5rem, 3vw + 0.4rem, 2.5rem) clamp(0.5rem, 3vh + 0.4rem, 3rem)
-    clamp(0.5rem, 3vw + 0.5rem, 2.5rem);
-  border-radius: 15px;
+  padding: 16px clamp(8px, 3vw + 6.4px, 40px) clamp(8px, 3vh + 6.4px, 48px)
+    clamp(8px, 3vw + 8px, 40px);
+  border-radius: 0.9375rem;
   flex-wrap: wrap;
   width: max-content;
-  column-gap: 2rem;
+  column-gap: 32px;
   &__section {
     border: none;
     display: flex;
@@ -37,26 +37,29 @@
     border: none;
     &:last-child {
       p {
-        width: 130px;
+        width: 8.125rem;
       }
     }
     p {
       color: st.$neutral-100;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid st.$neutral-500;
+      padding: 8px 0;
+      border-bottom: 0.0625rem solid st.$neutral-500;
       min-width: max-content;
     }
     button:nth-child(2) {
-      margin-top: 0.5rem;
+      margin-top: 8px;
     }
     &__holder {
-      padding: 0.2rem 0;
-      position: relative;
-      border: none;
+      all: unset;
+      padding: 3.2px 0;
       text-align: left;
-      background-color: transparent;
       color: st.$neutral-600;
-
+      &:not(.dropdown__sort-option:checked):focus {
+        color: st.$neutral-100;
+        label {
+          text-decoration: underline;
+        }
+      }
       label {
         width: 80%;
         display: inline-block;
@@ -94,9 +97,9 @@
 
 .dropdown--unit {
   justify-content: flex-start;
-  padding: 1rem 15rem 5rem 2rem;
-  padding: 1rem clamp(5rem, 15vw + 2rem, 15rem) clamp(2rem, 4.1vh + 1.25rem, 5rem)
-    clamp(1rem, 1vw + 0.8rem, 2rem);
+  padding: 16px 240px 80px 32px;
+  padding: 16px clamp(80px, 15vw + 32px, 240px) clamp(32px, 4.1vh + 20px, 80px)
+    clamp(16px, 1vw + 12.8px, 32px);
   .dropdown__section {
     min-width: max-content;
   }
