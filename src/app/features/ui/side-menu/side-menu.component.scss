@@ -61,6 +61,13 @@
   }
 }
 
+.display-side-menu-desktop {
+  display: none;
+  @include breakpoints.media-md {
+    display: initial;
+  }
+}
+
 .category-item:hover {
   background-color: colors.$accent-gold-300;
 }
