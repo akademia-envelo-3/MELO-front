@@ -17,7 +17,7 @@ import EventModule from './features/event/event.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    EventModule,
+
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,

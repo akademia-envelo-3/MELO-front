@@ -8,7 +8,7 @@ import {
 const iconSizes = ['xs', 'sm', 'md', 'lg'];
 type IconSizes = 'sm' | 'md' | 'lg';
 type SizeOptions = typeof iconSizes[number];
-type ThemeOptions = 'primary' | 'secondary' | 'tertiary';
+export type ThemeOptions = 'primary' | 'secondary' | 'tertiary';
 
 @Component({
   selector: 'app-power-icon',

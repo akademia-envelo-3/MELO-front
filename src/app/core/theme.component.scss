@@ -21,10 +21,23 @@
   }
 }
 
+.cards-wrapper {
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 2rem;
+  &--inner {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
 .power-icon__wrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  border-radius: 25px;
+
   margin: 2rem;
   padding: 2rem;
   &__inner {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/common';
+import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
 import { EventFormComponent } from './event-form/event-form.component';
 import { EventsComponent } from './events.component';
@@ -11,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { PowerIconComponent } from '@shared/ui';
+import { CardComponent } from '.';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,6 @@ import { PowerIconComponent } from '@shared/ui';
     PowerIconComponent,
   ],
   imports: [
-    CommonModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
@@ -29,6 +29,10 @@ import { PowerIconComponent } from '@shared/ui';
     MatChipsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    DatePipe,
+    NgClass,
+    NgIf,
+    UpperCasePipe,
     RouterModule.forChild([
       {
         path: 'events',
