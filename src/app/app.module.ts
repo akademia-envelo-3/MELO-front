@@ -47,6 +47,7 @@ import { CustomHttpInterceptor } from './core';
         ],
       },
     ]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {

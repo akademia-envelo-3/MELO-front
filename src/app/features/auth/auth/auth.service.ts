@@ -11,7 +11,7 @@ type User = {
   authType: AuthType;
 };
 
-type AuthType = 'none' | 'admin' | 'employee' | 'guest';
+export type AuthType = 'none' | 'admin' | 'employee' | 'guest';
 type AuthState = { auth: AuthType; user: Maybe<User> };
 
 export type LoginCredentials = { email: string; password: string };
