@@ -6,7 +6,6 @@ import {
   FormResultViewComponent,
   FormResultInfo,
 } from '@shared/ui';
-import { EventModule } from '../features/event';
 import { NgClass } from '@angular/common';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -16,7 +15,6 @@ import { Router } from '@angular/router';
   selector: 'app-theme',
   imports: [
     CircularButtonComponent,
-    EventModule,
     SpinnerDotsComponent,
     FormResultViewComponent,
     NgClass,
