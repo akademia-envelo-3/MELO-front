@@ -25,7 +25,7 @@ export class UnitCardComponent {
   @Input() size: 'sm' | 'md' = 'md';
   @Output() emmitUnitId = new EventEmitter<number>();
 
-  click() {
+  showMore() {
     this.emmitUnitId.emit(this.card.unitId);
   }
   get cardSize() {
