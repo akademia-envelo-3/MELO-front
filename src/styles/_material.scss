@@ -66,6 +66,7 @@ $app-name-theme: mat.define-light-theme(
   align-items: center;
   background-color: colors.$neutral-100;
   border: 2px solid colors.$accent-gold-200;
+  transition: 0.5s;
 }
 
 .mobile-side-menu > .mat-mdc-menu-content {

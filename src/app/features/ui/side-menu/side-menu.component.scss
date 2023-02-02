@@ -39,21 +39,6 @@
       top: 0;
       right: 0;
     }
-
-    .display-mobile {
-      @include breakpoints.media-md {
-        display: none;
-      }
-    }
-
-    .display-desktop {
-      display: none;
-      @include breakpoints.media-md {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
   }
 
   @include breakpoints.media-md {
@@ -84,11 +69,14 @@
   height: 100%;
   width: 0;
   overflow-x: hidden;
-  transition: 0.5s;
   padding-top: 5em;
 
   &.menu-visible {
     width: 250px;
+  }
+
+  &.transition {
+    transition: 0.5s;
   }
 
   li > a {

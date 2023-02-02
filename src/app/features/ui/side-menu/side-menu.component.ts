@@ -1,23 +1,16 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MatMenuModule } from '@angular/material/menu';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { NgFor, TitleCasePipe, NgClass } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { of } from 'rxjs';
-
-export type SubCategory = {
-  subCategoryName: string;
-  href: string;
-};
-
-export type MenuCategory = {
-  categoryName: string;
-  categoryIcon: string;
-  href?: string;
-  subCategories?: SubCategory[];
-};
+import { NgFor, NgIf, TitleCasePipe, NgClass } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import {
+  MenuCategory,
+  SideMenuStateService,
+  SubCategory,
+} from './side-menu.state.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -29,6 +22,7 @@ export type MenuCategory = {
     MatSidenavModule,
     TitleCasePipe,
     NgFor,
+    NgIf,
     NgClass,
     RouterModule,
   ],
@@ -37,71 +31,88 @@ export type MenuCategory = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideMenuComponent implements OnInit {
+  private sideMenuStateService = inject(SideMenuStateService);
+  private router = inject(Router);
+  private breakpointObserver = inject(BreakpointObserver);
+
+  readonly DESKTOP_MEDIA_BREAKPOINT = '(min-width: 560px)';
+  readonly breakpoint$ = this.breakpointObserver.observe([this.DESKTOP_MEDIA_BREAKPOINT]);
   menuCategories: MenuCategory[] = [];
   subCategories: SubCategory[] | undefined = [];
   isDesktopMenuVisible = false;
+  isDesktop = false;
   selectedCategory = '';
 
-  toggleDesktopMenu(categoryName: string) {
-    this.checkIfShouldToggleVisibility(categoryName);
-    this.updateCategoryData(categoryName);
+  toggleMenu(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
+    if (this.isDesktop) {
+      this.checkIfShouldToggleVisibility(category.categoryName);
+      this.updateDesktopCategoryData(category.categoryName);
+    } else {
+      this.updateMobileCategoryData(category, matMenuTrigger);
+    }
+    this.updateSelectedCategoryName(category.categoryName);
   }
 
-  private checkIfShouldToggleVisibility(categoryName: string) {
+  private checkIfShouldToggleVisibility(newCategoryName: string) {
     if (
-      (this.isDesktopMenuVisible === false && categoryName !== this.selectedCategory) ||
-      categoryName === this.selectedCategory ||
+      (this.isDesktopMenuVisible === false &&
+        newCategoryName !== this.selectedCategory) ||
+      newCategoryName === this.selectedCategory ||
       this.selectedCategory === ''
     ) {
       this.isDesktopMenuVisible = !this.isDesktopMenuVisible;
     }
   }
 
-  private updateCategoryData(categoryName: string) {
-    this.selectedCategory = categoryName;
-
+  private updateDesktopCategoryData(newCategoryName: string) {
     if (this.isDesktopMenuVisible) {
       this.subCategories = this.menuCategories.find(
-        category => category.categoryName === categoryName
+        category => category.categoryName === newCategoryName
       )?.subCategories;
+      this.closeDesktopMenuIfNoSubCategories();
     }
   }
 
+  private updateSelectedCategoryName(categoryName: string) {
+    this.selectedCategory = categoryName;
+  }
+
+  private updateMobileCategoryData(
+    category: MenuCategory,
+    matMenuTrigger: MatMenuTrigger
+  ) {
+    matMenuTrigger.menuData = { subCategories: category.subCategories };
+    matMenuTrigger.openMenu();
+  }
+
+  private closeDesktopMenuIfNoSubCategories() {
+    if (this.subCategories === undefined) {
+      this.isDesktopMenuVisible = false;
+    }
+  }
+
+  navigate(category: MenuCategory) {
+    if (this.isDesktop) {
+      this.updateDesktopCategoryData(category.categoryName);
+    }
+    this.updateSelectedCategoryName(category.categoryName);
+    this.router.navigate([category.href]);
+  }
+
   logout() {
+    this.selectedCategory = 'logout';
+    if (this.isDesktop) {
+      this.updateDesktopCategoryData(this.selectedCategory);
+    }
     return 'Logged out';
   }
 
   ngOnInit() {
-    of([
-      {
-        categoryName: 'wydarzenia',
-        categoryIcon: '../../../../assets/side-menu-icons/events.svg',
-        subCategories: [
-          { subCategoryName: 'wszystkie', href: 'events' },
-          { subCategoryName: 'moje', href: 'my-events' },
-          { subCategoryName: 'nowy +', href: 'new-event' },
-          { subCategoryName: 'kategoria +', href: 'new-category' },
-        ],
-      },
-      {
-        categoryName: 'koła zainteresowań',
-        categoryIcon: '../../../../assets/side-menu-icons/units.svg',
-        subCategories: [
-          { subCategoryName: 'wszystkie', href: 'units' },
-          { subCategoryName: 'moje', href: 'units/my-units' },
-          { subCategoryName: 'nowe +', href: 'units/new-units' },
-        ],
-      },
-      {
-        categoryName: 'hashtagi',
-        categoryIcon: '../../../../assets/side-menu-icons/hashtags.svg',
-      },
-      {
-        categoryName: 'kategorie',
-        categoryIcon: '../../../../assets/side-menu-icons/categories.svg',
-      },
-    ]).subscribe(menuCategories => {
-      this.menuCategories = menuCategories;
+    this.sideMenuStateService.sideMenuSetupState$.subscribe(sideMenuState => {
+      this.menuCategories = sideMenuState.menuCategories;
+    });
+    this.breakpoint$.subscribe(() => {
+      this.isDesktop = this.breakpointObserver.isMatched('(min-width: 560px)');
     });
   }
 }
