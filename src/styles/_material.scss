@@ -74,3 +74,14 @@ $app-name-theme: mat.define-light-theme(
     display: none;
   }
 }
+///// DIALOG /////
+
+.mat-mdc-dialog-container .mdc-dialog__surface.mdc-dialog__surface {
+  background-color: colors.$neutral-300;
+  border-radius: 10px;
+  border-collapse: separate;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}

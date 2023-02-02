@@ -1,0 +1,86 @@
+@use '/src/styles/breakpoints' as breakpoints;
+@use '/src/styles/colors' as colors;
+
+.navbar {
+  @extend .bg-gradient-primary-1;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: breakpoints.$max-app-width;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logoImg {
+    height: calc(1.2 * 52px);
+  }
+  &__logoImg:hover {
+    cursor: pointer;
+  }
+  &__bell {
+    margin-right: 1rem;
+    position: absolute;
+    right: 40px;
+    height: 100%;
+    width: 52px;
+    background-image: url('../../../../assets/navbar-icons/bellAfterConv.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &__notification {
+      display: block;
+      position: absolute;
+      bottom: 10%;
+      right: 15%;
+      width: min-content;
+      height: min-content;
+    }
+  }
+  &__hamburger {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 15px;
+    &__bar1,
+    &__bar2,
+    &__bar3 {
+      width: 32px;
+      height: 5px;
+      background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+  .change .navbar__hamburger__bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .navbar__hamburger__bar2 {
+    opacity: 0;
+  }
+
+  .change .navbar__hamburger__bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+}
+
+@include breakpoints.media-md {
+  .navbar {
+    height: 89px;
+    &__logoImg {
+      height: 89px;
+      height: calc(1.2 * 89px);
+    }
+    &__bell {
+      height: 89px;
+      width: 89px;
+      right: 5%;
+      &__notification {
+        right: 10%;
+      }
+    }
+    &__hamburger {
+      display: none;
+    }
+  }
+}
