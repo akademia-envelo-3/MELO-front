@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgIf, NgOptimizedImage } from '@angular/common';
 import {
   CircularButtonComponent,
   IconOptionsRef,
@@ -28,6 +28,7 @@ const formResultInfoDefault: FormResultInfo = {
   standalone: true,
   imports: [
     NgIf,
+    NgOptimizedImage,
     CircularButtonComponent,
     MatIconModule,
     MatButtonModule,
@@ -48,7 +49,7 @@ const formResultInfoDefault: FormResultInfo = {
         <p class="text-body">
           {{ formResultInfo.messageHeader }}
         </p>
-        <img image [src]="src" alt="" />
+        <img [ngSrc]="src" alt="" priority width="70" height="70" />
         <p class="text-body" *ngIf="formResultInfo.messageCallToAction">
           {{ formResultInfo.messageCallToAction }}
         </p>
@@ -67,6 +68,7 @@ const formResultInfoDefault: FormResultInfo = {
 export class FormResultViewComponent {
   @Input() formResultInfo: FormResultInfo = formResultInfoDefault;
   @Input() routerLink?: string;
+  private iconsUrl = '../../../assets/form-result-icons/';
   src = '';
   iconRef: IconOptionsRef = 'arrow_back';
 
@@ -76,9 +78,8 @@ export class FormResultViewComponent {
 
   private setImgandIcon(result: ResultState) {
     result === 'success'
-      ? ((this.src = '../../../assets/form-result-icons/confirm-icon.svg'),
+      ? ((this.src = this.iconsUrl + 'confirm-icon.svg'),
         (this.iconRef = 'arrow_forward'))
-      : ((this.src = '../../../assets/form-result-icons/error-icon.svg'),
-        (this.iconRef = 'arrow_back'));
+      : ((this.src = this.iconsUrl + 'error-icon.svg'), (this.iconRef = 'arrow_back'));
   }
 }

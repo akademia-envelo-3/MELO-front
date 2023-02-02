@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
+import { PowerIconComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [EventFormComponent, EventsComponent, HashtagsComponent],

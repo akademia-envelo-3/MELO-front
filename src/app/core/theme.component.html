@@ -1,5 +1,15 @@
 <h1>Storybook-like route</h1>
 <div class="circular-buttons-container bg-gradient-neutral-3">
+    <div
+        class="hamburger"
+        [ngClass]="{ change: this.menuActive }"
+        (click)="toggleMenuIcon()">
+        <div class="hamburger__bar1"></div>
+        <div class="hamburger__bar2"></div>
+        <div class="hamburger__bar3"></div>
+    </div>
+</div>
+<div class="circular-buttons-container bg-gradient-neutral-3">
     <p class="text-h4">Spinner Dots</p>
     <app-spinner-dots size="md"></app-spinner-dots>
 </div>
@@ -211,11 +221,6 @@
         <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
-            size="xl"
-            theme="primary"></app-power-icon>
-        <app-power-icon
-            [memberNumber]="40"
-            [memberLimit]="50"
             size="lg"
             theme="primary"></app-power-icon>
         <app-power-icon
@@ -232,10 +237,6 @@
     <div class="power-icon__wrapper__inner">
         <app-power-icon
             [memberNumber]="40"
-            size="xl"
-            theme="primary"></app-power-icon>
-        <app-power-icon
-            [memberNumber]="40"
             size="lg"
             theme="primary"></app-power-icon>
         <app-power-icon
@@ -248,10 +249,6 @@
             theme="primary"></app-power-icon>
     </div>
     <div class="power-icon__wrapper__inner">
-        <app-power-icon
-            [memberNumber]="400"
-            size="xl"
-            theme="primary"></app-power-icon>
         <app-power-icon
             [memberNumber]="400"
             size="lg"
@@ -269,13 +266,8 @@
         <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
-            size="xl"
-            theme="secondary"></app-power-icon>
-        <app-power-icon
-            [memberNumber]="40"
-            [memberLimit]="50"
             size="lg"
-            theme="teriarty"></app-power-icon>
+            theme="tertiary"></app-power-icon>
         <app-power-icon
             [memberNumber]="40"
             [memberLimit]="50"
@@ -285,6 +277,20 @@
             [memberNumber]="40"
             [memberLimit]="50"
             size="sm"
-            theme="teriarty"></app-power-icon>
+            theme="tertiary"></app-power-icon>
+    </div>
+</div>
+<div class="power-icon__wrapper bg-gradient-neutral-3">
+    <p class="text-h4">Unit Power Icon</p>
+    <div class="power-icon__wrapper__inner">
+        <app-unit-power-icon
+            [memberNumber]="999"
+            [size]="'sm'"></app-unit-power-icon>
+        <app-unit-power-icon
+            [memberNumber]="999"
+            [size]="'md'"></app-unit-power-icon>
+        <app-unit-power-icon
+            [memberNumber]="999"
+            [size]="'lg'"></app-unit-power-icon>
     </div>
 </div>

@@ -1,5 +1,5 @@
 :host div {
-  --base-size: 100px;
+  --base-size: 75px;
   --color11: #8e5f31;
   --color12: #957b59;
   --color13: #bea990;
@@ -44,12 +44,11 @@
     &__member-number {
       position: relative;
       top: -15%;
-      left: 2%;
+      left: 5%;
     }
 
     &__separetor {
       position: relative;
-      left: -2%;
     }
 
     &__member-limit {
@@ -57,7 +56,6 @@
       top: 15%;
     }
   }
-
   .icon {
     display: flex;
     justify-content: center;
@@ -68,80 +66,67 @@
     overflow: visible;
   }
 }
+
 .font-text--xs {
+  font-size: 0.8rem;
+}
+
+.font-text--sm {
   font-size: 1rem;
 }
-.font-text--sm {
+
+.font-text--md {
   font-size: 1.4rem;
 }
-.font-text--md {
-  font-size: 2rem;
-}
+
 .font-text--lg {
-  font-size: 2.4rem;
-}
-.font-text--xl {
-  font-size: 3rem;
+  font-size: 1.8rem;
 }
 
 .icon-infinity--xs {
-  font-size: 1.8rem;
   position: relative;
+  top: 30%;
+  font-size: 0.8rem;
 }
 
 .icon-infinity--sm {
-  font-size: 2rem;
   position: relative;
-  left: -2%;
+  top: 20%;
+  font-size: 1.2rem;
 }
+
 .icon-infinity--md {
-  font-size: 2.6rem;
   position: relative;
-  left: -5%;
+  top: 10%;
+  font-size: 1.6rem;
 }
+
 .icon-infinity--lg {
-  font-size: 3rem;
   position: relative;
-  left: -6%;
+  font-size: 2rem;
 }
-.icon-infinity--xl {
-  position: relative;
-  font-size: 3.5rem;
-  left: -9%;
-}
+
 .size--sm {
   width: calc(var(--base-size) * 0.75);
   height: calc(var(--base-size) * 0.75);
-
   .icon {
-    font-size: 2.4rem !important;
+    font-size: 1.8rem !important;
   }
 }
 
 .size--md {
-  width: calc(var(--base-size) * 1.05);
-  height: calc(var(--base-size) * 1.05);
-
+  width: calc(var(--base-size));
+  height: calc(var(--base-size));
   .icon {
-    font-size: 3rem !important;
+    font-size: 2.4rem !important;
   }
 }
 
 .size--lg {
   width: calc(var(--base-size) * 1.25);
   height: calc(var(--base-size) * 1.25);
-
   .icon {
-    font-size: 3.6rem !important;
-  }
-}
-
-.size--xl {
-  width: calc(var(--base-size) * 1.5);
-  height: calc(var(--base-size) * 1.5);
-
-  .icon {
-    font-size: 4rem !important;
+    font-size: 3rem !important;
   }
 }
 
@@ -159,7 +144,7 @@
   background: linear-gradient(127.13deg, #e8dbc9 14.82%, #f8f0e9 64.64%, #3d6d6c 85.63%);
 }
 
-.theme--teriarty {
+.theme--tertiary {
   box-shadow: 0 0 0 1px var(--color31), 0 0 0 2px var(--color32), 0 0 0 3px var(--color33),
     0 0 0 4px var(--color34), 0 0 0 5px var(--color35), 0 0 0 6px var(--color36),
     0 0 0 7px var(--color37), 0 0 0 8px var(--color38);
