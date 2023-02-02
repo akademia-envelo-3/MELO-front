@@ -2,25 +2,25 @@
     <div class="dropdown__section">
         <p class="text-body">DATA UTWORZENIA</p>
         <button
-            (click)="toggleFilterRadio(creationDate_option_1)"
+            (click)="toggleFilterRadio(creationDateToday)"
             class="dropdown__section__holder">
             <input
-                #creationDate_option_1
+                #creationDateToday
                 name="creationDate"
                 type="radio"
-                value="{{ creationDate_option_1.checked ? 'Dzisiaj' : '' }}"
+                value="{{ creationDateToday.checked ? 'Dzisiaj' : '' }}"
                 id="creation-date-today"
                 class="dropdown__filtr-option" />
             <label for="creation-date-today">Dzisiaj</label>
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(creationDate_option_2)">
+            (click)="toggleFilterRadio(creationDateWeek)">
             <input
-                #creationDate_option_2
+                #creationDateWeek
                 name="creationDate"
                 type="radio"
-                value="{{ creationDate_option_2.checked ? 'Ten tydzień' : '' }}"
+                value="{{ creationDateWeek.checked ? 'Ten tydzień' : '' }}"
                 id="creation-date-week"
                 class="dropdown__filtr-option" />
 
@@ -28,24 +28,24 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(creationDate_option_3)">
+            (click)="toggleFilterRadio(creationDateMonth)">
             <input
-                #creationDate_option_3
+                #creationDateMonth
                 name="creationDate"
                 type="radio"
-                value="{{ creationDate_option_3.checked ? 'Ten miesiąc' : '' }}"
+                value="{{ creationDateMonth.checked ? 'Ten miesiąc' : '' }}"
                 id="creation-date-month"
                 class="dropdown__filtr-option" />
             <label for="creation-date-month">Ten miesiąc</label>
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(creationDate_option_4)">
+            (click)="toggleFilterRadio(creationDateYear)">
             <input
-                #creationDate_option_4
+                #creationDateYear
                 name="creationDate"
                 type="radio"
-                value="{{ creationDate_option_4.checked ? 'Ten rok' : '' }}"
+                value="{{ creationDateYear.checked ? 'Ten rok' : '' }}"
                 id="creation-date-year"
                 class="dropdown__filtr-option" />
             <label for="creation-date-year">Ten rok</label>
@@ -55,24 +55,24 @@
         <p class="text-body">DATA ROZPOCZĘCIA</p>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(startDate_option_1)">
+            (click)="toggleFilterRadio(startDateToday)">
             <input
-                #startDate_option_1
+                #startDateToday
                 name="startDate"
                 type="radio"
-                value="{{ startDate_option_1.checked ? 'Dzisiaj' : '' }}"
+                value="{{ startDateToday.checked ? 'Dzisiaj' : '' }}"
                 id="start-date-today"
                 class="dropdown__filtr-option" />
             <label for="start-date-today">Dzisiaj</label>
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(startDate_option_2)">
+            (click)="toggleFilterRadio(startDateWeek)">
             <input
-                #startDate_option_2
+                #startDateWeek
                 name="startDate"
                 type="radio"
-                value="{{ startDate_option_2.checked ? 'Ten tydzień' : '' }}"
+                value="{{ startDateWeek.checked ? 'Ten tydzień' : '' }}"
                 id="start-date-week"
                 class="dropdown__filtr-option" />
 
@@ -80,24 +80,24 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(startDate_option_3)">
+            (click)="toggleFilterRadio(startDateMonth)">
             <input
-                #startDate_option_3
+                #startDateMonth
                 name="startDate"
                 type="radio"
-                value="{{ startDate_option_3.checked ? 'Ten miesiąc' : '' }}"
+                value="{{ startDateMonth.checked ? 'Ten miesiąc' : '' }}"
                 id="start-date-month"
                 class="dropdown__filtr-option" />
             <label for="start-date-month">Ten miesiąc</label>
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleFilterRadio(startDate_option_4)">
+            (click)="toggleFilterRadio(startDateYear)">
             <input
-                #startDate_option_4
+                #startDateYear
                 name="startDate"
                 type="radio"
-                value="{{ startDate_option_4.checked ? 'Ten rok' : '' }}"
+                value="{{ startDateYear.checked ? 'Ten rok' : '' }}"
                 id="start-date-year"
                 class="dropdown__filtr-option" />
             <label for="start-date-year">Ten rok</label>
@@ -108,9 +108,9 @@
         <p class="text-body">CZAS DO ROZPOCZĘCIA</p>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortDate_option_asc)">
+            (click)="toggleSortRadio(sortByDateAscending)">
             <input
-                #sortDate_option_asc
+                #sortByDateAscending
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
@@ -120,9 +120,9 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sortDate_option_desc)">
+            (click)="toggleSortRadio(sortByDateDescending)">
             <input
-                #sortDate_option_desc
+                #sortByDateDescending
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"
@@ -135,9 +135,9 @@
         <p class="text-body">NAZWA</p>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_name_option_asc)">
+            (click)="toggleSortRadio(sortByNameAscending)">
             <input
-                #sort_name_option_asc
+                #sortByNameAscending
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
@@ -147,9 +147,9 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_name_option_desc)">
+            (click)="toggleSortRadio(sortByNameDescending)">
             <input
-                #sort_name_option_desc
+                #sortByNameDescending
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"

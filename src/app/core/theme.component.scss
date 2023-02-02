@@ -62,5 +62,12 @@
   margin: 2rem;
   border-radius: 25px;
   padding: 2rem;
-  justify-content: space-between;
+  height: max-content;
+  & > div {
+    margin-top: 10px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

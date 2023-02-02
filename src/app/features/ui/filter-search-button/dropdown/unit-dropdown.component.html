@@ -3,9 +3,9 @@
         <p class="text-body">CZAS DO ROZPOCZĘCIA</p>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_date_asc)">
+            (click)="toggleSortRadio(sortByDateAscending)">
             <input
-                #sort_date_asc
+                #sortByDateAscending
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
@@ -15,13 +15,13 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_date_desc)">
+            (click)="toggleSortRadio(sortByDateDescending)">
             <input
-                #sort_date_desc
+                #sortByDateDescending
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"
-                id="date-deccending"
+                id="date-decsending"
                 class="dropdown__sort-option" />
             <label for="date-decsending">Malejąco</label>
         </button>
@@ -30,9 +30,9 @@
         <p class="text-body">NAZWA</p>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_name_asc)">
+            (click)="toggleSortRadio(sortByNameAscending)">
             <input
-                #sort_name_asc
+                #sortByNameAscending
                 name="sortRadio"
                 type="radio"
                 value="Rosnaco"
@@ -42,13 +42,13 @@
         </button>
         <button
             class="dropdown__section__holder"
-            (click)="toggleSortRadio(sort_name_desc)">
+            (click)="toggleSortRadio(sortByDateDescending)">
             <input
-                #sort_name_desc
+                #sortByDateDescending
                 name="sortRadio"
                 type="radio"
                 value="Malejaco"
-                id="name-deccending"
+                id="name-descending"
                 class="dropdown__sort-option" />
             <label for="name-descending">Malejąco</label>
         </button>

@@ -242,17 +242,20 @@ import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
         </div>
       </div>
     </div>
+
     <div class="filtr-search-btn---wrapper bg-gradient-neutral-3">
       <p class="text-h4">Filtr search buttons</p>
 
-      <app-filter-search-button
-        (emmitPickedOptions)="eventSortFiltr($event)"
-        [menuType]="'units'"
-      ></app-filter-search-button>
-      <app-filter-search-button
-        (emmitPickedOptions)="unitSortFiltr($event)"
-        [menuType]="'events'"
-      ></app-filter-search-button>
+      <div>
+        <app-filter-search-button
+          (emmitPickedOptions)="unitSortFiltr($event)"
+          [menuType]="'events'"
+        ></app-filter-search-button>
+        <app-filter-search-button
+          (emmitPickedOptions)="eventSortFiltr($event)"
+          [menuType]="'units'"
+        ></app-filter-search-button>
+      </div>
     </div>
   `,
   styleUrls: ['theme.component.scss'],
