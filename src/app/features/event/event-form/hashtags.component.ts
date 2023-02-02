@@ -3,7 +3,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -12,9 +12,12 @@ import { map, startWith } from 'rxjs/operators';
   templateUrl: 'hashtag.component.html',
   styles: [
     `
+      :host {
+        display: inline-block;
+        max-width: min(88vw, 500px);
+      }
       input {
         min-height: 56px;
-        max-width: min(70vw, 500px);
       }
     `,
   ],
@@ -22,10 +25,7 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class HashtagsComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  hashtagCtrl = new FormControl('', [
-    Validators.maxLength(50),
-    Validators.pattern('[0-9]{6})'),
-  ]);
+  hashtagCtrl = new FormControl('', [Validators.maxLength(50)]);
   filteredHashtags$: Observable<string[]>;
   hashtags: string[] = [];
   //temporary data for testing
@@ -41,6 +41,7 @@ export class HashtagsComponent {
     'Karaoke',
     'Bilard',
     'Urodziny',
+    'BaaaaaaaaaardzoDłuuuuuugiHashtagAwogóletoooooooooo',
   ];
 
   @ViewChild('hashtagInput')
@@ -55,15 +56,16 @@ export class HashtagsComponent {
     );
   }
 
-  add(event: MatChipInputEvent): void {
+  addHashtag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     // Add hashtag
-    if (value) {
+    if (value && !this.hashtags.includes(value)) {
       this.hashtags.push(value);
     }
 
     // Clear the input value
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     event.chipInput!.clear();
 
     this.hashtagCtrl.setValue(null);
@@ -77,10 +79,27 @@ export class HashtagsComponent {
     }
   }
 
+  edit(hashtag: string, event: MatChipEditedEvent) {
+    const value = event.value.trim();
+    // Remove hashtag if it no longer has a name
+    if (!value) {
+      this.remove(hashtag);
+      return;
+    }
+
+    // Edit existing fruit
+    const index = this.hashtags.indexOf(hashtag);
+    if (index >= 0) {
+      this.hashtags[index] = value;
+    }
+  }
+
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.hashtags.push(event.option.viewValue);
-    this.hashtagInput.nativeElement.value = '';
-    this.hashtagCtrl.setValue(null);
+    if (!this.hashtags.includes(event.option.viewValue)) {
+      this.hashtags.push(event.option.viewValue);
+      this.hashtagInput.nativeElement.value = '';
+      this.hashtagCtrl.setValue(null);
+    }
   }
 
   private _filter(value: string): string[] {

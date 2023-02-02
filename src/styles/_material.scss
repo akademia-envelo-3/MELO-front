@@ -72,8 +72,10 @@ $app-name-theme: mat.define-light-theme(
 }
 /// CHIPS AND AUTOCOMPLETE ///
 .mdc-menu-surface.mat-mdc-autocomplete-panel.mdc-menu-surface--open {
-  display: flex;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  padding-inline: 4px;
 }
 
 .mat-mdc-option {
@@ -96,6 +98,25 @@ $app-name-theme: mat.define-light-theme(
 //change color for chip label and icon
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label,
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
-  .mdc-evolution-chip__icon--trailing {
+  .mdc-evolution-chip__icon--trailing,
+.mdc-menu-surface {
   color: colors.$accent-gold-800 !important;
+}
+
+.mdc-evolution-chip__cell .mdc-evolution-chip__text-label,
+.mat-mdc-option {
+  word-break: break-all;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1;
+}
+
+.mat-mdc-standard-chip.mat-mdc-standard-chip {
+  min-height: 32px;
+  height: auto;
+}
+
+.mat-mdc-form-field .mat-mdc-form-field-infix {
+  min-width: 200px;
+  width: 100%;
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
 import { EventFormComponent } from './event-form/event-form.component';
@@ -13,13 +13,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CardComponent } from '.';
+import { EventFormThemeComponent } from './event-form/event-form-theme.component';
+import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
 
 @NgModule({
   declarations: [
     EventFormComponent,
     EventsComponent,
     HashtagsComponent,
+    CardComponent,
     PowerIconComponent,
+    EventFormThemeComponent,
   ],
   imports: [
     MatInputModule,
@@ -29,22 +33,23 @@ import { CardComponent } from '.';
     MatChipsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    DatePipe,
-    NgClass,
-    NgIf,
-    UpperCasePipe,
+    CommonModule,
+    HighlightPipe,
     RouterModule.forChild([
       {
-        path: 'events',
+        path: '',
         component: EventsComponent,
-        children: [
-          {
-            path: '/new-event',
-            component: EventFormComponent,
-          },
-        ],
+      },
+      {
+        path: 'new-event',
+        component: EventFormComponent,
+      },
+      {
+        path: 'new-event-theme',
+        component: EventFormThemeComponent,
       },
     ]),
   ],
+  exports: [CardComponent, PowerIconComponent],
 })
 export default class EventModule {}

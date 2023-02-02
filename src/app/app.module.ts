@@ -10,14 +10,12 @@ import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor } from './core';
-import EventModule from './features/event/event.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -35,10 +33,7 @@ import EventModule from './features/event/event.module';
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
           },
-          {
-            path: 'units',
-            loadChildren: () => import('./features/unit/unit.module'),
-          },
+
           {
             path: '**',
             loadComponent: () =>
