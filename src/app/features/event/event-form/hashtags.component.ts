@@ -22,7 +22,10 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class HashtagsComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  hashtagCtrl = new FormControl('', [Validators.maxLength(50)]);
+  hashtagCtrl = new FormControl('', [
+    Validators.maxLength(50),
+    Validators.pattern('[0-9]{6})'),
+  ]);
   filteredHashtags$: Observable<string[]>;
   hashtags: string[] = [];
   //temporary data for testing

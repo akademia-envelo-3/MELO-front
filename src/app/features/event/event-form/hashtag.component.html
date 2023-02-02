@@ -22,7 +22,7 @@
         <mat-error *ngIf="hashtagCtrl.errors">
             >Maksymalna ilość znaków to
             {{ hashtagCtrl.errors!['maxLength']['requiredLength'] }}</mat-error
-        >
+        ><mat-error *ngIf="hashtagCtrl.hasError('pattern')"> >test</mat-error>
         <mat-autocomplete
             #auto="matAutocomplete"
             (optionSelected)="selected($event)">

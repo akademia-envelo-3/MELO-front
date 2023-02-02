@@ -25,17 +25,14 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ReactiveFormsModule,
     RouterModule.forChild([
       {
-        path: '',
-        redirectTo: 'events',
-        pathMatch: 'full',
-      },
-      {
         path: 'events',
         component: EventsComponent,
-      },
-      {
-        path: 'new-event',
-        component: EventFormComponent,
+        children: [
+          {
+            path: '/new-event',
+            component: EventFormComponent,
+          },
+        ],
       },
     ]),
   ],

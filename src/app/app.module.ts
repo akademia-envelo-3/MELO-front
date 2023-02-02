@@ -36,10 +36,6 @@ import EventModule from './features/event/event.module';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: 'events',
-            loadChildren: () => import('./features/event/event.module'),
-          },
-          {
             path: 'units',
             loadChildren: () => import('./features/unit/unit.module'),
           },
