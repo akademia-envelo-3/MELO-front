@@ -1,11 +1,5 @@
 @use './src/styles/colors' as st;
 
-.container {
-  // display: flex;
-  // align-items: center;
-  // flex-direction: column;
-  // width: max-content;
-}
 .filter-btn {
   border: none;
   padding: 35.2px;
@@ -86,22 +80,14 @@
       }
     }
   }
-  &__filtr-option {
-    border: none;
-    display: none;
-  }
+  &__filtr-option,
   &__sort-option {
     border: none;
     display: none;
   }
-  &__filtr-option:checked {
-    border: none;
-  }
 }
 
 .dropdown--unit {
-  justify-content: flex-start;
-  padding: 16px 240px 80px 32px;
   padding: 16px clamp(80px, 15vw + 32px, 240px) clamp(32px, 4.1vh + 20px, 80px)
     clamp(16px, 1vw + 12.8px, 32px);
   .dropdown__section {
