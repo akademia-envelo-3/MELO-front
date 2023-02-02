@@ -8,7 +8,7 @@ export interface EventCardDTO {
   invitedMembersNumber: number;
   mainPhoto: string;
   theme: Theme;
-  memberLimit: number;
+  memberLimit?: number;
 }
 
 export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eventId'> {
@@ -48,4 +48,4 @@ type Attachment = {
   attachmentType: undefined;
 };
 
-type Theme = 'CARD_BROWN' | 'CARD_BLUE' | 'CARD_WHITE' | 'CARD_PURPLE' | 'CARD_GREEN';
+export type Theme = 'brown' | 'blue' | 'white' | 'purple' | 'green';
