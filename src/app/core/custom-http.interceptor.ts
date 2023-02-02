@@ -20,7 +20,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
     });
 
     return next.handle(clone).pipe(
-      catchError(error => {
+      catchError(() => {
         return EMPTY;
       })
     );
