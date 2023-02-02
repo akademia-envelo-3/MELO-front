@@ -12,6 +12,7 @@ import { EventCardDTO } from '@features/event';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { UnitCardDTO } from '@features/unit';
 
 @Component({
   selector: 'app-theme',
@@ -141,5 +142,13 @@ export default class ThemeComponent {
     mainPhoto: 'assets/mock/beers.png',
     theme: 'brown',
     memberLimit: undefined,
+  };
+
+  unitCard: UnitCardDTO = {
+    unitId: 1,
+    name: 'Event Title',
+    memberNumber: 90,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    mainPhoto: 'assets/mock/unit-main.webp',
   };
 }

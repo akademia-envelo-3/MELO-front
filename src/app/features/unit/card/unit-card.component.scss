@@ -1,90 +1,87 @@
-@use './src/styles/colors' as colors;
+@use './src/styles/colors' as st;
 
 @mixin margin($height) {
-  margin: $height 0 0 10px;
+  margin: $height 0 0 30px;
 }
 
 .card {
-  $content-width: 52%;
-  // 9:7 ratio
+  $content-width: 53%;
   background-image: url('../../../../assets/cards/card-unit.webp');
   height: 465px;
-  width: 375px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  aspect-ratio: 21 / 25;
   display: flex;
   align-items: center;
-  position: relative;
   flex-direction: column;
+
   &__power-icon {
+    transform: translate(-110px, -10px);
     position: absolute;
-    transform: translate(-100px, 0px);
   }
+
   &__main-photo {
     width: 100%;
-
-    @include margin(47px);
-
-    border: none;
+    @include margin(40px);
   }
+
   &__main-photo > img {
     display: block;
     background-position: center;
-    background-size: cover;
-
     margin: 0 auto;
     width: $content-width;
-    box-shadow: 0px 0px 10.463px 1.46481px #08faf1;
+    box-shadow: 0px 0px 23.5363px 3.29508px #08faf1;
     border-radius: 5px;
   }
-  &__info {
-    z-index: 3;
+
+  &__title {
+    text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
+  }
+
+  &__title,
+  &__start-time,
+  &__description {
+    background-color: st.$primary-400;
+    border: 1px solid st.$accent-gold-400;
+    border-radius: 5px;
+  }
+
+  &__title,
+  &__start-time {
+    color: st.$accent-gold-200;
+    letter-spacing: 1px;
     text-align: center;
+  }
+
+  &__description {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: st.$neutral-300;
+    height: 75%;
+    max-height: 75%;
+    overflow: hidden;
+    padding: 0.6rem 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__description > p {
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  &__info {
     width: $content-width;
     @include margin(15px);
-    &__title,
-    &__start-time,
-    &__description {
-      background-color: colors.$primary-400;
-      border: 1px solid colors.$accent-gold-400;
-      border-radius: 5px;
-    }
-    &__title,
-    &__start-time {
-      @extend colors, .text-h6 !optional;
-      color: colors.$accent-gold-200;
-    }
-    &__title {
-      text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
-    }
-    &__description {
-      @extend colors, .text-body !optional;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      color: colors.$neutral-300;
-      height: 45%;
-      max-height: 45%;
-      overflow: hidden;
-      padding: 0.5rem 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    &__description > span {
-      text-align: center;
-      display: inline-block;
-      line-height: 1.3 !important;
-    }
   }
+
   &__line {
     height: 1px;
     width: $content-width;
-    background-color: colors.$accent-gold-400;
-    @include margin(5px);
+    background-color: st.$accent-gold-400;
+    @include margin(20px);
   }
+
   &__button {
-    @include margin(30px);
+    @include margin(20px);
   }
 }
 
@@ -92,20 +89,31 @@
   height: 389px;
   width: 310px;
 
+  .card__power-icon {
+    transform: translate(-90px, -10px);
+  }
+
   .card__main-photo {
     @include margin(30px);
   }
-  .card__info__title,
-  .card__info__start-time {
-    @extend colors, .text-h7 !optional;
+  .card__info {
+    @include margin(5px);
   }
+
   .card__info__description {
-    @extend colors, .text-body-small !optional;
+    margin: 7px 0;
   }
   .card__main-photo > img {
     height: 95%;
   }
   .btn-rect--sm {
     font-size: 0.87rem;
+  }
+  .card__line {
+    @include margin(15px);
+  }
+
+  .card__button {
+    @include margin(15px);
   }
 }
