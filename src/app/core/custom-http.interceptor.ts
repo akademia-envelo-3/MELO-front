@@ -9,11 +9,13 @@ import {
 import { map, Observable, tap } from 'rxjs';
 import { API_URL } from './env.token';
 import { StorageService } from '@shared/services';
+import { HandleApiErrorService } from '@features/auth/auth/handle-api-error.service';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
   private baseUrl = inject(API_URL);
   private storageService = inject(StorageService);
+  private handleApiError = inject(HandleApiErrorService);
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
@@ -41,8 +43,8 @@ export class CustomHttpInterceptor implements HttpInterceptor {
       }),
       tap({
         next: event => event,
-        // add task to handle errors, logout when token expires
-        error: error => console.log('from interceptor', error),
+
+        error: error => this.handleApiError.handleError(error),
       })
     );
   }

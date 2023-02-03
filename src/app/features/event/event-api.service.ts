@@ -11,10 +11,10 @@ export class EventApiService {
   private http = inject(HttpClient);
 
   fetchEventDetails(id: number) {
-    return this.http.get<EventDetailsDTO>(`${ENDPOINTS.event}/${id}`);
+    return this.http.get<EventDetailsDTO>(`${ENDPOINTS.EVENT}/${id}`);
   }
 
   fetchEventList() {
-    return this.http.get<EventCardDTO[]>(ENDPOINTS.event);
+    return this.http.get<EventCardDTO[]>(ENDPOINTS.EVENT);
   }
 }
