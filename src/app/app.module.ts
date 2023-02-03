@@ -11,9 +11,10 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 
 import { CustomHttpInterceptor } from './core';
+import { CommentComponent } from './features/ui/comment.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CommentComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
