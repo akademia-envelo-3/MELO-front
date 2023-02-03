@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="hashtagForm">
     <mat-form-field appearance="fill">
         <mat-label>Hashtags</mat-label>
         <mat-chip-grid #chipGrid aria-label="Hashtag selection">
@@ -13,31 +13,44 @@
                 </button>
             </mat-chip-row>
             <input
+                matInput
+                type="text"
                 placeholder="Nowy hashtag"
                 #hashtagInput
-                [formControl]="hashtagCtrl"
+                formControlName="hashtagCtrl"
                 [matChipInputFor]="chipGrid"
                 [matAutocomplete]="auto"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 (matChipInputTokenEnd)="addHashtag($event)" />
         </mat-chip-grid>
-        <mat-error *ngIf="hashtagCtrl.errors">
-            >Maksymalna ilość znaków to
-            {{ hashtagCtrl.errors!['maxLength']['requiredLength'] }}</mat-error
-        ><mat-error *ngIf="hashtagCtrl.hasError('pattern')">
-            >test</mat-error
-        ></mat-form-field
+    </mat-form-field>
+    <mat-error
+        *ngIf="
+            hashtagForm.controls.hashtagCtrl.errors &&
+            hashtagForm.controls.hashtagCtrl.errors['maxlength']
+        ">
+        Maksymalna ilość znaków to
+        {{
+            hashtagForm.controls.hashtagCtrl.errors['maxlength'][
+                'requiredLength'
+            ]
+        }}</mat-error
     >
+
     <mat-autocomplete
         #auto="matAutocomplete"
         (optionSelected)="selected($event)">
-        <ng-container *ngIf="hashtagCtrl.value">
+        <ng-container
+            *ngIf="
+                hashtagForm.controls.hashtagCtrl.value.length > 1 &&
+                (filteredHashtags$ | async) as filteredHashtags
+            ">
             <mat-option
-                *ngFor="
-                    let hashtag of filteredHashtags$ | async | slice : 0 : 5
-                "
+                *ngFor="let hashtag of filteredHashtags | slice : 0 : 5"
                 [value]="hashtag"
-                [innerHTML]="hashtag | highlight : hashtagCtrl.value"
+                [innerHTML]="
+                    hashtag | highlight : hashtagForm.controls.hashtagCtrl.value
+                "
                 >{{ hashtag }}
             </mat-option></ng-container
         >

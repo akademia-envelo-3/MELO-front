@@ -73,14 +73,14 @@ $app-name-theme: mat.define-light-theme(
 /// CHIPS AND AUTOCOMPLETE ///
 .mdc-menu-surface.mat-mdc-autocomplete-panel.mdc-menu-surface--open {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 8px;
-  padding-inline: 4px;
+  padding-inline: 16px;
 }
 
 .mat-mdc-option {
   background-color: colors.$accent-gold-300;
-
+  border-radius: 5px;
   .mdc-list-item__primary-text {
     color: colors.$accent-gold-800;
   }
@@ -90,7 +90,8 @@ $app-name-theme: mat.define-light-theme(
   border-radius: 5px;
 }
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).mat-mdc-standard-chip:not(
-    .mdc-evolution-chip--disabled
+    .mdc-evolution-chip--disabled,
+    .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled)
   ) {
   background-color: colors.$accent-gold-300;
 }
@@ -104,7 +105,9 @@ $app-name-theme: mat.define-light-theme(
 }
 
 .mdc-evolution-chip__cell .mdc-evolution-chip__text-label,
-.mat-mdc-option {
+.mat-mdc-option.mat-mdc-option {
+  display: inline;
+  min-height: auto;
   word-break: break-all;
   white-space: normal;
   overflow: visible;
@@ -119,4 +122,28 @@ $app-name-theme: mat.define-light-theme(
 .mat-mdc-form-field .mat-mdc-form-field-infix {
   min-width: 200px;
   width: 100%;
+}
+
+.mat-mdc-option.mdc-list-item {
+  padding: 16px 12px;
+}
+
+////// SNACKBAR
+.red-snackbar {
+  background: colors.$accent-error;
+  color: colors.$neutral-300;
+}
+.red-snackbar button {
+  background-color: colors.$accent-error;
+  color: colors.$neutral-300 !important;
+  border: none;
+}
+.green-snackbar {
+  background: colors.$accent-success;
+  color: colors.$neutral-300;
+}
+.green-snackbar button {
+  background-color: colors.$accent-success;
+  color: colors.$neutral-300;
+  border: none;
 }
