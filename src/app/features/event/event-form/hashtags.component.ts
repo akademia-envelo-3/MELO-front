@@ -17,9 +17,6 @@ import { map, startWith } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { SnackBarService } from '@shared/services/snack-bar.service';
 
-type HashtagForm = FormGroup<{
-  hashtagCtrl: FormControl<string>;
-}>;
 @Component({
   selector: 'app-hashtags',
   templateUrl: 'hashtag.component.html',
@@ -46,13 +43,9 @@ export class HashtagsComponent {
   private maxChars = 10;
   private maxHashtagsCount = 100;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  hashtagForm: HashtagForm = this.builder.group({
-    hashtagCtrl: this.builder.control('', {
-      validators: [Validators.maxLength(this.maxChars)],
-    }),
-  });
+  hashtagCtrl = new FormControl('', Validators.maxLength(this.maxChars));
   filteredHashtags$: Observable<string[]>;
-  hashtags: string[] = [];
+  addedHashtags: string[] = [];
   allHashtags: string[] = [
     'Impreza',
     'Piwo',
@@ -69,9 +62,9 @@ export class HashtagsComponent {
     '한국말',
   ];
 
-  get hashtagCtrl() {
-    return this.hashtagForm.controls.hashtagCtrl;
-  }
+  // get hashtagCtrl() {
+  //   return this.hashtagForm.controls.hashtagCtrl;
+  // }
 
   constructor() {
     this.filteredHashtags$ = this.hashtagCtrl.valueChanges.pipe(
@@ -83,16 +76,18 @@ export class HashtagsComponent {
   }
 
   addHashtag(event: MatChipInputEvent): void {
-    if (this.hashtags.length >= this.maxHashtagsCount) {
+    if (this.addedHashtags.length >= this.maxHashtagsCount) {
       this.snackBarService.openSnackBar(
         `Dopuszczalna liczba hashtagów to ${this.maxHashtagsCount}`
       );
     } else {
-      const value = (event.value || '').trim();
+      const value = (event.value || '').trim().slice(0, this.maxChars);
 
       // Add hashtag
-      if (value && !this.hashtags.includes(value)) {
-        this.hashtags.push(value);
+      if (value && !this.addedHashtags.includes(value)) {
+        this.addedHashtags.push(value);
+      } else if (this.addedHashtags.includes(value)) {
+        this.hashtagAlreadyAddedInfo(value);
       }
 
       // Clear the input value
@@ -104,10 +99,10 @@ export class HashtagsComponent {
   }
 
   remove(hashtag: string): void {
-    const index = this.hashtags.indexOf(hashtag);
+    const index = this.addedHashtags.indexOf(hashtag);
 
     if (index >= 0) {
-      this.hashtags.splice(index, 1);
+      this.addedHashtags.splice(index, 1);
     }
     this.auto.closePanel();
   }
@@ -120,22 +115,25 @@ export class HashtagsComponent {
       return;
     }
 
-    // Edit existing fruit
-    const index = this.hashtags.indexOf(hashtag);
-    if (index >= 0) {
+    // Edit existing hashtags
+    const index = this.addedHashtags.indexOf(hashtag);
+    if (index >= 0 && !this.addedHashtags.includes(value)) {
       if (value.length > this.maxChars)
-        this.snackBarService.openSnackBar(
-          `Dopuszczalna liczba znaków to ${this.maxChars}`
-        );
-      this.hashtags[index] = value.slice(0, this.maxChars);
+        this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.maxChars}`);
+      this.addedHashtags[index] = value.slice(0, this.maxChars);
+    } else {
+      this.hashtagAlreadyAddedInfo(value);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    if (!this.hashtags.includes(event.option.viewValue)) {
-      this.hashtags.push(event.option.viewValue);
+    const value = event.option.viewValue;
+    if (!this.addedHashtags.includes(value)) {
+      this.addedHashtags.push(value);
       this.hashtagInput.nativeElement.value = '';
       this.hashtagCtrl.setValue('');
+    } else {
+      this.hashtagAlreadyAddedInfo(value);
     }
   }
 
@@ -145,5 +143,8 @@ export class HashtagsComponent {
     return this.allHashtags.filter(hashtag =>
       hashtag.toLowerCase().includes(lowerCaseValue)
     );
+  }
+  private hashtagAlreadyAddedInfo(value: string) {
+    this.snackBarService.openSnackBar(`Hashtag o treści "${value}" został już dodany`);
   }
 }
