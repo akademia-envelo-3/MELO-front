@@ -11,14 +11,20 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 
 import { CustomHttpInterceptor } from './core';
+import { userReducer, UserState } from '@core/store/user';
+
+export type AppState = {
+  user: UserState;
+};
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      user: userReducer,
+    }),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     RouterModule.forRoot([
@@ -47,7 +53,6 @@ import { CustomHttpInterceptor } from './core';
         ],
       },
     ]),
-    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {

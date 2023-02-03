@@ -1,18 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { User, UserActions } from '@core/store/user';
+import { Store } from '@ngrx/store';
 import { ENDPOINTS } from '@shared/constants';
 import { useNavigate } from '@shared/inject-hooks';
 import { Maybe } from '@shared/utility-types';
 import { BehaviorSubject, map } from 'rxjs';
+import { AppState } from 'src/app/app.module';
 
-type User = {
-  name: string;
+type UserDTO = {
+  firstName: string;
+  lastName: string;
   email: string;
   authType: AuthType;
 };
 
 export type AuthType = 'none' | 'admin' | 'employee' | 'guest';
-type AuthState = { auth: AuthType; user: Maybe<User> };
+type AuthState = { auth: AuthType };
 
 export type LoginCredentials = { email: string; password: string };
 
@@ -20,38 +24,33 @@ export type LoginCredentials = { email: string; password: string };
   providedIn: 'root',
 })
 export class AuthService {
-  private auth$$ = new BehaviorSubject<AuthState>({ auth: 'none', user: null });
+  private auth$$ = new BehaviorSubject<AuthState>({ auth: 'none' });
   private http = inject(HttpClient);
   private navigate = useNavigate();
-
-  get currentUser$() {
-    return this.auth$$.pipe(map(state => state.user));
-  }
+  private store = inject<Store<AppState>>(Store);
 
   autoLogin() {
-    this.http.get<User>(`${ENDPOINTS.currentUser}`).subscribe({
+    this.http.get<UserDTO>(`${ENDPOINTS.currentUser}`).subscribe({
       next: user => this.setUser(user),
 
-      error: () => this.auth$$.next({ auth: 'none', user: null }),
+      error: () => this.removeUser(),
     });
   }
 
   login(userCredentials: LoginCredentials) {
-    this.http.post<User>(ENDPOINTS.login, userCredentials).subscribe({
-      next: user => {
-        this.setUser(user);
-        this.navigate('/');
-      },
+    this.http.post<UserDTO>(ENDPOINTS.login, userCredentials).subscribe({
+      next: userDto => this.setUser(userDto),
 
-      error: () => this.auth$$.next({ auth: 'none', user: null }),
+      error: () => this.removeUser(),
     });
   }
 
-  private setUser(user: User) {
-    this.auth$$.next({
-      ...this.auth$$.value,
-      auth: user.authType ?? 'none',
-      user: user,
-    });
+  private setUser({ authType, ...user }: UserDTO) {
+    this.auth$$.next({ auth: authType });
+    this.store.dispatch(UserActions.set_user(user));
+  }
+  private removeUser() {
+    this.auth$$.next({ auth: 'none' });
+    this.store.dispatch(UserActions.remove_user());
   }
 }

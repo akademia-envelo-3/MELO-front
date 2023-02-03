@@ -2,7 +2,7 @@ import { createReducer } from '@ngrx/store';
 import { Maybe } from '@shared/utility-types';
 import { User } from './user.types';
 
-type UserState = {
+export type UserState = {
   user: Maybe<User>;
 };
 
