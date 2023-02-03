@@ -9,7 +9,6 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-
 import { CustomHttpInterceptor } from './core';
 
 @NgModule({
@@ -38,6 +37,10 @@ import { CustomHttpInterceptor } from './core';
           {
             path: 'units',
             loadChildren: () => import('./features/unit/unit.module'),
+          },
+          {
+            path: 'admin',
+            loadChildren: () => import('./core/admin/admin.module'),
           },
           {
             path: '**',
