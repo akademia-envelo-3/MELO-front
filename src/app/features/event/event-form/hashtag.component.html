@@ -22,9 +22,8 @@
                 [matAutocomplete]="auto"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 (matChipInputTokenEnd)="addHashtag($event)" />
-        </mat-chip-grid>
-    </mat-form-field>
-    <mat-error
+        </mat-chip-grid> </mat-form-field
+    ><mat-error
         *ngIf="
             hashtagForm.controls.hashtagCtrl.errors &&
             hashtagForm.controls.hashtagCtrl.errors['maxlength']

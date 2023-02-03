@@ -29,6 +29,7 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
     MatAutocompleteModule,
