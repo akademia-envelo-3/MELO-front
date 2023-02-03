@@ -60,18 +60,27 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$accent-gold-800 !important;
 }
 
-.side-menu-category.active > .mat-mdc-focus-indicator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: colors.$neutral-100;
-  border: 2px solid colors.$accent-gold-200;
-  transition: 0.5s;
+///// SIDE MENU /////
+.side-menu-category.active {
+  .mat-mdc-focus-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$neutral-100;
+    border: 2px solid colors.$accent-gold-200;
+    transition: 0.5s;
+  }
 }
 
-.mobile-side-menu > .mat-mdc-menu-content {
-  @include breakpoints.media-md {
-    display: none;
+.side-menu-category.mat-mdc-button:not(:disabled) {
+  width: 90px;
+}
+
+.mobile-side-menu {
+  .mat-mdc-menu-content {
+    @include breakpoints.media-md {
+      display: none;
+    }
   }
 }
 ///// DIALOG /////

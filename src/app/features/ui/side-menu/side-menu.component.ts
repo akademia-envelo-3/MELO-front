@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -42,6 +48,21 @@ export class SideMenuComponent implements OnInit {
   isDesktopMenuVisible = false;
   isDesktop = false;
   selectedCategory = '';
+
+  private wasInside = false;
+
+  @HostListener('click')
+  clickInside() {
+    this.wasInside = true;
+  }
+
+  @HostListener('document:click')
+  clickout() {
+    if (!this.wasInside) {
+      this.isDesktopMenuVisible = false;
+    }
+    this.wasInside = false;
+  }
 
   toggleMenu(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
     if (this.isDesktop) {

@@ -1,38 +1,47 @@
 @use './src/styles/colors' as colors;
 @use './src/styles/breakpoints' as breakpoints;
+@use './src/styles/mixins' as mixins;
 
 .side-menu-container {
-  height: 100vh;
-  max-width: 110px;
+  height: calc(100vh - 52px);
+  width: 100%;
+  max-width: 1920px;
   display: flex;
   position: fixed;
+  z-index: 999;
 }
 
 .side-menu-container__left {
+  @include mixins.gradient(0deg, colors.$bg-gradient-primary-1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  max-width: clamp(70px, 20vw, 100px);
+  width: clamp(70px, 12vw, 100px);
   padding-bottom: 0;
   padding-top: clamp(0px, 10vh, 100px);
   padding-bottom: clamp(0px, 5vh, 100px);
   height: 100%;
 
+  &Top {
+    width: 100%;
+  }
+
   &Bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .icon {
-    max-width: clamp(60px, 20vw, 90px);
+    max-width: clamp(60px, 12vw, 80px);
   }
 
   .side-menu-category {
     position: relative;
-    max-width: clamp(60px, 20vw, 90px);
-    height: clamp(50px, 20vw, 90px);
+    width: 100%;
+    height: clamp(70px, 12vw, 90px);
 
     div {
       position: absolute;
@@ -64,7 +73,7 @@
 .side-menu-container__right {
   position: absolute;
   top: 0;
-  left: 90px;
+  left: clamp(70px, 12vw, 100px);
   z-index: 1;
   height: 100%;
   width: 0;

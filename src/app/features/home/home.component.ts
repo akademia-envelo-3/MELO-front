@@ -8,9 +8,9 @@ import { NavbarComponent, SideMenuComponent } from '../ui';
   template: `
     <app-navbar [notifications]="99"></app-navbar>
     <app-side-menu></app-side-menu>
-    <router-outlet></router-outlet>
+    <div class="container"><router-outlet></router-outlet></div>
   `,
-  styles: [],
+  styles: ['.container { padding-left: 110px; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, NavbarComponent, SideMenuComponent],
 })
