@@ -76,7 +76,7 @@ export class HashtagsComponent {
         this.maxCharsInfo();
       }
       // Add hashtag
-      if (value && !this.addedHashtags.includes(value) && !this.auto.panelOpen) {
+      if (value && !this.addedHashtags.includes(value) && !this.auto.activeOption) {
         this.addedHashtags.push(value);
       } else if (this.addedHashtags.includes(value)) {
         this.hashtagAlreadyAddedInfo(value);
