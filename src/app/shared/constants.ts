@@ -6,5 +6,5 @@ export const ENDPOINTS = {
 
 export const MESSAGES = {
   JWT_EXPIRED: 'Twoja sesja wygasła, zaloguj się ponownie',
-  AUTHENTICATION_FAILED: 'Zły email lub hasło',
+  AUTHENTICATION_FAILED: 'Nieprawidłowy email lub hasło',
 };

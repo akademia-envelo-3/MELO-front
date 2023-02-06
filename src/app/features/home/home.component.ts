@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '@features/auth';
 import { NavbarComponent } from '../ui';
 
 @Component({
@@ -13,4 +14,10 @@ import { NavbarComponent } from '../ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, NavbarComponent],
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  private authService = inject(AuthService);
+
+  ngOnInit() {
+    this.authService.autoLogin();
+  }
+}

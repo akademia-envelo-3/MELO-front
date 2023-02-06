@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { MESSAGES } from '@shared/constants';
 
 import { throwError } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from '..';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class HandleApiErrorService {
       console.error('An error occurred:', error.error);
     } else if (error.error === 'jwt expired') {
       this.authService.logout();
-      alert('Twoja sesja wygasła, zaloguj się ponownie');
+      alert(MESSAGES.JWT_EXPIRED);
     } else {
       console.error(`Backend returned code ${error.status}, body was: `, error.error);
     }

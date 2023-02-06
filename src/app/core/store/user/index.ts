@@ -1,3 +1,4 @@
 export * from './user.actions';
-export * from './user.types';
+export * from './user.state';
 export * from './user.reducer';
+export * from './user.selector';

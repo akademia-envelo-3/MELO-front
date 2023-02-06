@@ -1,6 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  inject,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
-import { AuthService, LoginCredentials } from '..';
+import { MESSAGES } from '@shared/constants';
+import { AuthService, AuthValidators } from '../..';
 
 @Component({
   selector: 'app-auth',
@@ -9,8 +15,10 @@ import { AuthService, LoginCredentials } from '..';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent {
+  message: null | string = null;
   private builder = inject(NonNullableFormBuilder);
   private authService = inject(AuthService);
+  private changeDetector = inject(ChangeDetectorRef);
 
   form = this.createForm();
   emailNotFocused = false;
@@ -20,11 +28,12 @@ export class AuthComponent {
   private createForm() {
     return this.builder.group({
       email: this.builder.control('', {
-        validators: [Validators.required, Validators.email],
+        validators: [Validators.required, AuthValidators.email],
       }),
       password: this.builder.control('', {
         validators: [Validators.required],
       }),
+      rememberMe: this.builder.control(true),
     });
   }
 
@@ -42,7 +51,7 @@ export class AuthComponent {
     if (this.emailCtrl.hasError('required')) {
       return 'To pole jest obowiązkowe';
     }
-    return this.emailCtrl.hasError('email') ? 'Nieprawidłowy adres email' : '';
+    return this.emailCtrl.hasError('email') ? this.emailCtrl.getError('email') : '';
   }
 
   togglePasswordVisibility() {
@@ -52,7 +61,19 @@ export class AuthComponent {
   login() {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      this.authService.login(this.form.value as LoginCredentials);
+      this.authService.login(this.form.getRawValue()).subscribe({
+        next: loginDto => this.authService.loginSuccess(loginDto),
+
+        error: () => {
+          this.form.controls.email.setErrors({
+            authenticationError: MESSAGES.AUTHENTICATION_FAILED,
+          });
+          this.form.controls.password.setErrors({
+            authenticationError: MESSAGES.AUTHENTICATION_FAILED,
+          });
+          this.changeDetector.detectChanges();
+        },
+      });
     }
   }
 }
