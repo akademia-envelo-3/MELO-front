@@ -5,10 +5,10 @@
                 <button
                     class="side-menu-category"
                     [ngClass]="{
-                        ' active ': selectedCategory === 'logout'
+                        ' active ': selectedCategory.categoryName === 'logout'
                     }"
                     [matTooltip]="'Wyloguj' | titlecase"
-                    matTooltipPosition="after"
+                    matTooltipPosition="above"
                     mat-button
                     (click)="logout()">
                     <img
@@ -25,7 +25,8 @@
                         class="side-menu-category"
                         [ngClass]="{
                             ' active ':
-                                selectedCategory === category.categoryName
+                                selectedCategory.categoryName ===
+                                category.categoryName
                         }"
                         [matTooltip]="category.categoryName | titlecase"
                         matTooltipPosition="above"
@@ -53,10 +54,12 @@
         class="side-menu-container__right display-side-menu-desktop bg-gradient-primary-2 text-h4"
         [ngClass]="{
             ' menu-visible ': isDesktopMenuVisible,
-            ' transition ': subCategories !== undefined
+            ' transition ':
+                selectedCategory.subCategories !== undefined &&
+                !disableAnimations
         }">
         <ul>
-            <li *ngFor="let subCategory of subCategories">
+            <li *ngFor="let subCategory of selectedCategory.subCategories">
                 <a
                     [routerLink]="subCategory.href"
                     routerLinkActive="active"

@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { inject, Injectable } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { BehaviorSubject, of } from 'rxjs';
+import { MENU_CATEGORIES_EMPLOYEE, MENU_CATEGORIES_ADMIN } from './menu-category.data';
 
 export type SubCategory = {
   subCategoryName: string;
@@ -8,98 +11,118 @@ export type SubCategory = {
 
 export type MenuCategory = {
   categoryName: string;
-  categoryIcon: string;
+  categoryIcon?: string;
   href?: string;
   subCategories?: SubCategory[];
 };
 
 type SideMenuSetup = {
   menuCategories: MenuCategory[];
+  selectedCategory: MenuCategory;
+  isDesktopMenuVisible: boolean;
+  isDesktop: boolean;
 };
 
-const defaultSideSetupData = {
+const defaultSelectedCategory = { categoryName: '' };
+
+const defaultSideMenuData = {
   menuCategories: [],
+  selectedCategory: defaultSelectedCategory,
+  isDesktopMenuVisible: false,
+  isDesktop: false,
 };
 
 @Injectable({
   providedIn: 'root',
 })
 export class SideMenuStateService {
-  private sideMenuSetupState$$ = new BehaviorSubject<SideMenuSetup>(defaultSideSetupData);
+  private breakpointObserver = inject(BreakpointObserver);
+  readonly DESKTOP_MEDIA_BREAKPOINT = '(min-width: 560px)';
+  readonly breakpoint$ = this.breakpointObserver.observe([this.DESKTOP_MEDIA_BREAKPOINT]);
+
+  private sideMenuState$$ = new BehaviorSubject<SideMenuSetup>(defaultSideMenuData);
 
   get sideMenuSetupState$() {
-    return this.sideMenuSetupState$$.asObservable();
+    return this.sideMenuState$$.asObservable();
   }
 
   get sideMenuSetupStateValue() {
-    return this.sideMenuSetupState$$.value;
+    return this.sideMenuState$$.value;
   }
 
   private patchState(stateSlice: Partial<SideMenuSetup>) {
-    this.sideMenuSetupState$$.next({
+    this.sideMenuState$$.next({
       ...this.sideMenuSetupStateValue,
       ...stateSlice,
     });
   }
 
-  menuCategoriesEmployee: MenuCategory[] = [
-    {
-      categoryName: 'wydarzenia',
-      categoryIcon: '../../../../assets/side-menu-icons/events.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'events' },
-        { subCategoryName: 'moje', href: 'my-events' },
-        { subCategoryName: 'nowy +', href: 'new-event' },
-        { subCategoryName: 'kategoria +', href: 'new-category' },
-      ],
-    },
-    {
-      categoryName: 'koła zainteresowań',
-      categoryIcon: '../../../../assets/side-menu-icons/units.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'units' },
-        { subCategoryName: 'moje', href: 'units/my-units' },
-        { subCategoryName: 'nowe +', href: 'units/new-units' },
-      ],
-    },
-  ];
+  updateSelectedCategory(category: MenuCategory) {
+    this.patchState({ selectedCategory: category });
+    if (category.subCategories === undefined) {
+      this.setDesktopMenuVisibility(false);
+    }
+  }
 
-  menuCategoriesAdmin: MenuCategory[] = [
-    {
-      categoryName: 'wydarzenia',
-      categoryIcon: '../../../../assets/side-menu-icons/events.svg',
-      href: 'events',
-    },
-    {
-      categoryName: 'koła zainteresowań',
-      categoryIcon: '../../../../assets/side-menu-icons/units.svg',
-      href: 'units',
-    },
-    {
-      categoryName: 'hashtagi',
-      categoryIcon: '../../../../assets/side-menu-icons/hashtags.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'hashtags' },
-        { subCategoryName: 'statystyki', href: 'hashtags/stats' },
-      ],
-    },
-    {
-      categoryName: 'kategorie',
-      categoryIcon: '../../../../assets/side-menu-icons/categories.svg',
-      subCategories: [
-        { subCategoryName: 'wszystkie', href: 'categories' },
-        { subCategoryName: 'dodaj kategorię', href: 'categories/add-category' },
-      ],
-    },
-  ];
+  toggleMenu(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
+    const isDesktop = this.sideMenuSetupStateValue.isDesktop;
+    const shouldToggleDesktopVisibility = this.checkIfShouldToggleDesktopVisibility(
+      category.categoryName
+    );
+
+    if (isDesktop) {
+      if (shouldToggleDesktopVisibility) {
+        this.toggleDesktopMenuVisibility();
+      }
+      this.updateSelectedCategory(category);
+    } else {
+      this.updateSelectedCategory(category);
+      this.updateMobileCategoryData(matMenuTrigger);
+    }
+  }
+
+  setDesktopMenuVisibility(visible: boolean) {
+    this.patchState({ isDesktopMenuVisible: visible });
+  }
+
+  private updateMobileCategoryData(matMenuTrigger: MatMenuTrigger) {
+    matMenuTrigger.menuData = {
+      subCategories: this.sideMenuSetupStateValue.selectedCategory.subCategories,
+    };
+    matMenuTrigger.openMenu();
+  }
+
+  private checkIfShouldToggleDesktopVisibility(categoryName: string) {
+    const { selectedCategory, isDesktopMenuVisible } = this.sideMenuSetupStateValue;
+    if (
+      (isDesktopMenuVisible === false &&
+        categoryName !== selectedCategory.categoryName) ||
+      categoryName === selectedCategory.categoryName ||
+      selectedCategory.categoryName === ''
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private toggleDesktopMenuVisibility() {
+    this.patchState({
+      isDesktopMenuVisible: !this.sideMenuSetupStateValue.isDesktopMenuVisible,
+    });
+  }
 
   constructor() {
     of({ role: 'admin' }).subscribe(user => {
       if (user.role === 'employee') {
-        this.patchState({ menuCategories: this.menuCategoriesEmployee });
+        this.patchState({ menuCategories: MENU_CATEGORIES_EMPLOYEE });
       } else if (user.role === 'admin') {
-        this.patchState({ menuCategories: this.menuCategoriesAdmin });
+        this.patchState({ menuCategories: MENU_CATEGORIES_ADMIN });
       }
+    });
+    this.breakpoint$.subscribe(() => {
+      const isDesktop = this.breakpointObserver.isMatched('(min-width: 560px)');
+      this.patchState({ isDesktop });
     });
   }
 }
