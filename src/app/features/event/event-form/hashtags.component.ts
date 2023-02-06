@@ -1,12 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  NonNullableFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import {
   MatAutocompleteSelectedEvent,
   MatAutocompleteTrigger,
@@ -39,9 +34,8 @@ export class HashtagsComponent {
   @ViewChild('hashtagInput')
   hashtagInput!: ElementRef<HTMLInputElement>;
   private snackBarService = inject(SnackBarService);
-  private builder = inject(NonNullableFormBuilder);
-  private maxChars = 10;
-  private maxHashtagsCount = 100;
+  private maxChars = 50;
+  private maxHashtagsCount = 3;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('', Validators.maxLength(this.maxChars));
   filteredHashtags$: Observable<string[]>;
@@ -62,10 +56,6 @@ export class HashtagsComponent {
     '한국말',
   ];
 
-  // get hashtagCtrl() {
-  //   return this.hashtagForm.controls.hashtagCtrl;
-  // }
-
   constructor() {
     this.filteredHashtags$ = this.hashtagCtrl.valueChanges.pipe(
       startWith(null),
@@ -77,14 +67,11 @@ export class HashtagsComponent {
 
   addHashtag(event: MatChipInputEvent): void {
     if (this.addedHashtags.length >= this.maxHashtagsCount) {
-      this.snackBarService.openSnackBar(
-        `Dopuszczalna liczba hashtagów to ${this.maxHashtagsCount}`
-      );
+      this.maxHashtagCountInfo();
     } else {
       const value = (event.value || '').trim().slice(0, this.maxChars);
-
       // Add hashtag
-      if (value && !this.addedHashtags.includes(value)) {
+      if (value && !this.addedHashtags.includes(value) && !this.auto.panelOpen) {
         this.addedHashtags.push(value);
       } else if (this.addedHashtags.includes(value)) {
         this.hashtagAlreadyAddedInfo(value);
@@ -93,7 +80,6 @@ export class HashtagsComponent {
       // Clear the input value
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       event.chipInput!.clear();
-
       this.hashtagCtrl.setValue('');
     }
   }
@@ -127,13 +113,17 @@ export class HashtagsComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    const value = event.option.viewValue;
-    if (!this.addedHashtags.includes(value)) {
-      this.addedHashtags.push(value);
-      this.hashtagInput.nativeElement.value = '';
-      this.hashtagCtrl.setValue('');
+    if (this.addedHashtags.length >= this.maxHashtagsCount) {
+      this.maxHashtagCountInfo();
     } else {
-      this.hashtagAlreadyAddedInfo(value);
+      const value = event.option.viewValue;
+      if (!this.addedHashtags.includes(value)) {
+        this.hashtagInput.nativeElement.value = '';
+        this.hashtagCtrl.setValue('');
+        this.addedHashtags.push(value);
+      } else {
+        this.hashtagAlreadyAddedInfo(value);
+      }
     }
   }
 
@@ -146,5 +136,10 @@ export class HashtagsComponent {
   }
   private hashtagAlreadyAddedInfo(value: string) {
     this.snackBarService.openSnackBar(`Hashtag o treści "${value}" został już dodany`);
+  }
+  private maxHashtagCountInfo() {
+    this.snackBarService.openSnackBar(
+      `Dopuszczalna liczba hashtagów to ${this.maxHashtagsCount}`
+    );
   }
 }

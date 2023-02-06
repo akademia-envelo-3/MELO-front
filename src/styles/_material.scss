@@ -128,6 +128,14 @@ $app-name-theme: mat.define-light-theme(
   padding: 16px 12px;
 }
 
+.mdc-evolution-chip-set {
+  margin-bottom: 0.5rem;
+}
+.mat-mdc-focus-indicator.mat-mdc-option-active {
+  background-color: colors.$accent-gold-700;
+  color: colors.$accent-gold-200;
+}
+
 ////// SNACKBAR
 .red-snackbar {
   background: colors.$accent-error;

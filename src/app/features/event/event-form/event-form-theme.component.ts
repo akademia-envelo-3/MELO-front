@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-event-form-theme',
   template: `
-    <div class="centered">
+    <div class="component-container centered bg-gradient-neutral-3">
       <p class="text-h4">Hashtag component</p>
       <app-hashtags></app-hashtags>
     </div>
@@ -14,6 +14,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         display: flex;
         justify-content: center;
         padding-top: 2rem;
+      }
+      .component-container {
+        padding: 1rem;
+        border-radius: 10px;
       }
     `,
   ],

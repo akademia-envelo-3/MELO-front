@@ -47,23 +47,4 @@
             </mat-option></ng-container
         >
     </mat-autocomplete>
-
-    <!-- <mat-form-field appearance="outline">
-        <mat-label>Hashtags</mat-label>
-
-        <input
-            matInput
-            type="text"
-            [errorStateMatcher]="matcher"
-            [formControl]="hashtagCtrl"
-            [matChipInputFor]="chipGrid"
-            [matAutocomplete]="auto"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            (matChipInputTokenEnd)="addHashtag($event)" />
-        <mat-error
-            *ngIf="hashtagCtrl.errors && hashtagCtrl.errors['maxlength']">
-            Maksymalna ilość znaków to
-            {{ hashtagCtrl.errors['maxlength']['requiredLength'] }}</mat-error
-        ></mat-form-field
-    > -->
 </form>
