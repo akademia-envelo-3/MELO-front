@@ -152,6 +152,6 @@ $app-name-theme: mat.define-light-theme(
 }
 .green-snackbar button {
   background-color: colors.$accent-success;
-  color: colors.$neutral-300;
+  color: colors.$neutral-300 !important;
   border: none;
 }

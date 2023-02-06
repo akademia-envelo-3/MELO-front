@@ -40,7 +40,10 @@
                 (filteredHashtags$ | async) as filteredHashtags
             ">
             <mat-option
-                *ngFor="let hashtag of filteredHashtags | slice : 0 : 5"
+                *ngFor="
+                    let hashtag of filteredHashtags
+                        | slice : 0 : maxAutocompleteOptions
+                "
                 [value]="hashtag"
                 [innerHTML]="hashtag | highlight : hashtagCtrl.value"
                 >{{ hashtag }}

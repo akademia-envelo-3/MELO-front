@@ -35,7 +35,8 @@ export class HashtagsComponent {
   hashtagInput!: ElementRef<HTMLInputElement>;
   private snackBarService = inject(SnackBarService);
   private maxChars = 50;
-  private maxHashtagsCount = 3;
+  private maxHashtagsCount = 100;
+  maxAutocompleteOptions = 5;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('', Validators.maxLength(this.maxChars));
   filteredHashtags$: Observable<string[]>;
