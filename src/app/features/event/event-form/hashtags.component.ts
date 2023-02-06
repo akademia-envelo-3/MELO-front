@@ -71,6 +71,10 @@ export class HashtagsComponent {
       this.maxHashtagCountInfo();
     } else {
       const value = (event.value || '').trim().slice(0, this.maxChars);
+
+      if (value.length >= this.maxChars) {
+        this.maxCharsInfo();
+      }
       // Add hashtag
       if (value && !this.addedHashtags.includes(value) && !this.auto.panelOpen) {
         this.addedHashtags.push(value);
@@ -105,8 +109,7 @@ export class HashtagsComponent {
     // Edit existing hashtags
     const index = this.addedHashtags.indexOf(hashtag);
     if (index >= 0 && !this.addedHashtags.includes(value)) {
-      if (value.length > this.maxChars)
-        this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.maxChars}`);
+      if (value.length > this.maxChars) this.maxCharsInfo();
       this.addedHashtags[index] = value.slice(0, this.maxChars);
     } else {
       this.hashtagAlreadyAddedInfo(value);
@@ -142,5 +145,8 @@ export class HashtagsComponent {
     this.snackBarService.openSnackBar(
       `Dopuszczalna liczba hashtagów to ${this.maxHashtagsCount}`
     );
+  }
+  private maxCharsInfo() {
+    this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.maxChars}`);
   }
 }
