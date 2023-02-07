@@ -146,9 +146,11 @@ export default class ThemeComponent {
 
   unitCard: UnitCardDTO = {
     unitId: 1,
-    name: 'Event Title',
-    memberNumber: 90,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+    name: 'Event Title asdsad sad sadas d asd asdsa  dasd ddasd sads a',
+    memberNumber: 900,
+    description:
+      'Lorem asd asd dassa ipsum asds asds dass ads dass asd ad as dasd dasds dass asds asds dass dasd dass sas ass asds dasd ssadsa asds ass asds asd ads adsds asds  asds asds ass  sa ada ass ass ass dasd dass as dsa ss asds sas s asds sad sads asdsa as sas as  eqweqw dolor sit amet, asdas sdads  sasds sads sads consectetur sdqdasd asdas dsa adss asdsad sadsadasd sadas dsadasd sadsad sadsa adipiscing elit, sed do wqewqewq wqewq 132241 dfdfdsfdsfds qwewq qwewqe qwewqe wqewq eqwe qwee qwewqe qweq wqeqweq qweqw eqweqw wqe wqrwqer qfqcwqew ewqe wq',
+    // 'Lorem ipsum dolor sit amet',
     mainPhoto: 'assets/mock/unit-main.webp',
   };
 }

@@ -12,7 +12,9 @@
             {{ card.name | uppercase }}
         </div>
         <div class="card__description" [class.text-body-small]="size === 'sm'">
-            <p>{{ card.description }}</p>
+            <div #description class="card__description__inner">
+                <p>{{ card.description }}</p>
+            </div>
         </div>
     </div>
     <div class="card__line"></div>

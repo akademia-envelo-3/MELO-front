@@ -1,9 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   Output,
+  ViewChild,
 } from '@angular/core';
 
 export type UnitCardDTO = {
@@ -14,6 +16,8 @@ export type UnitCardDTO = {
   mainPhoto: string;
 };
 
+const maxLengthToCenterText = 105 as const;
+
 @Component({
   selector: 'app-unit-card[card]',
   templateUrl: './unit-card.component.html',
@@ -21,6 +25,7 @@ export type UnitCardDTO = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnitCardComponent {
+  @ViewChild('description') descriptionElement!: ElementRef<HTMLDivElement>;
   @Input() card!: UnitCardDTO;
   @Input() size: 'sm' | 'md' = 'md';
   @Output() emmitUnitId = new EventEmitter<number>();
@@ -30,5 +35,11 @@ export class UnitCardComponent {
   }
   get cardSize() {
     return `card--${this.size}`;
+  }
+
+  ngAfterViewInit() {
+    const descriptionLenght = this.card.description.length;
+    if (descriptionLenght < maxLengthToCenterText)
+      this.descriptionElement.nativeElement.classList.add('center-horizontally');
   }
 }
