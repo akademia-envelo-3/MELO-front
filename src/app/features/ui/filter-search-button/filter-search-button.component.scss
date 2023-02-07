@@ -52,17 +52,16 @@
       text-align: left;
       color: st.$neutral-600;
 
-      &:focus {
-        label {
-          color: st.$neutral-100;
-          text-decoration: underline;
-        }
-      }
       label {
         width: 80%;
         display: inline-block;
         cursor: pointer;
       }
+
+      // &:not(:has(.dropdown__filtr-option:checked)):focus > label {
+      //   color: st.$neutral-100;
+      //   text-decoration: underline;
+      // }
 
       &:has(.dropdown__filtr-option:checked) {
         color: st.$neutral-100;
@@ -96,5 +95,7 @@
 }
 
 .hidden {
+  z-index: -1;
   opacity: 0;
+  pointer-events: none;
 }

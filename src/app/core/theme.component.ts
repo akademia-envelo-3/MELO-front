@@ -243,10 +243,9 @@ import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
       </div>
     </div>
 
-    <div class="filtr-search-btn---wrapper bg-gradient-neutral-3">
+    <div class="filtr-search-btn__wrapper bg-gradient-neutral-3">
       <p class="text-h4">Filtr search buttons</p>
-
-      <div>
+      <div class="filter-search-btn__inner">
         <app-filter-search-button
           (emmitPickedOptions)="unitSortFiltr($event)"
           [menuType]="'events'"
