@@ -4,7 +4,7 @@ import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
 import { EventFormComponent } from './event-form/event-form.component';
 import { EventsComponent } from './events.component';
-import { HashtagsComponent } from './event-form/hashtags.component';
+import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';

@@ -2,9 +2,9 @@
     <mat-chip-grid #chipGrid aria-label="Hashtag selection">
         <mat-chip-row
             *ngFor="let hashtag of addedHashtags"
-            (removed)="remove(hashtag)"
+            (removed)="onRemoveAddedHashtag(hashtag)"
             [editable]="true"
-            (edited)="edit(hashtag, $event)">
+            (edited)="onEditHashtag(hashtag, $event)">
             {{ hashtag }}
             <button matChipRemove [attr.aria-label]="'remove ' + hashtag">
                 <mat-icon>close</mat-icon>
@@ -22,7 +22,7 @@
             [matChipInputFor]="chipGrid"
             [matAutocomplete]="auto"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            (matChipInputTokenEnd)="addHashtag($event)" />
+            (matChipInputTokenEnd)="onAddHashtag($event)" />
         <mat-error
             class="text-body-small"
             *ngIf="hashtagCtrl.errors && hashtagCtrl.errors['maxlength']">
@@ -32,7 +32,7 @@
     </mat-form-field>
     <mat-autocomplete
         #auto="matAutocomplete"
-        (optionSelected)="selected($event)">
+        (optionSelected)="onSelectedHashtag($event)">
         <ng-container
             *ngIf="
                 hashtagCtrl.value &&
