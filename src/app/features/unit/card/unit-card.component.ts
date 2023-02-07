@@ -1,4 +1,6 @@
 import {
+  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -24,7 +26,7 @@ const maxLengthToCenterText = 105 as const;
   styleUrls: ['./unit-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UnitCardComponent {
+export class UnitCardComponent implements AfterViewInit {
   @ViewChild('description') descriptionElement!: ElementRef<HTMLDivElement>;
   @Input() card!: UnitCardDTO;
   @Input() size: 'sm' | 'md' = 'md';
