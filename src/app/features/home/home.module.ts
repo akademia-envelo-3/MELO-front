@@ -8,7 +8,17 @@ import { HomeComponent } from './home.component';
       {
         path: '',
         component: HomeComponent,
-        children: [],
+        children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
+          {
+            path: 'events',
+            loadChildren: () => import('src/app/features/event/event.module'),
+          },
+          {
+            path: 'units',
+            loadChildren: () => import('src/app/features/unit/unit.module'),
+          },
+        ],
       },
     ]),
   ],
