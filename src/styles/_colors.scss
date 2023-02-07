@@ -49,13 +49,15 @@ $accent-success: #88b42d;
   );
 }
 
+$bg-gradient-neutral-3: linear-gradient(
+  125.67deg,
+  rgba(234, 235, 241, 0.8) 0.31%,
+  rgba(249, 251, 251, 0.8) 48.39%,
+  rgba(249, 251, 251, 0.8) 98.02%
+);
+
 .bg-gradient-neutral-3 {
-  background: linear-gradient(
-    125.67deg,
-    rgba(234, 235, 241, 0.8) 0.31%,
-    rgba(249, 251, 251, 0.8) 48.39%,
-    rgba(249, 251, 251, 0.8) 98.02%
-  );
+  background: $bg-gradient-neutral-3;
 }
 
 .bg-gradient-gold-1 {
@@ -75,4 +77,8 @@ $accent-success: #88b42d;
 }
 .accent-color {
   color: $accent-success;
+}
+
+.text-white {
+  color: $neutral-300;
 }

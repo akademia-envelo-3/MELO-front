@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
 import { CardComponent } from '.';
 import { EventFormThemeComponent } from './event-form/event-form-theme.component';
 import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
@@ -33,6 +35,8 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
     MatFormFieldModule,
     MatChipsModule,
     MatAutocompleteModule,
+    MatRadioModule,
+    MatStepperModule,
     ReactiveFormsModule,
     CommonModule,
     HighlightPipe,
