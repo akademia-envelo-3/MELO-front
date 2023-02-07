@@ -1,6 +1,7 @@
-import { Subscription } from 'rxjs';
+import { Subscription, fromEvent, Observable, throttleTime } from 'rxjs';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostListener,
   inject,
@@ -36,12 +37,13 @@ import { MenuCategory, SideMenuStateService } from './side-menu.state.service';
 })
 export class SideMenuComponent implements OnInit, OnDestroy {
   private sideMenuStateService = inject(SideMenuStateService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
   private router = inject(Router);
+  private resizeObservable$: Observable<Event> = new Observable<Event>();
   private subscriptions = new Subscription();
   menuCategories: MenuCategory[] = [];
   isDesktopMenuVisible = false;
   isDesktop = false;
-  // isResizing = false;
   selectedCategory: MenuCategory = { categoryName: '' };
   private wasInside = false;
   disableAnimations = false;
@@ -79,7 +81,19 @@ export class SideMenuComponent implements OnInit, OnDestroy {
       this.selectedCategory = sideMenuState.selectedCategory;
       this.isDesktopMenuVisible = sideMenuState.isDesktopMenuVisible;
     });
+
+    this.resizeObservable$ = fromEvent(window, 'resize');
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const resizeSub = this.resizeObservable$.pipe(throttleTime(1000)).subscribe(() => {
+      this.disableAnimations = true;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.disableAnimations = false;
+      }, 400);
+      this.changeDetectorRef.detectChanges();
+    });
     this.subscriptions.add(sub);
+    this.subscriptions.add(resizeSub);
   }
 
   ngOnDestroy(): void {
