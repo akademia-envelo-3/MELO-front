@@ -16,11 +16,12 @@ export type MenuCategory = {
   subCategories?: SubCategory[];
 };
 
-type SideMenuSetup = {
+export type SideMenuState = {
   menuCategories: MenuCategory[];
   selectedCategory: MenuCategory;
   isDesktopMenuVisible: boolean;
   isDesktop: boolean;
+  isMobileMenuActive: boolean;
 };
 
 const defaultSelectedCategory = { categoryName: '' };
@@ -30,6 +31,7 @@ const defaultSideMenuData = {
   selectedCategory: defaultSelectedCategory,
   isDesktopMenuVisible: false,
   isDesktop: false,
+  isMobileMenuActive: false,
 };
 
 @Injectable({
@@ -40,7 +42,7 @@ export class SideMenuStateService {
   readonly DESKTOP_MEDIA_BREAKPOINT = '(min-width: 560px)';
   readonly breakpoint$ = this.breakpointObserver.observe([this.DESKTOP_MEDIA_BREAKPOINT]);
 
-  private sideMenuState$$ = new BehaviorSubject<SideMenuSetup>(defaultSideMenuData);
+  private sideMenuState$$ = new BehaviorSubject<SideMenuState>(defaultSideMenuData);
 
   get sideMenuSetupState$() {
     return this.sideMenuState$$.asObservable();
@@ -50,7 +52,7 @@ export class SideMenuStateService {
     return this.sideMenuState$$.value;
   }
 
-  private patchState(stateSlice: Partial<SideMenuSetup>) {
+  private patchState(stateSlice: Partial<SideMenuState>) {
     this.sideMenuState$$.next({
       ...this.sideMenuSetupStateValue,
       ...stateSlice,
@@ -112,8 +114,14 @@ export class SideMenuStateService {
     });
   }
 
+  toggleMobileMenuVisibility() {
+    this.patchState({
+      isMobileMenuActive: !this.sideMenuSetupStateValue.isMobileMenuActive,
+    });
+  }
+
   constructor() {
-    of({ role: 'admin' }).subscribe(user => {
+    of({ role: 'employee' }).subscribe(user => {
       if (user.role === 'employee') {
         this.patchState({ menuCategories: MENU_CATEGORIES_EMPLOYEE });
       } else if (user.role === 'admin') {
@@ -123,6 +131,12 @@ export class SideMenuStateService {
     this.breakpoint$.subscribe(() => {
       const isDesktop = this.breakpointObserver.isMatched('(min-width: 560px)');
       this.patchState({ isDesktop });
+      // hide open menu on device change
+      if (isDesktop) {
+        this.patchState({ isMobileMenuActive: false });
+      } else {
+        this.patchState({ isDesktopMenuVisible: false });
+      }
     });
   }
 }

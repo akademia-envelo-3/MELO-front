@@ -6,9 +6,9 @@ export const MENU_CATEGORIES_EMPLOYEE: MenuCategory[] = [
     categoryIcon: '../../../../assets/side-menu-icons/events.svg',
     subCategories: [
       { subCategoryName: 'wszystkie', href: 'events' },
-      { subCategoryName: 'moje', href: 'my-events' },
-      { subCategoryName: 'nowy +', href: 'new-event' },
-      { subCategoryName: 'kategoria +', href: 'new-category' },
+      { subCategoryName: 'moje', href: 'my-events-placeholder' },
+      { subCategoryName: 'nowy +', href: 'new-event-placeholder' },
+      { subCategoryName: 'kategoria +', href: 'new-event-category-placeholder' },
     ],
   },
   {
@@ -16,8 +16,8 @@ export const MENU_CATEGORIES_EMPLOYEE: MenuCategory[] = [
     categoryIcon: '../../../../assets/side-menu-icons/units.svg',
     subCategories: [
       { subCategoryName: 'wszystkie', href: 'units' },
-      { subCategoryName: 'moje', href: 'units/my-units' },
-      { subCategoryName: 'nowe +', href: 'units/new-units' },
+      { subCategoryName: 'moje', href: 'my-units-placeholder' },
+      { subCategoryName: 'nowe +', href: 'new-unit-placeholder' },
     ],
   },
 ];
@@ -38,7 +38,7 @@ export const MENU_CATEGORIES_ADMIN: MenuCategory[] = [
     categoryIcon: '../../../../assets/side-menu-icons/hashtags.svg',
     subCategories: [
       { subCategoryName: 'wszystkie', href: 'hashtags' },
-      { subCategoryName: 'statystyki', href: 'hashtags/stats' },
+      { subCategoryName: 'statystyki', href: 'hashtags-statistics-placeholder' },
     ],
   },
   {
@@ -46,7 +46,7 @@ export const MENU_CATEGORIES_ADMIN: MenuCategory[] = [
     categoryIcon: '../../../../assets/side-menu-icons/categories.svg',
     subCategories: [
       { subCategoryName: 'wszystkie', href: 'categories' },
-      { subCategoryName: 'dodaj kategorię', href: 'categories/add-category' },
+      { subCategoryName: 'dodaj kategorię', href: 'new-category-placeholder' },
     ],
   },
 ];

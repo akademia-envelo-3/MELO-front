@@ -51,6 +51,10 @@
   @include breakpoints.media-md {
     flex-direction: column-reverse;
   }
+
+  &.isActive {
+    display: none;
+  }
 }
 
 .display-side-menu-desktop {
@@ -76,7 +80,7 @@
   height: 100%;
   width: 0;
   overflow-x: hidden;
-  padding-top: 5em;
+  padding-top: clamp(0px, 10vh, 100px);
 
   &.menu-visible {
     width: 250px;
@@ -89,10 +93,11 @@
   li > a {
     text-decoration: none;
     position: relative;
-    padding: 0.75em;
+    height: clamp(70px, 12vw, 90px);
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     color: colors.$neutral-500;
     font-weight: 100;
     white-space: nowrap;

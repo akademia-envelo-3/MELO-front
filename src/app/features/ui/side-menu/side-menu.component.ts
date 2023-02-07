@@ -14,7 +14,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgFor, NgIf, TitleCasePipe, NgClass, AsyncPipe } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
-import { MenuCategory, SideMenuStateService } from './side-menu.state.service';
+import {
+  MenuCategory,
+  SideMenuState,
+  SideMenuStateService,
+} from './side-menu.state.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -40,13 +44,12 @@ export class SideMenuComponent implements OnInit, OnDestroy {
   private changeDetectorRef = inject(ChangeDetectorRef);
   private router = inject(Router);
   private resizeObservable$: Observable<Event> = new Observable<Event>();
+
   private subscriptions = new Subscription();
-  menuCategories: MenuCategory[] = [];
-  isDesktopMenuVisible = false;
-  isDesktop = false;
-  selectedCategory: MenuCategory = { categoryName: '' };
   private wasInside = false;
   disableAnimations = false;
+
+  sideMenuState!: SideMenuState;
 
   @HostListener('click')
   clickInside() {
@@ -65,6 +68,10 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     this.sideMenuStateService.toggleMenu(category, matMenuTrigger);
   }
 
+  closeMenu() {
+    this.sideMenuStateService.setDesktopMenuVisibility(false);
+  }
+
   navigate(category: MenuCategory) {
     this.sideMenuStateService.updateSelectedCategory(category);
     this.router.navigate([category.href]);
@@ -75,16 +82,10 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     return 'Logged out';
   }
 
-  ngOnInit() {
-    const sub = this.sideMenuStateService.sideMenuSetupState$.subscribe(sideMenuState => {
-      this.menuCategories = sideMenuState.menuCategories;
-      this.selectedCategory = sideMenuState.selectedCategory;
-      this.isDesktopMenuVisible = sideMenuState.isDesktopMenuVisible;
-    });
-
+  private disableAnimationsOnResize() {
     this.resizeObservable$ = fromEvent(window, 'resize');
     let resizeTimer: ReturnType<typeof setTimeout>;
-    const resizeSub = this.resizeObservable$.pipe(throttleTime(1000)).subscribe(() => {
+    return this.resizeObservable$.pipe(throttleTime(1000)).subscribe(() => {
       this.disableAnimations = true;
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
@@ -92,7 +93,18 @@ export class SideMenuComponent implements OnInit, OnDestroy {
       }, 400);
       this.changeDetectorRef.detectChanges();
     });
-    this.subscriptions.add(sub);
+  }
+
+  ngOnInit() {
+    const stateSub = this.sideMenuStateService.sideMenuSetupState$.subscribe(
+      sideMenuState => {
+        this.sideMenuState = sideMenuState;
+        this.changeDetectorRef.detectChanges();
+      }
+    );
+
+    const resizeSub = this.disableAnimationsOnResize();
+    this.subscriptions.add(stateSub);
     this.subscriptions.add(resizeSub);
   }
 

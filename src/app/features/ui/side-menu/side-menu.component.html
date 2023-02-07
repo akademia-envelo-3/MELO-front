@@ -1,11 +1,19 @@
 <div class="side-menu-container">
     <mat-sidenav-container>
-        <div class="side-menu-container__left">
+        <div
+            class="side-menu-container__left"
+            [ngClass]="{
+                ' isActive ':
+                    !sideMenuState.isDesktop &&
+                    !sideMenuState.isMobileMenuActive
+            }">
             <div class="side-menu-container__leftTop">
                 <button
                     class="side-menu-category"
                     [ngClass]="{
-                        ' active ': selectedCategory.categoryName === 'logout'
+                        ' active ':
+                            sideMenuState.selectedCategory.categoryName ===
+                            'logout'
                     }"
                     [matTooltip]="'Wyloguj' | titlecase"
                     matTooltipPosition="above"
@@ -20,12 +28,12 @@
             <div class="side-menu-container__leftBottom">
                 <div
                     class="side-menu-category"
-                    *ngFor="let category of menuCategories">
+                    *ngFor="let category of sideMenuState.menuCategories">
                     <button
                         class="side-menu-category"
                         [ngClass]="{
                             ' active ':
-                                selectedCategory.categoryName ===
+                                sideMenuState.selectedCategory.categoryName ===
                                 category.categoryName
                         }"
                         [matTooltip]="category.categoryName | titlecase"
@@ -53,17 +61,22 @@
     <div
         class="side-menu-container__right display-side-menu-desktop bg-gradient-primary-2 text-h4"
         [ngClass]="{
-            ' menu-visible ': isDesktopMenuVisible,
+            ' menu-visible ': sideMenuState.isDesktopMenuVisible,
             ' transition ':
-                selectedCategory.subCategories !== undefined &&
+                sideMenuState.selectedCategory.subCategories !== undefined &&
                 !disableAnimations
         }">
         <ul>
-            <li *ngFor="let subCategory of selectedCategory.subCategories">
+            <li
+                *ngFor="
+                    let subCategory of sideMenuState.selectedCategory
+                        .subCategories
+                ">
                 <a
                     [routerLink]="subCategory.href"
                     routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }">
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="closeMenu()">
                     {{ subCategory.subCategoryName | titlecase }}
                 </a>
             </li>
