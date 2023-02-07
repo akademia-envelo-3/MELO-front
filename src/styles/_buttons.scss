@@ -34,9 +34,9 @@
 
 .btn-green {
   @extend .bg-gradient-green-1;
-  box-shadow: 0 0 0 1px #253b3a, 0 0 0 2px #d6b84a, 0 0 0 3px #c39c3c, 0 0 0 4px #d1ac4c,
-    0 0 0 5px #b99b53, 0 0 0 6px #36260b, 0 0 0 7px #311c10, 0 0 0 8px #82573a,
-    0 0 0 9px #ca9d7c, 0 0 0 10px #644b3a;
+  box-shadow: 0 0 0 1px #30a543, 0 0 0 2px #45ba43, 0 0 0 3px #429f4b, 0 0 0 4px #0b360f,
+    0 0 0 5px #103113, 0 0 0 6px #3a8241, 0 0 0 7px #5b975e, 0 0 0 8px #3a643e;
+  color: colors.$neutral-100;
 }
 
 .btn-rect:disabled {
@@ -46,7 +46,29 @@
 .btn-rect:not([disabled]) {
   cursor: pointer;
   transition: 0.3s;
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
   }
+  &:focus {
+    outline: none;
+  }
+}
+.btn-default:not([disabled]):focus {
+  color: colors.$neutral-300;
+  background: linear-gradient(
+    283.96deg,
+    rgba(254, 235, 87, 0.88) 3.84%,
+    #a86c2d 49.33%,
+    rgba(254, 235, 87, 0.88) 96.92%
+  );
+}
+.btn-green:not([disabled]):focus {
+  color: colors.$neutral-800;
+  background: linear-gradient(283.96deg, #206543 3.84%, #15c461 49.33%, #148152 96.92%);
+}
+
+.btn-black:not([disabled]):focus {
+  color: colors.$neutral-800;
+  background: linear-gradient(94.82deg, #f3f3f3 8.22%, #bfbebe 49.73%, #d8d8d8 89.59%);
 }
