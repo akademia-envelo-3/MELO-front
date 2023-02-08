@@ -62,12 +62,12 @@
   margin: 2rem;
   border-radius: 25px;
   padding: 2rem;
-  height: 700px;
+  height: max-content;
   .filter-search-btn__inner {
     margin-top: 10px;
-    height: 400px;
+    height: 300px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    justify-content: center;
   }
 }

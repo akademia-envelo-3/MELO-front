@@ -34,7 +34,7 @@ export type MenuType = 'events' | 'units';
 export class FilterSearchButtonComponent {
   @Output() emmitPickedOptions = new EventEmitter<FiltrSortButtonOutput<MenuType>>();
   @Input() menuType!: MenuType;
-  isOpen = false;
+  isOpen = true;
 
   updateMenuState(menuState: UnitMenuState | EventMenuState) {
     this.emmitPickedOptions.emit(menuState);

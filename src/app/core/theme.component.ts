@@ -248,12 +248,16 @@ import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
       <div class="filter-search-btn__inner">
         <app-filter-search-button
           (emmitPickedOptions)="unitSortFiltr($event)"
-          [menuType]="'events'"
-        ></app-filter-search-button>
+          [menuType]="'units'"
+        >
+        </app-filter-search-button>
+      </div>
+      <div class="filter-search-btn__inner">
         <app-filter-search-button
           (emmitPickedOptions)="eventSortFiltr($event)"
-          [menuType]="'units'"
-        ></app-filter-search-button>
+          [menuType]="'events'"
+        >
+        </app-filter-search-button>
       </div>
     </div>
   `,
