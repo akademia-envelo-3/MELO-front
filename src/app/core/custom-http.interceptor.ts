@@ -9,7 +9,7 @@ import {
 import { map, Observable, tap } from 'rxjs';
 import { API_URL } from './env.token';
 import { StorageService } from '@shared/services';
-import { HandleApiErrorService } from '@features/auth/auth/handle-api-error.service';
+import { HandleApiErrorService } from '@features/auth';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {

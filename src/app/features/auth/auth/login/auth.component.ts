@@ -49,7 +49,7 @@ export class AuthComponent {
 
   getEmailErrorMessage() {
     if (this.emailCtrl.hasError('required')) {
-      return 'To pole jest obowiązkowe';
+      return 'Email jest wymagany';
     }
     return this.emailCtrl.hasError('email') ? this.emailCtrl.getError('email') : '';
   }
