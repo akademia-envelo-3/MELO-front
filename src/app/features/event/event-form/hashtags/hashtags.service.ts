@@ -80,7 +80,7 @@ export class HashtagsService {
     const hashtagStr = event.value.trim();
 
     if (!hashtagStr) {
-      this.removeAddedHashtag(hashtag, auto);
+      this.remove(hashtag, auto);
       return;
     }
 
