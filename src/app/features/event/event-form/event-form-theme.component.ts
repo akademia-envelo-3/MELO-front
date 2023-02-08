@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-event-form-theme',
+  selector: 'app-events-theme',
   template: `
     <div class="component-container centered bg-gradient-neutral-3">
       <p class="text-h4">Hashtag component</p>
@@ -23,4 +23,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventFormThemeComponent {}
+export class EventsThemeComponent {}

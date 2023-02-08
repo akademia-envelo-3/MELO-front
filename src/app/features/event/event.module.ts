@@ -13,17 +13,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CardComponent } from '.';
-import { EventFormThemeComponent } from './event-form/event-form-theme.component';
+import { EventsThemeComponent } from './event-form/event-form-theme.component';
 import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
+import { noProductionGuard } from '@shared/no-production.guard';
 
 @NgModule({
   declarations: [
-    EventFormComponent,
+    EventsThemeComponent,
     EventsComponent,
     HashtagsComponent,
     CardComponent,
     PowerIconComponent,
-    EventFormThemeComponent,
+    EventFormComponent,
   ],
   imports: [
     MatInputModule,
@@ -46,8 +47,9 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
         component: EventFormComponent,
       },
       {
-        path: 'new-event-theme',
-        component: EventFormThemeComponent,
+        path: 'theme',
+        canMatch: [noProductionGuard],
+        component: EventsThemeComponent,
       },
     ]),
   ],
