@@ -1,0 +1,131 @@
+@use './src/styles/colors' as colors;
+@use './src/styles/breakpoints' as breakpoints;
+@use './src/styles/mixins' as mixins;
+
+.side-menu-container {
+  height: calc(100vh - 52px);
+  display: flex;
+  position: fixed;
+  z-index: 999;
+}
+
+.side-menu-container__left {
+  @include mixins.gradient(0deg, colors.$bg-gradient-primary-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: clamp(70px, 12vw, 100px);
+  padding-bottom: 0;
+  padding-top: clamp(0px, 10vh, 100px);
+  padding-bottom: clamp(0px, 5vh, 100px);
+  height: 100%;
+
+  &Top {
+    width: 100%;
+  }
+
+  &Bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .icon {
+    max-width: clamp(60px, 12vw, 80px);
+  }
+
+  .side-menu-category {
+    position: relative;
+    width: 100%;
+    height: clamp(70px, 12vw, 90px);
+
+    div {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include breakpoints.media-md {
+    flex-direction: column-reverse;
+  }
+
+  &.isActive {
+    display: none;
+  }
+}
+
+.display-side-menu-desktop {
+  display: none;
+  @include breakpoints.media-md {
+    display: initial;
+  }
+}
+
+.category-item:hover {
+  background-color: colors.$accent-gold-300;
+}
+
+.category-item.active {
+  background-color: colors.$accent-gold-700;
+}
+
+.side-menu-container__right {
+  position: absolute;
+  top: 0;
+  left: clamp(70px, 12vw, 100px);
+  z-index: 1;
+  height: 100%;
+  width: 0;
+  overflow-x: hidden;
+  padding-top: clamp(0px, 10vh, 100px);
+
+  &.menu-visible {
+    width: 250px;
+  }
+
+  &.transition {
+    transition: 0.5s;
+  }
+
+  li > a {
+    text-decoration: none;
+    position: relative;
+    height: clamp(70px, 12vw, 90px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: colors.$neutral-500;
+    font-weight: 100;
+    white-space: nowrap;
+  }
+
+  li > a:before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+    height: 1px;
+    width: 90%;
+    border-bottom: 1px solid colors.$neutral-500;
+  }
+
+  li > a:not(.active):hover {
+    filter: brightness(150%);
+  }
+
+  li > a.active {
+    color: colors.$accent-gold-800;
+    background-color: colors.$neutral-100;
+    border: 2px solid colors.$accent-gold-200;
+  }
+
+  .side-menu-category.active {
+    color: colors.$accent-gold-800;
+    background-color: colors.$neutral-100;
+    border: 2px solid colors.$accent-gold-200;
+  }
+}
