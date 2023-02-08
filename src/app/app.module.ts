@@ -29,23 +29,27 @@ import { CustomHttpInterceptor } from './core';
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
-          {
-            path: 'theme',
-            canMatch: [noProductionGuard],
-            loadComponent: () => import('./core/theme.component'),
-          },
-          {
-            path: 'units',
-            loadChildren: () => import('./features/unit/unit.module'),
-          },
-          {
-            path: '**',
-            loadComponent: () =>
-              import('./shared/page-not-found/page-not-found.component'),
-          },
+          // {
+          //   path: 'theme',
+          //   canMatch: [noProductionGuard],
+          //   loadComponent: () => import('./core/theme.component'),
+          // },
+          // {
+          //   path: 'events',
+          //   loadChildren: () => import('./features/event/event.module'),
+          // },
+          // {
+          //   path: 'units',
+          //   loadComponent: () => import('./features/unit/unit.module'),
+          // },
+          // {
+          //   path: '**',
+          //   loadComponent: () =>
+          //     import('./shared/page-not-found/page-not-found.component'),
+          // },
         ],
       },
+      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [

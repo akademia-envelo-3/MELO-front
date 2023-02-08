@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgClass, NgIf, UpperCasePipe } from '@angular/common';
+import { CommonModule, NgClass, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { CircularButtonComponent } from '@shared/ui/circular-button/circular-button.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,14 +13,13 @@ import { UnitPowerIconComponent, UnitCardComponent, UnitFormComponent } from '.'
   declarations: [UnitFormComponent, UnitPowerIconComponent, UnitCardComponent],
   imports: [
     CircularButtonComponent,
-    NgIf,
-    NgClass,
     UpperCasePipe,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    CommonModule,
     RouterModule.forChild([
       {
         path: 'new-unit',

@@ -8,7 +8,16 @@ import { HomeComponent } from './home.component';
       {
         path: '',
         component: HomeComponent,
-        children: [],
+        children: [
+          {
+            path: 'events',
+            loadChildren: () => import('../event/event.module'),
+          },
+          {
+            path: 'units',
+            loadChildren: () => import('../unit/unit.module'),
+          },
+        ],
       },
     ]),
   ],
