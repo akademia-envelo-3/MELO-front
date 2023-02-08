@@ -8,7 +8,7 @@ import {
 } from '@angular/material/autocomplete';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, skip, startWith } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { HashtagsService } from './hashtags.service';
 
@@ -45,7 +45,6 @@ export class HashtagsComponent {
 
   constructor() {
     this.filteredHashtags$ = this.hashtagCtrl.valueChanges.pipe(
-      startWith(null),
       map((hashtag: string | null) =>
         hashtag ? this._filter(hashtag) : this.allHashtags.slice()
       )
