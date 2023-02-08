@@ -13,6 +13,7 @@ import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UnitCardDTO } from '@features/unit';
+import { NavbarComponent } from '@features/ui';
 
 @Component({
   selector: 'app-theme',
@@ -25,6 +26,7 @@ import { UnitCardDTO } from '@features/unit';
     UnitModule,
     SearchbarComponent,
     MatDialogModule,
+    NavbarComponent,
   ],
   templateUrl: 'theme.component.html',
   styleUrls: ['theme.component.scss'],
