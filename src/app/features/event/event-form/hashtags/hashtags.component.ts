@@ -53,23 +53,19 @@ export class HashtagsComponent {
   }
 
   onAddHashtag(event: MatChipInputEvent): void {
-    this.hashtagsService.addHashtag(event, this.hashtagCtrl, this.auto);
+    this.hashtagsService.add(event, this.hashtagCtrl, this.auto);
   }
 
   onRemoveAddedHashtag(hashtag: string): void {
-    this.hashtagsService.removeAddedHashtag(hashtag, this.auto);
+    this.hashtagsService.remove(hashtag, this.auto);
   }
 
   onEditHashtag(hashtag: string, event: MatChipEditedEvent) {
-    this.hashtagsService.editHashtag(hashtag, event, this.auto);
+    this.hashtagsService.edit(hashtag, event, this.auto);
   }
 
   onSelectedHashtag(event: MatAutocompleteSelectedEvent): void {
-    this.hashtagsService.addHashtagFromAutocomplete(
-      event,
-      this.hashtagInput,
-      this.hashtagCtrl
-    );
+    this.hashtagsService.addFromAutocomplete(event, this.hashtagInput, this.hashtagCtrl);
   }
 
   private _filter(value: string): string[] {

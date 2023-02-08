@@ -30,7 +30,7 @@ export class HashtagsService {
     'BaaaaaaaaaardzoDłuuuuuugiHashtagAwogóletoooooooooo',
   ];
 
-  addHashtag(
+  add(
     event: MatChipInputEvent,
     hashtagCtrl: FormControl,
     auto: MatAutocompleteTrigger
@@ -57,7 +57,7 @@ export class HashtagsService {
     }
   }
 
-  addHashtagFromAutocomplete(
+  addFromAutocomplete(
     event: MatAutocompleteSelectedEvent,
     hashtagInput: ElementRef<HTMLInputElement>,
     hashtagCtrl: FormControl
@@ -76,7 +76,7 @@ export class HashtagsService {
     }
   }
 
-  editHashtag(hashtag: string, event: MatChipEditedEvent, auto: MatAutocompleteTrigger) {
+  edit(hashtag: string, event: MatChipEditedEvent, auto: MatAutocompleteTrigger) {
     const hashtagStr = event.value.trim();
 
     if (!hashtagStr) {
@@ -94,7 +94,7 @@ export class HashtagsService {
     }
   }
 
-  removeAddedHashtag(hashtag: string, auto: MatAutocompleteTrigger): void {
+  remove(hashtag: string, auto: MatAutocompleteTrigger): void {
     const index = this.addedHashtags.indexOf(hashtag);
 
     if (index >= 0) {
