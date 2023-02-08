@@ -7,6 +7,6 @@ export class AuthValidators {
     if (regex?.test(control.value)) {
       return null;
     }
-    return { email: 'Nieprawidłowy adres email' };
+    return { email: 'Nieprawidłowy format adresu email' };
   }
 }
