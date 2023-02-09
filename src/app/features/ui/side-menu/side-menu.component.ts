@@ -14,11 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgFor, NgIf, TitleCasePipe, NgClass, AsyncPipe } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
-import {
-  MenuCategory,
-  SideMenuState,
-  SideMenuStateService,
-} from './side-menu.state.service';
+import { MenuCategory, SideMenuStateService } from './side-menu.state.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -40,16 +36,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideMenuComponent implements OnInit, OnDestroy {
-  private sideMenuStateService = inject(SideMenuStateService);
+  sideMenuStateService = inject(SideMenuStateService);
   private changeDetectorRef = inject(ChangeDetectorRef);
   private router = inject(Router);
   private resizeObservable$: Observable<Event> = new Observable<Event>();
 
   private subscriptions = new Subscription();
   private wasInside = false;
-  disableAnimations = false;
-
-  sideMenuState!: SideMenuState;
+  protected disableAnimations = false;
 
   @HostListener('click')
   clickInside() {
@@ -64,11 +58,11 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     this.wasInside = false;
   }
 
-  toggleMenu(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
+  toggle(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
     this.sideMenuStateService.toggleMenu(category, matMenuTrigger);
   }
 
-  closeMenu() {
+  close() {
     this.sideMenuStateService.setDesktopMenuVisibility(false);
   }
 
@@ -96,15 +90,7 @@ export class SideMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const stateSub = this.sideMenuStateService.sideMenuSetupState$.subscribe(
-      sideMenuState => {
-        this.sideMenuState = sideMenuState;
-        this.changeDetectorRef.detectChanges();
-      }
-    );
-
     const resizeSub = this.disableAnimationsOnResize();
-    this.subscriptions.add(stateSub);
     this.subscriptions.add(resizeSub);
   }
 

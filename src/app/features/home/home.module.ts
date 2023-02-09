@@ -13,8 +13,7 @@ import ThemeComponent from '../../core/theme.component';
         children: [
           {
             path: 'events',
-            component: ThemeComponent,
-            children: [],
+            loadChildren: () => import('../event/event.module'),
           },
           {
             path: 'units',

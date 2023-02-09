@@ -1,9 +1,11 @@
-<div class="side-menu-container">
+<div
+    class="side-menu-container"
+    *ngIf="sideMenuStateService.setupState$ | async as sideMenuState">
     <mat-sidenav-container>
         <div
             class="side-menu-container__left"
             [ngClass]="{
-                ' isActive ':
+                ' isClosed ':
                     !sideMenuState.isDesktop &&
                     !sideMenuState.isMobileMenuActive
             }">
@@ -42,7 +44,7 @@
                         (click)="
                             category.href
                                 ? navigate(category)
-                                : toggleMenu(category, mobileMenuTrigger)
+                                : toggle(category, mobileMenuTrigger)
                         ">
                         <img
                             class="icon"
@@ -78,7 +80,7 @@
                     [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive="active"
                     class="text-h4"
-                    (click)="closeMenu()">
+                    (click)="close()">
                     {{ subCategory.subCategoryName | titlecase }}
                 </a>
             </li>

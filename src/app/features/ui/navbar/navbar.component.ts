@@ -21,7 +21,7 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
       <div
         class="navbar__hamburger"
         [ngClass]="{
-          change: (sideMenuStateService.sideMenuSetupState$ | async)?.isMobileMenuActive
+          change: (sideMenuStateService.setupState$ | async)?.isMobileMenuActive
         }"
         (click)="toggleMenu()"
       >

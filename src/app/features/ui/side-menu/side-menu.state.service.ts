@@ -42,19 +42,19 @@ export class SideMenuStateService {
   readonly DESKTOP_MEDIA_BREAKPOINT = '(min-width: 560px)';
   readonly breakpoint$ = this.breakpointObserver.observe([this.DESKTOP_MEDIA_BREAKPOINT]);
 
-  private sideMenuState$$ = new BehaviorSubject<SideMenuState>(defaultSideMenuData);
+  private setupState$$ = new BehaviorSubject<SideMenuState>(defaultSideMenuData);
 
-  get sideMenuSetupState$() {
-    return this.sideMenuState$$.asObservable();
+  get setupState$() {
+    return this.setupState$$.asObservable();
   }
 
-  get sideMenuSetupStateValue() {
-    return this.sideMenuState$$.value;
+  get setupStateValue() {
+    return this.setupState$$.value;
   }
 
   private patchState(stateSlice: Partial<SideMenuState>) {
-    this.sideMenuState$$.next({
-      ...this.sideMenuSetupStateValue,
+    this.setupState$$.next({
+      ...this.setupStateValue,
       ...stateSlice,
     });
   }
@@ -67,7 +67,7 @@ export class SideMenuStateService {
   }
 
   toggleMenu(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
-    const isDesktop = this.sideMenuSetupStateValue.isDesktop;
+    const isDesktop = this.setupStateValue.isDesktop;
     const shouldToggleDesktopVisibility = this.checkIfShouldToggleDesktopVisibility(
       category.categoryName
     );
@@ -89,18 +89,25 @@ export class SideMenuStateService {
 
   private updateMobileCategoryData(matMenuTrigger: MatMenuTrigger) {
     matMenuTrigger.menuData = {
-      subCategories: this.sideMenuSetupStateValue.selectedCategory.subCategories,
+      subCategories: this.setupStateValue.selectedCategory.subCategories,
     };
     matMenuTrigger.openMenu();
   }
 
-  private checkIfShouldToggleDesktopVisibility(categoryName: string) {
-    const { selectedCategory, isDesktopMenuVisible } = this.sideMenuSetupStateValue;
+  private checkIfShouldToggleDesktopVisibility(nextSelectedCategoryName: string) {
+    const { selectedCategory, isDesktopMenuVisible } = this.setupStateValue;
+    const previousSelectedCategoryName = selectedCategory.categoryName;
     if (
-      (isDesktopMenuVisible === false &&
-        categoryName !== selectedCategory.categoryName) ||
-      categoryName === selectedCategory.categoryName ||
-      selectedCategory.categoryName === ''
+      this.categoryWasChangedWhileMenuWasClosed(
+        isDesktopMenuVisible,
+        nextSelectedCategoryName,
+        previousSelectedCategoryName
+      ) ||
+      this.theSameCategoryWasSelected(
+        previousSelectedCategoryName,
+        nextSelectedCategoryName
+      ) ||
+      this.firstTimeSelectingCategory(previousSelectedCategoryName)
     ) {
       return true;
     } else {
@@ -108,15 +115,36 @@ export class SideMenuStateService {
     }
   }
 
+  private categoryWasChangedWhileMenuWasClosed(
+    isDesktopMenuVisible: boolean,
+    newSelectedCategoryName: string,
+    oldSelectedCategoryName: string
+  ) {
+    return (
+      isDesktopMenuVisible === false &&
+      oldSelectedCategoryName !== newSelectedCategoryName
+    );
+  }
+  private theSameCategoryWasSelected(
+    newSelectedCategoryName: string,
+    oldSelectedCategoryName: string
+  ) {
+    return newSelectedCategoryName === oldSelectedCategoryName;
+  }
+
+  private firstTimeSelectingCategory(previousSelectedCategoryName: string) {
+    return previousSelectedCategoryName === '';
+  }
+
   private toggleDesktopMenuVisibility() {
     this.patchState({
-      isDesktopMenuVisible: !this.sideMenuSetupStateValue.isDesktopMenuVisible,
+      isDesktopMenuVisible: !this.setupStateValue.isDesktopMenuVisible,
     });
   }
 
   toggleMobileMenuVisibility() {
     this.patchState({
-      isMobileMenuActive: !this.sideMenuSetupStateValue.isMobileMenuActive,
+      isMobileMenuActive: !this.setupStateValue.isMobileMenuActive,
     });
   }
 

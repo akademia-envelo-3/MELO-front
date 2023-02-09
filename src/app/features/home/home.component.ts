@@ -10,7 +10,7 @@ import { NavbarComponent, SideMenuComponent } from '../ui';
     <app-side-menu></app-side-menu>
     <div class="container"><router-outlet></router-outlet></div>
   `,
-  styles: ['.container { padding-left: 110px; }'],
+  styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, NavbarComponent, SideMenuComponent],
 })
