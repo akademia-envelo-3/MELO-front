@@ -42,7 +42,7 @@
             <mat-option
                 *ngFor="
                     let hashtag of filteredHashtags
-                        | slice : 0 : maxAutocompleteOptions
+                        | slice : 0 : MAX_AUTOCOMPLETE_OPTIONS
                 "
                 [value]="hashtag"
                 [innerHTML]="hashtag | highlight : hashtagCtrl.value"

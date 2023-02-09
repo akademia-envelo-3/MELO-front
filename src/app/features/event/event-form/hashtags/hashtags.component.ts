@@ -36,11 +36,15 @@ export class HashtagsComponent {
   hashtagInput!: ElementRef<HTMLInputElement>;
 
   private hashtagsService = inject(HashtagsService);
-  addedHashtags = this.hashtagsService.addedHashtags;
-  allHashtags = this.hashtagsService.allHashtags;
-  maxAutocompleteOptions = 5;
+  readonly MAX_AUTOCOMPLETE_OPTIONS = 5;
+  addedHashtags = this.hashtagsService.addedHashtagsValue;
+  allHashtags = this.hashtagsService.allHashtagsValue;
+
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  hashtagCtrl = new FormControl('', Validators.maxLength(this.hashtagsService.maxChars));
+  hashtagCtrl = new FormControl(
+    '',
+    Validators.maxLength(this.hashtagsService.maxCharsValue)
+  );
   filteredHashtags$: Observable<string[]>;
 
   constructor() {
@@ -70,7 +74,7 @@ export class HashtagsComponent {
   private _filter(value: string): string[] {
     const lowerCaseValue = value.toLowerCase();
 
-    return this.hashtagsService.allHashtags.filter(hashtag =>
+    return this.allHashtags.filter(hashtag =>
       hashtag.toLowerCase().includes(lowerCaseValue)
     );
   }

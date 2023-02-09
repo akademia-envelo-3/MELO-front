@@ -12,10 +12,10 @@ import { SnackBarService } from '@shared/services/snack-bar.service';
 })
 export class HashtagsService {
   private snackBarService = inject(SnackBarService);
-  maxChars = 50;
-  maxHashtagsCount = 100;
-  addedHashtags: string[] = [];
-  allHashtags: string[] = [
+  private maxChars = 50;
+  private maxHashtagCount = 100;
+  private addedHashtags: string[] = [];
+  private allHashtags: string[] = [
     'Impreza',
     'Piwo',
     'Piłkarzyki',
@@ -30,12 +30,22 @@ export class HashtagsService {
     'BaaaaaaaaaardzoDłuuuuuugiHashtagAwogóletoooooooooo',
   ];
 
+  get maxCharsValue() {
+    return this.maxChars;
+  }
+  get addedHashtagsValue() {
+    return this.addedHashtags;
+  }
+  get allHashtagsValue() {
+    return this.allHashtags;
+  }
+
   add(
     event: MatChipInputEvent,
     hashtagCtrl: FormControl,
     auto: MatAutocompleteTrigger
   ): void {
-    if (this.addedHashtags.length >= this.maxHashtagsCount) {
+    if (this.addedHashtags.length >= this.maxHashtagCount) {
       this.maxHashtagCountInfo();
     } else {
       const hashtagStr = (event.value || '').trim().slice(0, this.maxChars);
@@ -62,7 +72,7 @@ export class HashtagsService {
     hashtagInput: ElementRef<HTMLInputElement>,
     hashtagCtrl: FormControl
   ): void {
-    if (this.addedHashtags.length >= this.maxHashtagsCount) {
+    if (this.addedHashtags.length >= this.maxHashtagCount) {
       this.maxHashtagCountInfo();
     } else {
       const hashtagStr = event.option.viewValue;
@@ -110,7 +120,7 @@ export class HashtagsService {
   }
   private maxHashtagCountInfo() {
     this.snackBarService.openSnackBar(
-      `Maksymalna liczba hashtagów to ${this.maxHashtagsCount}`
+      `Maksymalna liczba hashtagów to ${this.maxHashtagCount}`
     );
   }
   private maxCharsInfo() {
