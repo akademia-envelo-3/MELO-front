@@ -12,11 +12,11 @@ import { HomeComponent } from './home.component';
           { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: 'events',
-            loadChildren: () => import('src/app/features/event/event.module'),
+            loadChildren: () => import('../event/event.module'),
           },
           {
             path: 'units',
-            loadChildren: () => import('src/app/features/unit/unit.module'),
+            loadChildren: () => import('../unit/unit.module'),
           },
         ],
       },

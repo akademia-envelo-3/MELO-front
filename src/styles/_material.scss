@@ -157,7 +157,34 @@ $app-name-theme: mat.define-light-theme(
 }
 
 ///STEPPER
-.mat-horizontal-content-container {
+.mat-stepper-horizontal {
+  margin-top: 2rem;
+}
+.mat-stepper-horizontal .mat-horizontal-content-container {
   background: colors.$bg-gradient-neutral-3;
   border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.mat-step-icon.mat-step-icon-state-number,
+.mat-step-icon-state-edit {
+  padding: 1.5rem;
+  background: #211e1d;
+  color: colors.$accent-gold-600;
+  border: 1.45px solid #5e4139;
+  border-radius: 36.25px;
+}
+
+.mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+  background: colors.$bg-gradient-gold-1;
+  color: colors.$neutral-900;
+}
+
+.mat-horizontal-stepper-header {
+  flex-direction: column;
+}
+
+.mat-horizontal-stepper-header-container .mat-stepper-horizontal-line {
+  color: colors.$accent-gold-600;
+  margin-bottom: 1rem;
 }

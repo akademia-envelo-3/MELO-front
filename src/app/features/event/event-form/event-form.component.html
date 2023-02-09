@@ -43,6 +43,18 @@
                                 >Limitowane</mat-radio-button
                             >
                         </mat-radio-group>
+                        <mat-radio-group
+                            formControlName="eventRepeatType"
+                            aria-label="Typ powatarzalności wydarzenia">
+                            <mat-radio-button
+                                value="Jednorazowe"
+                                [checked]="true"
+                                >Jednorazowe</mat-radio-button
+                            >
+                            <mat-radio-button value="Cykliczne"
+                                >Cykliczne</mat-radio-button
+                            >
+                        </mat-radio-group>
                         <div>
                             <button
                                 class="btn-rect btn-rect--sm btn-default btn-step-one"
@@ -58,10 +70,45 @@
                     <div formGroupName="eventDateTimeAndLocation">
                         <div>
                             <button
-                                mat-raised-button
-                                color="primary"
+                                class="btn-rect btn-rect--sm btn-default"
                                 matStepperPrevious>
-                                Poprzedni krok
+                                Poprzedni krok</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext>
+                                Dalej
+                            </button>
+                        </div>
+                    </div> </mat-step
+                ><mat-step
+                    [stepControl]="eventDateTimeAndLocationForm"
+                    label="Data i miejsce">
+                    <div formGroupName="eventDateTimeAndLocation">
+                        <div>
+                            <button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperPrevious>
+                                Poprzedni krok</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext>
+                                Dalej
+                            </button>
+                        </div>
+                    </div> </mat-step
+                ><mat-step
+                    [stepControl]="eventDateTimeAndLocationForm"
+                    label="Data i miejsce">
+                    <div formGroupName="eventDateTimeAndLocation">
+                        <div>
+                            <button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperPrevious>
+                                Poprzedni krok</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext>
+                                Dalej
                             </button>
                         </div>
                     </div>

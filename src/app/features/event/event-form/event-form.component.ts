@@ -15,9 +15,11 @@ export class EventFormComponent {
       eventAccessType: this.builder.control('Publiczne', Validators.required),
       eventScopeType: this.builder.control('Wewnętrzne', Validators.required),
       eventLimitType: this.builder.control('Nielimitowane', Validators.required),
+      eventRepeatType: this.builder.control('Nielimitowane', Validators.required),
     }),
     eventDateTimeAndLocation: this.builder.group({
-      eventDatetime: this.builder.control('', Validators.required),
+      eventDateTimeFrom: this.builder.control('', Validators.required),
+      eventDateTimeTo: this.builder.control('', Validators.required),
       eventLocation: this.builder.control('', Validators.required),
     }),
   });
