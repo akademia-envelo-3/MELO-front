@@ -3,7 +3,7 @@
         Utwórz nowe wydarzenie
     </h1>
 
-    <form [formGroup]="newEventForm">
+    <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()">
         <mat-stepper [linear]="true" animationDuration="0ms" #stepper>
             <div class="bg-gradient-neutral-3">
                 <mat-step [stepControl]="eventTypeForm">
@@ -58,57 +58,104 @@
                         <div>
                             <button
                                 class="btn-rect btn-rect--sm btn-default btn-step-one"
-                                matStepperNext>
+                                matStepperNext
+                                type="button">
                                 Dalej
                             </button>
                         </div>
                     </div>
                 </mat-step>
-                <mat-step
-                    [stepControl]="eventDateTimeAndLocationForm"
-                    label="Data i miejsce">
-                    <div formGroupName="eventDateTimeAndLocation">
+                <mat-step [stepControl]="eventDetails" label="Szczegóły">
+                    <div formGroupName="eventDetails">
+                        <mat-form-field>
+                            <mat-label>Tytuł</mat-label>
+                            <input
+                                matInput
+                                formControlName="eventName" /> </mat-form-field
+                        ><mat-form-field>
+                            <mat-label>Opis</mat-label>
+                            <input
+                                matInput
+                                formControlName="eventDescription" />
+                        </mat-form-field>
                         <div>
+                            <mat-label>Data i godzina rozpoczęcia</mat-label>
+                            <input
+                                type="datetime-local"
+                                formControlName="eventDateTimeFrom" />
+                        </div>
+                        <div>
+                            <mat-label>Data i godzina zakończenia</mat-label>
+                            <input
+                                type="datetime-local"
+                                formControlName="eventDateTimeTo" />
+                        </div>
+                        <mat-form-field>
+                            <mat-label>Lokalizacja</mat-label>
+                            <input matInput formControlName="eventLocation" />
+                        </mat-form-field>
+                        <div class="mat-step-nav-buttons">
                             <button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperPrevious>
+                                matStepperPrevious
+                                type="button">
                                 Poprzedni krok</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperNext>
+                                matStepperNext
+                                type="button">
                                 Dalej
                             </button>
                         </div>
                     </div> </mat-step
                 ><mat-step
-                    [stepControl]="eventDateTimeAndLocationForm"
-                    label="Data i miejsce">
-                    <div formGroupName="eventDateTimeAndLocation">
-                        <div>
+                    [stepControl]="eventAdditionalInfo"
+                    [optional]="true"
+                    label="Dodatkowe informacje">
+                    <div formGroupName="eventAdditionalInfo">
+                        <mat-form-field>
+                            <mat-label>Hashtags</mat-label>
+                            <input matInput formControlName="eventHashtags" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Kategoria</mat-label>
+                            <input matInput formControlName="eventCategory" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Główny obraz</mat-label>
+                            <input matInput formControlName="eventPhoto" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Tło karty</mat-label>
+                            <input matInput formControlName="eventCardBg" />
+                        </mat-form-field>
+                        <div class="mat-step-nav-buttons">
                             <button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperPrevious>
+                                matStepperPrevious
+                                type="button">
                                 Poprzedni krok</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperNext>
+                                matStepperNext
+                                type="button">
                                 Dalej
                             </button>
                         </div>
                     </div> </mat-step
-                ><mat-step
-                    [stepControl]="eventDateTimeAndLocationForm"
-                    label="Data i miejsce">
-                    <div formGroupName="eventDateTimeAndLocation">
-                        <div>
+                ><mat-step label="Podusmowanie">
+                    <div>
+                        <div class="mat-step-nav-buttons">
                             <button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperPrevious>
+                                matStepperPrevious
+                                type="button">
                                 Poprzedni krok</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
-                                matStepperNext>
-                                Dalej
+                                matStepperNext
+                                type="submit">
+                                Utwórz
                             </button>
                         </div>
                     </div>

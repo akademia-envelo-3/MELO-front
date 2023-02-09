@@ -33,3 +33,8 @@ div:has(> .btn-step-one) {
     line-height: 1.3;
   }
 }
+
+.mat-step-nav-buttons {
+  display: flex;
+  justify-content: space-between;
+}
