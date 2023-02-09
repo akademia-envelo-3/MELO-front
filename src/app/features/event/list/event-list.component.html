@@ -1,8 +1,10 @@
 <section class="card-list bg-gradient-neutral-3">
-    <app-event-card
-        *ngFor="let number of cardQuantity"
-        class="card"
-        [size]="'md'"
-        [card]="this.cardExample">
-    </app-event-card>
+    <ng-container *ngIf="vm$ | async as cardList">
+        <app-event-card
+            *ngFor="let card of cardList"
+            class="card"
+            [size]="'md'"
+            [card]="card">
+        </app-event-card>
+    </ng-container>
 </section>

@@ -6,11 +6,14 @@ import { NavbarComponent, SideMenuComponent } from '../ui';
   selector: 'app-home',
   standalone: true,
   template: `
-    <div class="container">
+    <!-- <div class="container">
       <app-navbar class="navbar" [notifications]="99"></app-navbar>
       <app-side-menu class="side-menu"></app-side-menu>
       <div class="content"><router-outlet></router-outlet></div>
-    </div>
+    </div> -->
+    <app-navbar [notifications]="99"></app-navbar>
+    <app-side-menu></app-side-menu>
+    <div class="container"><router-outlet></router-outlet></div>
   `,
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

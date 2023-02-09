@@ -16,6 +16,10 @@ export class CardComponent implements OnInit {
     return `card--${this.size}`;
   }
 
+  get themeUrl() {
+    return `assets/cards/card-${this.card.theme}.webp`;
+  }
+
   get themeColor() {
     return `card--${this.card?.theme}`;
   }

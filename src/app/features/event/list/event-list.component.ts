@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { EventCardDTO } from '..';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { EventApiService, EventCardDTO } from '..';
 
 @Component({
   selector: 'app-event-list',
@@ -19,4 +19,8 @@ export class EventListComponent {
     theme: 'purple',
     memberLimit: 50,
   };
+
+  private eventAPiService = inject(EventApiService);
+
+  vm$ = this.eventAPiService.fetchEventList();
 }
