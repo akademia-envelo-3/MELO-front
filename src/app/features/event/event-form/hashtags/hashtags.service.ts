@@ -5,15 +5,15 @@ import {
   MatAutocompleteTrigger,
 } from '@angular/material/autocomplete';
 import { MatChipInputEvent, MatChipEditedEvent } from '@angular/material/chips';
-import { SnackBarService } from '@shared/services/snack-bar.service';
+import { SnackBarService } from '@shared/services';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HashtagsService {
   private snackBarService = inject(SnackBarService);
-  private maxChars = 50;
-  private maxHashtagCount = 100;
+  private readonly MAX_CHARS = 50;
+  private readonly MAX_HASHTAG_COUNT = 100;
   private addedHashtags: string[] = [];
   private allHashtags: string[] = [
     'Impreza',
@@ -31,7 +31,7 @@ export class HashtagsService {
   ];
 
   get maxCharsValue() {
-    return this.maxChars;
+    return this.MAX_CHARS;
   }
   get addedHashtagsValue() {
     return this.addedHashtags;
@@ -45,12 +45,12 @@ export class HashtagsService {
     hashtagCtrl: FormControl,
     auto: MatAutocompleteTrigger
   ): void {
-    if (this.addedHashtags.length >= this.maxHashtagCount) {
+    if (this.addedHashtags.length >= this.MAX_HASHTAG_COUNT) {
       this.maxHashtagCountInfo();
     } else {
-      const hashtagStr = (event.value || '').trim().slice(0, this.maxChars);
+      const hashtagStr = (event.value || '').trim().slice(0, this.MAX_CHARS);
 
-      if (hashtagStr.length >= this.maxChars) {
+      if (hashtagStr.length >= this.MAX_CHARS) {
         this.maxCharsInfo();
       }
       // Add hashtag
@@ -72,7 +72,7 @@ export class HashtagsService {
     hashtagInput: ElementRef<HTMLInputElement>,
     hashtagCtrl: FormControl
   ): void {
-    if (this.addedHashtags.length >= this.maxHashtagCount) {
+    if (this.addedHashtags.length >= this.MAX_HASHTAG_COUNT) {
       this.maxHashtagCountInfo();
     } else {
       const hashtagStr = event.option.viewValue;
@@ -97,8 +97,8 @@ export class HashtagsService {
     // Edit existing hashtags
     const index = this.addedHashtags.indexOf(hashtag);
     if (index >= 0 && !this.addedHashtags.includes(hashtagStr)) {
-      if (hashtagStr.length > this.maxChars) this.maxCharsInfo();
-      this.addedHashtags[index] = hashtagStr.slice(0, this.maxChars);
+      if (hashtagStr.length > this.MAX_CHARS) this.maxCharsInfo();
+      this.addedHashtags[index] = hashtagStr.slice(0, this.MAX_CHARS);
     } else {
       this.hashtagAlreadyAddedInfo(hashtagStr);
     }
@@ -120,10 +120,10 @@ export class HashtagsService {
   }
   private maxHashtagCountInfo() {
     this.snackBarService.openSnackBar(
-      `Maksymalna liczba hashtagów to ${this.maxHashtagCount}`
+      `Maksymalna liczba hashtagów to ${this.MAX_HASHTAG_COUNT}`
     );
   }
   private maxCharsInfo() {
-    this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.maxChars}`);
+    this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.MAX_CHARS}`);
   }
 }

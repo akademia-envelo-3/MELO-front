@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
-import { EventFormComponent } from './event-form/event-form.component';
-import { EventsComponent } from './events.component';
-import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,10 +9,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CardComponent } from '.';
-import { EventsThemeComponent } from './event-form/event-form-theme.component';
-import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
+import {
+  CardComponent,
+  EventFormComponent,
+  EventsComponent,
+  EventsThemeComponent,
+  HashtagsComponent,
+} from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
+import { HighlightPipe } from '@shared/pipes';
 
 @NgModule({
   declarations: [

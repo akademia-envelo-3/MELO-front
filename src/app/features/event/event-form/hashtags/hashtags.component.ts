@@ -8,7 +8,7 @@ import {
 } from '@angular/material/autocomplete';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
-import { map, skip, startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { HashtagsService } from './hashtags.service';
 
