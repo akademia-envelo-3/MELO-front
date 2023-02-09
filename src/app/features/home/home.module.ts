@@ -16,6 +16,10 @@ import ThemeComponent from '../../core/theme.component';
             component: ThemeComponent,
             children: [],
           },
+          {
+            path: 'units',
+            loadChildren: () => import('../unit/unit.module'),
+          },
         ],
       },
     ]),

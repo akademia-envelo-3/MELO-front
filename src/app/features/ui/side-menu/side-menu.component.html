@@ -22,13 +22,13 @@
                     <img
                         class="icon"
                         src="../../../../assets/side-menu-icons/exit.svg"
-                        alt="" />
+                        alt="wyloguj" />
                 </button>
             </div>
             <div class="side-menu-container__leftBottom">
                 <div
-                    class="side-menu-category"
-                    *ngFor="let category of sideMenuState.menuCategories">
+                    *ngFor="let category of sideMenuState.menuCategories"
+                    class="side-menu-category">
                     <button
                         class="side-menu-category"
                         [ngClass]="{
@@ -49,6 +49,7 @@
                             [src]="category.categoryIcon"
                             [alt]="category.categoryName" />
                         <div
+                            class="mobileMenuContainer"
                             #mobileMenuTrigger="matMenuTrigger"
                             [matMenuTriggerFor]="appMenu"></div>
                     </button>
@@ -59,7 +60,7 @@
 
     <!-- Desktop side menu -->
     <div
-        class="side-menu-container__right display-side-menu-desktop bg-gradient-primary-2 text-h4"
+        class="side-menu-container__right display-side-menu-desktop bg-gradient-primary-2"
         [ngClass]="{
             ' menu-visible ': sideMenuState.isDesktopMenuVisible,
             ' transition ':
@@ -74,8 +75,9 @@
                 ">
                 <a
                     [routerLink]="subCategory.href"
-                    routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active"
+                    class="text-h4"
                     (click)="closeMenu()">
                     {{ subCategory.subCategoryName | titlecase }}
                 </a>
