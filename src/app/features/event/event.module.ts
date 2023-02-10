@@ -7,12 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CardComponent, EventFormComponent, EventsComponent } from '.';
-import { noProductionGuard } from '@shared/no-production.guard';
 
 @NgModule({
   declarations: [EventsComponent, CardComponent, PowerIconComponent, EventFormComponent],
@@ -21,8 +18,6 @@ import { noProductionGuard } from '@shared/no-production.guard';
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatChipsModule,
-    MatAutocompleteModule,
     MatRadioModule,
     MatStepperModule,
     ReactiveFormsModule,
