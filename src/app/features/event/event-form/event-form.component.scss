@@ -5,14 +5,6 @@
   display: block;
 }
 
-// div:has(> .btn-step-one) {
-//   display: flex;
-//   justify-content: center;
-//   @include br.media-md {
-//     justify-content: flex-end;
-//   }
-// }
-
 .btn-step-one {
   margin: 1rem;
 }
@@ -35,21 +27,11 @@
 }
 
 .mat-step-nav-buttons {
-  // position: absolute;
-  // bottom: 0;
-  // background-color: #cfcfcf;
-  // width: 101vw;
-  // min-height: 50px;
-  // display: flex;
-  // justify-content: flex-end;
-
-  // @include br.media-md {
   position: relative;
   background-color: transparent;
   width: auto;
   display: flex;
   justify-content: space-between;
-  // }
 
   &--one-button {
     display: flex;

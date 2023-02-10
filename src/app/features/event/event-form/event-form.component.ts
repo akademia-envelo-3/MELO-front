@@ -23,7 +23,7 @@ export class EventFormComponent {
       eventAccessType: this.builder.control('Publiczne', Validators.required),
       eventScopeType: this.builder.control('Wewnętrzne', Validators.required),
       eventLimitType: this.builder.control('Nielimitowane', Validators.required),
-      eventRepeatType: this.builder.control('Nielimitowane', Validators.required),
+      eventRepeatType: this.builder.control('Jednorazowe', Validators.required),
     }),
     eventDetails: this.builder.group({
       eventName: this.builder.control('', Validators.required),
