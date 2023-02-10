@@ -45,23 +45,10 @@ export class HashtagsService {
     hashtagCtrl: FormControl,
     auto: MatAutocompleteTrigger
   ): void {
-    if (this.addedHashtags.length >= this.MAX_HASHTAG_COUNT) {
-      this.maxHashtagCountInfo();
-    } else {
-      const hashtagStr = (event.value || '').trim().slice(0, this.MAX_CHARS);
+    const hashtagStr = (event.value || '').trim().slice(0, this.MAX_CHARS);
 
-      if (hashtagStr.length >= this.MAX_CHARS) {
-        this.maxCharsInfo();
-      }
-      // Add hashtag
-      if (hashtagStr && !this.addedHashtags.includes(hashtagStr) && !auto.activeOption) {
-        this.addedHashtags.push(hashtagStr);
-      } else if (this.addedHashtags.includes(hashtagStr)) {
-        this.hashtagAlreadyAddedInfo(hashtagStr);
-      }
-
-      // Clear the input value
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    if (this.checkAddErrors(hashtagStr, auto)) {
+      this.addedHashtags.push(hashtagStr);
       event.chipInput!.clear();
       hashtagCtrl.setValue('');
     }
@@ -72,22 +59,18 @@ export class HashtagsService {
     hashtagInput: ElementRef<HTMLInputElement>,
     hashtagCtrl: FormControl
   ): void {
-    if (this.addedHashtags.length >= this.MAX_HASHTAG_COUNT) {
-      this.maxHashtagCountInfo();
-    } else {
-      const hashtagStr = event.option.viewValue;
-      if (this.addedHashtags.includes(hashtagStr)) {
-        this.hashtagAlreadyAddedInfo(hashtagStr);
-      } else {
-        hashtagInput.nativeElement.value = '';
-        hashtagCtrl.setValue('');
-        this.addedHashtags.push(hashtagStr);
-      }
+    const hashtagStr = event.option.viewValue;
+
+    if (this.checkAddErrors(hashtagStr)) {
+      hashtagInput.nativeElement.value = '';
+      hashtagCtrl.setValue('');
+      this.addedHashtags.push(hashtagStr);
     }
   }
 
   edit(hashtag: string, event: MatChipEditedEvent, auto: MatAutocompleteTrigger) {
     const hashtagStr = event.value.trim();
+    const index = this.addedHashtags.indexOf(hashtag);
 
     if (!hashtagStr) {
       this.remove(hashtag, auto);
@@ -95,12 +78,8 @@ export class HashtagsService {
     }
 
     // Edit existing hashtags
-    const index = this.addedHashtags.indexOf(hashtag);
-    if (index >= 0 && !this.addedHashtags.includes(hashtagStr)) {
-      if (hashtagStr.length > this.MAX_CHARS) this.maxCharsInfo();
+    if (this.checkEditErrors(index, hashtagStr)) {
       this.addedHashtags[index] = hashtagStr.slice(0, this.MAX_CHARS);
-    } else {
-      this.hashtagAlreadyAddedInfo(hashtagStr);
     }
   }
 
@@ -111,6 +90,50 @@ export class HashtagsService {
       this.addedHashtags.splice(index, 1);
     }
     auto.closePanel();
+  }
+
+  private checkAddErrors(hashtagStr: string, auto?: MatAutocompleteTrigger) {
+    if (this.exceedsMaxHashtagCount(this.addedHashtags)) {
+      this.maxHashtagCountInfo();
+      return false;
+    } else if (this.alreadyAdded(hashtagStr)) {
+      this.hashtagAlreadyAddedInfo(hashtagStr);
+      return false;
+    } else if (auto && auto.activeOption) {
+      return false;
+    } else if (!hashtagStr) {
+      return false;
+    } else if (this.exceedsMaxChars(hashtagStr)) {
+      this.maxCharsInfo();
+      return true;
+    } else {
+      return true;
+    }
+  }
+
+  private checkEditErrors(index: number, hashtagStr: string) {
+    if (index <= 0) {
+      return false;
+    } else if (this.alreadyAdded(hashtagStr)) {
+      this.hashtagAlreadyAddedInfo(hashtagStr);
+      return false;
+    } else if (this.exceedsMaxChars(hashtagStr)) {
+      this.maxCharsInfo();
+      return true;
+    } else {
+      return true;
+    }
+  }
+
+  private exceedsMaxHashtagCount(hashtagList: string[]) {
+    return hashtagList.length >= this.MAX_HASHTAG_COUNT;
+  }
+  private exceedsMaxChars(hashtagStr: string) {
+    return hashtagStr.length >= this.MAX_CHARS;
+  }
+
+  private alreadyAdded(hashtagStr: string) {
+    return this.addedHashtags.includes(hashtagStr);
   }
 
   private hashtagAlreadyAddedInfo(hashtagStr: string) {

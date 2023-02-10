@@ -17,7 +17,7 @@ import {
   HashtagsComponent,
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { HighlightPipe } from '@shared/pipes';
+import { HighlightPipe } from '@shared/pipes/highlightPipe';
 
 @NgModule({
   declarations: [
