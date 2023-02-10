@@ -11,22 +11,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
-import {
-  CardComponent,
-  EventFormComponent,
-  EventsComponent,
-  EventsThemeComponent,
-} from '.';
+import { CardComponent, EventFormComponent, EventsComponent } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
 
 @NgModule({
-  declarations: [
-    EventsThemeComponent,
-    EventsComponent,
-    CardComponent,
-    PowerIconComponent,
-    EventFormComponent,
-  ],
+  declarations: [EventsComponent, CardComponent, PowerIconComponent, EventFormComponent],
   imports: [
     MatInputModule,
     MatButtonModule,
@@ -46,11 +35,6 @@ import { noProductionGuard } from '@shared/no-production.guard';
       {
         path: 'new-event',
         component: EventFormComponent,
-      },
-      {
-        path: 'theme',
-        canMatch: [noProductionGuard],
-        component: EventsThemeComponent,
       },
     ]),
   ],
