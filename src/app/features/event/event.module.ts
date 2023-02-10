@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
-import { EventFormComponent } from './event-form/event-form.component';
-import { EventsComponent } from './events.component';
-import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,24 +11,26 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
-import { CardComponent } from '.';
-import { EventFormThemeComponent } from './event-form/event-form-theme.component';
-import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
+import {
+  CardComponent,
+  EventFormComponent,
+  EventsComponent,
+  EventsThemeComponent,
+} from '.';
+import { noProductionGuard } from '@shared/no-production.guard';
 
 @NgModule({
   declarations: [
-    EventFormComponent,
+    EventsThemeComponent,
     EventsComponent,
-    HashtagsComponent,
     CardComponent,
     PowerIconComponent,
-    EventFormThemeComponent,
+    EventFormComponent,
   ],
   imports: [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
     MatAutocompleteModule,
@@ -39,7 +38,6 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
     MatStepperModule,
     ReactiveFormsModule,
     CommonModule,
-    HighlightPipe,
     RouterModule.forChild([
       {
         path: '',
@@ -50,8 +48,9 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
         component: EventFormComponent,
       },
       {
-        path: 'new-event-theme',
-        component: EventFormThemeComponent,
+        path: 'theme',
+        canMatch: [noProductionGuard],
+        component: EventsThemeComponent,
       },
     ]),
   ],
