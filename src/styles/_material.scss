@@ -96,6 +96,9 @@ $app-name-theme: mat.define-light-theme(
     }
   }
 
+  .mat-horizontal-stepper-header .mat-step-icon {
+    margin-right: 0;
+  }
   .mat-horizontal-stepper-header-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
