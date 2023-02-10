@@ -3,7 +3,7 @@
         Utwórz nowe wydarzenie
     </h1>
 
-    <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="newEventForm">
         <mat-stepper [linear]="true" animationDuration="0ms" #stepper>
             <div class="bg-gradient-neutral-3">
                 <mat-step [stepControl]="eventTypeForm">
@@ -55,7 +55,8 @@
                                 >Cykliczne</mat-radio-button
                             >
                         </mat-radio-group>
-                        <div>
+                        <div
+                            class="mat-step-nav-buttons mat-step-nav-buttons--one-button">
                             <button
                                 class="btn-rect btn-rect--sm btn-default btn-step-one"
                                 matStepperNext
@@ -65,7 +66,10 @@
                         </div>
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="eventDetails" label="Szczegóły">
+                <mat-step
+                    [stepControl]="eventDetails"
+                    label="Szczegóły"
+                    errorMessage="Krok wymagany">
                     <div formGroupName="eventDetails">
                         <mat-form-field>
                             <mat-label>Tytuł</mat-label>
@@ -99,7 +103,7 @@
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperPrevious
                                 type="button">
-                                Poprzedni krok</button
+                                Wstecz</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperNext
@@ -110,7 +114,6 @@
                     </div> </mat-step
                 ><mat-step
                     [stepControl]="eventAdditionalInfo"
-                    [optional]="true"
                     label="Dodatkowe informacje">
                     <div formGroupName="eventAdditionalInfo">
                         <mat-form-field>
@@ -134,7 +137,7 @@
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperPrevious
                                 type="button">
-                                Poprzedni krok</button
+                                Wstecz</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperNext
@@ -143,14 +146,14 @@
                             </button>
                         </div>
                     </div> </mat-step
-                ><mat-step label="Podusmowanie">
+                ><mat-step label="Podsumowanie">
                     <div>
                         <div class="mat-step-nav-buttons">
                             <button
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperPrevious
                                 type="button">
-                                Poprzedni krok</button
+                                Wstecz</button
                             ><button
                                 class="btn-rect btn-rect--sm btn-default"
                                 matStepperNext

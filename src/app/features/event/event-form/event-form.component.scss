@@ -5,20 +5,20 @@
   display: block;
 }
 
-div:has(> .btn-step-one) {
-  display: flex;
-  justify-content: center;
-  @include br.media-md {
-    justify-content: flex-end;
-  }
-}
+// div:has(> .btn-step-one) {
+//   display: flex;
+//   justify-content: center;
+//   @include br.media-md {
+//     justify-content: flex-end;
+//   }
+// }
 
 .btn-step-one {
-  margin-top: 1rem;
+  margin: 1rem;
 }
 .event-form-container {
   padding-top: 4rem;
-  display: grid;
+  display: flex;
   align-items: center;
   flex-direction: column;
   padding: clamp(21px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
@@ -35,6 +35,27 @@ div:has(> .btn-step-one) {
 }
 
 .mat-step-nav-buttons {
+  // position: absolute;
+  // bottom: 0;
+  // background-color: #cfcfcf;
+  // width: 101vw;
+  // min-height: 50px;
+  // display: flex;
+  // justify-content: flex-end;
+
+  // @include br.media-md {
+  position: relative;
+  background-color: transparent;
+  width: auto;
   display: flex;
   justify-content: space-between;
+  // }
+
+  &--one-button {
+    display: flex;
+    justify-content: center;
+    @include br.media-md {
+      justify-content: flex-end;
+    }
+  }
 }

@@ -1,10 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-event-form',
   templateUrl: 'event-form.component.html',
   styleUrls: ['event-form.component.scss'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true },
+    },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventFormComponent {
@@ -42,9 +49,5 @@ export class EventFormComponent {
   }
   get eventAdditionalInfo() {
     return this.newEventForm.get('eventAdditionalInfo') as FormGroup;
-  }
-
-  onSubmit() {
-    console.log(this.newEventForm.value);
   }
 }
