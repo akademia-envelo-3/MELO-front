@@ -18,12 +18,13 @@ export class EventDropdownComponent {
   protected toggleFilterRadio(input: HTMLInputElement) {
     this.state = { ...this.state, [input.name]: input.value };
     this.newMenuState.emit(this.state);
+
     return (input.checked = !input.checked);
   }
   protected toggleSortRadio(input: HTMLInputElement) {
     const adjustedKey = `${input.id.split('-')[0]}Sort`;
-
     this.state = { ...this.state, [adjustedKey]: input.value };
+
     this.newMenuState.emit(this.state);
   }
 }

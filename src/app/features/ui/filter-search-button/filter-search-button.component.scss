@@ -49,40 +49,39 @@
     &__holder {
       all: unset;
       padding: 3.2px 0;
-      text-align: left;
-      color: st.$neutral-600;
+      position: relative;
+      cursor: pointer;
 
       label {
-        width: 80%;
+        pointer-events: none;
         display: inline-block;
-        cursor: pointer;
-      }
-
-      // &:not(:has(.dropdown__filtr-option:checked)):focus > label {
-      //   color: st.$neutral-100;
-      //   text-decoration: underline;
-      // }
-
-      &:has(.dropdown__filtr-option:checked) {
-        color: st.$neutral-100;
-        display: inline-block;
-      }
-      &:has(.dropdown__filtr-option:checked)::after {
-        content: '\0078';
-        color: st.$neutral-100;
-        cursor: pointer;
-      }
-
-      &:has(.dropdown__sort-option:checked) {
-        color: st.$neutral-100;
-        display: inline-block;
+        color: st.$neutral-600;
       }
     }
   }
+
+  &__sort-option ~ label {
+    width: 100%;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
   &__filtr-option,
   &__sort-option {
-    border: none;
-    display: none;
+    all: unset;
+  }
+
+  &__filtr-option:checked ~ label,
+  &__sort-option:checked ~ label {
+    color: st.$neutral-100;
+  }
+
+  &__filtr-option:checked:after {
+    content: '\0078';
+    color: st.$neutral-100;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
   }
 }
 

@@ -2,8 +2,8 @@
     <div class="dropdown__section">
         <p class="text-body">DATA UTWORZENIA</p>
         <button
-            (click)="toggleFilterRadio(creationDateToday)"
-            class="dropdown__section__holder">
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(creationDateToday)">
             <input
                 #creationDateToday
                 name="creationDate"
@@ -23,7 +23,6 @@
                 value="{{ creationDateWeek.checked ? 'Ten tydzień' : '' }}"
                 id="creation-date-week"
                 class="dropdown__filtr-option" />
-
             <label for="creation-date-week">Ten tydzień</label>
         </button>
         <button
