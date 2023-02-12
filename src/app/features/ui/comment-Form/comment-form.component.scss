@@ -1,0 +1,13 @@
+// temporary css
+
+@media (max-width: 500px) {
+    textarea {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 500px) {
+    textarea {
+        font-size: 16px;
+    }
+}

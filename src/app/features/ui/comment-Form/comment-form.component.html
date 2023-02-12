@@ -1,0 +1,8 @@
+<form>
+    <textarea [(ngModel)]="commentText" name="comment"></textarea>
+    <input type="file" (change)="attachFile($event)" />
+    <button type="submit" (click)="submitComment()">Submit</button>
+</form>
+<img
+    *ngIf="attachedFile && attachedFile.type.startsWith('image/')"
+    [src]="createImageUrl()" />
