@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { EventApiService, EventCardDTO } from '..';
+import { EventApiService } from '..';
 
 @Component({
   selector: 'app-event-list',
@@ -8,19 +8,14 @@ import { EventApiService, EventCardDTO } from '..';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventListComponent {
-  cardQuantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  cardExample: EventCardDTO = {
-    eventId: 1,
-    name: 'Event Title',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
-    startTime: new Date(),
-    invitedMembersNumber: 10,
-    mainPhoto: 'assets/mock/beers.png',
-    theme: 'purple',
-    memberLimit: 50,
-  };
-
   private eventAPiService = inject(EventApiService);
+
+  get cardSize() {
+    if (window.innerWidth > 400) {
+      return 'md';
+    }
+    return 'sm';
+  }
 
   vm$ = this.eventAPiService.fetchEventList();
 }

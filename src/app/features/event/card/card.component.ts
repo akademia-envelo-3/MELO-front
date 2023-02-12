@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   @Input() url = 'assets/cards/card-purple.webp';
   @Input() card!: EventCardDTO;
   @Input() size: 'sm' | 'md' = 'md';
+
   iconTheme: ThemeOptions = 'primary';
   get cardSize() {
     return `card--${this.size}`;

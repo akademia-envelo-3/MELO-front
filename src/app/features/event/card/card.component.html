@@ -25,7 +25,9 @@
         </div>
     </div>
     <div class="card__line"></div>
-    <button class="btn-rect btn-default btn-rect--sm card__button">
+    <a
+        [routerLink]="['/events', card.eventId]"
+        class="btn-rect btn-default btn-rect--sm card__button">
         Więcej
-    </button>
+    </a>
 </div>

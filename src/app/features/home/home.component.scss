@@ -1,15 +1,9 @@
-.container {
-  // max-width: 100vw;
-  // overflow-y: hidden;
-  padding-left: 110px;
-  // display: grid;
-  // grid-template-columns: 100px calc(100vw - 120px);
-  // // grid-template-rows: 110px 1fr;
+@use './src/styles/breakpoints' as breakpoints;
 
-  // .side-menu {
-  //   grid-column: 1/2;
-  // }
-  // .content {
-  //   grid-column: 2/3;
-  // }
+.container {
+  padding-left: 0;
+
+  @include breakpoints.media-md {
+    padding-left: 110px;
+  }
 }
