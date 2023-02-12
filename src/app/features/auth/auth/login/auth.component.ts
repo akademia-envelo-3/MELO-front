@@ -43,9 +43,6 @@ export class AuthComponent {
   get passwordCtrl() {
     return this.form.controls.password;
   }
-  getEmailSuccessMessage() {
-    return 'great!';
-  }
 
   getEmailErrorMessage() {
     if (this.emailCtrl.hasError('required')) {

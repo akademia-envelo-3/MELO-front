@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { UserActions } from '@core/store/user';
 import { Store } from '@ngrx/store';
 import { ENDPOINTS } from '@shared/constants';
-import { useNavigate } from '@shared/inject-hooks';
+import { useNavigate } from '@shared/inject-hooks/use-navigate.hook';
 
 import { BehaviorSubject } from 'rxjs';
 import { AppState } from 'src/app/app.module';
@@ -23,7 +23,7 @@ export class AuthService {
   private store = inject<Store<AppState>>(Store);
 
   autoLogin() {
-    if (this.isSessionPeristenceDenied()) return;
+    if (this.isSessionPersistenceDenied()) return;
     this.http
       .get<UserDto>(`${ENDPOINTS.CURRENT_USER}`)
       .subscribe(userDto => this.setAuthAndUserState(userDto));
@@ -59,7 +59,7 @@ export class AuthService {
     localStorage.setItem('rememberMe', `${rememberMe}`);
   }
 
-  private isSessionPeristenceDenied() {
+  private isSessionPersistenceDenied() {
     return !localStorage.getItem('rememberMe');
   }
 }
