@@ -17,8 +17,13 @@
         <div class="card__title" [class.text-body-big]="size === 'md'">
             {{ card.name | uppercase }}
         </div>
-        <div class="card__description" [class.text-body-small]="size === 'sm'">
+        <!-- <div class="card__description" [class.text-body-small]="size === 'sm'">
             <p>{{ card.description }}</p>
+        </div> -->
+        <div class="card__description" [class.text-body-small]="size === 'sm'">
+            <div #description class="card__description__inner">
+                <p>{{ card.description }}</p>
+            </div>
         </div>
         <div class="card__start-time" [class.text-body-big]="size === 'md'">
             {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
