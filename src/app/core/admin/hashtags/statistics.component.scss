@@ -1,0 +1,28 @@
+@use './src/styles/colors' as colors;
+@use './src/styles/typography' as typography;
+
+h1 {
+  @extend .text-h1;
+  text-align: center;
+  margin: 20px auto;
+}
+
+hr {
+  width: 75%;
+  border-color: black;
+}
+
+.statistics {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  &__table {
+    @extend .bg-gradient-neutral-3;
+    border-radius: 10px;
+    margin: 25px;
+  }
+}
+
+.spinner {
+  margin: 30px auto;
+}
