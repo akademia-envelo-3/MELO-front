@@ -24,6 +24,9 @@ import { HashtagsService } from './hashtags.service';
       input {
         min-height: 56px;
       }
+      .my-highlight-class {
+        font-weight: 700;
+      }
     `,
   ],
   providers: [HashtagsService],

@@ -18,6 +18,7 @@ import {
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { HighlightPipe } from '@shared/pipes/highlightPipe';
+import { HighlightDirective } from '@shared/directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HighlightPipe } from '@shared/pipes/highlightPipe';
     ReactiveFormsModule,
     CommonModule,
     HighlightPipe,
+    HighlightDirective,
     RouterModule.forChild([
       {
         path: '',
