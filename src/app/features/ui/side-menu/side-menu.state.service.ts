@@ -97,7 +97,7 @@ export class SideMenuStateService {
   private checkIfShouldToggleDesktopVisibility(nextSelectedCategoryName: string) {
     const { selectedCategory, isDesktopMenuVisible } = this.setupStateValue;
     const previousSelectedCategoryName = selectedCategory.categoryName;
-    if (
+    return (
       this.categoryWasChangedWhileMenuWasClosed(
         isDesktopMenuVisible,
         nextSelectedCategoryName,
@@ -108,11 +108,7 @@ export class SideMenuStateService {
         nextSelectedCategoryName
       ) ||
       this.firstTimeSelectingCategory(previousSelectedCategoryName)
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    );
   }
 
   private categoryWasChangedWhileMenuWasClosed(

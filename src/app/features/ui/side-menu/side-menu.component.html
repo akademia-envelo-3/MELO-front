@@ -5,11 +5,11 @@
         <div
             class="side-menu-container__left"
             [ngClass]="{
-                ' isClosed ':
+                ' is-closed ':
                     !sideMenuState.isDesktop &&
                     !sideMenuState.isMobileMenuActive
             }">
-            <div class="side-menu-container__leftTop">
+            <div class="side-menu-container__left-top">
                 <button
                     class="side-menu-category"
                     [ngClass]="{
@@ -27,7 +27,7 @@
                         alt="wyloguj" />
                 </button>
             </div>
-            <div class="side-menu-container__leftBottom">
+            <div class="side-menu-container__left-bottom">
                 <div
                     *ngFor="let category of sideMenuState.menuCategories"
                     class="side-menu-category">
@@ -51,7 +51,7 @@
                             [src]="category.categoryIcon"
                             [alt]="category.categoryName" />
                         <div
-                            class="mobileMenuContainer"
+                            class="mobile-menu-container"
                             #mobileMenuTrigger="matMenuTrigger"
                             [matMenuTriggerFor]="appMenu"></div>
                     </button>
