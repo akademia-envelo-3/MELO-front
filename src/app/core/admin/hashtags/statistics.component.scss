@@ -1,5 +1,6 @@
-@use './src/styles/colors' as colors;
-@use './src/styles/typography' as typography;
+@use './src/styles/colors';
+@use './src/styles/typography';
+@use './src/styles/breakpoints' as bp;
 
 h1 {
   @extend .text-h1;
@@ -8,21 +9,42 @@ h1 {
 }
 
 hr {
-  width: 75%;
+  width: 80%;
   border-color: black;
+  margin: 0 auto;
 }
 
 .statistics {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  &__table {
-    @extend .bg-gradient-neutral-3;
-    border-radius: 10px;
-    margin: 25px;
-  }
 }
 
 .spinner {
   margin: 30px auto;
+}
+
+.table {
+  @extend .text-body;
+  @extend .bg-gradient-neutral-3;
+  width: 100%;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.mat-column-quantity {
+  text-align: right !important;
+  font-weight: bold;
+}
+
+@include bp.media-md {
+  hr {
+    margin: 0;
+  }
+  .mat-column-no {
+    width: 25px;
+  }
+  .table {
+    width: 55%;
+  }
 }

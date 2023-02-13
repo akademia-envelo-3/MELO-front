@@ -19,6 +19,3 @@ import { AdminComponent } from './admin.component';
   ],
 })
 export default class AdminModule {}
-
-//hastags/stats
-//hastags/all

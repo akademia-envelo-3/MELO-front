@@ -70,17 +70,3 @@ $app-name-theme: mat.define-light-theme(
 .cdk-overlay-dark-backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
-
-/////// ADMIN HASHTAGS STATISTICS //////
-
-.mat-column-no {
-  width: 25px;
-}
-.mat-column-name {
-  width: 600px;
-}
-.mat-column-quantity {
-  width: 125px;
-  text-align: right !important;
-  font-weight: bold;
-}

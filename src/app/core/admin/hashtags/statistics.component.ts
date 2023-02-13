@@ -14,9 +14,9 @@ import { MatTableModule } from '@angular/material/table';
     <h1>Statystyki</h1>
     <hr />
     <div class="statistics">
-      <div [ngClass]="'statistics__table'">
-        <ng-container *ngIf="statistics | async as element; else loading">
-          <table mat-table [dataSource]="element" class="stats-tab">
+      <ng-container *ngIf="statistics | async as element; else loading">
+        <div class="table">
+          <table mat-table [dataSource]="element">
             <ng-container matColumnDef="no">
               <th mat-header-cell *matHeaderCellDef>No.</th>
               <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 + '.' }}</td>
@@ -28,22 +28,20 @@ import { MatTableModule } from '@angular/material/table';
             </ng-container>
 
             <ng-container matColumnDef="quantity">
-              <div class="table-quantity">
-                <th mat-header-cell *matHeaderCellDef>Liczba użyć</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.quantity }}
-                </td>
-              </div>
+              <th mat-header-cell *matHeaderCellDef>Liczba użyć</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.quantity }}
+              </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
-        </ng-container>
-        <ng-template #loading
-          ><app-spinner-dots class="spinner"></app-spinner-dots
-        ></ng-template>
-      </div>
+        </div>
+      </ng-container>
+      <ng-template #loading
+        ><app-spinner-dots class="spinner"></app-spinner-dots
+      ></ng-template>
     </div>
   `,
   styleUrls: ['statistics.component.scss'],
