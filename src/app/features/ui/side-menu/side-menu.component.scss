@@ -6,7 +6,7 @@
   height: calc(100vh - 52px);
   display: flex;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   // main side-menu categories
   &__left {
     @include mixins.gradient(0deg, colors.$bg-gradient-primary-1);

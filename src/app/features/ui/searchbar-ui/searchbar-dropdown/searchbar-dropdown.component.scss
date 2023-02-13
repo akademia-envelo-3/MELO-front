@@ -1,4 +1,5 @@
 @use './src/styles/colors' as colors;
+@use '/src/styles/breakpoints' as breakpoints;
 
 $background: colors.$primary-900;
 $border: colors.$primary-500;
@@ -14,6 +15,7 @@ $text: colors.$neutral-500;
   border-radius: 15px;
   padding: 12px;
   position: absolute;
+  top: 111px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -96,4 +98,10 @@ $text: colors.$neutral-500;
 .searchbar-dropdown__resultsListItem:hover {
   background-color: $background;
   filter: brightness(150%);
+}
+
+@include breakpoints.media-md {
+  .searchbar-dropdown {
+    top: initial;
+  }
 }
