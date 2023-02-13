@@ -25,6 +25,9 @@
   border-radius: 25px;
   padding: 2rem;
   margin: 2rem;
+  & > p {
+    padding-bottom: 2rem;
+  }
   &--inner {
     display: flex;
     gap: 20px;
