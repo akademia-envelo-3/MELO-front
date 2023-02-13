@@ -34,7 +34,6 @@ import { CustomHttpInterceptor } from './core';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-<<<<<<< HEAD
             path: 'units',
             loadChildren: () => import('./features/unit/unit.module'),
           },
@@ -43,8 +42,6 @@ import { CustomHttpInterceptor } from './core';
             loadChildren: () => import('./core/admin/admin.module'),
           },
           {
-=======
->>>>>>> eba9c2481c72cc8f230db4843dac864b1d29d668
             path: '**',
             loadComponent: () =>
               import('./shared/page-not-found/page-not-found.component'),
