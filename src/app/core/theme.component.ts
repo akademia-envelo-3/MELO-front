@@ -1,4 +1,3 @@
-import { SideMenuComponent } from './../features/ui/side-menu/side-menu.component';
 import { Component, inject } from '@angular/core';
 import {
   SpinnerDotsComponent,
@@ -8,16 +7,17 @@ import {
 } from '@shared/ui';
 import EventModule from '@features/event/event.module';
 import { NgClass } from '@angular/common';
-import { SearchbarComponent, SearchResult } from '@features/ui';
+import {
+  SearchbarComponent,
+  SearchResult,
+  FilterSearchButtonComponent,
+} from '@features/ui';
 import { EventCardDTO } from '@features/event';
 import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UnitCardDTO } from '@features/unit';
-import {
-  FilterSearchButtonComponent,
-  FiltrSortButtonOutput,
-} from '@features/ui/filter-search-button';
+import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
 
 @Component({
   selector: 'app-theme',
@@ -28,7 +28,6 @@ import {
     FormResultViewComponent,
     NgClass,
     UnitModule,
-    SideMenuComponent,
     SearchbarComponent,
     MatDialogModule,
     FilterSearchButtonComponent,

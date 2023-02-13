@@ -1,0 +1,96 @@
+:host div {
+  --base-size: 75px;
+  --color31: #1a5e6c;
+  --color32: #144555;
+  --color33: #154a59;
+  --color34: #1e6b79;
+  --color35: #32b5bb;
+  --color36: #195967;
+  --color37: #227a87;
+  --color38: #54b9b2;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+:host div mat-icon {
+  overflow: visible;
+}
+
+:host div .power-icon {
+  width: 90%;
+  height: 90%;
+  font-family: 'Eczar', 'sans-serif';
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+:host div .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.size--sm {
+  width: calc(var(--base-size) * 0.75);
+  height: calc(var(--base-size) * 0.75);
+  font-size: 1.2rem;
+}
+
+.size--sm .icon {
+  font-size: 1.9rem !important;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+.size--md {
+  width: calc(var(--base-size));
+  height: calc(var(--base-size));
+  font-size: 1.7rem;
+}
+
+.size--md .icon {
+  font-size: 2.4rem !important;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.size--lg {
+  width: calc(var(--base-size) * 1.25);
+  height: calc(var(--base-size) * 1.25);
+  font-size: 2.2rem;
+}
+
+.size--lg .icon {
+  font-size: 3rem !important;
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.theme--tertiary {
+  -webkit-box-shadow: 0 0 0 1px var(--color31), 0 0 0 2px var(--color32), 0 0 0 3px var(--color33), 0 0 0 4px var(--color34), 0 0 0 5px var(--color35), 0 0 0 6px var(--color36), 0 0 0 7px var(--color37), 0 0 0 8px var(--color38);
+          box-shadow: 0 0 0 1px var(--color31), 0 0 0 2px var(--color32), 0 0 0 3px var(--color33), 0 0 0 4px var(--color34), 0 0 0 5px var(--color35), 0 0 0 6px var(--color36), 0 0 0 7px var(--color37), 0 0 0 8px var(--color38);
+  background: linear-gradient(140.91deg, #092133 13.74%, #239195 50.82%, #091f31 87.13%);
+  color: #feffff;
+}
+/*# sourceMappingURL=unit-power-icon.css.map */

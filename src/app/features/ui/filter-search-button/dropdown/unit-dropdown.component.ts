@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 import { ClickOutsideDirective } from '@shared/directives/clickOutside.directive';
-import { UnitMenuState } from '../filter-seatch-button.interface';
+import { UnitMenuState } from '../filter-search-button.interface';
 
 @Component({
   selector: 'app-unit-dropdown-component',
