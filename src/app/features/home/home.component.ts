@@ -1,12 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent, SideMenuComponent } from '../ui';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet],
-  template: ` <router-outlet></router-outlet> `,
-  styles: [],
+  template: `
+    <app-navbar [notifications]="99"></app-navbar>
+    <app-side-menu></app-side-menu>
+    <div class="container"><router-outlet></router-outlet></div>
+  `,
+  styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, NavbarComponent, SideMenuComponent],
 })
 export class HomeComponent {}

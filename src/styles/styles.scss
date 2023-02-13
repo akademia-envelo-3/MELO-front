@@ -34,3 +34,9 @@ app-root {
   width: min(100vw, 1920px);
   margin-inline: auto;
 }
+
+.image-layout--center {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
