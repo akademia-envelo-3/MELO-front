@@ -7,11 +7,17 @@ $text: colors.$neutral-500;
 
 .searchbar-dropdown {
   min-height: 200px;
+  width: clamp(250px, 55vw, 640px);
   background-color: $background;
   color: $text;
   border: 1.15px solid $border;
   border-radius: 15px;
   padding: 12px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .searchbar-dropdown__filterMenu {

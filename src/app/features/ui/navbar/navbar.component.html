@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <img
+        (click)="navToHome()"
+        class="navbar__logoImg"
+        src="../assets/app-logo.png" />
+    <app-searchbar></app-searchbar>
+    <div class="navbar__bell">
+        <app-notifications-quantity
+            *ngIf="notifications"
+            class="navbar__bell__notification"
+            >{{ notifications }}</app-notifications-quantity
+        >
+    </div>
+    <div
+        class="navbar__hamburger"
+        [ngClass]="{ change: this.menuActive }"
+        (click)="toggleMenu()">
+        <div class="navbar__hamburger__bar1"></div>
+        <div class="navbar__hamburger__bar2"></div>
+        <div class="navbar__hamburger__bar3"></div>
+    </div>
+</nav>

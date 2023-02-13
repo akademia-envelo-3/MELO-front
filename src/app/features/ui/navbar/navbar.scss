@@ -19,6 +19,12 @@
   &__logoImg:hover {
     cursor: pointer;
   }
+  &__menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &__bell {
     margin-right: 1rem;
     position: absolute;
@@ -73,6 +79,7 @@
       height: calc(1.2 * 89px);
     }
     &__bell {
+      position: relative;
       height: 89px;
       width: 89px;
       right: 5%;
