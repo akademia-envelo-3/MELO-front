@@ -14,7 +14,10 @@ import UnitModule from '../features/unit/unit.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UnitCardDTO } from '@features/unit';
-import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
+import {
+  FilterSearchButtonComponent,
+  FiltrSortButtonOutput,
+} from '@features/ui/filter-search-button';
 
 @Component({
   selector: 'app-theme',
@@ -28,6 +31,7 @@ import { FiltrSortButtonOutput } from '@features/ui/filter-search-button';
     SideMenuComponent,
     SearchbarComponent,
     MatDialogModule,
+    FilterSearchButtonComponent,
   ],
   templateUrl: 'theme.component.html',
   styleUrls: ['theme.component.scss'],
