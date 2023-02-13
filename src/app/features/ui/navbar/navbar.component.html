@@ -13,7 +13,10 @@
     </div>
     <div
         class="navbar__hamburger"
-        [ngClass]="{ change: this.menuActive }"
+        [ngClass]="{
+            change: (sideMenuStateService.setupState$ | async)
+                ?.isMobileMenuActive
+        }"
         (click)="toggleMenu()">
         <div class="navbar__hamburger__bar1"></div>
         <div class="navbar__hamburger__bar2"></div>
