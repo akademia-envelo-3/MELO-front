@@ -17,5 +17,5 @@ export class EventListComponent {
     return 'sm';
   }
 
-  vm$ = this.eventAPiService.fetchEventList();
+  eventList$ = this.eventAPiService.fetchEventList();
 }

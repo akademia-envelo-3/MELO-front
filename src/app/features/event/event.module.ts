@@ -6,13 +6,6 @@ import { CardComponent, EventListComponent } from '.';
 import { PowerIconComponent } from './power-icon/power-icon.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: EventListComponent,
-  },
-];
-
 @NgModule({
   declarations: [CardComponent, PowerIconComponent, EventListComponent],
   imports: [
@@ -21,7 +14,12 @@ const routes: Routes = [
     DatePipe,
     UpperCasePipe,
     MatIconModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild([
+      {
+        path: '',
+        component: EventListComponent,
+      },
+    ]),
     CommonModule,
   ],
   exports: [CardComponent, PowerIconComponent],

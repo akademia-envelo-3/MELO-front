@@ -1,4 +1,3 @@
-import { SideMenuComponent } from './../features/ui/side-menu/side-menu.component';
 import { Component, inject } from '@angular/core';
 import {
   SpinnerDotsComponent,
@@ -24,7 +23,6 @@ import { UnitCardDTO } from '@features/unit';
     FormResultViewComponent,
     NgClass,
     UnitModule,
-    SideMenuComponent,
     SearchbarComponent,
     MatDialogModule,
   ],
