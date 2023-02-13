@@ -4,7 +4,7 @@ import { CommonModule, DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/c
 import { MatIconModule } from '@angular/material/icon';
 import { CardComponent, EventListComponent } from '.';
 import { PowerIconComponent } from './power-icon/power-icon.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [CardComponent, PowerIconComponent, EventListComponent],
