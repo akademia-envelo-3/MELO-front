@@ -1,4 +1,3 @@
-import { SideMenuStateService } from './../side-menu/side-menu.state.service';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf, NgClass } from '@angular/common';
@@ -18,7 +17,11 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
           >{{ notifications }}</app-notifications-quantity
         >
       </div>
-      <div class="navbar__hamburger" (click)="toggleMenu()">
+      <div
+        class="navbar__hamburger"
+        [ngClass]="{ change: this.menuActive }"
+        (click)="toggleMenu()"
+      >
         <div class="navbar__hamburger__bar1"></div>
         <div class="navbar__hamburger__bar2"></div>
         <div class="navbar__hamburger__bar3"></div>
