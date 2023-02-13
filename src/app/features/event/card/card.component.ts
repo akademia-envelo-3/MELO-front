@@ -4,7 +4,7 @@ import { EventCardDTO, ThemeOptions } from '..';
 @Component({
   selector: 'app-event-card[card]',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  styleUrls: ['./card.component.scss', './card.component.cards.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit {

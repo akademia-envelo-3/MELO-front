@@ -1,0 +1,152 @@
+@mixin margin-purple($height) {
+  margin: $height 22px 0 0;
+}
+@mixin margin-blue($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-white($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-brown($height) {
+  margin: $height 0 0 2px;
+}
+
+.card--white {
+  .card__power-icon {
+    transform: translate(-110px, -10px);
+  }
+  .card__main-photo {
+    @include margin-white(25px);
+  }
+  .card__info {
+    @include margin-white(10px);
+  }
+  .card__line {
+    @include margin-white(10px);
+  }
+  .card__button {
+    @include margin-white(15px);
+  }
+}
+.card--brown {
+  .card__power-icon {
+    transform: translate(-110px, -10px);
+  }
+  .card__main-photo {
+    @include margin-brown(30px);
+  }
+  .card__info {
+    @include margin-brown(10px);
+  }
+  .card__line {
+    @include margin-brown(10px);
+  }
+  .card__button {
+    @include margin-brown(15px);
+  }
+}
+.card--blue {
+  .card__power-icon {
+    transform: translate(-120px, 0px);
+  }
+  .card__main-photo {
+    @include margin-blue(40px);
+  }
+  .card__main-photo > img {
+    height: 95%;
+  }
+  .card__info {
+    @include margin-blue(1px);
+  }
+  .card__line {
+    margin: 0;
+    opacity: 0;
+  }
+  .card__button {
+    @include margin-blue(15px);
+  }
+}
+
+.card.card--sm {
+  height: 389px;
+  width: 310px;
+
+  .card__power-icon {
+    transform: translate(-90px, 0px);
+  }
+
+  .card__main-photo {
+    @include margin-purple(22px);
+  }
+  .card__info {
+    @include margin-purple(0px);
+  }
+
+  .card__info__description {
+    margin: 7px 0;
+  }
+  .card__main-photo > img {
+    height: 95%;
+  }
+  .btn-rect--sm {
+    font-size: 0.87rem;
+  }
+
+  .card__line {
+    @include margin-purple(-2px);
+  }
+  .card__button {
+    @include margin-purple(15px);
+  }
+}
+.card.card--brown.card--sm {
+  .card__power-icon {
+    transform: translate(-90px, -10px);
+  }
+  .card__main-photo {
+    @include margin-brown(20px);
+  }
+  .card__info {
+    @include margin-brown(0px);
+  }
+
+  .card__line {
+    @include margin-brown(5px);
+  }
+  .card__button {
+    @include margin-brown(20px);
+  }
+}
+
+.card.card--white.card--sm {
+  .card__power-icon {
+    transform: translate(-95px, -10px);
+  }
+  .card__info {
+    @include margin-white(5px);
+  }
+  .card__main-photo {
+    @include margin-white(15px);
+  }
+  .card__line {
+    @include margin-white(0px);
+  }
+  .card__button {
+    @include margin-white(15px);
+  }
+}
+
+.card.card--blue.card--sm {
+  .card__power-icon {
+    transform: translate(-95px, -5px);
+  }
+  .card__main-photo {
+    @include margin-blue(30px);
+  }
+  .card__info {
+    @include margin-blue(0px);
+  }
+  .card__button {
+    @include margin-blue(6px);
+  }
+}
