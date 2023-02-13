@@ -36,10 +36,6 @@ import { CustomHttpInterceptor } from './core';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: 'units',
-            loadChildren: () => import('./features/unit/unit.module'),
-          },
-          {
             path: '**',
             loadComponent: () =>
               import('./shared/page-not-found/page-not-found.component'),
