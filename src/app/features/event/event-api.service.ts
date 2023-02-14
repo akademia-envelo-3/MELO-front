@@ -3,7 +3,6 @@ import { inject, Injectable } from '@angular/core';
 import { ENDPOINTS } from '@shared/constants';
 
 import { EventCardDTO, EventDetailsDTO } from '.';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +14,7 @@ export class EventApiService {
   }
 
   fetchEventList() {
-    return this.http.get<EventCardDTO[]>(ENDPOINTS.event);
+    // limits sets maximum cards that returns from the request
+    return this.http.get<EventCardDTO[]>(`${ENDPOINTS.event}?_limit=12`);
   }
 }

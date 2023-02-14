@@ -1,0 +1,12 @@
+@mixin margin-purple($height) {
+  margin: $height 22px 0 0;
+}
+@mixin margin-blue($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-white($height) {
+  margin: $height 5px 0 0;
+}
+@mixin margin-brown($height) {
+  margin: $height 0 0 2px;
+}

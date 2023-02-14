@@ -30,6 +30,7 @@ app-root {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
   width: min(100vw, 1920px);
   margin-inline: auto;
