@@ -16,8 +16,9 @@ textarea {
   min-height: 200px;
 }
 
-.mat-mdc-form-field {
-  min-width: 200px;
+.mat-mdc-form-field.mat-mdc-form-field {
+  min-width: min(275px, 88vw);
+  width: 100%;
 }
 
 .mat-mdc-form-field-error.mat-mdc-form-field-error,
