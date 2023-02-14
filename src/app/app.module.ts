@@ -23,11 +23,11 @@ import { CustomHttpInterceptor } from './core';
       {
         path: '',
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
@@ -44,6 +44,7 @@ import { CustomHttpInterceptor } from './core';
           },
         ],
       },
+      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [
