@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  padding-top: clamp(22px, 4.3vw, 64px);
+}
+
+.pnf-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  padding: clamp(21px, 3.5vw, 80px) clamp(13px, 3.5vw, 160px);
+  width: clamp(280px, 80vw, 1130px);
+  margin-inline: auto;
+}
+
+.pnf-container__header {
+  margin-bottom: 2rem;
+}
+
+.pnf-container__text {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.pnf-container__img-container {
+  width: clamp(160px, 30vw, 380px);
+}
+
+.pnf-container__img-container img {
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+.pnf-container__redirect {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=page-not-found.css.map */

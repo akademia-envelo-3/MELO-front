@@ -52,5 +52,6 @@ import { HighlightPipe } from '../../shared/pipes/hihglightPipe';
     ]),
   ],
   exports: [CardComponent, PowerIconComponent],
+  providers: [EventApiService],
 })
 export default class EventModule {}

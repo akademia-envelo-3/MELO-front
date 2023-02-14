@@ -1,0 +1,8 @@
+@use './src/styles/breakpoints' as breakpoints;
+
+.container {
+  padding-left: 0;
+
+  @include breakpoints.media-md {
+    padding-left: 110px;
+  }
