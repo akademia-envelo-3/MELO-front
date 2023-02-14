@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, NgFor, NgIf, NgClass } from '@angular/common';
-import { Hashtag } from './hashtag.interface';
 import { HashtagApiService } from './hashtag-api.service';
-import { Observable } from 'rxjs';
 import { SpinnerDotsComponent } from '@shared/ui';
 import { MatTableModule } from '@angular/material/table';
 
@@ -48,7 +46,6 @@ import { MatTableModule } from '@angular/material/table';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class StatisticsComponent {
-  hashtags = inject(HashtagApiService);
-  statistics$: Observable<Hashtag[]> = this.hashtags.getHashtags();
+  statistics$ = inject(HashtagApiService).getHashtags();
   displayedColumns: string[] = ['no', 'name', 'quantity'];
 }
