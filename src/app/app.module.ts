@@ -34,10 +34,6 @@ import { CustomHttpInterceptor } from './core';
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: 'units',
-            loadChildren: () => import('./features/unit/unit.module'),
-          },
-          {
             path: 'admin',
             loadChildren: () => import('./core/admin/admin.module'),
           },
