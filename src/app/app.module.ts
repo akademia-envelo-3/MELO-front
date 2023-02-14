@@ -34,6 +34,10 @@ import { CustomHttpInterceptor } from './core';
             loadComponent: () => import('./core/theme.component'),
           },
           {
+            path: 'admin',
+            loadChildren: () => import('./core/admin/admin.module'),
+          },
+          {
             path: '**',
             loadComponent: () =>
               import('./shared/page-not-found/page-not-found.component'),
