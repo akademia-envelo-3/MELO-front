@@ -1,0 +1,60 @@
+.spinner {
+  margin: 0 0.3rem;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  -webkit-animation: bounce 1.3s infinite ease-in-out both;
+          animation: bounce 1.3s infinite ease-in-out both;
+}
+
+.spinner::before, .spinner::after {
+  content: '';
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  background-color: inherit;
+  display: inline-block;
+  position: absolute;
+  -webkit-animation: bounce 1.3s infinite ease-in-out both;
+          animation: bounce 1.3s infinite ease-in-out both;
+}
+
+.spinner::after {
+  -webkit-transform: translateX(56px);
+          transform: translateX(56px);
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+
+.spinner::before {
+  -webkit-transform: translateX(28px);
+          transform: translateX(28px);
+  -webkit-animation-delay: 0.19s;
+          animation-delay: 0.19s;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=spinner-dots.component.css.map */
