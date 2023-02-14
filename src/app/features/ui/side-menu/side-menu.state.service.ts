@@ -145,7 +145,7 @@ export class SideMenuStateService {
   }
 
   constructor() {
-    of({ role: 'employee' }).subscribe(user => {
+    of({ role: 'admin' }).subscribe(user => {
       if (user.role === 'employee') {
         this.patchState({ menuCategories: MENU_CATEGORIES_EMPLOYEE });
       } else if (user.role === 'admin') {
