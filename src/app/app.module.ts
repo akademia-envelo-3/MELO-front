@@ -28,7 +28,6 @@ import { CustomHttpInterceptor } from './core';
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-
           {
             path: 'theme',
             canMatch: [noProductionGuard],
