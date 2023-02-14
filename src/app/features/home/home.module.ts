@@ -11,6 +11,7 @@ import ThemeComponent from '../../core/theme.component';
         path: '',
         component: HomeComponent,
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: 'events',
             loadChildren: () => import('../event/event.module'),
