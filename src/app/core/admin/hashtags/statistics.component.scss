@@ -3,7 +3,6 @@
 @use './src/styles/breakpoints' as bp;
 
 h1 {
-  @extend .text-h1;
   text-align: center;
   margin: 20px auto;
 }
@@ -14,7 +13,7 @@ hr {
   margin: 0 auto;
 }
 
-.statistics {
+.statistics-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -25,7 +24,6 @@ hr {
 }
 
 .table {
-  @extend .text-body;
   @extend .bg-gradient-neutral-3;
   width: 100%;
   border-radius: 10px;

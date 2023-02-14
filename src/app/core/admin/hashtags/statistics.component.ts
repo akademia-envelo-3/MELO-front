@@ -11,12 +11,12 @@ import { MatTableModule } from '@angular/material/table';
   standalone: true,
   imports: [NgFor, NgIf, NgClass, AsyncPipe, SpinnerDotsComponent, MatTableModule],
   template: `
-    <h1>Statystyki</h1>
+    <h1 class="text-h1">Statystyki</h1>
     <hr />
-    <div class="statistics">
-      <ng-container *ngIf="statistics | async as element; else loading">
+    <div class="statistics-container">
+      <ng-container *ngIf="statistics$ | async as element; else loading">
         <div class="table">
-          <table mat-table [dataSource]="element">
+          <table mat-table [dataSource]="element" class="">
             <ng-container matColumnDef="no">
               <th mat-header-cell *matHeaderCellDef>No.</th>
               <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 + '.' }}</td>
@@ -49,6 +49,6 @@ import { MatTableModule } from '@angular/material/table';
 })
 export default class StatisticsComponent {
   hashtags = inject(HashtagApiService);
-  statistics: Observable<Hashtag[]> = this.hashtags.getHashtags();
+  statistics$: Observable<Hashtag[]> = this.hashtags.getHashtags();
   displayedColumns: string[] = ['no', 'name', 'quantity'];
 }
