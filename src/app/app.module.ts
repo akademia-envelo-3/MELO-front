@@ -23,6 +23,7 @@ import { CustomHttpInterceptor } from './core';
       {
         path: '',
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),
