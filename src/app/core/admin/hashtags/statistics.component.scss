@@ -7,9 +7,10 @@ h1 {
   margin: 20px auto;
 }
 
-hr {
+.line {
   width: 80%;
-  border-color: black;
+  height: 1px;
+  background-color: black;
   margin: 0 auto;
 }
 
@@ -39,7 +40,7 @@ hr {
 }
 
 @include bp.media-md {
-  hr {
+  .line {
     margin: 0;
   }
   .mat-column-no {

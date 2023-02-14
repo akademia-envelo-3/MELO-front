@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
   imports: [NgFor, NgIf, NgClass, AsyncPipe, SpinnerDotsComponent, MatTableModule],
   template: `
     <h1 class="text-h1">Statystyki</h1>
-    <hr />
+    <div class="line"></div>
     <div class="statistics-container">
       <ng-container *ngIf="statistics$ | async as element; else loading">
         <div class="table">
