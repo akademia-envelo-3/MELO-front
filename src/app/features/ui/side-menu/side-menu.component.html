@@ -35,8 +35,9 @@
                         class="side-menu-category"
                         [ngClass]="{
                             ' active ':
-                                sideMenuState.selectedCategory.categoryName ===
-                                category.categoryName
+                                sideMenuStateService.selectActiveCategory(
+                                    category
+                                )
                         }"
                         [matTooltip]="category.categoryName | titlecase"
                         matTooltipPosition="above"
@@ -51,6 +52,12 @@
                             [src]="category.categoryIcon"
                             [alt]="category.categoryName" />
                         <div
+                            (menuOpened)="
+                                sideMenuStateService.setMobileMenuStateOpened()
+                            "
+                            (menuClosed)="
+                                sideMenuStateService.setMobileMenuStateClosed()
+                            "
                             class="mobile-menu-container"
                             #mobileMenuTrigger="matMenuTrigger"
                             [matMenuTriggerFor]="appMenu"></div>

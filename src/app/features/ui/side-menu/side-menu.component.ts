@@ -66,6 +66,7 @@ export class SideMenuComponent implements OnInit, OnDestroy {
   }
 
   close() {
+    this.sideMenuStateService.updateSelectedCategory({ categoryName: '' });
     this.sideMenuStateService.setDesktopMenuVisibility(false);
   }
 
