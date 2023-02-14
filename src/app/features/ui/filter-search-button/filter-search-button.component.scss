@@ -1,0 +1,100 @@
+@use './src/styles/colors' as st;
+
+.filter-btn {
+  border: none;
+  padding: 35.2px;
+  cursor: pointer;
+  border-radius: 6.25rem;
+  background-image: url('/assets/icons/filter-inactive.svg');
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 8px;
+  position: relative;
+}
+.filter-btn--active {
+  background-image: url('/assets/icons/filter-active.svg');
+}
+.dropdown {
+  background-color: st.$primary-900;
+  display: flex;
+  padding: 16px clamp(8px, 3vw + 6.4px, 40px) clamp(8px, 3vh + 6.4px, 48px)
+    clamp(8px, 3vw + 8px, 40px);
+  border-radius: 0.9375rem;
+  width: max-content;
+  column-gap: 32px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  &__section {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    &:last-child {
+      p {
+        width: 8.125rem;
+      }
+    }
+    p {
+      color: st.$neutral-100;
+      padding: 8px 0;
+      border-bottom: 0.0625rem solid st.$neutral-500;
+      min-width: max-content;
+    }
+    button:nth-child(2) {
+      margin-top: 8px;
+    }
+    &__holder {
+      all: unset;
+      padding: 3.2px 0;
+      position: relative;
+      cursor: pointer;
+
+      label {
+        pointer-events: none;
+        display: inline-block;
+        color: st.$neutral-600;
+      }
+    }
+  }
+
+  &__sort-option ~ label {
+    width: 100%;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  &__filtr-option,
+  &__sort-option {
+    all: unset;
+  }
+
+  &__filtr-option:checked ~ label,
+  &__sort-option:checked ~ label {
+    color: st.$neutral-100;
+  }
+
+  &__filtr-option:checked:after {
+    content: '\0078';
+    color: st.$neutral-100;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+.dropdown--unit {
+  padding: 16px clamp(80px, 15vw + 32px, 240px) clamp(32px, 4.1vh + 20px, 80px)
+    clamp(16px, 1vw + 12.8px, 32px);
+  .dropdown__section {
+    min-width: max-content;
+  }
+}
+
+.hidden {
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}

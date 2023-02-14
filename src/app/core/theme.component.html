@@ -344,3 +344,19 @@
         <app-unit-card size="sm" [card]="this.unitCard"></app-unit-card>
     </div>
 </div>
+
+<div class="filtr-search-btn__wrapper bg-gradient-neutral-3">
+    <p class="text-h4">Filtr search buttons</p>
+    <div class="filter-search-btn__inner">
+        <app-filter-search-button
+            (emmitPickedOptions)="unitSortFiltr($event)"
+            [menuType]="'units'">
+        </app-filter-search-button>
+    </div>
+    <div class="filter-search-btn__inner">
+        <app-filter-search-button
+            (emmitPickedOptions)="eventSortFiltr($event)"
+            [menuType]="'events'">
+        </app-filter-search-button>
+    </div>
+</div>
