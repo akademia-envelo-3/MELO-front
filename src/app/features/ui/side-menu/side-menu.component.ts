@@ -7,6 +7,7 @@ import {
   inject,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -58,11 +59,14 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     this.wasInside = false;
   }
 
+  @ViewChild('mobileMenuTrigger') public mobileNav!: MatMenuTrigger;
+
   toggle(category: MenuCategory, matMenuTrigger: MatMenuTrigger) {
     this.sideMenuStateService.toggleMenu(category, matMenuTrigger);
   }
 
   close() {
+    this.sideMenuStateService.updateSelectedCategory({ categoryName: '' });
     this.sideMenuStateService.setDesktopMenuVisibility(false);
   }
 
@@ -89,9 +93,19 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     });
   }
 
+  private closeMobileSubCategoriesMenuIfSideMenuIsClosed() {
+    return this.sideMenuStateService.setupState$.subscribe(state => {
+      if (!state.isMobileMenuActive) {
+        this.mobileNav?.closeMenu();
+      }
+    });
+  }
+
   ngOnInit() {
     const resizeSub = this.disableAnimationsOnResize();
+    const sub = this.closeMobileSubCategoriesMenuIfSideMenuIsClosed();
     this.subscriptions.add(resizeSub);
+    this.subscriptions.add(sub);
   }
 
   ngOnDestroy(): void {
