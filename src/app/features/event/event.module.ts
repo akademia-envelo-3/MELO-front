@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
@@ -11,52 +12,41 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {
   CardComponent,
-  EventFormComponent,
-  EventsComponent,
+  EventApiService,
+  EventListComponent,
   EventsThemeComponent,
   HashtagsComponent,
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { HighlightPipe } from '@shared/pipes/highlightPipe';
 import { HighlightDirective } from '@shared/directives/highlight.directive';
 
 @NgModule({
   declarations: [
     EventsThemeComponent,
-    EventsComponent,
     HashtagsComponent,
     CardComponent,
     PowerIconComponent,
-    EventFormComponent,
+    EventListComponent,
   ],
   imports: [
-    MatInputModule,
-    MatButtonModule,
     MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatChipsModule,
-    MatAutocompleteModule,
     ReactiveFormsModule,
-    CommonModule,
-    HighlightPipe,
+    MatButtonModule,
+    MatInputModule,
     HighlightDirective,
     RouterModule.forChild([
       {
         path: '',
-        component: EventsComponent,
+        component: EventListComponent,
       },
       {
-        path: 'new-event',
-        component: EventFormComponent,
-      },
-      {
-        path: 'theme',
-        canMatch: [noProductionGuard],
+        path: 'new-event-theme',
         component: EventsThemeComponent,
       },
     ]),
+    CommonModule,
   ],
   exports: [CardComponent, PowerIconComponent],
+  providers: [EventApiService],
 })
 export default class EventModule {}

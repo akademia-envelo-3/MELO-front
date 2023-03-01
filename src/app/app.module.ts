@@ -33,13 +33,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
           },
-
           {
             path: '**',
             loadComponent: () =>
@@ -47,6 +45,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
           },
         ],
       },
+      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [

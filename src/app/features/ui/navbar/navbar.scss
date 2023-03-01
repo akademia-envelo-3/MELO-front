@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 9999;
   &__logoImg {
     height: calc(1.2 * 52px);
   }
@@ -24,7 +25,7 @@
     right: 40px;
     height: 100%;
     width: 52px;
-    background-image: url('../../../../assets/bellAfterConv.png');
+    background-image: url('../../../../assets/navbar-icons/bellAfterConv.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

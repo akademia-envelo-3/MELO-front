@@ -1,11 +1,12 @@
+import { SideMenuStateService } from './../side-menu/side-menu.state.service';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgIf, NgClass } from '@angular/common';
+import { NgIf, NgClass, AsyncPipe } from '@angular/common';
 import { NotificationsQuantityComponent } from './notifications-quantity.component';
 
 @Component({
   standalone: true,
-  imports: [NotificationsQuantityComponent, NgIf, NgClass],
+  imports: [NotificationsQuantityComponent, NgIf, NgClass, AsyncPipe],
   selector: 'app-navbar',
   template: `
     <nav class="navbar">
@@ -19,7 +20,9 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
       </div>
       <div
         class="navbar__hamburger"
-        [ngClass]="{ change: this.menuActive }"
+        [ngClass]="{
+          change: (sideMenuStateService.setupState$ | async)?.isMobileMenuActive
+        }"
         (click)="toggleMenu()"
       >
         <div class="navbar__hamburger__bar1"></div>
@@ -33,11 +36,11 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
 })
 export class NavbarComponent {
   private router = inject(Router);
+  sideMenuStateService = inject(SideMenuStateService);
   @Input() notifications?: number;
-  menuActive = false;
 
   toggleMenu() {
-    this.menuActive = !this.menuActive;
+    this.sideMenuStateService.toggleMobileMenuVisibility();
   }
 
   navToHome() {

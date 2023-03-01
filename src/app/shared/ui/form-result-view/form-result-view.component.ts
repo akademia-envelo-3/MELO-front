@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { NgIf, NgOptimizedImage } from '@angular/common';
 import {
   CircularButtonComponent,
@@ -65,7 +65,7 @@ const formResultInfoDefault: FormResultInfo = {
   styleUrls: ['./form-result-view-component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormResultViewComponent {
+export class FormResultViewComponent implements OnInit {
   @Input() formResultInfo: FormResultInfo = formResultInfoDefault;
   @Input() routerLink?: string;
   private iconsUrl = '../../../assets/form-result-icons/';

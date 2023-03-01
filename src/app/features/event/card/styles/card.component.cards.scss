@@ -1,99 +1,4 @@
-@use './src/styles/colors' as st;
-
-@mixin margin-purple($height) {
-  margin: $height 22px 0 0;
-}
-@mixin margin-blue($height) {
-  margin: $height 5px 0 0;
-}
-@mixin margin-white($height) {
-  margin: $height 5px 0 0;
-}
-@mixin margin-brown($height) {
-  margin: $height 0 0 2px;
-}
-
-.card {
-  $content-width: 53%;
-
-  height: 465px;
-  aspect-ratio: 21 / 25;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  &__power-icon {
-    transform: translate(-110px, 5px);
-    position: absolute;
-  }
-
-  &__main-photo {
-    width: 100%;
-    @include margin-purple(35px);
-  }
-
-  &__main-photo > img {
-    display: block;
-    background-position: center;
-    margin: 0 auto;
-    width: $content-width;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
-  }
-
-  &__title {
-    text-shadow: 0px 5.97315px 5.97315px rgba(0, 0, 0, 0.25);
-  }
-
-  &__title,
-  &__start-time,
-  &__description {
-    background-color: st.$primary-400;
-    border: 1px solid st.$accent-gold-400;
-    border-radius: 5px;
-  }
-
-  &__title,
-  &__start-time {
-    color: st.$accent-gold-200;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-
-  &__description {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    color: st.$neutral-300;
-    height: 45%;
-    max-height: 45%;
-    overflow: hidden;
-    padding: 0.6rem 0.5rem;
-    display: flex;
-    align-items: center;
-  }
-
-  &__description > p {
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  &__info {
-    width: $content-width;
-    @include margin-purple(10px);
-  }
-
-  &__line {
-    height: 1px;
-    width: $content-width;
-    background-color: st.$accent-gold-400;
-    @include margin-purple(0px);
-  }
-
-  &__button {
-    @include margin-purple(18px);
-  }
-}
+@use 'cards.mixins' as *;
 
 .card--white {
   .card__power-icon {
@@ -106,7 +11,7 @@
     @include margin-white(10px);
   }
   .card__line {
-    @include margin-white(0);
+    @include margin-white(10px);
   }
   .card__button {
     @include margin-white(15px);
@@ -123,10 +28,10 @@
     @include margin-brown(10px);
   }
   .card__line {
-    @include margin-brown(7px);
+    @include margin-brown(10px);
   }
   .card__button {
-    @include margin-brown(20px);
+    @include margin-brown(15px);
   }
 }
 .card--blue {
@@ -147,7 +52,7 @@
     opacity: 0;
   }
   .card__button {
-    @include margin-blue(10px);
+    @include margin-blue(15px);
   }
 }
 
