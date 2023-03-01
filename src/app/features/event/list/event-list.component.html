@@ -7,4 +7,10 @@
             [card]="event">
         </app-event-card>
     </ng-container>
+    <div
+        infinite-scroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="300"
+        (scrolled)="onScroll($event)"></div>
+    <app-spinner-dots [color]="'black'"></app-spinner-dots>
 </section>
