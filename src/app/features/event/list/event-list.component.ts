@@ -22,16 +22,22 @@ export class EventListComponent implements OnInit {
     return 'sm';
   }
 
+  get initialCardsNumber() {
+    if (window.innerWidth > 1730) {
+      return VARIABLES.INITIAL_EVENT_CARDS_NUMBER_BIG_SCREEN;
+    } else if (window.innerWidth <= 1320) {
+      return VARIABLES.INITIAL_EVENT_CARDS_NUMBER_SMALL_SCREEN;
+    }
+    return VARIABLES.INITIAL_EVENT_CARDS_NUMBER;
+  }
+
   ngOnInit() {
-    this.eventListService.getEventList(
-      VARIABLES.INITIAL_EVENT_CARDS_NUMBER,
-      VARIABLES.INITIAL_EVENT_CARDS_NUMBER
-    );
+    this.eventListService.getEventList(this.initialCardsNumber, this.initialCardsNumber);
   }
 
   onScroll() {
     this.currentPage += 1;
-    const itemsNeed = VARIABLES.INITIAL_EVENT_CARDS_NUMBER * this.currentPage;
-    this.eventListService.getEventList(VARIABLES.INITIAL_EVENT_CARDS_NUMBER, itemsNeed);
+    const itemsNeed = this.initialCardsNumber * this.currentPage;
+    this.eventListService.getEventList(this.initialCardsNumber, itemsNeed);
   }
 }
