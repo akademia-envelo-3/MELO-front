@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       {
         path: '',
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),
@@ -37,6 +38,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
+          },
+          {
+            path: 'admin',
+            loadChildren: () => import('./core/admin/admin.module'),
           },
           {
             path: '**',

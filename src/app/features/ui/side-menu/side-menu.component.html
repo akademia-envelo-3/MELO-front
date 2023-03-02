@@ -35,8 +35,9 @@
                         class="side-menu-category"
                         [ngClass]="{
                             ' active ':
-                                sideMenuState.selectedCategory.categoryName ===
-                                category.categoryName
+                                sideMenuStateService.selectActiveCategory(
+                                    category
+                                )
                         }"
                         [matTooltip]="category.categoryName | titlecase"
                         matTooltipPosition="above"
@@ -51,6 +52,12 @@
                             [src]="category.categoryIcon"
                             [alt]="category.categoryName" />
                         <div
+                            (menuOpened)="
+                                sideMenuStateService.setMobileMenuStateOpened()
+                            "
+                            (menuClosed)="
+                                sideMenuStateService.setMobileMenuStateClosed()
+                            "
                             class="mobile-menu-container"
                             #mobileMenuTrigger="matMenuTrigger"
                             [matMenuTriggerFor]="appMenu"></div>
@@ -86,19 +93,19 @@
             </li>
         </ul>
     </div>
-</div>
 
-<!-- Mobile side menu -->
-<mat-menu #appMenu="matMenu" class="mobile-side-menu hidden">
-    <ng-template matMenuContent let-subCategories="subCategories">
-        <a
-            class="category-item"
-            mat-menu-item
-            *ngFor="let subCategory of subCategories"
-            [routerLink]="subCategory.href"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            {{ subCategory.subCategoryName }}
-        </a>
-    </ng-template>
-</mat-menu>
+    <!-- Mobile side menu -->
+    <mat-menu #appMenu="matMenu" class="mobile-side-menu">
+        <ng-template matMenuContent let-subCategories="subCategories">
+            <a
+                class="category-item"
+                mat-menu-item
+                *ngFor="let subCategory of subCategories"
+                [routerLink]="subCategory.href"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                {{ subCategory.subCategoryName }}
+            </a>
+        </ng-template>
+    </mat-menu>
+</div>
