@@ -45,9 +45,9 @@
                     let hashtag of filteredHashtags
                         | slice : 0 : MAX_AUTOCOMPLETE_OPTIONS
                 "
-                [value]="hashtag"
                 appHighlight
                 [search]="hashtagCtrl.value"
+                [value]="hashtag"
                 >{{ hashtag }}
             </mat-option></ng-container
         >
