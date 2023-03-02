@@ -1,4 +1,8 @@
 export const ENDPOINTS = {
-  event: '/event',
-  hashtags: '/hashtags',
+  EVENT: '/event',
+  HASHTAGS: '/hashtags',
+};
+
+export const VARIABLES = {
+  INITIAL_EVENT_CARDS_NUMBER: 9,
 };

@@ -11,6 +11,6 @@ export class HashtagApiService {
   private http = inject(HttpClient);
 
   getHashtags(): Observable<Hashtag[]> {
-    return this.http.get<Hashtag[]>(ENDPOINTS.hashtags);
+    return this.http.get<Hashtag[]>(ENDPOINTS.HASHTAGS);
   }
 }
