@@ -82,6 +82,10 @@ $app-name-theme: mat.define-light-theme(
       display: none;
     }
   }
+  &.mat-mdc-menu-panel.mat-mdc-menu-panel {
+    left: 7px;
+    top: 66px;
+  }
 }
 ///// DIALOG /////
 

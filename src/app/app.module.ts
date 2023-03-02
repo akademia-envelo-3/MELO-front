@@ -9,7 +9,6 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-
 import { CustomHttpInterceptor } from './core';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { CustomHttpInterceptor } from './core';
   imports: [
     BrowserModule,
     HttpClientModule,
-
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -25,15 +23,19 @@ import { CustomHttpInterceptor } from './core';
       {
         path: '',
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
+          },
+          {
+            path: 'admin',
+            loadChildren: () => import('./core/admin/admin.module'),
           },
           {
             path: '**',
@@ -42,6 +44,7 @@ import { CustomHttpInterceptor } from './core';
           },
         ],
       },
+      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [
