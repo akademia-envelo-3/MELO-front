@@ -1,16 +1,18 @@
 <section class="card-list bg-gradient-neutral-3">
-    <ng-container *ngIf="eventList$ | async as eventList">
+    <ng-container *ngIf="eventList$ | async as eventListState">
         <app-event-card
-            *ngFor="let event of eventList"
+            *ngFor="let event of eventListState.cardList"
             class="card"
             size="sm"
             [card]="event">
         </app-event-card>
+
+        <div
+            infinite-scroll
+            [infiniteScrollDistance]="1"
+            [infiniteScrollThrottle]="300"
+            (scrolled)="onScroll()"></div>
+        <app-spinner-dots *ngIf="eventListState.isLoading" [color]="'black'">
+        </app-spinner-dots>
     </ng-container>
-    <div
-        infinite-scroll
-        [infiniteScrollDistance]="2"
-        [infiniteScrollThrottle]="300"
-        (scrolled)="onScroll($event)"></div>
-    <app-spinner-dots [color]="'black'"></app-spinner-dots>
 </section>

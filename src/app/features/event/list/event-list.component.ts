@@ -1,19 +1,19 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { VARIABLES } from '@shared/constants';
-import { IInfiniteScrollEvent } from 'ngx-infinite-scroll';
-import { EventApiService } from '..';
+import { EventListStateService } from './event-list.state.service';
 
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [EventListStateService],
 })
-export class EventListComponent {
+export class EventListComponent implements OnInit {
   currentPage = 1;
-  private eventAPiService = inject(EventApiService);
+  private eventListService = inject(EventListStateService);
 
-  eventList$ = this.eventAPiService.eventCardList$;
+  eventList$ = this.eventListService.eventListState$;
 
   get cardSize() {
     if (window.innerWidth > 400) {
@@ -23,16 +23,15 @@ export class EventListComponent {
   }
 
   ngOnInit() {
-    this.eventAPiService.fetchEventList(
+    this.eventListService.getEventList(
       VARIABLES.INITIAL_EVENT_CARDS_NUMBER,
       VARIABLES.INITIAL_EVENT_CARDS_NUMBER
     );
   }
 
-  onScroll(event: IInfiniteScrollEvent) {
-    console.log('scrolled', event);
+  onScroll() {
     this.currentPage += 1;
     const itemsNeed = VARIABLES.INITIAL_EVENT_CARDS_NUMBER * this.currentPage;
-    this.eventAPiService.fetchEventList(VARIABLES.INITIAL_EVENT_CARDS_NUMBER, itemsNeed);
+    this.eventListService.getEventList(VARIABLES.INITIAL_EVENT_CARDS_NUMBER, itemsNeed);
   }
 }
