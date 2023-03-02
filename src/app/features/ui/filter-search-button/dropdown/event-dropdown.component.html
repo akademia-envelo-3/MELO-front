@@ -1,0 +1,160 @@
+<menu class="dropdown">
+    <div class="dropdown__section">
+        <p class="text-body">DATA UTWORZENIA</p>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(creationDateToday)">
+            <input
+                #creationDateToday
+                name="creationDate"
+                type="radio"
+                value="{{ creationDateToday.checked ? 'Dzisiaj' : '' }}"
+                id="creation-date-today"
+                class="dropdown__filtr-option" />
+            <label for="creation-date-today">Dzisiaj</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(creationDateWeek)">
+            <input
+                #creationDateWeek
+                name="creationDate"
+                type="radio"
+                value="{{ creationDateWeek.checked ? 'Ten tydzień' : '' }}"
+                id="creation-date-week"
+                class="dropdown__filtr-option" />
+            <label for="creation-date-week">Ten tydzień</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(creationDateMonth)">
+            <input
+                #creationDateMonth
+                name="creationDate"
+                type="radio"
+                value="{{ creationDateMonth.checked ? 'Ten miesiąc' : '' }}"
+                id="creation-date-month"
+                class="dropdown__filtr-option" />
+            <label for="creation-date-month">Ten miesiąc</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(creationDateYear)">
+            <input
+                #creationDateYear
+                name="creationDate"
+                type="radio"
+                value="{{ creationDateYear.checked ? 'Ten rok' : '' }}"
+                id="creation-date-year"
+                class="dropdown__filtr-option" />
+            <label for="creation-date-year">Ten rok</label>
+        </button>
+    </div>
+    <div class="dropdown__section">
+        <p class="text-body">DATA ROZPOCZĘCIA</p>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(startDateToday)">
+            <input
+                #startDateToday
+                name="startDate"
+                type="radio"
+                value="{{ startDateToday.checked ? 'Dzisiaj' : '' }}"
+                id="start-date-today"
+                class="dropdown__filtr-option" />
+            <label for="start-date-today">Dzisiaj</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(startDateWeek)">
+            <input
+                #startDateWeek
+                name="startDate"
+                type="radio"
+                value="{{ startDateWeek.checked ? 'Ten tydzień' : '' }}"
+                id="start-date-week"
+                class="dropdown__filtr-option" />
+
+            <label for="start-date-week">Ten tydzień</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(startDateMonth)">
+            <input
+                #startDateMonth
+                name="startDate"
+                type="radio"
+                value="{{ startDateMonth.checked ? 'Ten miesiąc' : '' }}"
+                id="start-date-month"
+                class="dropdown__filtr-option" />
+            <label for="start-date-month">Ten miesiąc</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleFilterRadio(startDateYear)">
+            <input
+                #startDateYear
+                name="startDate"
+                type="radio"
+                value="{{ startDateYear.checked ? 'Ten rok' : '' }}"
+                id="start-date-year"
+                class="dropdown__filtr-option" />
+            <label for="start-date-year">Ten rok</label>
+        </button>
+    </div>
+
+    <div class="dropdown__section">
+        <p class="text-body">CZAS DO ROZPOCZĘCIA</p>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleSortRadio(sortByDateAscending)">
+            <input
+                #sortByDateAscending
+                name="sortRadio"
+                type="radio"
+                value="Rosnaco"
+                id="date-ascending"
+                class="dropdown__sort-option" />
+            <label for="date-ascending">Rosnąco</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleSortRadio(sortByDateDescending)">
+            <input
+                #sortByDateDescending
+                name="sortRadio"
+                type="radio"
+                value="Malejaco"
+                id="date-descending"
+                class="dropdown__sort-option" />
+            <label for="date-descending">Malejąco</label>
+        </button>
+    </div>
+    <div class="dropdown__section">
+        <p class="text-body">NAZWA</p>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleSortRadio(sortByNameAscending)">
+            <input
+                #sortByNameAscending
+                name="sortRadio"
+                type="radio"
+                value="Rosnaco"
+                id="name-ascending"
+                class="dropdown__sort-option" />
+            <label for="name-ascending">Rosnąco</label>
+        </button>
+        <button
+            class="dropdown__section__holder"
+            (click)="toggleSortRadio(sortByNameDescending)">
+            <input
+                #sortByNameDescending
+                name="sortRadio"
+                type="radio"
+                value="Malejaco"
+                id="name-descending"
+                class="dropdown__sort-option" />
+            <label for="name-descending">Malejąco</label>
+        </button>
+    </div>
+</menu>
