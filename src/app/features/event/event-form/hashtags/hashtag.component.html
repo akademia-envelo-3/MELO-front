@@ -15,6 +15,7 @@
         ><mat-label>Hashtagi</mat-label>
         <input
             matInput
+            appRemoveSpaces
             type="text"
             placeholder="Nowy hashtag"
             #hashtagInput
@@ -36,6 +37,7 @@
         <ng-container
             *ngIf="
                 hashtagCtrl.value &&
+                hashtagCtrl.value.length > 1 &&
                 (filteredHashtags$ | async) as filteredHashtags
             ">
             <mat-option
@@ -44,7 +46,9 @@
                         | slice : 0 : MAX_AUTOCOMPLETE_OPTIONS
                 "
                 [value]="hashtag"
-                ><span>{{ hashtag }}</span>
+                appHighlight
+                [search]="hashtagCtrl.value"
+                >{{ hashtag }}
             </mat-option></ng-container
         >
     </mat-autocomplete>

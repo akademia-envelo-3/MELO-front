@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
@@ -19,6 +18,7 @@ import {
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { HighlightDirective } from '@shared/directives/highlight.directive';
+import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directive';
 
 @NgModule({
   declarations: [
@@ -29,19 +29,26 @@ import { HighlightDirective } from '@shared/directives/highlight.directive';
     EventListComponent,
   ],
   imports: [
+    CommonModule,
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
+    MatChipsModule,
+    MatIconModule,
     HighlightDirective,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    RemoveSpacesDirective,
     RouterModule.forChild([
       {
         path: '',
         component: EventListComponent,
       },
       {
-        path: 'new-event-theme',
+        path: 'theme',
         component: EventsThemeComponent,
+        canMatch: [noProductionGuard],
       },
     ]),
     CommonModule,
