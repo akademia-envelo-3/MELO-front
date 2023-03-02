@@ -22,8 +22,10 @@ $accent-gold-800: #c17605;
 $accent-error: #ff4040;
 $accent-success: #88b42d;
 
+$bg-gradient-primary-1: #323232 0%, #2c2120 93.23%;
+
 .bg-gradient-primary-1 {
-  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
+  background: linear-gradient(270deg, $bg-gradient-primary-1);
 }
 
 .bg-gradient-primary-2 {

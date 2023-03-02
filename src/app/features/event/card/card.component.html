@@ -1,6 +1,6 @@
 <div
     *ngIf="card"
-    [style.background-image]="'url(' + this.url + ')'"
+    [style.background-image]="'url(' + themeUrl + ')'"
     [ngClass]="[cardSize, themeColor]"
     class="card image-layout--center">
     <app-power-icon
@@ -18,14 +18,18 @@
             {{ card.name | uppercase }}
         </div>
         <div class="card__description" [class.text-body-small]="size === 'sm'">
-            <p>{{ card.description }}</p>
+            <div #description class="card__description__inner">
+                <p>{{ card.description }}</p>
+            </div>
         </div>
         <div class="card__start-time" [class.text-body-big]="size === 'md'">
             {{ card.startTime | date : 'dd:MM:YYYY hh:mm' }}
         </div>
     </div>
     <div class="card__line"></div>
-    <button class="btn-rect btn-default btn-rect--sm card__button">
+    <a
+        [routerLink]="['/events', card.eventId]"
+        class="btn-rect btn-default btn-rect--sm card__button">
         Więcej
-    </button>
+    </a>
 </div>

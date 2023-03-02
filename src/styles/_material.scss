@@ -60,6 +60,29 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$accent-gold-800 !important;
 }
 
+///// SIDE MENU /////
+.side-menu-category.active {
+  .mat-mdc-focus-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$neutral-100;
+    border: 2px solid colors.$accent-gold-200;
+    transition: 0.5s;
+  }
+}
+
+.side-menu-category.mat-mdc-button:not(:disabled) {
+  width: 90px;
+}
+
+.mobile-side-menu {
+  .mat-mdc-menu-content {
+    @include breakpoints.media-md {
+      display: none;
+    }
+  }
+}
 ///// DIALOG /////
 
 .mat-mdc-dialog-container .mdc-dialog__surface.mdc-dialog__surface {
@@ -83,18 +106,25 @@ $app-name-theme: mat.define-light-theme(
       padding: 1rem;
     }
 
-    margin-top: 2rem;
+.mat-mdc-option {
+  background-color: colors.$accent-gold-300;
+  border-radius: 5px;
+  .mdc-list-item__primary-text {
+    color: colors.$accent-gold-800;
   }
   .mat-horizontal-stepper-header {
     flex-direction: column;
     padding-top: 0.75rem;
 
-    @include br.media-up-md {
-      background: colors.$bg-gradient-neutral-3;
-      border: 1px solid colors.$neutral-100;
-      border-radius: 5px;
-    }
-  }
+.mat-mdc-standard-chip.mat-mdc-standard-chip {
+  border-radius: 5px;
+}
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).mat-mdc-standard-chip:not(
+    .mdc-evolution-chip--disabled,
+    .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled)
+  ) {
+  background-color: colors.$accent-gold-300;
+}
 
   .mat-horizontal-stepper-header .mat-step-icon {
     margin-right: 0;
