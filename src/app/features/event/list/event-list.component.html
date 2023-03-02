@@ -12,7 +12,10 @@
             [infiniteScrollDistance]="1"
             [infiniteScrollThrottle]="300"
             (scrolled)="onScroll()"></div>
-        <app-spinner-dots *ngIf="eventListState.isLoading" [color]="'black'">
+        <app-spinner-dots
+            class="card-list__spinner"
+            *ngIf="eventListState.isLoading"
+            [color]="'black'">
         </app-spinner-dots>
     </ng-container>
 </section>
