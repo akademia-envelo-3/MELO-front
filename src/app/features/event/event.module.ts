@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PowerIconComponent } from '@shared/ui';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +14,7 @@ import {
   EventListComponent,
   EventsThemeComponent,
   HashtagsComponent,
+  PowerIconComponent,
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { HighlightDirective } from '@shared/directives/highlight.directive';
