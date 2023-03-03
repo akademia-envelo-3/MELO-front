@@ -161,6 +161,10 @@ $app-name-theme: mat.define-light-theme(
 }
 
 ////// SNACKBAR
+.mdc-snackbar.mat-mdc-snack-bar-container {
+  margin-top: 30%;
+  margin-left: 115px;
+}
 .red-snackbar {
   background: colors.$accent-error;
   color: colors.$neutral-300;

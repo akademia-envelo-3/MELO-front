@@ -13,21 +13,21 @@ import { SnackBarService } from '@shared/services';
 export class HashtagsService {
   private snackBarService = inject(SnackBarService);
   private readonly MAX_CHARS = 50;
-  private readonly MAX_HASHTAG_COUNT = 100;
+  private readonly MAX_HASHTAG_COUNT = 5;
   private addedHashtags: string[] = [];
   private allHashtags: string[] = [
-    'Impreza',
-    'Piwo',
-    'Piłkarzyki',
-    'Pizza',
-    'Pizza 2',
-    'Pizza 3',
-    'Pizza 4',
-    'Pizza 5',
-    'Karaoke',
-    'Bilard',
-    'Urodziny',
-    'BaaaaaaaaaardzoDłuuuuuugiHashtagAwogóletoooooooooo',
+    'imprezaubasi',
+    'piwonakanapie',
+    'piłkarzyki',
+    'pizzanaobiad',
+    'pizzaforever',
+    'pizzadominos',
+    'pizzavssushi',
+    'pizzaipiwo',
+    'karaoke',
+    'bilard',
+    'urodziny',
+    'baaaaaaaaaardzodłuuuuuugidashtagawogóletoooooooooo',
   ];
 
   get maxCharsValue() {
@@ -45,7 +45,7 @@ export class HashtagsService {
     hashtagCtrl: FormControl,
     auto: MatAutocompleteTrigger
   ): void {
-    const hashtagStr = (event.value || '').trim().slice(0, this.MAX_CHARS);
+    const hashtagStr = (event.value || '').trim().slice(0, this.MAX_CHARS).toLowerCase();
 
     if (this.checkAddErrors(hashtagStr, auto)) {
       this.addedHashtags.push(hashtagStr);
@@ -142,6 +142,7 @@ export class HashtagsService {
     );
   }
   private maxHashtagCountInfo() {
+    console.log('test');
     this.snackBarService.openSnackBar(
       `Maksymalna liczba hashtagów to ${this.MAX_HASHTAG_COUNT}`
     );
