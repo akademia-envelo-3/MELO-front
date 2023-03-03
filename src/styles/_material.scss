@@ -78,7 +78,7 @@ $app-name-theme: mat.define-light-theme(
 
 .mobile-side-menu {
   .mat-mdc-menu-content {
-    @include breakpoints.media-md {
+    @include br.media-md {
       display: none;
     }
   }
@@ -106,67 +106,71 @@ $app-name-theme: mat.define-light-theme(
       padding: 1rem;
     }
 
-.mat-mdc-option {
-  background-color: colors.$accent-gold-300;
-  border-radius: 5px;
-  .mdc-list-item__primary-text {
-    color: colors.$accent-gold-800;
-  }
-  .mat-horizontal-stepper-header {
-    flex-direction: column;
-    padding-top: 0.75rem;
-
-.mat-mdc-standard-chip.mat-mdc-standard-chip {
-  border-radius: 5px;
-}
-.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).mat-mdc-standard-chip:not(
-    .mdc-evolution-chip--disabled,
-    .mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled)
-  ) {
-  background-color: colors.$accent-gold-300;
-}
-
-  .mat-horizontal-stepper-header .mat-step-icon {
-    margin-right: 0;
-  }
-  .mat-horizontal-stepper-header-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-  .mat-step-header .mat-step-label,
-  .mat-step-header .mat-step-optional {
-    color: colors.$primary-900;
-    text-align: center;
-    font-size: 15px;
-  }
-
-  .mat-step-header .mat-step-label.mat-step-label-active {
-    color: colors.$primary-900;
-  }
-  .mat-step-icon.mat-step-icon-state-number,
-  .mat-step-icon-state-edit {
-    background: colors.$primary-800;
-    color: colors.$accent-gold-600;
-    border: 1.45px solid colors.$primary-500;
-    border-radius: 36.25px;
-    @include br.media-md {
-      padding: 1.5rem;
+    .mat-mdc-option {
+      background-color: colors.$accent-gold-300;
+      border-radius: 5px;
     }
-  }
+    .mdc-list-item__primary-text {
+      color: colors.$accent-gold-800;
+    }
+    .mat-horizontal-stepper-header {
+      flex-direction: column;
+      padding-top: 0.75rem;
 
-  .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
-    background: colors.$bg-gradient-gold-1;
-    color: colors.$neutral-900;
-  }
+      .mat-mdc-standard-chip.mat-mdc-standard-chip {
+        border-radius: 5px;
+      }
+      .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).mat-mdc-standard-chip:not(
+          .mdc-evolution-chip--disabled,
+          .mat-mdc-snack-bar-container
+            .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled)
+        ) {
+        background-color: colors.$accent-gold-300;
+      }
 
-  .mat-horizontal-stepper-header-container .mat-stepper-horizontal-line {
-    color: colors.$accent-gold-600;
-    margin-bottom: 1rem;
-    display: none;
-  }
+      .mat-horizontal-stepper-header .mat-step-icon {
+        margin-right: 0;
+      }
+      .mat-horizontal-stepper-header-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+      .mat-step-header .mat-step-label,
+      .mat-step-header .mat-step-optional {
+        color: colors.$primary-900;
+        text-align: center;
+        font-size: 15px;
+      }
 
-  .mat-step-icon-state-error .mat-icon,
-  .mat-step-label.mat-step-label-error {
-    color: colors.$accent-error;
+      .mat-step-header .mat-step-label.mat-step-label-active {
+        color: colors.$primary-900;
+      }
+      .mat-step-icon.mat-step-icon-state-number,
+      .mat-step-icon-state-edit {
+        background: colors.$primary-800;
+        color: colors.$accent-gold-600;
+        border: 1.45px solid colors.$primary-500;
+        border-radius: 36.25px;
+        @include br.media-md {
+          padding: 1.5rem;
+        }
+      }
+
+      .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+        background: colors.$bg-gradient-gold-1;
+        color: colors.$neutral-900;
+      }
+
+      .mat-horizontal-stepper-header-container .mat-stepper-horizontal-line {
+        color: colors.$accent-gold-600;
+        margin-bottom: 1rem;
+        display: none;
+      }
+
+      .mat-step-icon-state-error .mat-icon,
+      .mat-step-label.mat-step-label-error {
+        color: colors.$accent-error;
+      }
+    }
   }
 }

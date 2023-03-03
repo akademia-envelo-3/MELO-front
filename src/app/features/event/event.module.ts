@@ -14,6 +14,7 @@ import {
   EventListComponent,
   PowerIconComponent,
 } from '.';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {
   imports: [
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
     MatRadioModule,
     MatStepperModule,
     MatButtonModule,
