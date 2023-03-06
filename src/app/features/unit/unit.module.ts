@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UnitPowerIconComponent, UnitCardComponent, UnitFormComponent } from '.';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [UnitFormComponent, UnitPowerIconComponent, UnitCardComponent],
@@ -18,6 +19,7 @@ import { UnitPowerIconComponent, UnitCardComponent, UnitFormComponent } from '.'
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
+    MatDialogModule,
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild([

@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { catchError, EMPTY, Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { API_URL } from './env.token';
 
 @Injectable()
@@ -21,7 +21,9 @@ export class CustomHttpInterceptor implements HttpInterceptor {
 
     return next.handle(clone).pipe(
       catchError(() => {
-        return EMPTY;
+        return throwError(
+          () => new Error('Coś poszło nie tak, spróbuj ponownie później')
+        );
       })
     );
   }

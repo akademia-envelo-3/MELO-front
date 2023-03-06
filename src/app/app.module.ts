@@ -13,6 +13,7 @@ import { CustomHttpInterceptor } from './core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatDialogModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,

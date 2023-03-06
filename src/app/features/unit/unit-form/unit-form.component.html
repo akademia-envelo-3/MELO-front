@@ -17,19 +17,29 @@
                 matInput
                 type="text"
                 formControlName="unitName"
-                (blur)="onSetToStorage('unitName', unitForm.controls.unitName.value)" />
+                (blur)="
+                    onSetToStorage('unitName', unitForm.controls.unitName.value)
+                " />
 
             <mat-error
                 class="text-body-small"
-                *ngIf="unitForm.controls.unitName.hasError('required')"
-                ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </mat-error
-            ><mat-error
-                class="text-body-small"
-                *ngIf="unitForm.controls.unitName.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
-                unitForm.controls.unitName.errors!['maxlength']['requiredLength']
-                }}
-            </mat-error>
+                *ngIf="unitForm.controls.unitName.errors"
+                ><span *ngIf="unitForm.controls.unitName.hasError('required')"
+                    ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </span
+                ><span
+                    class="text-body-small"
+                    *ngIf="unitForm.controls.unitName.hasError('maxlength')"
+                    ><mat-icon>info</mat-icon> Maksymalna liczba znaków to
+                    {{
+                        unitForm.controls.unitName.errors!['maxlength'][
+                            'requiredLength'
+                        ]
+                    }} </span
+                ><span *ngIf="unitForm.controls.unitName.hasError('nameTaken')"
+                    ><mat-icon>info</mat-icon> Koło o nazwie
+                    {{ unitForm.controls.unitName.value }} już istnieje
+                </span></mat-error
+            >
             <mat-hint
                 class="accent-color"
                 *ngIf="unitForm.controls.unitName.valid"
@@ -45,11 +55,11 @@
                 matInput
                 formControlName="unitDescription"
                 (blur)="
-              onSetToStorage(
-                'unitDescription',
-                unitForm.controls.unitDescription.value
-              )
-            "
+                    onSetToStorage(
+                        'unitDescription',
+                        unitForm.controls.unitDescription.value
+                    )
+                "
                 rows="10"></textarea>
 
             <mat-error
@@ -59,8 +69,11 @@
             ><mat-error
                 class="text-body-small"
                 *ngIf="unitForm.controls.unitDescription.hasError('maxlength')"
-                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to {{
-                unitForm.controls.unitDescription.errors!['maxlength']['requiredLength']
+                ><mat-icon>info</mat-icon> Maksymalna liczba znaków to
+                {{
+                    unitForm.controls.unitDescription.errors!['maxlength'][
+                        'requiredLength'
+                    ]
                 }}
             </mat-error>
 
@@ -70,11 +83,6 @@
                 <mat-icon fontIcon="done_outline"></mat-icon>
             </mat-hint>
         </mat-form-field>
-        <button
-            class="btn-rect btn-black"
-            type="submit"
-            [disabled]="unitForm.invalid">
-            Utwórz
-        </button>
+        <button class="btn-rect btn-black" type="submit">Utwórz</button>
     </form>
 </div>
