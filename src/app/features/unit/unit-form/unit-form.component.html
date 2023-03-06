@@ -37,7 +37,7 @@
                     }} </span
                 ><span *ngIf="unitForm.controls.unitName.hasError('nameTaken')"
                     ><mat-icon>info</mat-icon> Koło o nazwie
-                    {{ unitForm.controls.unitName.value }} już istnieje
+                    <b>{{ unitForm.controls.unitName.value }}</b> już istnieje
                 </span></mat-error
             >
             <mat-hint
