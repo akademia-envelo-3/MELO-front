@@ -3,6 +3,7 @@
 $border: 2px solid colors.$neutral-100;
 $left-side-width: 550px;
 $middle-side-width: 540px;
+$memebers-section-width: 215px;
 
 @mixin border--big {
   border: 2px solid colors.$neutral-100;
@@ -16,7 +17,8 @@ $middle-side-width: 540px;
 .event-details {
   margin: 1rem;
   color: colors.$neutral-100;
-
+  // max-width: calc(100% - 20p);
+  // overflow: hidden;
   // h1 {
   //   padding: 0;
   //   margin: 0;
@@ -62,7 +64,7 @@ $middle-side-width: 540px;
 
   &__main-section {
     display: flex;
-
+    column-gap: 0.5rem;
     & > div {
       display: flex;
       row-gap: 0.8rem;
@@ -93,8 +95,44 @@ $middle-side-width: 540px;
     background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
     @include border--big();
     width: $middle-side-width;
-    padding: 1.5rem 1rem;
+    padding: 3rem 1.5rem 0 1.5rem;
     height: 380px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__date {
+    width: 45%;
+    & > h2 {
+      line-height: 1;
+    }
+    & > p {
+      font-family: 'Eczar', 'sans-serif';
+    }
+    & > p:first-of-type {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+    }
+    & > p:nth-of-type(2) {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+    .hour {
+      background-color: colors.$neutral-100;
+      border-radius: 25px;
+      color: colors.$primary-800;
+      text-align: center;
+    }
+  }
+
+  &__location {
+    width: 50%;
+  }
+
+  &__map {
+    margin: 1rem 0;
+    height: 200px;
+    width: 100%;
   }
 
   &__middle-section {
@@ -122,12 +160,15 @@ $middle-side-width: 540px;
     display: flex;
     // flex-direction: column;
     column-gap: 0.5rem;
+    // gap: 1rem;
+    // row-gap: 0.5rem;
   }
 
   &__poll {
     display: flex;
     width: $left-side-width;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
     & > div {
       text-align: center;
@@ -158,12 +199,54 @@ $middle-side-width: 540px;
   }
 
   &__members-section {
-    height: 100%;
-    padding: 1rem;
+    // height: 100%;
+    // align-items: stretch;
+    // justify-content: stretch;
+    width: $memebers-section-width;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
     background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
     border-top: $border;
     border-left: $border;
     border-bottom: $border;
     border-radius: 25px 0 0 25px;
+
+    li {
+      list-style: none;
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+    }
+    li > img {
+      width: 20px;
+      height: 20px;
+      margin-left: 1rem;
+      filter: invert(88%) sepia(77%) saturate(7494%) hue-rotate(329deg) brightness(107%)
+        contrast(84%);
+    }
+  }
+
+  &__search-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+    & > mat-icon {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      color: colors.$accent-gold-500;
+    }
+  }
+
+  &__search-input {
+    all: unset;
+    color: colors.$neutral-100;
+    width: 70%;
+    // min-width: 80px;
+    flex-grow: 1;
+    background-color: colors.$primary-900;
+    border: 2px solid colors.$primary-500;
+    border-radius: 10px;
+    padding: 0.2rem 1rem 0.2rem 2rem;
   }
 }

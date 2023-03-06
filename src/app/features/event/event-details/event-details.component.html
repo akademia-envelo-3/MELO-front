@@ -23,10 +23,45 @@
                         class="image-layout--center"
                         src="{{ event.mainPhoto }}" />
                     <div class="event-details__date-location">
-                        <h2>{{ event.startTime }}</h2>
-                        <p>{{ event.location }}</p>
-                        <img src="" alt="map with event location" />
-                        <div>{{ event.startTime }}</div>
+                        <div class="event-details__date">
+                            <h2 class="text-h2">
+                                {{ event.startTime | date : 'dd' }}
+                            </h2>
+                            <p>
+                                {{
+                                    event.startTime
+                                        | date : 'MMMM yyyy'
+                                        | titlecase
+                                }}
+                            </p>
+                            <p>
+                                {{
+                                    event.startTime | date : 'EEEE' | titlecase
+                                }}
+                            </p>
+                            <div class="hour">
+                                <span>{{
+                                    event.startTime | date : 'hh:mm'
+                                }}</span>
+                                <span>
+                                    {{ event.endTime | date : 'hh:mm' }}</span
+                                >
+                            </div>
+                        </div>
+                        <div class="event-details__location">
+                            <p>
+                                ul.{{ event.location.streetName }}
+                                {{ event.location.streetNumber }}
+                            </p>
+                            <p>
+                                {{ event.location.postalCode }}
+                                {{ event.location.city }}
+                            </p>
+                            <img
+                                class="event-details__map image-layout--center"
+                                src="{{ event.mainPhoto }}"
+                                alt="map with event location" />
+                        </div>
                     </div>
                 </section>
 
@@ -46,9 +81,7 @@
                             *ngFor="let poll of event.pollQuestions">
                             <div>{{ poll.question }}</div>
                             <button>
-                                <mat-icon [ngStyle]="{ color: 'white' }"
-                                    >poll</mat-icon
-                                >
+                                <mat-icon>poll</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -56,7 +89,7 @@
                 </section>
             </div>
             <section class="event-details__members-section">
-                <div class="searchbar">
+                <div class="event-details__search">
                     <mat-icon>search</mat-icon>
                     <!-- <input
                     type="text"
@@ -67,7 +100,7 @@
                     [value]="searchPhrase" /> -->
                     <input
                         type="text"
-                        class="searchbar__input text-body-big"
+                        class="event-details__search-input"
                         placeholder="Szukaj w Melo"
                         maxlength="80" />
                     <!-- <mat-icon
@@ -81,9 +114,10 @@
                     <li *ngFor="let invaitedMember of event.invitedMembers">
                         {{ invaitedMember.firstName }}
                         {{ invaitedMember.lastName }}
-                        <span *ngIf="invaitedMember.id === event.organizer.id">
-                            Załozyciel
-                        </span>
+                        <img
+                            src="assets/event-details-icons/crown.svg"
+                            alt=""
+                            *ngIf="invaitedMember.id === event.organizer.id" />
                     </li>
                 </ul>
             </section>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,7 @@ import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor } from './core';
+import '@angular/common/locales/global/pl';
 
 @NgModule({
   declarations: [AppComponent],
@@ -60,6 +61,10 @@ import { CustomHttpInterceptor } from './core';
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true,
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pl-PL',
     },
   ],
   bootstrap: [AppComponent],
