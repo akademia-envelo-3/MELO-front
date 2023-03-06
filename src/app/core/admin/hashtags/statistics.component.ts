@@ -1,13 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, NgFor, NgIf, NgClass } from '@angular/common';
 import { HashtagApiService } from './hashtag-api.service';
-import { SpinnerDotsComponent } from '@shared/ui';
-import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-statistics',
-  standalone: true,
-  imports: [NgFor, NgIf, NgClass, AsyncPipe, SpinnerDotsComponent, MatTableModule],
   template: `
     <h1 class="text-h1">Statystyki</h1>
     <div class="statistics-container">

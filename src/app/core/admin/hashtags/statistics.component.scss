@@ -19,12 +19,12 @@ h1 {
   margin: 30px auto;
 }
 
-.table {
-  @extend .bg-gradient-neutral-3;
-  width: 100%;
-  border-radius: 10px;
-  margin: 30px 10px;
-}
+// .table {
+//   @extend .bg-gradient-neutral-3;
+//   width: 100%;
+//   border-radius: 10px;
+//   margin: 30px 10px;
+// }
 
 .mat-column-quantity {
   text-align: right !important;
@@ -40,8 +40,5 @@ h1 {
   }
   .mat-column-no {
     width: 25px;
-  }
-  .table {
-    width: 55%;
   }
 }

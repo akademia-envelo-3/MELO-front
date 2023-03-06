@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  margin: 20px auto;
+  border-bottom: 2px solid black;
+  width: 80%;
+}
+
+td:nth-of-type(odd) {
+  background: #eee;
+}
