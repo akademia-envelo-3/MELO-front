@@ -7,17 +7,29 @@ import {
   EventApiService,
   EventListComponent,
   PowerIconComponent,
+  EventDetailsComponent,
 } from '.';
 import { RouterModule } from '@angular/router';
+import { CircularButtonComponent } from '@shared/ui';
 
 @NgModule({
-  declarations: [CardComponent, PowerIconComponent, EventListComponent],
+  declarations: [
+    CardComponent,
+    PowerIconComponent,
+    EventListComponent,
+    EventDetailsComponent,
+  ],
   imports: [
     MatIconModule,
+    CircularButtonComponent,
     RouterModule.forChild([
       {
         path: '',
         component: EventListComponent,
+      },
+      {
+        path: ':id',
+        component: EventDetailsComponent,
       },
     ]),
     CommonModule,

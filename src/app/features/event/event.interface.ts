@@ -16,7 +16,7 @@ export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eve
   organizer: EmployeeName;
   location: Location;
   periodicType: Maybe<PeriodicType>;
-  pollQUestions: Maybe<PollQuestion>;
+  pollQuestions: Maybe<PollQuestion[]>;
   hashtags: Maybe<string[]>;
   memberLimit: Maybe<number>;
   invitedMembers: Maybe<EmployeeName[]>;
@@ -26,6 +26,7 @@ export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eve
 type EmployeeName = {
   firstName: string;
   lastName: string;
+  id: string;
 };
 
 type Location = {

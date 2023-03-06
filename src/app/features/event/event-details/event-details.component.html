@@ -1,0 +1,93 @@
+<div class="event-details">
+    <nav class="event-details__navigation">
+        <app-circular-button
+            [size]="'sm'"
+            [icon]="'arrow_back'"></app-circular-button>
+        <h2 class="text-h3">Szczegóły wydarzenia</h2>
+    </nav>
+    <ng-container *ngIf="vm$ | async as event; else spinner">
+        <h1 class="text-h2">{{ event.name }}</h1>
+        <p class="text-body-big">
+            Organizator: {{ event.organizer.firstName }}
+            {{ event.organizer.lastName }}
+        </p>
+        <div class="event-details__labels">
+            <div>{{ event.category }}</div>
+            <div *ngFor="let hashtag of event.hashtags">#{{ hashtag }}</div>
+        </div>
+
+        <main class="event-details__main-section">
+            <div>
+                <section class="event-details__top-section">
+                    <img
+                        class="image-layout--center"
+                        src="{{ event.mainPhoto }}" />
+                    <div class="event-details__date-location">
+                        <h2>{{ event.startTime }}</h2>
+                        <p>{{ event.location }}</p>
+                        <img src="" alt="map with event location" />
+                        <div>{{ event.startTime }}</div>
+                    </div>
+                </section>
+
+                <section class="event-details__middle-section">
+                    <article class="bg-gradient-primary-1">
+                        {{ event.description }}
+                    </article>
+                    <!-- add comment -->
+                    <div class="event-details__add-comment"></div>
+                </section>
+
+                <section class="event-details__bottom-section">
+                    <!-- comments -->
+                    <div *ngIf="event.pollQuestions">
+                        <div
+                            class="event-details__poll"
+                            *ngFor="let poll of event.pollQuestions">
+                            <div>{{ poll.question }}</div>
+                            <button>
+                                <mat-icon [ngStyle]="{ color: 'white' }"
+                                    >poll</mat-icon
+                                >
+                            </button>
+                        </div>
+                    </div>
+                    <div class="event-details__coments"></div>
+                </section>
+            </div>
+            <section class="event-details__members-section">
+                <div class="searchbar">
+                    <mat-icon>search</mat-icon>
+                    <!-- <input
+                    type="text"
+                    class="searchbar__input text-body-big"
+                    placeholder="Szukaj w Melo"
+                    maxlength="80"
+                    (keyup)="getSearchValue($event)"
+                    [value]="searchPhrase" /> -->
+                    <input
+                        type="text"
+                        class="searchbar__input text-body-big"
+                        placeholder="Szukaj w Melo"
+                        maxlength="80" />
+                    <!-- <mat-icon
+                    class="searchbar__close"
+                    [ngClass]="{ visible: !isEmpty }"
+                    (click)="clearSearchValue()"
+                    >close</mat-icon
+                > -->
+                </div>
+                <ul>
+                    <li *ngFor="let invaitedMember of event.invitedMembers">
+                        {{ invaitedMember.firstName }}
+                        {{ invaitedMember.lastName }}
+                        <span *ngIf="invaitedMember.id === event.organizer.id">
+                            Załozyciel
+                        </span>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </ng-container>
+    <ng-template #spinner>...Loading</ng-template>
+</div>
