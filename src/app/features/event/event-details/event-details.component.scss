@@ -219,8 +219,8 @@ $memebers-section-width: 215px;
       align-items: center;
     }
     li > img {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       margin-left: 1rem;
       filter: invert(88%) sepia(77%) saturate(7494%) hue-rotate(329deg) brightness(107%)
         contrast(84%);
@@ -234,7 +234,7 @@ $memebers-section-width: 215px;
       position: absolute;
       left: 0.5rem;
       top: 0.5rem;
-      color: colors.$accent-gold-500;
+      color: colors.$accent-gold-600;
     }
   }
 
