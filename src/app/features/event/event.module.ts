@@ -28,7 +28,7 @@ import { CircularButtonComponent } from '@shared/ui';
         component: EventListComponent,
       },
       {
-        path: ':id',
+        path: 'details/:id',
         component: EventDetailsComponent,
       },
     ]),

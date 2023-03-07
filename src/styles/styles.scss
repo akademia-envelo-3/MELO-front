@@ -32,8 +32,9 @@ app-root {
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
-  width: min(100vw, 1920px);
+  width: min(100%, 1920px);
   margin-inline: auto;
+  overflow-x: hidden;
 }
 
 .image-layout--center {
