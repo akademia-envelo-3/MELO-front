@@ -165,12 +165,16 @@ $app-name-theme: mat.define-light-theme(
 }
 
 ////// SNACKBAR
+.mdc-snackbar.mat-mdc-snack-bar-container {
+  margin-top: 30%;
+  margin-left: 115px;
+}
 .red-snackbar {
   background: colors.$accent-error;
   color: colors.$neutral-300;
 }
 .red-snackbar button {
-  background-color: colors.$accent-error;
+  background-color: colors.$accent-error-dark;
   color: colors.$neutral-300 !important;
   border: none;
 }
@@ -179,7 +183,7 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$neutral-300;
 }
 .green-snackbar button {
-  background-color: colors.$accent-success;
+  background-color: colors.$accent-success-dark;
   color: colors.$neutral-300 !important;
   border: none;
 }
