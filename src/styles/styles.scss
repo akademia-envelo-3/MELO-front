@@ -41,10 +41,3 @@ app-root {
   background-repeat: no-repeat;
   background-position: center;
 }
-.table {
-  @extend .bg-gradient-neutral-3;
-  width: 100%;
-  max-width: 1000px;
-  border-radius: 10px;
-  margin: 30px 10px;
-}

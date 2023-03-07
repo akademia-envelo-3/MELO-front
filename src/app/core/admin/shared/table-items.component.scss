@@ -4,8 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 90%;
+  max-width: min(90%, 1200px);
   margin-inline: auto;
+  border-radius: 10px;
+  margin-top: 2rem;
 }
 
 .table {

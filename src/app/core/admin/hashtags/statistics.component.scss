@@ -20,11 +20,22 @@
   word-break: break-all;
 }
 
+.table {
+  @extend .bg-gradient-neutral-3;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 10px;
+  margin: 30px 10px;
+}
+
 @include bp.media-md {
   .line {
     margin: 0;
   }
   .mat-column-no {
     width: 25px;
+  }
+  .table {
+    width: 55%;
   }
 }
