@@ -135,17 +135,12 @@ export class HashtagsService {
   }
 
   private hashtagAlreadyAddedInfo(hashtagStr: string) {
-    this.snackBarService.openSnackBar(
-      `Hashtag o treści "${hashtagStr}" został już dodany`
-    );
+    this.snackBarService.open(`Hashtag o treści "${hashtagStr}" został już dodany`);
   }
   private maxHashtagCountInfo() {
-    console.log('test');
-    this.snackBarService.openSnackBar(
-      `Maksymalna liczba hashtagów to ${this.MAX_HASHTAG_COUNT}`
-    );
+    this.snackBarService.open(`Maksymalna liczba hashtagów to ${this.MAX_HASHTAG_COUNT}`);
   }
   private maxCharsInfo() {
-    this.snackBarService.openSnackBar(`Maksymalna liczba znaków to ${this.MAX_CHARS}`);
+    this.snackBarService.open(`Maksymalna liczba znaków to ${this.MAX_CHARS}`);
   }
 }

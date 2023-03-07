@@ -13,7 +13,7 @@ export class SnackBarService {
   private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   private verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  openSnackBar(
+  open(
     message: string,
     config = {
       duration: 3000,
