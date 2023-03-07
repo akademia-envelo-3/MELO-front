@@ -23,7 +23,7 @@ $accent-error: #ff4040;
 $accent-success: #88b42d;
 
 $bg-gradient-primary-1: #323232 0%, #2c2120 93.23%;
-
+$bg-gradient-gold-2: 90deg, #dfce98 20.82%, #99783f 78.72%;
 .bg-gradient-primary-1 {
   background: linear-gradient(270deg, $bg-gradient-primary-1);
 }
@@ -67,6 +67,10 @@ $bg-gradient-primary-1: #323232 0%, #2c2120 93.23%;
     rgba(254, 235, 87, 0.88) 49.33%,
     #bf7b30 96.92%
   );
+}
+
+.bg-gradient-gold-2 {
+  background: linear-gradient($bg-gradient-gold-2);
 }
 
 .bg-gradient-green-1 {

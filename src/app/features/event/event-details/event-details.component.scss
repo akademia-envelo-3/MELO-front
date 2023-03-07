@@ -18,6 +18,7 @@ $memebers-section-width: 500px;
 .event-details {
   margin: 1rem 0 1rem 1rem;
   color: colors.$neutral-100;
+  position: relative;
 
   & > h1 {
     line-height: 1;
@@ -134,6 +135,11 @@ $memebers-section-width: 500px;
     width: 100%;
 
     position: relative;
+    @media (max-width: 900px) {
+      & {
+        opacity: 0;
+      }
+    }
   }
 
   &__middle-section {
@@ -193,6 +199,17 @@ $memebers-section-width: 500px;
     width: $middle-side-width;
   }
 
+  &__backdrop {
+    position: absolute;
+    background-color: colors.$neutral-900;
+    inset: -1rem;
+    height: 100%;
+    opacity: 0.4;
+    z-index: 2;
+
+    align-items: center;
+  }
+
   &__members-section {
     display: flex;
     flex-direction: column;
@@ -215,6 +232,27 @@ $memebers-section-width: 500px;
       margin-left: 1rem;
       filter: invert(88%) sepia(77%) saturate(7494%) hue-rotate(329deg) brightness(107%)
         contrast(84%);
+    }
+    @media (max-width: 900px) {
+      & {
+        @include border--big();
+        inset: 0;
+        position: absolute;
+        z-index: 3;
+        width: 80%;
+        margin: 5rem auto;
+        align-items: center;
+        & > div {
+          width: 100%;
+        }
+        & > div > input {
+          width: 80%;
+        }
+        & > ul {
+          width: 30%;
+          min-width: max-content;
+        }
+      }
     }
   }
 

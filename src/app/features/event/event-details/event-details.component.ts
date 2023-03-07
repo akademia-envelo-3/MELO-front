@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventApiService } from '..';
+import { EventApiService, EventDetailsStateService } from '..';
 
 @Component({
   selector: 'app-event-details',
@@ -10,7 +10,10 @@ import { EventApiService } from '..';
 })
 export class EventDetailsComponent {
   private eventApiService = inject(EventApiService);
+  private eventDetailsService = inject(EventDetailsStateService);
   private route = inject(ActivatedRoute);
 
   vm$ = this.eventApiService.fetchEventDetails(this.route.snapshot.params['id']);
+
+  eventDetailsState$ = this.eventDetailsService.eventDetailsState$;
 }
