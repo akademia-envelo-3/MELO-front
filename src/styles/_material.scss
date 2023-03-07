@@ -183,3 +183,9 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$neutral-300 !important;
   border: none;
 }
+
+///// TABLE
+.mat-mdc-cell.mdc-data-table__cell,
+.mdc-data-table__header-cell.mdc-data-table__header-cell {
+  padding: 4px clamp(4px, 1.25vw, 16px);
+}
