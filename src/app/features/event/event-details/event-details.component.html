@@ -1,6 +1,7 @@
 <div class="event-details">
     <nav class="event-details__navigation">
         <app-circular-button
+            (clickButton)="redirectToPrevPage()"
             [size]="'sm'"
             [icon]="'arrow_back'"></app-circular-button>
         <h2 class="text-h3">Szczegóły wydarzenia</h2>

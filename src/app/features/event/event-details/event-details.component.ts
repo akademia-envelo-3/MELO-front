@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventApiService, EventDetailsStateService } from '..';
@@ -12,8 +13,13 @@ export class EventDetailsComponent {
   private eventApiService = inject(EventApiService);
   private eventDetailsService = inject(EventDetailsStateService);
   private route = inject(ActivatedRoute);
+  private location = inject(Location);
 
   vm$ = this.eventApiService.fetchEventDetails(this.route.snapshot.params['id']);
 
   eventDetailsState$ = this.eventDetailsService.eventDetailsState$;
+
+  redirectToPrevPage() {
+    this.location.back();
+  }
 }
