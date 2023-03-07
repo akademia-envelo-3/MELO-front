@@ -15,17 +15,19 @@ export class SnackBarService {
 
   openSnackBar(
     message: string,
-    duration = 3000,
-    action = 'Zamknij',
-    horizontalPosition = this.horizontalPosition,
-    verticalPosition = this.verticalPosition,
-    panelClass = ['red-snackbar']
+    config = {
+      duration: 3000,
+      action: 'Zamknij',
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['red-snackbar'],
+    }
   ) {
-    this.snackBar.open(message, action, {
-      duration,
-      horizontalPosition,
-      verticalPosition,
-      panelClass,
+    this.snackBar.open(message, config.action, {
+      duration: config.duration,
+      horizontalPosition: config.horizontalPosition,
+      verticalPosition: config.verticalPosition,
+      panelClass: config.panelClass,
     });
   }
 }

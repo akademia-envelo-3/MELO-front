@@ -170,7 +170,7 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$neutral-300;
 }
 .red-snackbar button {
-  background-color: colors.$accent-error;
+  background-color: colors.$accent-error-dark;
   color: colors.$neutral-300 !important;
   border: none;
 }
@@ -179,7 +179,7 @@ $app-name-theme: mat.define-light-theme(
   color: colors.$neutral-300;
 }
 .green-snackbar button {
-  background-color: colors.$accent-success;
+  background-color: colors.$accent-success-dark;
   color: colors.$neutral-300 !important;
   border: none;
 }

@@ -9,6 +9,6 @@ export class RemoveSpacesDirective {
 
   @HostListener('input', ['$event']) onInputChange() {
     const initalValue = this.el.nativeElement.value;
-    this.el.nativeElement.value = initalValue.replace(/\s/g, '');
+    this.el.nativeElement.value = initalValue.replaceAll(' ', '');
   }
 }

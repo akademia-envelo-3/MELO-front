@@ -12,13 +12,13 @@ import {
   CardComponent,
   EventApiService,
   EventListComponent,
-  EventsThemeComponent,
-  HashtagsComponent,
   PowerIconComponent,
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { HighlightDirective } from '@shared/directives/highlight.directive';
 import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directive';
+import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highlight.directive';
+import { EventsThemeComponent } from './event-form/event-theme.component';
+import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directiv
     MatInputModule,
     MatChipsModule,
     MatIconModule,
-    HighlightDirective,
+    MatOptionHighlightDirective,
     MatFormFieldModule,
     MatAutocompleteModule,
     RemoveSpacesDirective,

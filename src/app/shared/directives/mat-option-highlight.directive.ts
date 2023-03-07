@@ -5,7 +5,7 @@ import { MatOption } from '@angular/material/core';
   selector: 'mat-option[appHighlight]',
   standalone: true,
 })
-export class HighlightDirective implements OnChanges {
+export class MatOptionHighlightDirective implements OnChanges {
   @Input() search!: string;
   private elementRef = inject(ElementRef);
   private matOptionElement = inject<MatOption<string>>(MatOption);

@@ -99,9 +99,7 @@ export class HashtagsService {
     } else if (this.alreadyAdded(hashtagStr)) {
       this.hashtagAlreadyAddedInfo(hashtagStr);
       return false;
-    } else if (auto && auto.activeOption) {
-      return false;
-    } else if (!hashtagStr) {
+    } else if ((auto && auto.activeOption) || !hashtagStr) {
       return false;
     } else if (this.exceedsMaxChars(hashtagStr)) {
       this.maxCharsInfo();
