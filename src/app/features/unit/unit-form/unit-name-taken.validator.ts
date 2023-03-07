@@ -7,7 +7,7 @@ export function unitNameTakenValidator(
 ): AsyncValidatorFn {
   return (control: AbstractControl) => {
     return unitFormService
-      .checkIfNameTaken(control.value)
+      .checkIfNameTaken(control.value.toLowerCase())
       .pipe(map(names => (names.length == 0 ? null : { nameTaken: true })));
   };
 }

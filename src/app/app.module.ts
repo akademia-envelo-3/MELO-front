@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor } from './core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -63,6 +64,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       useClass: CustomHttpInterceptor,
       multi: true,
     },
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })

@@ -16,7 +16,7 @@
             <input
                 matInput
                 type="text"
-                formControlName="unitName"
+                formControlName="name"
                 (blur)="onSetToStorage('unitName', nameCtrl.value)" />
 
             <mat-error class="text-body-small" *ngIf="nameCtrl.errors"
@@ -32,8 +32,17 @@
                     <b>{{ nameCtrl.value }}</b> już istnieje
                 </span></mat-error
             >
-            <mat-hint class="accent-color" *ngIf="nameCtrl.valid"
-                ><mat-icon fontIcon="done_outline"></mat-icon>
+            <mat-hint class="accent-color"
+                ><span *ngIf="nameCtrl.valid"
+                    ><mat-icon fontIcon="done_outline"></mat-icon
+                ></span>
+                <span
+                    class="accent-color"
+                    *ngIf="
+                        (nameCtrl.statusChanges | async) && nameCtrl.pending
+                    ">
+                    <app-spinner-dots size="xs"></app-spinner-dots>
+                </span>
             </mat-hint>
         </mat-form-field>
         <mat-form-field
@@ -43,7 +52,7 @@
             <mat-label>Opis</mat-label>
             <textarea
                 matInput
-                formControlName="unitDescription"
+                formControlName="description"
                 (blur)="
                     onSetToStorage('unitDescription', descriptionCtrl.value)
                 "

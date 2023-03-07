@@ -3,20 +3,18 @@ import { inject, Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ENDPOINTS } from '@shared/constants';
 import { SnackBarService } from '@shared/services/snack-bar.service';
 import { FormResultInfo, FormResultViewComponent } from '@shared/ui';
 import { catchError, throwError } from 'rxjs';
 import { v4 as createUuidv4 } from 'uuid';
 
-interface Unit {
+export interface Unit {
   name: string;
   description: string;
   id?: number;
 }
-interface UnitFormValues {
-  unitName: string;
-  unitDescription: string;
-}
+
 export type UnitForm = FormGroup<{
   name: FormControl<string>;
   description: FormControl<string>;
@@ -50,7 +48,7 @@ export class UnitFormService {
   }
 
   checkIfNameTaken(unitName: string) {
-    return this.http.get<Unit[]>(`/units?name=${unitName}`);
+    return this.http.get<Unit[]>(ENDPOINTS.units + `?name=${unitName}`);
   }
 
   showAfterFormView(resultInfo: FormResultInfo) {
