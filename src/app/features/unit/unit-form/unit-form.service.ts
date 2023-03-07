@@ -32,7 +32,7 @@ export class UnitFormService {
 
   createUnit(formValue: Unit) {
     this.http
-      .post<Unit>('/units', {
+      .post<Unit>(ENDPOINTS.units, {
         name: formValue.name,
         description: formValue.description,
       })
