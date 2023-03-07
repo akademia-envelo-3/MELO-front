@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
+import { EventFormComponent } from './event-form/event-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -8,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
 import {
   CardComponent,
   EventApiService,
@@ -19,14 +22,16 @@ import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directiv
 import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highlight.directive';
 import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     EventsThemeComponent,
     HashtagsComponent,
+    EventListComponent,
     CardComponent,
     PowerIconComponent,
-    EventListComponent,
+    EventFormComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,13 @@ import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
     MatFormFieldModule,
     MatAutocompleteModule,
     RemoveSpacesDirective,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatStepperModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    CommonModule,
     RouterModule.forChild([
       {
         path: '',
@@ -49,6 +61,10 @@ import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
         path: 'theme',
         component: EventsThemeComponent,
         canMatch: [noProductionGuard],
+      },
+      {
+        path: 'new-event',
+        component: EventFormComponent,
       },
     ]),
     CommonModule,
