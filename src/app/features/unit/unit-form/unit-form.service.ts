@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SnackBarService } from '@shared/services/snack-bar.service';
@@ -10,8 +11,16 @@ import { v4 as createUuidv4 } from 'uuid';
 interface Unit {
   name: string;
   description: string;
-  id: number;
+  id?: number;
 }
+interface UnitFormValues {
+  unitName: string;
+  unitDescription: string;
+}
+export type UnitForm = FormGroup<{
+  name: FormControl<string>;
+  description: FormControl<string>;
+}>;
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +32,11 @@ export class UnitFormService {
   private snackBarService = inject(SnackBarService);
   private newUnitID = createUuidv4(); /// z racji braku prawdziwego połączenia z backendem
 
-  sendNewUnitData(name: string, description: string) {
+  createUnit(formValue: Unit) {
     this.http
       .post<Unit>('/units', {
-        name,
-        description,
+        name: formValue.name,
+        description: formValue.description,
       })
       .pipe(
         catchError(error => {
@@ -35,10 +44,8 @@ export class UnitFormService {
           return throwError(() => new Error(error));
         })
       )
-      .subscribe({
-        next: () => {
-          this.showAfterFormView(this.formResultInfoSuccess);
-        },
+      .subscribe(() => {
+        this.showAfterFormView(this.formResultInfoSuccess);
       });
   }
 
@@ -66,6 +73,6 @@ export class UnitFormService {
   };
 
   showErrorSnackBar(message: string) {
-    this.snackBarService.openSnackBar(message);
+    this.snackBarService.open(message);
   }
 }

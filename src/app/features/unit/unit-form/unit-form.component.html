@@ -17,32 +17,22 @@
                 matInput
                 type="text"
                 formControlName="unitName"
-                (blur)="
-                    onSetToStorage('unitName', unitForm.controls.unitName.value)
-                " />
+                (blur)="onSetToStorage('unitName', nameCtrl.value)" />
 
-            <mat-error
-                class="text-body-small"
-                *ngIf="unitForm.controls.unitName.errors"
-                ><span *ngIf="unitForm.controls.unitName.hasError('required')"
+            <mat-error class="text-body-small" *ngIf="nameCtrl.errors"
+                ><span *ngIf="nameCtrl.hasError('required')"
                     ><mat-icon>info</mat-icon> Pole nazwa koła jest wymagane </span
                 ><span
                     class="text-body-small"
-                    *ngIf="unitForm.controls.unitName.hasError('maxlength')"
+                    *ngIf="nameCtrl.hasError('maxlength')"
                     ><mat-icon>info</mat-icon> Maksymalna liczba znaków to
-                    {{
-                        unitForm.controls.unitName.errors!['maxlength'][
-                            'requiredLength'
-                        ]
-                    }} </span
-                ><span *ngIf="unitForm.controls.unitName.hasError('nameTaken')"
+                    {{ nameCtrl.errors!['maxlength']['requiredLength'] }} </span
+                ><span *ngIf="nameCtrl.hasError('nameTaken')"
                     ><mat-icon>info</mat-icon> Koło o nazwie
-                    <b>{{ unitForm.controls.unitName.value }}</b> już istnieje
+                    <b>{{ nameCtrl.value }}</b> już istnieje
                 </span></mat-error
             >
-            <mat-hint
-                class="accent-color"
-                *ngIf="unitForm.controls.unitName.valid"
+            <mat-hint class="accent-color" *ngIf="nameCtrl.valid"
                 ><mat-icon fontIcon="done_outline"></mat-icon>
             </mat-hint>
         </mat-form-field>
@@ -55,31 +45,22 @@
                 matInput
                 formControlName="unitDescription"
                 (blur)="
-                    onSetToStorage(
-                        'unitDescription',
-                        unitForm.controls.unitDescription.value
-                    )
+                    onSetToStorage('unitDescription', descriptionCtrl.value)
                 "
                 rows="10"></textarea>
 
             <mat-error
                 class="text-body-small"
-                *ngIf="unitForm.controls.unitDescription.hasError('required')"
+                *ngIf="descriptionCtrl.hasError('required')"
                 ><mat-icon>info</mat-icon> Pole opis koła jest wymagane </mat-error
             ><mat-error
                 class="text-body-small"
-                *ngIf="unitForm.controls.unitDescription.hasError('maxlength')"
+                *ngIf="descriptionCtrl.hasError('maxlength')"
                 ><mat-icon>info</mat-icon> Maksymalna liczba znaków to
-                {{
-                    unitForm.controls.unitDescription.errors!['maxlength'][
-                        'requiredLength'
-                    ]
-                }}
+                {{ descriptionCtrl.errors!['maxlength']['requiredLength'] }}
             </mat-error>
 
-            <mat-hint
-                class="accent-color"
-                *ngIf="unitForm.controls.unitDescription.valid">
+            <mat-hint class="accent-color" *ngIf="descriptionCtrl.valid">
                 <mat-icon fontIcon="done_outline"></mat-icon>
             </mat-hint>
         </mat-form-field>
