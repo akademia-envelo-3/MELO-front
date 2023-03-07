@@ -4,7 +4,7 @@ import { HashtagApiService } from './hashtag-api.service';
 @Component({
   selector: 'app-statistics',
   template: `
-    <h1 class="text-h1">Statystyki</h1>
+    <h1 class="text-h1 header-with-underline">Statystyki</h1>
     <div class="statistics-container">
       <ng-container *ngIf="statistics$ | async as element; else loading">
         <div class="table">

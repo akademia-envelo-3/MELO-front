@@ -2,13 +2,6 @@
 @use './src/styles/typography';
 @use './src/styles/breakpoints' as bp;
 
-h1 {
-  text-align: center;
-  margin: 20px auto;
-  border-bottom: 2px solid black;
-  width: 80%;
-}
-
 .statistics-container {
   display: flex;
   justify-content: center;
