@@ -35,6 +35,8 @@ type Location = {
   aparmentNumber?: number;
   postalCode: number;
   city: string;
+  lat: number;
+  long: number;
 };
 type PeriodicType = 'ONE_WEEK' | 'TWO_WEEKS' | 'ONE_MONTH';
 

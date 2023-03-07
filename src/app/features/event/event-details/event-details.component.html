@@ -58,10 +58,15 @@
                                 {{ event.location.postalCode }}
                                 {{ event.location.city }}
                             </p>
-                            <img
-                                class="event-details__map image-layout--center"
-                                src="{{ event.mainPhoto }}"
-                                alt="map with event location" />
+
+                            <div class="event-details__map">
+                                <app-map
+                                    [locationCordinates]="{
+                                        lat: event.location.lat,
+                                        long: event.location.long
+                                    }">
+                                </app-map>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -82,7 +87,8 @@
                             *ngFor="let poll of event.pollQuestions">
                             <div>{{ poll.question }}</div>
                             <button>
-                                <mat-icon>poll</mat-icon>
+                                <!-- <mat-icon>poll</mat-icon> -->
+                                <mat-icon>leaderboard</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -126,3 +132,9 @@
     </ng-container>
     <ng-template #spinner>...Loading</ng-template>
 </div>
+
+<!-- <div class="map-container">
+    <div class="map-frame">
+        <div id="map"></div>
+    </div>
+</div> -->

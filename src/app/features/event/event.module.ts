@@ -8,6 +8,7 @@ import {
   EventListComponent,
   PowerIconComponent,
   EventDetailsComponent,
+  MapComponent,
 } from '.';
 import { RouterModule } from '@angular/router';
 import { CircularButtonComponent } from '@shared/ui';
@@ -18,6 +19,7 @@ import { CircularButtonComponent } from '@shared/ui';
     PowerIconComponent,
     EventListComponent,
     EventDetailsComponent,
+    MapComponent,
   ],
   imports: [
     MatIconModule,

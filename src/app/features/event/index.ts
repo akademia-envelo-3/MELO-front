@@ -5,3 +5,4 @@ export * from './event.interface';
 export * from './event-api.service';
 export * from './list/event-list.component';
 export * from './event-details/event-details.component';
+export * from './map/map.component';

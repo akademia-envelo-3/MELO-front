@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventDetailsDTO, EventApiService } from '..';
+import { EventApiService } from '..';
 
 @Component({
   selector: 'app-event-details',
@@ -9,13 +9,8 @@ import { EventDetailsDTO, EventApiService } from '..';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventDetailsComponent {
-  // event: EventDetailsDTO = EVENT_MOCK;
   private eventApiService = inject(EventApiService);
   private route = inject(ActivatedRoute);
 
   vm$ = this.eventApiService.fetchEventDetails(this.route.snapshot.params['id']);
 }
-
-// const EVENT_MOCK: EventDetailsDTO =  {
-//   name:
-// }
