@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UnitPowerIconComponent, UnitCardComponent, UnitFormComponent } from '.';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SpinnerDotsComponent } from '@shared/ui';
 
 @NgModule({
