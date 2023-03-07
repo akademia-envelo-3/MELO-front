@@ -40,14 +40,14 @@ export class EventFormComponent {
     }),
   });
 
-  get eventTypeForm() {
-    return this.newEventForm.get('eventType') as FormGroup;
+  get eventType() {
+    return this.newEventForm.controls.eventType;
   }
 
   get eventDetails() {
-    return this.newEventForm.get('eventDetails') as FormGroup;
+    return this.newEventForm.controls.eventDetails;
   }
   get eventAdditionalInfo() {
-    return this.newEventForm.get('eventAdditionalInfo') as FormGroup;
+    return this.newEventForm.controls.eventAdditionalInfo;
   }
 }

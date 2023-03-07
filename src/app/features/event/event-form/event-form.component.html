@@ -6,7 +6,7 @@
     <form [formGroup]="newEventForm">
         <mat-stepper [linear]="true" animationDuration="0ms" #stepper>
             <div class="bg-gradient-neutral-3">
-                <mat-step [stepControl]="eventTypeForm">
+                <mat-step [stepControl]="eventType">
                     <div formGroupName="eventType">
                         <ng-template matStepLabel>Typ wydarzenia</ng-template>
                         <mat-radio-group
