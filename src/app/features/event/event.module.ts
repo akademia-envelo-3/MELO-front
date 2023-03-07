@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
 import { EventFormComponent } from './event-form/event-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import {
@@ -14,17 +17,34 @@ import {
   EventListComponent,
   PowerIconComponent,
 } from '.';
-import { MatInputModule } from '@angular/material/input';
+import { noProductionGuard } from '@shared/no-production.guard';
+import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directive';
+import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highlight.directive';
+import { EventsThemeComponent } from './event-form/event-theme.component';
+import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
+    EventsThemeComponent,
+    HashtagsComponent,
     EventListComponent,
     CardComponent,
     PowerIconComponent,
     EventFormComponent,
   ],
   imports: [
+    CommonModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatChipsModule,
+    MatIconModule,
+    MatOptionHighlightDirective,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    RemoveSpacesDirective,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -36,6 +56,11 @@ import { MatInputModule } from '@angular/material/input';
       {
         path: '',
         component: EventListComponent,
+      },
+      {
+        path: 'theme',
+        component: EventsThemeComponent,
+        canMatch: [noProductionGuard],
       },
       {
         path: 'new-event',

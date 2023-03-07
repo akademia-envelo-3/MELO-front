@@ -20,6 +20,7 @@ export type SideMenuState = {
   menuCategories: MenuCategory[];
   selectedCategory: MenuCategory;
   isDesktopMenuVisible: boolean;
+  isMobileMenuVisible: boolean;
   isDesktop: boolean;
   isMobileMenuActive: boolean;
 };
@@ -30,6 +31,7 @@ const defaultSideMenuData = {
   menuCategories: [],
   selectedCategory: defaultSelectedCategory,
   isDesktopMenuVisible: false,
+  isMobileMenuVisible: false,
   isDesktop: false,
   isMobileMenuActive: false,
 };
@@ -141,6 +143,30 @@ export class SideMenuStateService {
   toggleMobileMenuVisibility() {
     this.patchState({
       isMobileMenuActive: !this.setupStateValue.isMobileMenuActive,
+    });
+  }
+
+  selectActiveCategory(category: MenuCategory) {
+    const { selectedCategory, isDesktopMenuVisible, isMobileMenuVisible, isDesktop } =
+      this.setupStateValue;
+    return (
+      (selectedCategory.categoryName === category.categoryName &&
+        isDesktopMenuVisible &&
+        isDesktop) ||
+      (selectedCategory.categoryName === category.categoryName &&
+        isMobileMenuVisible &&
+        !isDesktop)
+    );
+  }
+
+  setMobileMenuStateClosed() {
+    this.patchState({
+      isMobileMenuVisible: false,
+    });
+  }
+  setMobileMenuStateOpened() {
+    this.patchState({
+      isMobileMenuVisible: true,
     });
   }
 

@@ -82,6 +82,10 @@ $app-name-theme: mat.define-light-theme(
       display: none;
     }
   }
+  &.mat-mdc-menu-panel.mat-mdc-menu-panel {
+    left: 7px;
+    top: 66px;
+  }
 }
 ///// DIALOG /////
 
@@ -167,10 +171,26 @@ $app-name-theme: mat.define-light-theme(
         display: none;
       }
 
-      .mat-step-icon-state-error .mat-icon,
-      .mat-step-label.mat-step-label-error {
-        color: colors.$accent-error;
-      }
-    }
-  }
+////// SNACKBAR
+.mdc-snackbar.mat-mdc-snack-bar-container {
+  margin-top: 30%;
+  margin-left: 115px;
+}
+.red-snackbar {
+  background: colors.$accent-error;
+  color: colors.$neutral-300;
+}
+.red-snackbar button {
+  background-color: colors.$accent-error-dark;
+  color: colors.$neutral-300 !important;
+  border: none;
+}
+.green-snackbar {
+  background: colors.$accent-success;
+  color: colors.$neutral-300;
+}
+.green-snackbar button {
+  background-color: colors.$accent-success-dark;
+  color: colors.$neutral-300 !important;
+  border: none;
 }
