@@ -6,14 +6,10 @@
   align-items: center;
   max-width: min(90%, 1200px);
   margin-inline: auto;
-  border-radius: 10px;
+  border-radius: 10gpx;
   margin-top: 2rem;
 }
 
-.table {
-  border-radius: 10px;
-  margin: 30px 10px;
-}
 tr:nth-of-type(odd):not(.mat-mdc-header-row) {
   background: colors.$neutral-300;
 }
