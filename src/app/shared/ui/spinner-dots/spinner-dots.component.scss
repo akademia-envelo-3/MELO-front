@@ -5,6 +5,7 @@
   position: relative;
   min-width: max-content;
   animation: bounce 1.3s infinite ease-in-out both;
+  animation-delay: 0.19s;
 
   &::before,
   &::after {
@@ -19,13 +20,12 @@
   }
 
   &::after {
-    transform: translateX(56px);
-    animation-delay: 0.35s;
+    transform: translateX(-28px);
   }
 
   &::before {
     transform: translateX(28px);
-    animation-delay: 0.19s;
+    animation-delay: 0.35s;
   }
 }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,7 +9,13 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { CustomHttpInterceptor } from './core';
+import { CustomHttpInterceptor, initFactory } from './core';
+import { UserState } from '@core/user/store/user';
+import { AuthService } from '@features/auth';
+
+export type AppState = {
+  user: UserState;
+};
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -36,7 +42,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           },
           {
             path: 'admin',
-            loadChildren: () => import('./core/admin/admin.module'),
+            loadChildren: () => import('./core/user/admin/admin.module'),
           },
           {
             path: '**',
@@ -60,6 +66,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initFactory,
+      deps: [AuthService],
       multi: true,
     },
     MatSnackBar,
