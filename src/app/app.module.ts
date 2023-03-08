@@ -10,6 +10,7 @@ import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor } from './core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -61,6 +62,7 @@ import { CustomHttpInterceptor } from './core';
       useClass: CustomHttpInterceptor,
       multi: true,
     },
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })

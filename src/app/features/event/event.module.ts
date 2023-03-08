@@ -23,6 +23,7 @@ import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highl
 import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { RouterModule } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
