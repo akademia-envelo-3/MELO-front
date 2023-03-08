@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CommonModule } from '@angular/common';
 
 import { EventFormComponent } from './event-form/event-form.component';
@@ -23,6 +24,7 @@ import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highl
 import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { RouterModule } from '@angular/router';
+import { SpinnerDotsComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,8 @@ import { RouterModule } from '@angular/router';
     EventFormComponent,
   ],
   imports: [
-    CommonModule,
-    MatIconModule,
+    InfiniteScrollModule,
+    SpinnerDotsComponent,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
@@ -67,7 +69,6 @@ import { RouterModule } from '@angular/router';
         component: EventFormComponent,
       },
     ]),
-    CommonModule,
   ],
   exports: [CardComponent, PowerIconComponent],
   providers: [EventApiService],
