@@ -1,0 +1,169 @@
+<div class="event-form-container">
+    <h1 class="text-h1 text-white event-form-container__header">
+        Utwórz nowe wydarzenie
+    </h1>
+
+    <form [formGroup]="newEventForm">
+        <mat-stepper [linear]="true" animationDuration="0ms" #stepper>
+            <div class="bg-gradient-neutral-3">
+                <mat-step [stepControl]="eventType">
+                    <div formGroupName="eventType">
+                        <ng-template matStepLabel>Typ wydarzenia</ng-template>
+                        <mat-radio-group
+                            formControlName="eventAccessType"
+                            aria-label="Typ dostępu wydarzenia">
+                            <mat-radio-button value="Publiczne" [checked]="true"
+                                >Publiczne</mat-radio-button
+                            >
+                            <mat-radio-button value="Prywatne"
+                                >Prywatne</mat-radio-button
+                            >
+                        </mat-radio-group>
+                        <mat-radio-group
+                            formControlName="eventScopeType"
+                            aria-label="Typ zakresu wydarzenia">
+                            <mat-radio-button
+                                value="Wewnętrzne"
+                                [checked]="true"
+                                >Wewnętrzne</mat-radio-button
+                            >
+                            <mat-radio-button value="Zewnętrzne"
+                                >Zewnętrzne</mat-radio-button
+                            >
+                        </mat-radio-group>
+                        <mat-radio-group
+                            formControlName="eventLimitType"
+                            aria-label="Typ limitu osób dla wydarzenia">
+                            <mat-radio-button
+                                value="Nielimitowane"
+                                [checked]="true"
+                                >Nielimitowane</mat-radio-button
+                            >
+                            <mat-radio-button value="Limitowane"
+                                >Limitowane</mat-radio-button
+                            >
+                        </mat-radio-group>
+                        <mat-radio-group
+                            formControlName="eventRepeatType"
+                            aria-label="Typ powtarzalności wydarzenia">
+                            <mat-radio-button
+                                value="Jednorazowe"
+                                [checked]="true"
+                                >Jednorazowe</mat-radio-button
+                            >
+                            <mat-radio-button value="Cykliczne"
+                                >Cykliczne</mat-radio-button
+                            >
+                        </mat-radio-group>
+                        <div
+                            class="mat-step-nav-buttons mat-step-nav-buttons--one-button">
+                            <button
+                                class="btn-rect btn-rect--sm btn-default btn-step-one"
+                                matStepperNext
+                                type="button">
+                                Dalej
+                            </button>
+                        </div>
+                    </div>
+                </mat-step>
+                <mat-step
+                    [stepControl]="eventDetails"
+                    label="Szczegóły"
+                    errorMessage="Krok wymagany">
+                    <div formGroupName="eventDetails">
+                        <mat-form-field>
+                            <mat-label>Tytuł</mat-label>
+                            <input
+                                matInput
+                                formControlName="eventName" /> </mat-form-field
+                        ><mat-form-field>
+                            <mat-label>Opis</mat-label>
+                            <input
+                                matInput
+                                formControlName="eventDescription" />
+                        </mat-form-field>
+                        <div>
+                            <mat-label>Data i godzina rozpoczęcia</mat-label>
+                            <input
+                                type="datetime-local"
+                                formControlName="eventDateTimeFrom" />
+                        </div>
+                        <div>
+                            <mat-label>Data i godzina zakończenia</mat-label>
+                            <input
+                                type="datetime-local"
+                                formControlName="eventDateTimeTo" />
+                        </div>
+                        <mat-form-field>
+                            <mat-label>Lokalizacja</mat-label>
+                            <input matInput formControlName="eventLocation" />
+                        </mat-form-field>
+                        <div class="mat-step-nav-buttons">
+                            <button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperPrevious
+                                type="button">
+                                Wstecz</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext
+                                type="button">
+                                Dalej
+                            </button>
+                        </div>
+                    </div> </mat-step
+                ><mat-step
+                    [stepControl]="eventAdditionalInfo"
+                    label="Dodatkowe informacje">
+                    <div formGroupName="eventAdditionalInfo">
+                        <mat-form-field>
+                            <mat-label>Hashtags</mat-label>
+                            <input matInput formControlName="eventHashtags" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Kategoria</mat-label>
+                            <input matInput formControlName="eventCategory" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Główny obraz</mat-label>
+                            <input matInput formControlName="eventPhoto" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Tło karty</mat-label>
+                            <input matInput formControlName="eventCardBg" />
+                        </mat-form-field>
+                        <div class="mat-step-nav-buttons">
+                            <button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperPrevious
+                                type="button">
+                                Wstecz</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext
+                                type="button">
+                                Dalej
+                            </button>
+                        </div>
+                    </div> </mat-step
+                ><mat-step label="Podsumowanie">
+                    <div>
+                        <div class="mat-step-nav-buttons">
+                            <button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperPrevious
+                                type="button">
+                                Wstecz</button
+                            ><button
+                                class="btn-rect btn-rect--sm btn-default"
+                                matStepperNext
+                                type="submit">
+                                Utwórz
+                            </button>
+                        </div>
+                    </div>
+                </mat-step>
+            </div>
+        </mat-stepper>
+    </form>
+</div>
