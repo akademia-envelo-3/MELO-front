@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { UserActions } from '@core/store/user';
+import { UserActions } from '@core/user/store/user';
 import { Store } from '@ngrx/store';
 import { ENDPOINTS } from '@shared/constants';
 import { useNavigate } from '@shared/inject-hooks/use-navigate.hook';
@@ -29,9 +29,22 @@ export class AuthService {
       .subscribe(userDto => this.setAuthAndUserState(userDto));
   }
 
+  private isSessionPersistenceDenied() {
+    return !localStorage.getItem('rememberMe');
+  }
+
+  private setAuthAndUserState({ role, ...user }: UserDto) {
+    this.auth$$.next({ auth: role });
+    this.store.dispatch(UserActions.set_user(user));
+  }
+
   login({ rememberMe, ...credentials }: LoginCredentials) {
     this.setSessionPersistencePermission(rememberMe);
     return this.http.post<LoginDTO>(ENDPOINTS.LOGIN, credentials);
+  }
+
+  private setSessionPersistencePermission(rememberMe: boolean) {
+    localStorage.setItem('rememberMe', `${rememberMe}`);
   }
 
   loginSuccess({ user }: LoginDTO) {
@@ -45,21 +58,8 @@ export class AuthService {
     this.navigate('/login');
   }
 
-  private setAuthAndUserState({ role, ...user }: UserDto) {
-    this.auth$$.next({ auth: role });
-    this.store.dispatch(UserActions.set_user(user));
-  }
-
   private removeUser() {
     this.auth$$.next({ auth: 'none' });
     this.store.dispatch(UserActions.remove_user());
-  }
-
-  private setSessionPersistencePermission(rememberMe: boolean) {
-    localStorage.setItem('rememberMe', `${rememberMe}`);
-  }
-
-  private isSessionPersistenceDenied() {
-    return !localStorage.getItem('rememberMe');
   }
 }
