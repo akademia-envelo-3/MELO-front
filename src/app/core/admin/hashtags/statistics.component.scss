@@ -2,28 +2,22 @@
 @use './src/styles/typography';
 @use './src/styles/breakpoints' as bp;
 
-h1 {
-  text-align: center;
-  margin: 20px auto;
-  border-bottom: 2px solid black;
-  width: 80%;
-}
-
 .statistics-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.spinner {
-  margin: 30px auto;
-}
-
 .table {
   @extend .bg-gradient-neutral-3;
   width: 100%;
+  max-width: 1000px;
   border-radius: 10px;
   margin: 30px 10px;
+}
+
+.spinner {
+  margin: 30px auto;
 }
 
 .mat-column-quantity {

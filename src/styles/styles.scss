@@ -4,6 +4,7 @@
 @use 'form-fields' as *;
 @use 'colors' as colors;
 @use 'breakpoints' as br;
+@use 'layout' as layout;
 
 :root {
   font-family: 'Mukta Vaani', 'sans-serif';
