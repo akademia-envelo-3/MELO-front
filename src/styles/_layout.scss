@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.inner-container {
+  align-items: center;
+  max-width: min(90%, 1200px);
+  margin-inline: auto;
+}
