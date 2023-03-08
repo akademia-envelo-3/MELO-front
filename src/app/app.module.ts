@@ -16,6 +16,7 @@ import { AuthService } from '@features/auth';
 export type AppState = {
   user: UserState;
 };
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -73,6 +74,7 @@ export type AppState = {
       deps: [AuthService],
       multi: true,
     },
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })
