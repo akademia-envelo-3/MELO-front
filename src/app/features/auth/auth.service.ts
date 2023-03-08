@@ -7,7 +7,7 @@ import { useNavigate } from '@shared/inject-hooks/use-navigate.hook';
 
 import { BehaviorSubject } from 'rxjs';
 import { AppState } from 'src/app/app.module';
-import { AuthType, LoginDTO, LoginCredentials, UserDto } from '..';
+import { AuthType, LoginDTO, LoginCredentials, UserDto } from '.';
 
 export type AuthState = {
   auth: AuthType;

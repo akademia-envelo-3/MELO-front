@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MESSAGES } from '@shared/constants';
-import { AuthService, AuthValidators } from '../..';
+import { AuthService, AuthValidators } from '..';
 
 @Component({
   selector: 'app-auth',

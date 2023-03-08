@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { MESSAGES } from '@shared/constants';
 
 import { throwError } from 'rxjs';
-import { AuthService } from '..';
+import { AuthService } from '.';
 
 @Injectable({
   providedIn: 'root',
