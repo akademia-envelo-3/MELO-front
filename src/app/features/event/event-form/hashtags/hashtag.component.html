@@ -1,0 +1,55 @@
+<form>
+    <mat-chip-grid #chipGrid aria-label="Hashtag selection">
+        <mat-chip-row
+            *ngFor="let hashtag of addedHashtags"
+            (removed)="onRemoveAddedHashtag(hashtag)"
+            [editable]="true"
+            (edited)="onEditHashtag(hashtag, $event)">
+            {{ hashtag }}
+            <button matChipRemove [attr.aria-label]="'remove ' + hashtag">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-chip-row></mat-chip-grid
+    >
+    <mat-form-field appearance="outline"
+        ><mat-label>Hashtagi</mat-label>
+        <input
+            matInput
+            appRemoveSpaces
+            type="text"
+            placeholder="Nowy hashtag"
+            #hashtagInput
+            [formControl]="hashtagCtrl"
+            [matChipInputFor]="chipGrid"
+            [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="onAddHashtag($event)" />
+        <mat-error
+            class="text-body-small"
+            *ngIf="hashtagCtrl.errors && hashtagCtrl.errors['maxlength']">
+            <mat-icon>info</mat-icon> Maksymalna liczba znaków to
+            {{ hashtagCtrl.errors['maxlength']['requiredLength'] }}</mat-error
+        >
+    </mat-form-field>
+    <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onSelectedHashtag($event)">
+        <ng-container
+            *ngIf="
+                hashtagCtrl.value &&
+                hashtagCtrl.value.length > 1 &&
+                (filteredHashtags$ | async) as filteredHashtags
+            ">
+            <mat-option
+                *ngFor="
+                    let hashtag of filteredHashtags
+                        | slice : 0 : MAX_AUTOCOMPLETE_OPTIONS
+                "
+                appHighlight
+                [search]="hashtagCtrl.value"
+                [value]="hashtag"
+                >{{ hashtag }}
+            </mat-option></ng-container
+        >
+    </mat-autocomplete>
+</form>

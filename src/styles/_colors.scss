@@ -20,10 +20,14 @@ $accent-gold-700: #d69840;
 $accent-gold-800: #c17605;
 
 $accent-error: #ff4040;
+$accent-error-dark: #d32323;
 $accent-success: #88b42d;
+$accent-success-dark: #628a12;
+
+$bg-gradient-primary-1: #323232 0%, #2c2120 93.23%;
 
 .bg-gradient-primary-1 {
-  background: linear-gradient(270deg, #323232 0%, #2c2120 93.23%);
+  background: linear-gradient(270deg, $bg-gradient-primary-1);
 }
 
 .bg-gradient-primary-2 {
@@ -49,22 +53,26 @@ $accent-success: #88b42d;
   );
 }
 
+$bg-gradient-neutral-3: linear-gradient(
+  125.67deg,
+  rgba(234, 235, 241, 0.8) 0.31%,
+  rgba(249, 251, 251, 0.8) 48.39%,
+  rgba(249, 251, 251, 0.8) 98.02%
+);
+
 .bg-gradient-neutral-3 {
-  background: linear-gradient(
-    125.67deg,
-    rgba(234, 235, 241, 0.8) 0.31%,
-    rgba(249, 251, 251, 0.8) 48.39%,
-    rgba(249, 251, 251, 0.8) 98.02%
-  );
+  background: $bg-gradient-neutral-3;
 }
 
+$bg-gradient-gold-1: linear-gradient(
+  283.96deg,
+  #a86c2d 3.84%,
+  rgba(254, 235, 87, 0.88) 49.33%,
+  #bf7b30 96.92%
+);
+
 .bg-gradient-gold-1 {
-  background: linear-gradient(
-    283.96deg,
-    #a86c2d 3.84%,
-    rgba(254, 235, 87, 0.88) 49.33%,
-    #bf7b30 96.92%
-  );
+  background: $bg-gradient-gold-1;
 }
 
 .bg-gradient-green-1 {
@@ -75,4 +83,8 @@ $accent-success: #88b42d;
 }
 .accent-color {
   color: $accent-success;
+}
+
+.text-white {
+  color: $neutral-300;
 }

@@ -1,0 +1,111 @@
+<div
+    class="side-menu-container"
+    *ngIf="sideMenuStateService.setupState$ | async as sideMenuState">
+    <mat-sidenav-container>
+        <div
+            class="side-menu-container__left"
+            [ngClass]="{
+                ' is-closed ':
+                    !sideMenuState.isDesktop &&
+                    !sideMenuState.isMobileMenuActive
+            }">
+            <div class="side-menu-container__left-top">
+                <button
+                    class="side-menu-category"
+                    [ngClass]="{
+                        ' active ':
+                            sideMenuState.selectedCategory.categoryName ===
+                            'logout'
+                    }"
+                    [matTooltip]="'Wyloguj' | titlecase"
+                    matTooltipPosition="above"
+                    mat-button
+                    (click)="logout()">
+                    <img
+                        class="icon"
+                        src="../../../../assets/side-menu-icons/exit.svg"
+                        alt="wyloguj" />
+                </button>
+            </div>
+            <div class="side-menu-container__left-bottom">
+                <div
+                    *ngFor="let category of sideMenuState.menuCategories"
+                    class="side-menu-category">
+                    <button
+                        class="side-menu-category"
+                        [ngClass]="{
+                            ' active ':
+                                sideMenuStateService.selectActiveCategory(
+                                    category
+                                )
+                        }"
+                        [matTooltip]="category.categoryName | titlecase"
+                        matTooltipPosition="above"
+                        mat-button
+                        (click)="
+                            category.href
+                                ? navigate(category)
+                                : toggle(category, mobileMenuTrigger)
+                        ">
+                        <img
+                            class="icon"
+                            [src]="category.categoryIcon"
+                            [alt]="category.categoryName" />
+                        <div
+                            (menuOpened)="
+                                sideMenuStateService.setMobileMenuStateOpened()
+                            "
+                            (menuClosed)="
+                                sideMenuStateService.setMobileMenuStateClosed()
+                            "
+                            class="mobile-menu-container"
+                            #mobileMenuTrigger="matMenuTrigger"
+                            [matMenuTriggerFor]="appMenu"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-container>
+
+    <!-- Desktop side menu -->
+    <div
+        class="side-menu-container__right display-side-menu-desktop bg-gradient-primary-2"
+        [ngClass]="{
+            ' menu-visible ': sideMenuState.isDesktopMenuVisible,
+            ' transition ':
+                sideMenuState.selectedCategory.subCategories !== undefined &&
+                !disableAnimations
+        }">
+        <ul>
+            <li
+                *ngFor="
+                    let subCategory of sideMenuState.selectedCategory
+                        .subCategories
+                ">
+                <a
+                    [routerLink]="subCategory.href"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active"
+                    class="text-h4"
+                    (click)="close()">
+                    {{ subCategory.subCategoryName | titlecase }}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Mobile side menu -->
+    <mat-menu #appMenu="matMenu" class="mobile-side-menu">
+        <ng-template matMenuContent let-subCategories="subCategories">
+            <a
+                class="category-item"
+                mat-menu-item
+                *ngFor="let subCategory of subCategories"
+                [routerLink]="subCategory.href"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                {{ subCategory.subCategoryName }}
+            </a>
+        </ng-template>
+    </mat-menu>
+</div>

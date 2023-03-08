@@ -16,8 +16,8 @@ textarea {
   min-height: 200px;
 }
 
-.mat-mdc-form-field {
-  min-width: 200px;
+.mat-mdc-form-field.mat-mdc-form-field {
+  min-width: min(275px, 88vw);
   width: 100%;
 }
 
@@ -32,8 +32,7 @@ textarea {
   margin-right: 0.25rem;
 }
 
-//label for textarea in unit-form
-label#mat-mdc-form-field-label-2 {
+.textarea-form-field .mdc-text-field label {
   top: 1.5rem;
 }
 

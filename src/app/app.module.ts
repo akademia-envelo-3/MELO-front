@@ -9,7 +9,6 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-
 import { CustomHttpInterceptor } from './core';
 import { userReducer, UserState } from '@core/store/user';
 
@@ -22,28 +21,26 @@ export type AppState = {
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({
-      user: userReducer,
-    }),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: '',
         children: [
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),
           },
-          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
           {
             path: 'theme',
             canMatch: [noProductionGuard],
             loadComponent: () => import('./core/theme.component'),
           },
           {
-            path: 'units',
-            loadChildren: () => import('./features/unit/unit.module'),
+            path: 'admin',
+            loadChildren: () => import('./core/admin/admin.module'),
           },
           {
             path: '**',
@@ -52,6 +49,7 @@ export type AppState = {
           },
         ],
       },
+      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [

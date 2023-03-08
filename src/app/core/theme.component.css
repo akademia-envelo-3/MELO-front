@@ -1,0 +1,181 @@
+.basic-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 25px;
+  padding: 2rem;
+}
+
+.basic-container > *:not(.basic-container__btns) {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.basic-container__btns {
+  margin-top: 2rem;
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.basic-container p {
+  margin-bottom: 1rem;
+}
+
+.cards-wrapper {
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.cards-wrapper > p {
+  padding-bottom: 2rem;
+}
+
+.cards-wrapper--inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.power-icon__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 25px;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.power-icon__wrapper__inner {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+}
+
+.circular-buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 25px;
+  padding: 2rem;
+}
+
+.circular-buttons-container__btns {
+  margin-top: 2rem;
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.circular-buttons-container__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.circular-buttons-container p {
+  margin-bottom: 1rem;
+}
+
+.filtr-search-btn__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+  border-radius: 25px;
+  padding: 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.filtr-search-btn__wrapper .filter-search-btn__inner {
+  margin-top: 10px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.displayNavbar {
+  margin-bottom: 50px;
+}
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hamburger__bar1, .hamburger__bar2, .hamburger__bar3 {
+  width: 44.5px;
+  height: 5px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(20.82%, #dfce98), color-stop(78.72%, #99783f));
+  background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
+  margin: 6px 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.change .hamburger__bar1 {
+  -webkit-transform: translate(0, 11px) rotate(-45deg);
+          transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .hamburger__bar2 {
+  opacity: 0;
+}
+
+.change .hamburger__bar3 {
+  -webkit-transform: translate(0, -11px) rotate(45deg);
+          transform: translate(0, -11px) rotate(45deg);
+}
+/*# sourceMappingURL=theme.component.css.map */

@@ -12,6 +12,12 @@ $max-app-width: 1920px;
   }
 }
 
+@mixin media-up-md {
+  @media screen and (max-width: 560px) {
+    @content;
+  }
+}
+
 @mixin media-lg {
   @media screen and (min-width: 1024px) {
     @content;
