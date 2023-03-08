@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,8 +9,14 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { CustomHttpInterceptor } from './core';
-import '@angular/common/locales/global/pl';
+import { CustomHttpInterceptor, initFactory } from './core';
+import { UserState } from '@core/user/store/user';
+import { AuthService } from '@features/auth';
+
+export type AppState = {
+  user: UserState;
+};
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +42,7 @@ import '@angular/common/locales/global/pl';
           },
           {
             path: 'admin',
-            loadChildren: () => import('./core/admin/admin.module'),
+            loadChildren: () => import('./core/user/admin/admin.module'),
           },
           {
             path: '**',
@@ -66,6 +72,13 @@ import '@angular/common/locales/global/pl';
       provide: LOCALE_ID,
       useValue: 'pl-PL',
     },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initFactory,
+      deps: [AuthService],
+      multi: true,
+    },
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })
