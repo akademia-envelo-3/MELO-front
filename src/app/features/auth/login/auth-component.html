@@ -11,14 +11,21 @@
                 <mat-icon matSuffix>mail</mat-icon>
                 <mat-label>Email</mat-label>
                 <input
+                    formControlName="email"
                     type="email"
                     matInput
                     placeholder="Email"
                     formControlName="email" />
-                <mat-error class="text-body-small" *ngIf="emailCtrl.invalid"
-                    >{{getEmailErrorMessage()}}</mat-error
-                >
+                <mat-error *ngIf="emailCtrl.touched">
+                    {{getEmailErrorMessage()}}
+                </mat-error>
+                <mat-error
+                    *ngIf="emailCtrl.errors as errors"
+                    class="text-body-small">
+                    {{ errors["authenticationError"] }}
+                </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-icon
                     matSuffix
@@ -32,23 +39,33 @@
                     (click)="togglePasswordVisibility()"
                     >visibility</mat-icon
                 >
-                <mat-label>Password</mat-label>
+                <mat-label>Hasło</mat-label>
                 <input
+                    formControlName="password"
                     [type]="!isPasswordVisible ? 'password' : 'text'"
                     matInput
                     placeholder="Password"
                     formControlName="password" />
-                <mat-error class="text-body-small" *ngIf="passwordCtrl.invalid"
-                    >To pole jest obowiązkowe</mat-error
-                >
+                <mat-error
+                    *ngIf="passwordCtrl.errors?.['required'] && passwordCtrl.touched">
+                    Hasło jest wymaganym polem
+                </mat-error>
+                <mat-error
+                    *ngIf="passwordCtrl.errors as errors"
+                    class="text-body-small">
+                    {{ errors["authenticationError"] }}
+                </mat-error>
             </mat-form-field>
-            <mat-checkbox color="primary" class="form__rememberMe text-body-big"
-                >Zapamiętaj mnie</mat-checkbox
-            >
+            <mat-checkbox
+                formControlName="rememberMe"
+                color="primary"
+                class="form__rememberMe text-body-big"
+                >Zapamiętaj mnie
+            </mat-checkbox>
             <button
                 class="btn-rect btn-rect--responsive btn-default"
                 type="submit"
-                [disabled]="!this.form.valid">
+                (click)="login()">
                 Zaloguj
             </button>
         </form>
