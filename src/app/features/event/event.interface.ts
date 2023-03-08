@@ -13,17 +13,17 @@ export interface EventCardDTO {
 
 export interface EventDetailsDTO extends Omit<EventCardDTO, 'memberLimit' | 'eventId'> {
   endTime: Date;
-  organizer: EmployeeName;
+  organizer: Employee;
   location: Location;
   periodicType: Maybe<PeriodicType>;
   pollQuestions: Maybe<PollQuestion[]>;
   hashtags: Maybe<string[]>;
   memberLimit: Maybe<number>;
-  invitedMembers: Maybe<EmployeeName[]>;
+  invitedMembers: Maybe<Employee[]>;
   attachments: Maybe<Attachment[]>;
   category: Maybe<string>;
 }
-type EmployeeName = {
+export type Employee = {
   firstName: string;
   lastName: string;
   id: string;

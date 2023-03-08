@@ -99,7 +99,10 @@
             <ng-container
                 *ngIf="eventDetailsState$ | async as showMembersState">
                 <ng-container *ngIf="showMembersState.showMembers">
-                    <section class="event-details__members-section">
+                    <app-event-members
+                        [members]="event.invitedMembers || []"
+                        [organizerId]="event.organizer.id"></app-event-members>
+                    <!-- <section class="event-details__members-section">
                         <div class="event-details__search-wrapper">
                             <mat-icon>search</mat-icon>
                             <input
@@ -123,7 +126,7 @@
                                     " />
                             </li>
                         </ul>
-                    </section>
+                    </section> -->
                 </ng-container>
                 <div
                     *ngIf="

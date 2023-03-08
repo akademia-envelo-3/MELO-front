@@ -22,10 +22,9 @@
   z-index: 9999;
   &__logoImg {
     height: var(--icons-height);
-  }
-  &__logoImg:hover {
     cursor: pointer;
   }
+
   &__buttons {
     width: max-content;
     display: flex;

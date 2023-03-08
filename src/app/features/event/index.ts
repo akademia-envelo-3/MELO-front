@@ -6,3 +6,4 @@ export * from './list/event-list.component';
 export * from './event-details/event-details.component';
 export * from './map/map.component';
 export * from './event-details/event-details.state.service';
+export * from './event-details/member-list/event-member-list.component';

@@ -1,0 +1,20 @@
+<section class="members">
+    <div class="members__search-wrapper">
+        <mat-icon>search</mat-icon>
+        <input
+            type="text"
+            class="members__search-input"
+            placeholder="Szukaj..."
+            maxlength="80" />
+    </div>
+    <ul>
+        <li *ngFor="let member of members">
+            {{ member.firstName }}
+            {{ member.lastName }}
+            <img
+                src="assets/event-details-icons/crown.svg"
+                alt=""
+                *ngIf="member.id === organizerId" />
+        </li>
+    </ul>
+</section>
