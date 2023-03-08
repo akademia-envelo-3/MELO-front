@@ -13,8 +13,14 @@
             {{ event.organizer.lastName }}
         </p>
         <div class="event-details__labels">
-            <div>{{ event.category }}</div>
-            <div *ngFor="let hashtag of event.hashtags">#{{ hashtag }}</div>
+            <div class="bg-gradient-primary-1">
+                {{ event.category }}
+            </div>
+            <div
+                class="bg-gradient-primary-1"
+                *ngFor="let hashtag of event.hashtags">
+                #{{ hashtag }}
+            </div>
         </div>
 
         <main class="event-details__main-section">
@@ -23,7 +29,8 @@
                     <img
                         class="image-layout--center"
                         src="{{ event.mainPhoto }}" />
-                    <div class="event-details__date-location">
+                    <div
+                        class="event-details__date-location bg-gradient-primary-1--inverted">
                         <div class="event-details__date">
                             <h2 class="text-h2">
                                 {{ event.startTime | date : 'dd' }}
@@ -73,11 +80,12 @@
                 </section>
 
                 <section class="event-details__middle-section">
-                    <article class="bg-gradient-primary-1">
+                    <article class="bg-gradient-primary-1--inverted">
                         {{ event.description }}
                     </article>
                     <!-- add comment -->
-                    <div class="event-details__add-comment"></div>
+                    <div
+                        class="event-details__add-comment bg-gradient-primary-1--inverted"></div>
                 </section>
 
                 <section class="event-details__bottom-section">
@@ -86,13 +94,16 @@
                         <div
                             class="event-details__poll"
                             *ngFor="let poll of event.pollQuestions">
-                            <div>{{ poll.question }}</div>
-                            <button>
+                            <div class="bg-gradient-primary-1">
+                                {{ poll.question }}
+                            </div>
+                            <button class="bg-gradient-primary-1">
                                 <mat-icon>leaderboard</mat-icon>
                             </button>
                         </div>
                     </div>
-                    <div class="event-details__coments"></div>
+                    <div
+                        class="event-details__comments bg-gradient-primary-1--inverted"></div>
                 </section>
             </div>
 
@@ -101,32 +112,8 @@
                 <ng-container *ngIf="showMembersState.showMembers">
                     <app-event-members
                         [members]="event.invitedMembers || []"
-                        [organizerId]="event.organizer.id"></app-event-members>
-                    <!-- <section class="event-details__members-section">
-                        <div class="event-details__search-wrapper">
-                            <mat-icon>search</mat-icon>
-                            <input
-                                type="text"
-                                class="event-details__search-input"
-                                placeholder="Szukaj w Melo"
-                                maxlength="80" />
-                        </div>
-                        <ul>
-                            <li
-                                *ngFor="
-                                    let invaitedMember of event.invitedMembers
-                                ">
-                                {{ invaitedMember.firstName }}
-                                {{ invaitedMember.lastName }}
-                                <img
-                                    src="assets/event-details-icons/crown.svg"
-                                    alt=""
-                                    *ngIf="
-                                        invaitedMember.id === event.organizer.id
-                                    " />
-                            </li>
-                        </ul>
-                    </section> -->
+                        [organizerId]="event.organizer.id">
+                    </app-event-members>
                 </ng-container>
                 <div
                     *ngIf="

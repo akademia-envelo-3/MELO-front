@@ -28,6 +28,10 @@ $bg-gradient-gold-2: 90deg, #dfce98 20.82%, #99783f 78.72%;
   background: linear-gradient(270deg, $bg-gradient-primary-1);
 }
 
+.bg-gradient-primary-1--inverted {
+  background: linear-gradient(360deg, $bg-gradient-primary-1);
+}
+
 .bg-gradient-primary-2 {
   background: linear-gradient(
     180deg,

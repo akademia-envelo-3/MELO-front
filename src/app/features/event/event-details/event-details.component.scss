@@ -31,7 +31,6 @@ $memebers-section-width: 500px;
   &__navigation {
     width: 460px;
     display: flex;
-    text-align: center;
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid colors.$neutral-100;
@@ -48,7 +47,6 @@ $memebers-section-width: 500px;
       border: 1px solid colors.$neutral-100;
       margin: 0 2px;
       padding: 0.2rem 0.6rem;
-      background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
     }
     & > div:first-child {
       border-radius: 25px 0 0 25px;
@@ -87,7 +85,6 @@ $memebers-section-width: 500px;
   }
 
   &__date-location {
-    background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
     @include border--big();
     width: $middle-side-width;
     padding: 3rem 1.5rem 0 1.5rem;
@@ -148,7 +145,6 @@ $memebers-section-width: 500px;
 
     & > article {
       min-height: 190px;
-      background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
       width: $left-side-width;
       padding: 2rem 1rem;
       @include border--big();
@@ -156,7 +152,6 @@ $memebers-section-width: 500px;
   }
 
   &__add-comment {
-    background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
     @include border--big();
     width: $middle-side-width;
   }
@@ -177,14 +172,12 @@ $memebers-section-width: 500px;
 
     & > div {
       text-align: center;
-      background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
       @include border();
       flex-basis: 80%;
-
       padding: 0.4rem;
     }
+
     & > button {
-      background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
       @include border();
       flex-basis: 15%;
 
@@ -194,8 +187,7 @@ $memebers-section-width: 500px;
       }
     }
   }
-  &__coments {
-    background: linear-gradient(360deg, #323232 0%, #2c2120 94.13%);
+  &__comments {
     @include border--big();
     width: $middle-side-width;
   }
@@ -207,7 +199,6 @@ $memebers-section-width: 500px;
     height: 100%;
     opacity: 0.4;
     z-index: 2;
-
     align-items: center;
   }
 }
