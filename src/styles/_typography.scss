@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Unbounded:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700&family=Unbounded:wght@500&display=swap');
+@use 'colors.scss' as colors;
 
 :root {
   --mdc-dialog-supporting-text-font: 'Mukta Vaani', 'sans-serif';
@@ -70,6 +71,6 @@
 .header-with-underline {
   text-align: center;
   margin: 20px auto;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid colors.$neutral-900;
   width: 80%;
 }
