@@ -24,7 +24,7 @@ import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highl
 import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { RouterModule } from '@angular/router';
-import { SpinnerDotsComponent } from '@shared/ui';
+import { RadioButtonComponent, SpinnerDotsComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import { SpinnerDotsComponent } from '@shared/ui';
     MatButtonModule,
     ReactiveFormsModule,
     CommonModule,
+    RadioButtonComponent,
     RouterModule.forChild([
       {
         path: '',

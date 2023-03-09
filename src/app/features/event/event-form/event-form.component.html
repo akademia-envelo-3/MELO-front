@@ -7,54 +7,87 @@
         <mat-stepper [linear]="true" animationDuration="0ms" #stepper>
             <div class="bg-gradient-neutral-3">
                 <mat-step [stepControl]="eventType">
-                    <div formGroupName="eventType">
-                        <ng-template matStepLabel>Typ wydarzenia</ng-template>
-                        <mat-radio-group
-                            formControlName="eventAccessType"
-                            aria-label="Typ dostępu wydarzenia">
-                            <mat-radio-button value="Publiczne" [checked]="true"
-                                >Publiczne</mat-radio-button
-                            >
-                            <mat-radio-button value="Prywatne"
-                                >Prywatne</mat-radio-button
-                            >
-                        </mat-radio-group>
-                        <mat-radio-group
-                            formControlName="eventScopeType"
-                            aria-label="Typ zakresu wydarzenia">
-                            <mat-radio-button
-                                value="Wewnętrzne"
-                                [checked]="true"
-                                >Wewnętrzne</mat-radio-button
-                            >
-                            <mat-radio-button value="Zewnętrzne"
-                                >Zewnętrzne</mat-radio-button
-                            >
-                        </mat-radio-group>
-                        <mat-radio-group
-                            formControlName="eventLimitType"
-                            aria-label="Typ limitu osób dla wydarzenia">
-                            <mat-radio-button
-                                value="Nielimitowane"
-                                [checked]="true"
-                                >Nielimitowane</mat-radio-button
-                            >
-                            <mat-radio-button value="Limitowane"
-                                >Limitowane</mat-radio-button
-                            >
-                        </mat-radio-group>
-                        <mat-radio-group
-                            formControlName="eventRepeatType"
-                            aria-label="Typ powtarzalności wydarzenia">
-                            <mat-radio-button
-                                value="Jednorazowe"
-                                [checked]="true"
-                                >Jednorazowe</mat-radio-button
-                            >
-                            <mat-radio-button value="Cykliczne"
-                                >Cykliczne</mat-radio-button
-                            >
-                        </mat-radio-group>
+                    <div class="form-step-1" formGroupName="eventType">
+                        <ng-template matStepLabel> Typ wydarzenia </ng-template>
+                        <div class="radio-group">
+                            <app-radio-button
+                                formControlName="eventAccessType"
+                                [groupName]="'eventAccessType'"
+                                [id]="'eventAccessType-acccept'"
+                                [label]="eventTypes.PUBLIC"
+                                [ariaLabel]="'Typ dostępu wydarzenia'"
+                                [isChecked]="false">
+                            </app-radio-button>
+                            <div class="radio-group__separator"></div>
+                            <app-radio-button
+                                formControlName="eventAccessType"
+                                [groupName]="'eventAccessType'"
+                                [id]="'eventAccessType-decline'"
+                                [ariaLabel]="'Typ dostępu wydarzenia'"
+                                [label]="eventTypes.PRIVATE"
+                                [isChecked]="false">
+                            </app-radio-button>
+                        </div>
+
+                        <div class="radio-group">
+                            <app-radio-button
+                                formControlName="eventScopeType"
+                                [groupName]="'eventScopeType'"
+                                [id]="'eventScopeType-acccept'"
+                                [label]="eventTypes.INTERNAL"
+                                [ariaLabel]="'Typ dostępu wydarzenia'"
+                                [isChecked]="false">
+                            </app-radio-button>
+                            <div class="radio-group__separator"></div>
+                            <app-radio-button
+                                formControlName="eventScopeType"
+                                [groupName]="'eventScopeType'"
+                                [id]="'eventScopeType-decline'"
+                                [ariaLabel]="'Typ dostępu wydarzenia'"
+                                [label]="eventTypes.EXTERNAL"
+                                [isChecked]="false">
+                            </app-radio-button>
+                        </div>
+
+                        <div class="radio-group">
+                            <app-radio-button
+                                formControlName="eventLimitType"
+                                [groupName]="'eventLimitType'"
+                                [id]="'eventLimitType-acccept'"
+                                [label]="eventTypes.UNLIMITED"
+                                [ariaLabel]="'Typ limitu osób dla wydarzenia'"
+                                [isChecked]="false">
+                            </app-radio-button>
+                            <div class="radio-group__separator"></div>
+                            <app-radio-button
+                                formControlName="eventLimitType"
+                                [groupName]="'eventLimitType'"
+                                [id]="'eventLimitType-decline'"
+                                [ariaLabel]="'Typ limitu osób dla wydarzenia'"
+                                [label]="eventTypes.LIMITED"
+                                [isChecked]="false">
+                            </app-radio-button>
+                        </div>
+                        <div class="radio-group">
+                            <app-radio-button
+                                formControlName="eventRepeatType"
+                                [groupName]="'eventRepeatType'"
+                                [id]="'eventRepeatType-acccept'"
+                                [label]="eventTypes.UNLIMITED"
+                                [ariaLabel]="'Typ powtarzalności wydarzenia'"
+                                [isChecked]="false">
+                            </app-radio-button>
+                            <div class="radio-group__separator"></div>
+                            <app-radio-button
+                                formControlName="eventRepeatType"
+                                [groupName]="'eventRepeatType'"
+                                [id]="'eventRepeatType-decline'"
+                                [ariaLabel]="'Typ powtarzalności wydarzenia'"
+                                [label]="eventTypes.LIMITED"
+                                [isChecked]="false">
+                            </app-radio-button>
+                        </div>
+
                         <div
                             class="mat-step-nav-buttons mat-step-nav-buttons--one-button">
                             <button

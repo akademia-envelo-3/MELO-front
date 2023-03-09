@@ -32,12 +32,29 @@
   width: auto;
   display: flex;
   justify-content: space-between;
-
   &--one-button {
     display: flex;
     justify-content: center;
     @include br.media-md {
       justify-content: flex-end;
     }
+  }
+}
+
+.form-step-1 {
+  margin: 0rem 5rem;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+
+  &__separator {
+    height: 1px;
+    background-color: colors.$accent-gold-500;
+    width: 40%;
   }
 }

@@ -1,5 +1,30 @@
 @use 'colors' as colors;
 
+// .radio-rect {
+//   font-family: 'Eczar', sans-serif;
+//   font-weight: 600;
+//   color: colors.$neutral-900;
+//   border-radius: 25px;
+//   font-size: 1.125rem;
+//   width: 170px;
+//   padding: 5px 0;
+//   min-height: max-content;
+//   border: none;
+//   outline: none;
+//   @extend .bg-gradient-neutral-2;
+
+//   box-shadow: 0 0 0 1px #46423e, 0 0 0 2px #484441, 0 0 0 3px #655f5b, 0 0 0 4px #3b3937,
+//     0 0 0 5px #3e3e3c, 0 0 0 6px #2a2323;
+
+//   & > input {
+//     all: unset;
+//   }
+
+//   &:has(> input:checked) {
+//     @extend .bg-gradient-gold-1;
+//   }
+// }
+
 .btn-rect {
   min-width: 150px;
   border: none;

@@ -34,7 +34,7 @@ import { NotificationsQuantityComponent } from './notifications-quantity.compone
   styleUrls: ['./navbar.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent {
+export default class NavbarComponent {
   private router = inject(Router);
   sideMenuStateService = inject(SideMenuStateService);
   @Input() notifications?: number;
