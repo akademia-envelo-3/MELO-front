@@ -13,6 +13,13 @@
   align-items: center;
   justify-content: space-between;
   z-index: 1;
+  margin-bottom: 65px;
+  &__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
   &__logoImg {
     height: calc(1.2 * 52px);
   }
@@ -74,6 +81,7 @@
 @include breakpoints.media-md {
   .navbar {
     height: 89px;
+    margin-bottom: 0;
     &__logoImg {
       height: 89px;
       height: calc(1.2 * 89px);

@@ -7,6 +7,7 @@
   display: flex;
   position: fixed;
   z-index: 2;
+  top: 51px;
   // main side-menu categories
   &__left {
     @include mixins.gradient(0deg, colors.$bg-gradient-primary-1);
@@ -119,6 +120,10 @@
       background-color: colors.$neutral-100;
       border: 2px solid colors.$accent-gold-200;
     }
+  }
+
+  @include breakpoints.media-md {
+    top: inherit;
   }
 }
 // mobile menu items
