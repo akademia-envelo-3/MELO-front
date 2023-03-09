@@ -12,6 +12,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatSliderModule } from '@angular/material/slider';
 import {
   CardComponent,
   EventApiService,
@@ -25,6 +26,7 @@ import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { RouterModule } from '@angular/router';
 import { RadioButtonComponent, SpinnerDotsComponent } from '@shared/ui';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { RadioButtonComponent, SpinnerDotsComponent } from '@shared/ui';
     MatStepperModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatSliderModule,
     CommonModule,
+    MatSelectModule,
     RadioButtonComponent,
     RouterModule.forChild([
       {

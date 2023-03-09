@@ -43,6 +43,10 @@
 
 .form-step-1 {
   margin: 0rem 5rem;
+
+  &__slider {
+    width: 100%;
+  }
 }
 
 .radio-group {
@@ -57,4 +61,12 @@
     background-color: colors.$accent-gold-500;
     width: 40%;
   }
+}
+
+.periodic-type__option {
+  display: block;
+}
+
+.periodic-type__select {
+  padding: 0.7rem;
 }

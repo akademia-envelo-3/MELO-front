@@ -28,14 +28,16 @@ const EVENT_TYPES = {
 export class EventFormComponent {
   private builder = inject(NonNullableFormBuilder);
   eventTypes = EVENT_TYPES;
-
+  memberLimit = 0;
+  periodicDates = ['Co tydzień', 'Co dwa tygodnie', 'Co miesiąc'];
   /// form is not complete, just a basic version to apply in stepper
   newEventForm = this.builder.group({
     eventType: this.builder.group({
       eventAccessType: this.builder.control(EVENT_TYPES.PUBLIC, Validators.required),
       eventScopeType: this.builder.control(EVENT_TYPES.INTERNAL, Validators.required),
-      eventLimitType: this.builder.control(EVENT_TYPES.UNLIMITED, Validators.required),
-      eventRepeatType: this.builder.control(EVENT_TYPES['ONE-TIME'], Validators.required),
+      eventLimitType: this.builder.control(EVENT_TYPES.LIMITED, Validators.required),
+      eventRepeatType: this.builder.control(EVENT_TYPES.PERIODIC, Validators.required),
+      periodicData: this.builder.control('', Validators.required),
     }),
     eventDetails: this.builder.group({
       eventName: this.builder.control('', Validators.required),
@@ -55,6 +57,7 @@ export class EventFormComponent {
   constructor() {
     this.newEventForm.valueChanges.subscribe(console.log);
   }
+
   get eventType() {
     return this.newEventForm.controls.eventType;
   }

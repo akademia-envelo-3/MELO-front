@@ -68,12 +68,25 @@
                                 [isChecked]="false">
                             </app-radio-button>
                         </div>
+                        <ng-container
+                            *ngIf="
+                                eventTypeControls.eventLimitType.value ===
+                                eventTypes.LIMITED
+                            ">
+                            <mat-slider
+                                class="form-step-1__slider"
+                                min="0"
+                                max="999"
+                                discrete>
+                                <input #input matSliderThumb />
+                            </mat-slider>
+                        </ng-container>
                         <div class="radio-group">
                             <app-radio-button
                                 formControlName="eventRepeatType"
                                 [groupName]="'eventRepeatType'"
                                 [id]="'eventRepeatType-acccept'"
-                                [label]="eventTypes.UNLIMITED"
+                                [label]="eventTypes['ONE-TIME']"
                                 [ariaLabel]="'Typ powtarzalności wydarzenia'"
                                 [isChecked]="false">
                             </app-radio-button>
@@ -83,11 +96,34 @@
                                 [groupName]="'eventRepeatType'"
                                 [id]="'eventRepeatType-decline'"
                                 [ariaLabel]="'Typ powtarzalności wydarzenia'"
-                                [label]="eventTypes.LIMITED"
+                                [label]="eventTypes.PERIODIC"
                                 [isChecked]="false">
                             </app-radio-button>
                         </div>
-
+                        <ng-container
+                            *ngIf="
+                                eventTypeControls.eventRepeatType.value ===
+                                eventTypes.PERIODIC
+                            ">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Choose one</mat-label>
+                                <mat-select
+                                    class="periodic-type__select"
+                                    [formControl]="
+                                        eventTypeControls.periodicData
+                                    "
+                                    formControlName="periodicData">
+                                    <mat-option
+                                        class="periodic-type__option"
+                                        *ngFor="
+                                            let periodicDate of periodicDates
+                                        "
+                                        value="periodicDate">
+                                        {{ periodicDate }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </ng-container>
                         <div
                             class="mat-step-nav-buttons mat-step-nav-buttons--one-button">
                             <button
