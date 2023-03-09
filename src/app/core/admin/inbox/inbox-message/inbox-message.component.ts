@@ -7,14 +7,13 @@ import {
   Output,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Inbox } from './Inbox.interface';
+import { Inbox } from '../Inbox.interface';
 
 @Component({
   selector: 'app-inbox-message[message]',
-  standalone: true,
   template: `
-    <div>
-      <h2 class="inbox-container__header text-h4">
+    <div class="message-container">
+      <h2 class="message-container__header text-h4">
         <mat-icon>mail_outline</mat-icon>Propozycja kategorii
       </h2>
     </div>
@@ -25,22 +24,23 @@ import { Inbox } from './Inbox.interface';
       }}</b>
       {{ message.inDatabaseAndHidden ? 'która jest ukryta' : '' }}
     </p>
-    <div class="inbox-container__icons">
-      <button class="btn-rect btn-rect--sm btn-green" (click)="accept(message)">
+    <div class="message-container__icons">
+      <button class="btn-rect btn-rect--sm btn-green" (click)="emitChoice(message, true)">
         Akceptuj
       </button>
-      <button class="btn-rect btn-rect--sm btn-red">Odrzuć</button>
+      <button class="btn-rect btn-rect--sm btn-red" (click)="emitChoice(message, false)">
+        Odrzuć
+      </button>
     </div>
   `,
   styleUrls: ['inbox-message.component.scss'],
-  imports: [MatIconModule, NgClass, NgFor],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InboxMessageComponent {
   @Input() message!: Inbox;
-  @Output() acceptCategory = new EventEmitter<Inbox>();
+  @Output() emitRequestChoice = new EventEmitter<{ message: Inbox; accepted: boolean }>();
 
-  accept(message: Inbox) {
-    this.acceptCategory.emit(message);
+  emitChoice(message: Inbox, accepted: boolean) {
+    this.emitRequestChoice.emit({ message, accepted });
   }
 }

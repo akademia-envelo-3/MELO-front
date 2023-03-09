@@ -4,6 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { ArchiveComponent } from './inbox/archive.component';
+import { InboxMessageComponent } from './inbox/inbox-message/inbox-message.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,6 @@ import { InboxComponent } from './inbox/inbox.component';
       },
     ]),
   ],
-  declarations: [InboxComponent],
+  declarations: [InboxComponent, ArchiveComponent, InboxMessageComponent],
 })
 export default class AdminModule {}

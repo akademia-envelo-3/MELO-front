@@ -1,0 +1,15 @@
+.message-container__header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .mat-icon {
+    margin-bottom: 5px;
+  }
+}
+.message-container__icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1rem 0.5rem;
+}

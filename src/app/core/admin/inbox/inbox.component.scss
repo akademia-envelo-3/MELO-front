@@ -1,5 +1,8 @@
+@use '/src/styles/colors' as colors;
+
 .inbox-container {
   width: fit-content;
+  max-width: 90%;
   margin-inline: auto;
   padding: 1rem 0;
   border-radius: 10px;
@@ -8,7 +11,7 @@
     padding: 1rem;
   }
   & > div:not(:last-child) {
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px colors.$neutral-900;
   }
   &__header {
     display: inline-flex;
@@ -25,4 +28,12 @@
     gap: 2.5rem;
     padding: 1rem 0.5rem;
   }
+}
+
+.inbox-empty-text {
+  padding: 1rem 2rem;
+}
+
+.link-with-icon {
+  display: inline-flex;
 }

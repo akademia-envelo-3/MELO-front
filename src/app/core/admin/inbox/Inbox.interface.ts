@@ -3,5 +3,6 @@ export interface Inbox {
   categoryName: string;
   requestDate: string;
   inDatabaseAndHidden: boolean;
+  categoryId?: number;
   requestedBy: string;
 }

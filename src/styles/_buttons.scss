@@ -39,6 +39,13 @@
   color: colors.$neutral-100;
 }
 
+.btn-red {
+  @extend .bg-gradient-red-1;
+  box-shadow: 0 0 0 1px #a53830, 0 0 0 2px #ba5543, 0 0 0 3px #9f5342, 0 0 0 4px #360b0b,
+    0 0 0 5px #311010, 0 0 0 6px #82403a, 0 0 0 7px #975f5b, 0 0 0 8px #643f3a;
+  color: colors.$neutral-100;
+}
+
 .btn-rect:disabled {
   opacity: 0.6;
 }
@@ -71,4 +78,9 @@
 .btn-black:not([disabled]):focus {
   color: colors.$neutral-800;
   background: linear-gradient(94.82deg, #f3f3f3 8.22%, #bfbebe 49.73%, #d8d8d8 89.59%);
+}
+
+.btn-red:not([disabled]):focus {
+  color: colors.$neutral-800;
+  background: linear-gradient(283.96deg, #ce3333 3.84%, #bd1313 49.33%, #bd1515 96.92%);
 }

@@ -25,6 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
         path: '',
         children: [
           { path: '', redirectTo: 'events', pathMatch: 'full' },
+
           {
             path: '',
             loadChildren: () => import('./features/home/home.module'),

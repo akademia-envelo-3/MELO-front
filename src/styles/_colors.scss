@@ -81,7 +81,10 @@ $bg-gradient-gold-1: linear-gradient(
 .bg-gradient-green-2 {
   background: linear-gradient(90.03deg, #2e9461 9.8%, #18edd0 46.9%, #1cae6e 88.08%);
 }
-.accent-color {
+.bg-gradient-red-1 {
+  background: linear-gradient(283.96deg, #931919 3.84%, #e10606 49.33%, #841005 96.92%);
+}
+.success-color {
   color: $accent-success;
 }
 .error-color {

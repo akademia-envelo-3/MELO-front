@@ -7,7 +7,7 @@ export const MENU_CATEGORIES_EMPLOYEE: MenuCategory[] = [
     subCategories: [
       { subCategoryName: 'wszystkie', href: 'events' },
       { subCategoryName: 'moje', href: 'my-events-placeholder' },
-      { subCategoryName: 'nowe +', href: 'new-event-placeholder' },
+      { subCategoryName: 'nowe +', href: 'new-event' },
       { subCategoryName: 'kategoria +', href: 'new-event-category-placeholder' },
     ],
   },

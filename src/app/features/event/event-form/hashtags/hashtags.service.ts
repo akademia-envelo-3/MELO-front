@@ -135,7 +135,11 @@ export class HashtagsService {
   }
 
   private hashtagAlreadyAddedInfo(hashtagStr: string) {
-    this.snackBarService.open(`Hashtag o treści "${hashtagStr}" został już dodany`);
+    this.snackBarService.open(
+      `Hashtag o treści "${hashtagStr}" został już dodany`,
+      {},
+      'X'
+    );
   }
   private maxHashtagCountInfo() {
     this.snackBarService.open(`Maksymalna liczba hashtagów to ${this.MAX_HASHTAG_COUNT}`);

@@ -5,29 +5,34 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 
+type SnackBarOptions = {
+  duration: number;
+  horizontalPosition: MatSnackBarHorizontalPosition;
+  verticalPosition: MatSnackBarVerticalPosition;
+  panelClass: PanelClass;
+};
+
+type CloseAction = 'Zamknij' | 'X';
+type PanelClass = 'red-snackbar'[] | 'green-snackbar'[];
+
+const defaultSnackBarOptions: SnackBarOptions = {
+  duration: 3000,
+  horizontalPosition: 'center',
+  verticalPosition: 'top',
+  panelClass: ['red-snackbar'],
+};
+const defaultSnackBarAction: CloseAction = 'Zamknij';
+
 @Injectable({
   providedIn: 'root',
 })
 export class SnackBarService {
   private snackBar = inject(MatSnackBar);
-  private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  private verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  open(
-    message: string,
-    config = {
-      duration: 3000,
-      action: 'Zamknij',
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: ['red-snackbar'],
-    }
-  ) {
-    this.snackBar.open(message, config.action, {
-      duration: config.duration,
-      horizontalPosition: config.horizontalPosition,
-      verticalPosition: config.verticalPosition,
-      panelClass: config.panelClass,
+  open(message: string, config?: Partial<SnackBarOptions>, action?: CloseAction) {
+    this.snackBar.open(message, action ? action : defaultSnackBarAction, {
+      ...defaultSnackBarOptions,
+      ...config,
     });
   }
 }
