@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CategoriesApiService } from '../categories-api.service';
+import { CategoriesApiService } from '..';
 
 @Component({
   selector: 'app-category-list',
@@ -28,7 +28,6 @@ import { CategoriesApiService } from '../categories-api.service';
       }
     `,
   ],
-  providers: [CategoriesApiService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryListComponent {

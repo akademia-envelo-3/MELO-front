@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Hashtag } from './hashtag.interface';
+
 import { ENDPOINTS } from '@shared/constants';
+import { Hashtag } from '.';
 
 @Injectable({
   providedIn: 'root',

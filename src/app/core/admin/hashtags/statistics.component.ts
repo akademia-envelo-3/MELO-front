@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { HashtagApiService } from './hashtag-api.service';
+import { HashtagApiService } from '.';
 
 @Component({
   selector: 'app-statistics',

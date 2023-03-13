@@ -4,12 +4,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { CircularButtonComponent, SpinnerDotsComponent } from '@shared/ui';
-import { AdminComponent } from './admin.component';
-import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { HashtagListComponent } from './hashtags/hashtag-list/hashtag-list.component';
-
+import {
+  AdminComponent,
+  CategoryListComponent,
+  HashtagListComponent,
+  TableItemsComponent,
+} from '.';
 import StatisticsComponent from './hashtags/statistics.component';
-import { TableItemsComponent } from './shared/table-items.component';
 
 @NgModule({
   declarations: [StatisticsComponent, CategoryListComponent, HashtagListComponent],
