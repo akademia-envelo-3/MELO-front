@@ -1,6 +1,4 @@
-import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Employee } from '../..';
 
 @Component({
@@ -9,7 +7,7 @@ import { Employee } from '../..';
   styleUrls: ['./event-member-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventMemberList {
+export class EventMemberListComponent {
   @Input() members!: Employee[];
   @Input() organizerId!: string;
 }
