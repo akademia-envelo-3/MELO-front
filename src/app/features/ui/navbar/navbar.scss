@@ -18,7 +18,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   &__logoImg {
     height: calc(1.2 * 52px);
@@ -86,11 +92,15 @@
       height: 89px;
       height: calc(1.2 * 89px);
     }
+    &__search {
+      position: relative;
+      top: 0;
+    }
     &__bell {
       position: relative;
       height: 89px;
       width: 89px;
-      right: 5%;
+      right: 0;
       &__notification {
         right: 10%;
       }

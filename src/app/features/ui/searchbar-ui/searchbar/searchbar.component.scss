@@ -11,12 +11,6 @@ $focus: colors.$accent-gold-200;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
   height: 46px;
   width: clamp(250px, 55vw, 540px);
   padding-left: 20px;
@@ -24,7 +18,7 @@ $focus: colors.$accent-gold-200;
   border: 1.15px solid $border;
   border-radius: 25px;
   background-color: $background;
-  margin-bottom: 5px;
+  // margin-bottom: 8px;
 }
 
 .searchbar__input {
@@ -61,11 +55,4 @@ $focus: colors.$accent-gold-200;
 
 .hide {
   display: none;
-}
-
-@include breakpoints.media-md {
-  .searchbar {
-    position: relative;
-    top: 0;
-  }
 }

@@ -7,19 +7,17 @@ $icon: colors.$accent-gold-600;
 $text: colors.$neutral-500;
 
 .searchbar-dropdown {
-  min-height: 200px;
-  width: clamp(250px, 55vw, 640px);
+  min-height: 250px;
   background-color: $background;
   color: $text;
   border: 1.15px solid $border;
-  border-radius: 15px;
-  padding: 12px;
+  border-radius: 0.9375rem;
+  padding: 30px clamp(8px, 3vw + 6.4px, 30px) clamp(8px, 3vh + 6.4px, 30px)
+    clamp(8px, 3vw + 8px, 30px);
   position: absolute;
-  top: 111px;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 8px clamp(10px, 10vw, 100px);
 }
 
 .searchbar-dropdown__filterMenu {
@@ -48,6 +46,13 @@ $text: colors.$neutral-500;
 
 .searchbar-dropdown__results {
   padding-top: 5px;
+
+  &-title {
+    color: colors.$neutral-100;
+    padding: 15px 0 4px;
+    border-bottom: 0.0625rem solid colors.$neutral-500;
+    min-width: 100%;
+  }
 }
 
 .active {
@@ -55,10 +60,13 @@ $text: colors.$neutral-500;
   color: $icon;
 }
 
+.searchbar-dropdown__resultsList {
+  margin-top: 15px;
+}
+
 .searchbar-dropdown__resultsListItem {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   padding-top: 5px;
   padding-bottom: 10px;
   cursor: pointer;
@@ -103,5 +111,9 @@ $text: colors.$neutral-500;
 @include breakpoints.media-md {
   .searchbar-dropdown {
     top: initial;
+    width: clamp(370px, 60vw, 600px);
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
