@@ -16,6 +16,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/c
 })
 export class SpinnerDotsComponent implements OnChanges {
   private sizeOptions = {
+    xs: '0.5rem',
     sm: '0.7rem',
     md: '0.9rem',
     lg: '1.2rem',
