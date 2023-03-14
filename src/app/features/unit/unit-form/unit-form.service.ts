@@ -12,8 +12,10 @@ import { v4 as createUuidv4 } from 'uuid';
 export interface Unit {
   name: string;
   description: string;
-  id?: number;
+  id: number;
 }
+
+export type UnitPayload = Omit<Unit, 'id'>;
 
 export type UnitForm = FormGroup<{
   name: FormControl<string>;
@@ -30,9 +32,9 @@ export class UnitFormService {
   private snackBarService = inject(SnackBarService);
   private newUnitID = createUuidv4(); /// z racji braku prawdziwego połączenia z backendem
 
-  createUnit(formValue: Unit) {
+  createUnit(formValue: UnitPayload) {
     this.http
-      .post<Unit>(ENDPOINTS.units, {
+      .post<Unit>(ENDPOINTS.UNITS, {
         name: formValue.name,
         description: formValue.description,
       })
@@ -48,7 +50,7 @@ export class UnitFormService {
   }
 
   checkIfNameTaken(unitName: string) {
-    return this.http.get<Unit[]>(ENDPOINTS.units + `?name=${unitName}`);
+    return this.http.get<Unit[]>(ENDPOINTS.UNITS + `?name=${unitName}`);
   }
 
   showAfterFormView(resultInfo: FormResultInfo) {

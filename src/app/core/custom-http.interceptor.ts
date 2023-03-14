@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpResponse,
 } from '@angular/common/http';
-import { catchError, EMPTY, map, Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { API_URL } from './env.token';
 import { StorageService } from '@shared/services';
 import { HandleApiErrorService } from '@features/auth';
@@ -26,29 +26,23 @@ export class CustomHttpInterceptor implements HttpInterceptor {
 
     return next.handle(modifiedReq).pipe(
       map(event => {
-        if (event instanceof HttpResponse) {
-          if (event.body.accessToken) {
-            this.storageService.setToStorage(
-              'accessToken',
-              event.body.accessToken,
-              localStorage
-            );
-          }
-          return new HttpResponse({
-            body: event.body,
-            headers: event.headers,
-          });
+        if (!(event instanceof HttpResponse)) return event;
+        if (event.body.accessToken) {
+          this.storageService.setToStorage(
+            'accessToken',
+            event.body.accessToken,
+            localStorage
+          );
         }
-        return event;
+        return new HttpResponse({
+          body: event.body,
+          headers: event.headers,
+        });
       }),
       tap({
         next: event => event,
 
-    return next.handle(clone).pipe(
-      catchError(() => {
-        return throwError(
-          () => new Error('Coś poszło nie tak, spróbuj ponownie później')
-        );
+        error: error => this.handleApiError.handleError(error),
       })
     );
   }
