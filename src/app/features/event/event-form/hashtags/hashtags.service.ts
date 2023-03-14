@@ -49,6 +49,7 @@ export class HashtagsService {
 
     if (this.checkAddErrors(hashtagStr, auto)) {
       this.addedHashtags.push(hashtagStr);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       event.chipInput!.clear();
       hashtagCtrl.setValue('');
     }

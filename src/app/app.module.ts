@@ -13,17 +13,18 @@ import { CustomHttpInterceptor, initFactory } from './core';
 import { UserState } from '@core/user/store/user';
 import { AuthService } from '@features/auth';
 import '@angular/common/locales/global/pl';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 export type AppState = {
   user: UserState;
 };
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatDialogModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -31,11 +32,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
       {
         path: '',
         children: [
-          { path: '', redirectTo: 'events', pathMatch: 'full' },
-          {
-            path: '',
-            loadChildren: () => import('./features/home/home.module'),
-          },
+          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
+
           {
             path: 'theme',
             canMatch: [noProductionGuard],
@@ -45,6 +43,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
             path: 'admin',
             loadChildren: () => import('./core/user/admin/admin.module'),
           },
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
+          {
+            path: '',
+            loadChildren: () => import('./features/home/home.module'),
+          },
           {
             path: '**',
             loadComponent: () =>
@@ -52,7 +55,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           },
         ],
       },
-      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [
