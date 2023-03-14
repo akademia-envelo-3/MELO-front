@@ -4,6 +4,6 @@
   padding-left: 0;
 
   @include breakpoints.media-md {
-    padding-left: 110px;
+    padding-left: clamp(70px, 12vw + 1px, 100px);
   }
 }

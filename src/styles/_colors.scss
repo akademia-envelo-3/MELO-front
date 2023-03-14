@@ -25,9 +25,13 @@ $accent-success: #88b42d;
 $accent-success-dark: #628a12;
 
 $bg-gradient-primary-1: #323232 0%, #2c2120 93.23%;
-
+$bg-gradient-gold-2: 90deg, #dfce98 20.82%, #99783f 78.72%;
 .bg-gradient-primary-1 {
   background: linear-gradient(270deg, $bg-gradient-primary-1);
+}
+
+.bg-gradient-primary-1--inverted {
+  background: linear-gradient(360deg, $bg-gradient-primary-1);
 }
 
 .bg-gradient-primary-2 {
@@ -73,6 +77,10 @@ $bg-gradient-gold-1: linear-gradient(
 
 .bg-gradient-gold-1 {
   background: $bg-gradient-gold-1;
+}
+
+.bg-gradient-gold-2 {
+  background: linear-gradient($bg-gradient-gold-2);
 }
 
 .bg-gradient-green-1 {
