@@ -12,9 +12,9 @@
             {{ member.firstName }}
             {{ member.lastName }}
             <img
+                *ngIf="member.id === organizerId"
                 src="assets/event-details-icons/crown.svg"
-                alt=""
-                *ngIf="member.id === organizerId" />
+                alt="" />
         </li>
     </ul>
 </section>
