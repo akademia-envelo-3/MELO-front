@@ -24,7 +24,7 @@ import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highl
 import { EventsThemeComponent } from './event-form/event-theme.component';
 import { HashtagsComponent } from './event-form/hashtags/hashtags.component';
 import { RouterModule } from '@angular/router';
-import { SpinnerDotsComponent } from '@shared/ui';
+import { CircularButtonComponent, SpinnerDotsComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [
@@ -39,8 +39,6 @@ import { SpinnerDotsComponent } from '@shared/ui';
     InfiniteScrollModule,
     SpinnerDotsComponent,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule,
     MatChipsModule,
     MatIconModule,
     MatOptionHighlightDirective,
@@ -52,12 +50,16 @@ import { SpinnerDotsComponent } from '@shared/ui';
     MatRadioModule,
     MatStepperModule,
     MatButtonModule,
-    ReactiveFormsModule,
+    CircularButtonComponent,
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
         component: EventListComponent,
+      },
+      {
+        path: 'details',
+        loadChildren: () => import('./event-details/event-details.module'),
       },
       {
         path: 'theme',

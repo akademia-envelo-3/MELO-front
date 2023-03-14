@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +12,8 @@ import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor, initFactory } from './core';
 import { UserState } from '@core/user/store/user';
 import { AuthService } from '@features/auth';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import '@angular/common/locales/global/pl';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 export type AppState = {
   user: UserState;
@@ -70,13 +71,16 @@ export type AppState = {
       multi: true,
     },
     {
+      provide: LOCALE_ID,
+      useValue: 'pl-PL',
+    },
+    {
       provide: APP_INITIALIZER,
       useFactory: initFactory,
       deps: [AuthService],
       multi: true,
     },
-    MatSnackBar,
-    MatSnackBar,
+    MatSnackBarModule,
   ],
   bootstrap: [AppComponent],
 })
