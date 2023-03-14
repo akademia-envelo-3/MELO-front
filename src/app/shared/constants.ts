@@ -3,7 +3,7 @@ export const ENDPOINTS = {
   LOGIN: '/login',
   CURRENT_USER: '/currentUser',
   HASHTAGS: '/hashtags',
-  UNITS: './units',
+  UNITS: '/units',
 };
 
 export const MESSAGES = {

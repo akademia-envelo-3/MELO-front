@@ -13,7 +13,7 @@ import { CustomHttpInterceptor, initFactory } from './core';
 import { UserState } from '@core/user/store/user';
 import { AuthService } from '@features/auth';
 import '@angular/common/locales/global/pl';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 export type AppState = {
   user: UserState;
@@ -81,7 +81,7 @@ export type AppState = {
       deps: [AuthService],
       multi: true,
     },
-    MatSnackBarModule,
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })
