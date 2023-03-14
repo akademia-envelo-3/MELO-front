@@ -26,20 +26,18 @@ export class CustomHttpInterceptor implements HttpInterceptor {
 
     return next.handle(modifiedReq).pipe(
       map(event => {
-        if (event instanceof HttpResponse) {
-          if (event.body.accessToken) {
-            this.storageService.setToStorage(
-              'accessToken',
-              event.body.accessToken,
-              localStorage
-            );
-          }
-          return new HttpResponse({
-            body: event.body,
-            headers: event.headers,
-          });
+        if (!(event instanceof HttpResponse)) return event;
+        if (event.body.accessToken) {
+          this.storageService.setToStorage(
+            'accessToken',
+            event.body.accessToken,
+            localStorage
+          );
         }
-        return event;
+        return new HttpResponse({
+          body: event.body,
+          headers: event.headers,
+        });
       }),
       tap({
         next: event => event,
