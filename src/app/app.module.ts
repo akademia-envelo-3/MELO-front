@@ -12,6 +12,7 @@ import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor, initFactory } from './core';
 import { UserState } from '@core/user/store/user';
 import { AuthService } from '@features/auth';
+import '@angular/common/locales/global/pl';
 
 export type AppState = {
   user: UserState;

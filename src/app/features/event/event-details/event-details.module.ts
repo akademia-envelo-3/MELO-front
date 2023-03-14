@@ -10,10 +10,16 @@ import { MatOptionHighlightDirective } from '@shared/directives/mat-option-highl
 import { RouterModule } from '@angular/router';
 
 import { CircularButtonComponent } from '@shared/ui';
-import { EventDetailsComponent } from '..';
+import {
+  EventApiService,
+  EventDetailsComponent,
+  EventDetailsStateService,
+  EventMemberList,
+  MapComponent,
+} from '..';
 
 @NgModule({
-  declarations: [EventDetailsComponent],
+  declarations: [EventDetailsComponent, MapComponent, EventMemberList],
   imports: [
     ReactiveFormsModule,
     MatInputModule,
@@ -32,5 +38,6 @@ import { EventDetailsComponent } from '..';
       },
     ]),
   ],
+  providers: [EventDetailsStateService, EventApiService],
 })
 export default class EventDetailsModule {}

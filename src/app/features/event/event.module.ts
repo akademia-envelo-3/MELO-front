@@ -17,8 +17,6 @@ import {
   EventApiService,
   EventListComponent,
   PowerIconComponent,
-  MapComponent,
-  EventMemberList,
 } from '.';
 import { noProductionGuard } from '@shared/no-production.guard';
 import { RemoveSpacesDirective } from '@shared/directives/remove-spaces.directive';
@@ -36,8 +34,6 @@ import { CircularButtonComponent, SpinnerDotsComponent } from '@shared/ui';
     CardComponent,
     PowerIconComponent,
     EventFormComponent,
-    MapComponent,
-    EventMemberList,
   ],
   imports: [
     InfiniteScrollModule,
