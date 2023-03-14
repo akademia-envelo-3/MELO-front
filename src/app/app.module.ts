@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,7 @@ import { noProductionGuard } from '@shared/no-production.guard';
 import { CustomHttpInterceptor, initFactory } from './core';
 import { UserState } from '@core/user/store/user';
 import { AuthService } from '@features/auth';
+import '@angular/common/locales/global/pl';
 
 export type AppState = {
   user: UserState;
@@ -67,6 +68,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true,
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pl-PL',
     },
     {
       provide: APP_INITIALIZER,

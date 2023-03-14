@@ -1,0 +1,71 @@
+@use '/src/styles/colors' as colors;
+$border: 2px solid colors.$neutral-100;
+
+.members {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  border-top: $border;
+  border-left: $border;
+  border-bottom: $border;
+  border-radius: 25px 0 0 25px;
+
+  li {
+    list-style: none;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+  }
+  li > img {
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+    filter: invert(88%) sepia(77%) saturate(7494%) hue-rotate(329deg) brightness(107%)
+      contrast(84%);
+  }
+  @media (max-width: 900px) {
+    & {
+      border: $border;
+      border-radius: 25px;
+      inset: 0;
+      position: absolute;
+      z-index: 3;
+      width: 80%;
+      margin: 5rem auto;
+      align-items: center;
+      & > div {
+        width: 100%;
+      }
+      & > div > input {
+        width: 80%;
+      }
+      & > ul {
+        width: 30%;
+        min-width: max-content;
+      }
+    }
+  }
+
+  &__search-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+    & > mat-icon {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      color: colors.$accent-gold-600;
+    }
+  }
+
+  &__search-input {
+    all: unset;
+    color: colors.$neutral-100;
+    width: 70%;
+    flex-grow: 1;
+    background-color: colors.$primary-900;
+    border: 2px solid colors.$primary-500;
+    border-radius: 10px;
+    padding: 0.2rem 1rem 0.2rem 2rem;
+  }
+}

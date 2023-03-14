@@ -3,10 +3,17 @@
 
 .navbar {
   @extend .bg-gradient-primary-1;
+  --icons-height: 52px;
+  --icon-font-size: 55px;
+  @include breakpoints.media-md {
+    & {
+      --icons-height: 89px;
+      --icon-font-size: 70px;
+    }
+  }
   position: sticky;
   top: 0;
   left: 0;
-  width: 100vw;
   max-width: breakpoints.$max-app-width;
   height: 52px;
   display: flex;
@@ -27,9 +34,7 @@
     margin-right: auto;
   }
   &__logoImg {
-    height: calc(1.2 * 52px);
-  }
-  &__logoImg:hover {
+    height: var(--icons-height);
     cursor: pointer;
   }
   &__menu {
@@ -38,16 +43,47 @@
     justify-content: center;
     align-items: center;
   }
+
+  &__buttons {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0 clamp(1rem, 0.59rem + 1.18vw, 2rem);
+    font-size: 1rem;
+    & > button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__buttons {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0 clamp(1rem, 0.59rem + 1.18vw, 2rem);
+    font-size: 1rem;
+    & > button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+  &__menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &__bell {
-    margin-right: 1rem;
-    position: absolute;
-    right: 40px;
-    height: 100%;
-    width: 52px;
+    height: var(--icons-height);
+    width: var(--icons-height);
     background-image: url('../../../../assets/navbar-icons/bellAfterConv.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    cursor: pointer;
+
     &__notification {
       display: block;
       position: absolute;
@@ -57,16 +93,26 @@
       height: min-content;
     }
   }
+  &__members-icon {
+    background: linear-gradient(colors.$bg-gradient-gold-2);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: var(--icon-font-size);
+    text-align: center;
+    line-height: var(--icons-height);
+    width: max-content;
+    height: var(--icons-height);
+    cursor: pointer;
+  }
   &__hamburger {
     display: inline-block;
     cursor: pointer;
-    margin-right: 15px;
     &__bar1,
     &__bar2,
     &__bar3 {
       width: 32px;
       height: 5px;
-      background: linear-gradient(90deg, #dfce98 20.82%, #99783f 78.72%);
+      background: linear-gradient(colors.$bg-gradient-gold-2);
       margin: 6px 0;
       transition: 0.4s;
     }

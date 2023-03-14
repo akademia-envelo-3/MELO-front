@@ -1,0 +1,204 @@
+@use '/src/styles/colors' as colors;
+
+$border: 2px solid colors.$neutral-100;
+$left-side-width: 50%;
+$middle-side-width: 50%;
+$memebers-section-width: 500px;
+
+@mixin border--big {
+  border: 2px solid colors.$neutral-100;
+  border-radius: 25px;
+}
+
+@mixin border {
+  border: 1px solid colors.$neutral-100;
+  border-radius: 10px;
+}
+
+.event-details {
+  margin: 1rem 0 1rem 1rem;
+  color: colors.$neutral-100;
+  position: relative;
+
+  & > h1 {
+    line-height: 1;
+    margin-top: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80vw;
+  }
+  &__navigation {
+    width: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid colors.$neutral-100;
+    padding-bottom: 0.5rem;
+  }
+
+  &__labels {
+    display: flex;
+    max-width: 80%;
+    flex-wrap: wrap;
+    margin: 0.8rem 0 1.5rem 0;
+
+    & > div {
+      border: 1px solid colors.$neutral-100;
+      margin: 0 2px;
+      padding: 0.2rem 0.6rem;
+    }
+    & > div:first-child {
+      border-radius: 25px 0 0 25px;
+    }
+    & > div:last-child {
+      border-radius: 0 25px 25px 0;
+    }
+  }
+
+  &__main-section {
+    display: flex;
+    column-gap: 0.5rem;
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+      row-gap: 0.8rem;
+      flex-direction: column;
+      flex-basis: 100%;
+    }
+  }
+  &__top-section {
+    display: flex;
+    column-gap: 0.5rem;
+    & > img {
+      @include border--big();
+      width: $left-side-width;
+      height: 380px;
+
+      @media screen and (min-width: 1600px) {
+        & {
+          height: 480px;
+        }
+      }
+    }
+  }
+
+  &__date-location {
+    @include border--big();
+    width: $middle-side-width;
+    padding: 3rem 1.5rem 0 1.5rem;
+    height: 380px;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (min-width: 1600px) {
+      & {
+        height: 480px;
+      }
+    }
+  }
+
+  &__date {
+    width: 45%;
+    & > h2 {
+      line-height: 1;
+    }
+    & > p {
+      font-family: 'Eczar', 'sans-serif';
+    }
+    & > p:first-of-type {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+    }
+    & > p:nth-of-type(2) {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+    .hour {
+      background-color: colors.$neutral-100;
+      border-radius: 25px;
+      color: colors.$primary-800;
+      text-align: center;
+    }
+  }
+
+  &__location {
+    width: 50%;
+  }
+
+  &__map {
+    margin: 1rem 0;
+    height: 70%;
+    width: 100%;
+
+    position: relative;
+    @media (max-width: 900px) {
+      & {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__middle-section {
+    display: flex;
+    column-gap: 0.5rem;
+
+    & > article {
+      min-height: 190px;
+      width: $left-side-width;
+      padding: 2rem 1rem;
+      @include border--big();
+    }
+  }
+
+  &__add-comment {
+    @include border--big();
+    width: $middle-side-width;
+  }
+
+  &__bottom-section {
+    display: flex;
+    column-gap: 0.5rem;
+
+    & > div:first-child {
+      width: $left-side-width;
+    }
+  }
+
+  &__poll {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    & > div {
+      text-align: center;
+      @include border();
+      flex-basis: 80%;
+      padding: 0.4rem;
+    }
+
+    & > button {
+      @include border();
+      flex-basis: 15%;
+
+      & > mat-icon {
+        color: colors.$neutral-100;
+        cursor: pointer;
+      }
+    }
+  }
+  &__comments {
+    @include border--big();
+    width: $middle-side-width;
+  }
+
+  &__backdrop {
+    position: absolute;
+    background-color: colors.$neutral-900;
+    inset: -1rem;
+    height: 100%;
+    opacity: 0.4;
+    z-index: 2;
+    align-items: center;
+  }
+}

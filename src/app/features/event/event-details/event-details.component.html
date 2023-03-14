@@ -1,0 +1,128 @@
+<div class="event-details">
+    <nav class="event-details__navigation">
+        <app-circular-button
+            (clickButton)="redirectToPrevPage()"
+            [size]="'sm'"
+            [icon]="'arrow_back'">
+        </app-circular-button>
+
+        <h2 class="text-h3">Szczegóły wydarzenia</h2>
+    </nav>
+    <ng-container *ngIf="vm$ | async as event; else spinner">
+        <h1 class="text-h2">{{ event.name }}</h1>
+        <p class="text-body-big">
+            Organizator: {{ event.organizer.firstName }}
+            {{ event.organizer.lastName }}
+        </p>
+        <div class="event-details__labels">
+            <div class="bg-gradient-primary-1">
+                {{ event.category }}
+            </div>
+            <div
+                class="bg-gradient-primary-1"
+                *ngFor="let hashtag of event.hashtags">
+                #{{ hashtag }}
+            </div>
+        </div>
+
+        <main class="event-details__main-section">
+            <div>
+                <section class="event-details__top-section">
+                    <img class="image-layout--center" [src]="event.mainPhoto" />
+                    <div
+                        class="event-details__date-location bg-gradient-primary-1--inverted">
+                        <div class="event-details__date">
+                            <h2 class="text-h2">
+                                {{ event.startTime | date : 'dd' }}
+                            </h2>
+                            <p>
+                                {{
+                                    event.startTime
+                                        | date : 'MMMM yyyy'
+                                        | titlecase
+                                }}
+                            </p>
+                            <p>
+                                {{
+                                    event.startTime | date : 'EEEE' | titlecase
+                                }}
+                            </p>
+                            <div class="hour">
+                                <span>{{
+                                    event.startTime | date : 'hh:mm'
+                                }}</span>
+                                -
+                                <span>
+                                    {{ event.endTime | date : 'hh:mm' }}</span
+                                >
+                            </div>
+                        </div>
+                        <div class="event-details__location">
+                            <p>
+                                ul.{{ event.location.streetName }}
+                                {{ event.location.streetNumber }}
+                            </p>
+                            <p>
+                                {{ event.location.postalCode }}
+                                {{ event.location.city }}
+                            </p>
+
+                            <div class="event-details__map">
+                                <app-map
+                                    [locationCordinates]="{
+                                        lat: event.location.lat,
+                                        long: event.location.long
+                                    }">
+                                </app-map>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="event-details__middle-section">
+                    <article class="bg-gradient-primary-1--inverted">
+                        {{ event.description }}
+                    </article>
+                    <!-- add comment -->
+                    <div
+                        class="event-details__add-comment bg-gradient-primary-1--inverted"></div>
+                </section>
+
+                <section class="event-details__bottom-section">
+                    <!-- comments -->
+                    <div *ngIf="event.pollQuestions">
+                        <div
+                            class="event-details__poll"
+                            *ngFor="let poll of event.pollQuestions">
+                            <div class="bg-gradient-primary-1">
+                                {{ poll.question }}
+                            </div>
+                            <button class="bg-gradient-primary-1">
+                                <mat-icon>leaderboard</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="event-details__comments bg-gradient-primary-1--inverted"></div>
+                </section>
+            </div>
+
+            <ng-container
+                *ngIf="eventDetailsState$ | async as showMembersState">
+                <ng-container *ngIf="showMembersState.showMembers">
+                    <app-event-members
+                        [members]="event.invitedMembers || []"
+                        [organizerId]="event.organizer.id">
+                    </app-event-members>
+                </ng-container>
+                <div
+                    *ngIf="
+                        showMembersState.showEventMembersIcon &&
+                        showMembersState.showMembers
+                    "
+                    class="event-details__backdrop"></div>
+            </ng-container>
+        </main>
+    </ng-container>
+    <ng-template #spinner>...Loading</ng-template>
+</div>
