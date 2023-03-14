@@ -32,11 +32,8 @@ export type AppState = {
       {
         path: '',
         children: [
-          { path: '', redirectTo: 'events', pathMatch: 'full' },
-          {
-            path: '',
-            loadChildren: () => import('./features/home/home.module'),
-          },
+          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
+
           {
             path: 'theme',
             canMatch: [noProductionGuard],
@@ -46,6 +43,11 @@ export type AppState = {
             path: 'admin',
             loadChildren: () => import('./core/user/admin/admin.module'),
           },
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
+          {
+            path: '',
+            loadChildren: () => import('./features/home/home.module'),
+          },
           {
             path: '**',
             loadComponent: () =>
@@ -53,7 +55,6 @@ export type AppState = {
           },
         ],
       },
-      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [
