@@ -14,12 +14,12 @@ import {
   EventApiService,
   EventDetailsComponent,
   EventDetailsStateService,
-  EventMemberList,
+  EventMemberListComponent,
   MapComponent,
 } from '..';
 
 @NgModule({
-  declarations: [EventDetailsComponent, MapComponent, EventMemberList],
+  declarations: [EventDetailsComponent, MapComponent, EventMemberListComponent],
   imports: [
     ReactiveFormsModule,
     MatInputModule,
