@@ -1,15 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, NgFor, NgIf, NgClass } from '@angular/common';
-import { HashtagApiService } from './hashtag-api.service';
-import { SpinnerDotsComponent } from '@shared/ui';
-import { MatTableModule } from '@angular/material/table';
+import { HashtagApiService } from '.';
 
 @Component({
   selector: 'app-statistics',
-  standalone: true,
-  imports: [NgFor, NgIf, NgClass, AsyncPipe, SpinnerDotsComponent, MatTableModule],
   template: `
-    <h1 class="text-h1">Statystyki</h1>
+    <h1 class="text-h1 header-with-underline">Statystyki</h1>
     <div class="statistics-container">
       <ng-container *ngIf="statistics$ | async as element; else loading">
         <div class="table">

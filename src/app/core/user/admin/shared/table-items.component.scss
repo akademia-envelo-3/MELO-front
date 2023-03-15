@@ -1,0 +1,15 @@
+@use './src/styles/colors' as colors;
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+tr:nth-of-type(odd):not(.mat-mdc-header-row) {
+  background: colors.$neutral-300;
+}
+.mat-mdc-cell.mdc-data-table__cell {
+  word-break: break-all;
+}

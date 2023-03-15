@@ -4,6 +4,7 @@ export const ENDPOINTS = {
   CURRENT_USER: '/currentUser',
   HASHTAGS: '/hashtags',
   UNITS: '/units',
+  CATEGORIES: '/categories',
 };
 
 export const MESSAGES = {
