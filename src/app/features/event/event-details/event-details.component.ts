@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventApiService, EventDetailsStateService } from '..';
 
@@ -14,10 +14,19 @@ export class EventDetailsComponent {
   private eventDetailsService = inject(EventDetailsStateService);
   private route = inject(ActivatedRoute);
   private location = inject(Location);
+  constructor() {
+    this.eventDetailsState$.subscribe(state => console.log('in component', state));
+  }
 
   vm$ = this.eventApiService.fetchEventDetails(this.route.snapshot.params['id']);
 
   eventDetailsState$ = this.eventDetailsService.eventDetailsState$;
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    if (window.innerWidth > 900) return this.eventDetailsService.showMembersView();
+    this.eventDetailsService.hideMembersView();
+  }
 
   redirectToPrevPage() {
     this.location.back();

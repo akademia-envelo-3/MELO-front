@@ -109,12 +109,12 @@
 
             <ng-container
                 *ngIf="eventDetailsState$ | async as showMembersState">
-                <ng-container *ngIf="showMembersState.showMembers">
-                    <app-event-members
-                        [members]="event.invitedMembers || []"
-                        [organizerId]="event.organizer.id">
-                    </app-event-members>
-                </ng-container>
+                <app-event-members
+                    *ngIf="showMembersState.showMembers"
+                    [members]="event.invitedMembers || []"
+                    [organizerId]="event.organizer.id">
+                </app-event-members>
+
                 <div
                     *ngIf="
                         showMembersState.showEventMembersIcon &&

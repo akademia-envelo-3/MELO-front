@@ -16,6 +16,7 @@ export class EventDetailsStateService {
   });
 
   constructor() {
+    this.eventDetailsState$$.subscribe(console.log);
     if (window.innerWidth < 900) return;
     this.patchState({ showMembers: true });
   }
@@ -41,8 +42,17 @@ export class EventDetailsStateService {
     }
   }
 
-  toggleMembers() {
+  toggleMembersView() {
+    console.log('toggle');
     this.patchState({ showMembers: !this.eventDetailsState$$.value.showMembers });
+  }
+
+  showMembersView() {
+    this.patchState({ showMembers: true });
+  }
+
+  hideMembersView() {
+    this.patchState({ showMembers: false });
   }
 
   private patchState(slice: Partial<EventDetailsState>) {
