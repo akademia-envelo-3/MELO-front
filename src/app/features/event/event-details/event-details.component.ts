@@ -14,9 +14,6 @@ export class EventDetailsComponent {
   private eventDetailsService = inject(EventDetailsStateService);
   private route = inject(ActivatedRoute);
   private location = inject(Location);
-  constructor() {
-    this.eventDetailsState$.subscribe(state => console.log('in component', state));
-  }
 
   vm$ = this.eventApiService.fetchEventDetails(this.route.snapshot.params['id']);
 

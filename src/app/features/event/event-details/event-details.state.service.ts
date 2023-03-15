@@ -16,7 +16,6 @@ export class EventDetailsStateService {
   });
 
   constructor() {
-    this.eventDetailsState$$.subscribe(console.log);
     if (window.innerWidth < 900) return;
     this.patchState({ showMembers: true });
   }
@@ -43,7 +42,6 @@ export class EventDetailsStateService {
   }
 
   toggleMembersView() {
-    console.log('toggle');
     this.patchState({ showMembers: !this.eventDetailsState$$.value.showMembers });
   }
 

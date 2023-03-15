@@ -1,6 +1,7 @@
 import { SideMenuStateService } from './../side-menu/side-menu.state.service';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostListener,
   inject,
@@ -56,6 +57,7 @@ export class NavbarComponent implements OnInit {
   private router = inject(Router);
   private sideMenuStateService = inject(SideMenuStateService);
   private eventDetailsService = inject(EventDetailsStateService);
+  private changeDetector = inject(ChangeDetectorRef);
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
