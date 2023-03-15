@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { ENDPOINTS } from '@shared/constants';
-import { Category } from '.';
+import { Hashtag } from '.';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriesApiService {
+export class HashtagApiService {
   private http = inject(HttpClient);
 
-  getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(ENDPOINTS.categories);
+  getHashtags(): Observable<Hashtag[]> {
+    return this.http.get<Hashtag[]>(ENDPOINTS.HASHTAGS);
   }
 }

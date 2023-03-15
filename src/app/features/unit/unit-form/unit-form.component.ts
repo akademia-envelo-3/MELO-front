@@ -10,11 +10,13 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 import { MatFormField } from '@angular/material/form-field';
 import { StorageService } from '@shared/services/';
 import { Subscription } from 'rxjs';
+import { UnitFormService } from './unit-form.service';
+import { unitNameTakenValidator } from './unit-name-taken.validator';
 
 @Component({
   selector: 'app-unit-form',
-  templateUrl: 'unit-form.html',
-  styleUrls: ['unit-form.scss'],
+  templateUrl: 'unit-form.component.html',
+  styleUrls: ['unit-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnitFormComponent implements OnInit, OnDestroy {
@@ -24,6 +26,7 @@ export class UnitFormComponent implements OnInit, OnDestroy {
 
   private builder = inject(NonNullableFormBuilder);
   private storageService = inject(StorageService);
+  private unitFormService = inject(UnitFormService);
   private subscriptions = new Subscription();
   unitForm = this.createUnitForm();
 
@@ -32,11 +35,11 @@ export class UnitFormComponent implements OnInit, OnDestroy {
     this.setFormValuesFromStorage();
   }
 
-  get unitNameCtrl() {
-    return this.unitForm.controls.unitName;
+  get nameCtrl() {
+    return this.unitForm.controls.name;
   }
-  get unitDescriptionCtrl() {
-    return this.unitForm.controls.unitDescription;
+  get descriptionCtrl() {
+    return this.unitForm.controls.description;
   }
 
   onSetToStorage(itemKey: string, itemValue: string) {
@@ -45,17 +48,22 @@ export class UnitFormComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.unitForm.markAllAsTouched();
-    ///todo in next task: validate if unitName exist, send form and userId to backend, navigate to confirmation page
-    /// link to next task https://github.com/akademia-envelo-3/MELO-front/issues/51
-    sessionStorage.clear();
+    if (this.unitForm.valid) {
+      sessionStorage.clear();
+      this.unitFormService.createUnit(this.unitForm.getRawValue());
+    } else {
+      this.unitFormService.showErrorSnackBar('Nieprawidłowo wypełniony formualarz');
+    }
   }
 
   private createUnitForm() {
     return this.builder.group({
-      unitName: this.builder.control('', {
+      name: this.builder.control('', {
         validators: [Validators.required, Validators.maxLength(255)],
+        asyncValidators: [unitNameTakenValidator(this.unitFormService)],
+        updateOn: 'blur',
       }),
-      unitDescription: this.builder.control('', {
+      description: this.builder.control('', {
         validators: [Validators.required, Validators.maxLength(4000)],
       }),
     });
@@ -67,23 +75,23 @@ export class UnitFormComponent implements OnInit, OnDestroy {
       this.storageService.getValueFromStorage('unitDescription');
 
     if (unitNameValue) {
-      this.unitNameCtrl.setValue(unitNameValue);
+      this.nameCtrl.setValue(unitNameValue);
     }
     if (unitDescriptionValue) {
-      this.unitDescriptionCtrl.setValue(unitDescriptionValue);
+      this.descriptionCtrl.setValue(unitDescriptionValue);
     }
   }
 
   private applyAccentColorOnValid() {
-    this.unitNameCtrl.valid ? (this.inputMatFormField.color = 'accent') : 'primary';
-    this.unitDescriptionCtrl.valid ? (this.textMatFormField.color = 'accent') : 'primary';
+    this.nameCtrl.valid ? (this.inputMatFormField.color = 'accent') : 'primary';
+    this.descriptionCtrl.valid ? (this.textMatFormField.color = 'accent') : 'primary';
 
     const inputSub = this.changeColorOnStatusChange(
-      this.unitNameCtrl,
+      this.nameCtrl,
       this.inputMatFormField
     );
     const textareaSub = this.changeColorOnStatusChange(
-      this.unitDescriptionCtrl,
+      this.descriptionCtrl,
       this.textMatFormField
     );
 

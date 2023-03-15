@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,13 +9,22 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { noProductionGuard } from '@shared/no-production.guard';
-import { CustomHttpInterceptor } from './core';
+import { CustomHttpInterceptor, initFactory } from './core';
+import { UserState } from '@core/user/store/user';
+import { AuthService } from '@features/auth';
+import '@angular/common/locales/global/pl';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+export type AppState = {
+  user: UserState;
+};
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatDialogModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
@@ -23,11 +32,8 @@ import { CustomHttpInterceptor } from './core';
       {
         path: '',
         children: [
-          { path: '', redirectTo: 'events', pathMatch: 'full' },
-          {
-            path: '',
-            loadChildren: () => import('./features/home/home.module'),
-          },
+          { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
+
           {
             path: 'theme',
             canMatch: [noProductionGuard],
@@ -35,7 +41,12 @@ import { CustomHttpInterceptor } from './core';
           },
           {
             path: 'admin',
-            loadChildren: () => import('./core/admin/admin.module'),
+            loadChildren: () => import('./core/user/admin/admin.module'),
+          },
+          { path: '', redirectTo: 'events', pathMatch: 'full' },
+          {
+            path: '',
+            loadChildren: () => import('./features/home/home.module'),
           },
           {
             path: '**',
@@ -44,7 +55,6 @@ import { CustomHttpInterceptor } from './core';
           },
         ],
       },
-      { path: 'login', loadChildren: () => import('./features/auth/auth.module') },
     ]),
   ],
   providers: [
@@ -61,6 +71,17 @@ import { CustomHttpInterceptor } from './core';
       useClass: CustomHttpInterceptor,
       multi: true,
     },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pl-PL',
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initFactory,
+      deps: [AuthService],
+      multi: true,
+    },
+    MatSnackBar,
   ],
   bootstrap: [AppComponent],
 })
